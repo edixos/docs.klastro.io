@@ -1,0 +1,159 @@
+---
+title: Create an account and sign in
+description: Registration, sign-in, account recovery, accepting the terms, creating or choosing an organization.
+sidebar:
+  order: 2
+---
+
+import { Steps, Tabs, TabItem } from '@astrojs/starlight/components';
+
+This guide covers everything between landing on [app.klastro.io](https://app.klastro.io) and reaching your first dashboard.
+
+:::note[Private preview]
+Klastro is currently in private preview: **registration is by invitation**. Without a valid invitation, the registration page shows **Registration is by invitation** instead of the form. You can create your account from the link in your invitation email.
+:::
+
+## Create your account
+
+How you create your account depends on the invitation you received.
+
+<Tabs>
+<TabItem label="Invitation to Klastro">
+
+You received a personal invitation to join the platform.
+
+<Steps>
+
+1. Open the link in your invitation email. The **Your invitation to Klastro** page shows the invited address.
+
+2. Click **Continue to registration**.
+
+3. On the **Create your account** page, enter your **Full name** and a **Password** of at least 8 characters. Register with the email address the invitation was sent to.
+
+4. Wait while **Running a quick security check…** completes, then click **Create account**.
+
+</Steps>
+
+You then move on to [creating your organization](#create-or-choose-an-organization).
+
+</TabItem>
+<TabItem label="Invitation from an organization">
+
+Your organization created an account for you and invited you to join.
+
+<Steps>
+
+1. Open the link in the email. The **Join … on Klastro** page shows the organization’s name.
+
+2. Click **Set up my account**.
+
+3. On the **Welcome to the platform 🎉** screen, check your details under **Your information**, then choose a strong password under **Secure your account**.
+
+4. Click **Activate account**.
+
+</Steps>
+
+You land straight in the organization that invited you.
+
+</TabItem>
+<TabItem label="Invitation to an assessment">
+
+A recruiter invited you to a technical assessment. Follow the dedicated guide: [Accept an assessment invitation](/en/learners/accept-invitation/).
+
+</TabItem>
+</Tabs>
+
+:::caution[An invitation link that no longer works]
+Invitation links stop working after a few days, and each link works once. If the page shows **This invitation has expired**, **This invitation was already used**, **This invitation was withdrawn** or **A newer invitation was sent**, use the link in your most recent email or ask for a new invitation. See [Invitation problems](/en/troubleshooting/invitations/).
+:::
+
+## Accept the terms of use
+
+The first time you sign in, Klastro shows the **Terms of Use and Privacy Policy** screen. It sums up in four points what you are agreeing to — credit usage, ownership of your content, hosting in France, GDPR rights — and links to the full documents, which are what govern.
+
+<Steps>
+
+1. Read the summary and, if you wish, open the full documents (they open in a new tab).
+
+2. Click **Accept and continue**. You are taken back to where you were going.
+
+</Steps>
+
+If you would rather not accept, click **Log out**: the app cannot be used until you accept.
+
+:::note
+This screen comes back whenever a new version of the terms or the privacy policy is published, even in the middle of your work. Your acceptance is recorded once per version.
+:::
+
+## Create or choose an organization
+
+Everything in Klastro happens inside an organization. After registering:
+
+- if you belong to **no** organization, you land on **Create your Organization**;
+- if you belong to **several** organizations, you land on **Select Organization**;
+- if you belong to exactly one, you go straight to your dashboard.
+
+### Create your organization
+
+<Steps>
+
+1. Enter the **Organization name**. The **Workspace URL** fills itself in; change it if you like.
+
+2. Optionally choose your **Country**.
+
+3. If this is a company, tick **This organization is a company** and fill in, if you have them, the **SIRET**, **Billing address** and **VAT number**. Leave the box unticked for a school, a community or a personal workspace.
+
+4. Click **Create organisation**.
+
+</Steps>
+
+If an organization with the same name already exists, Klastro shows **… is already on Klastro**. Click **Notify my admin** to ask them for an invitation, or **Create a new organisation instead**.
+
+:::tip
+Looking to join your team rather than create an organization? Ask your administrator to invite you: you will be added automatically.
+:::
+
+### Choose an organization
+
+On **Select Organization**, click the organization you want to open. Use **Search organizations...** when the list is long, or **New Organization** to create another one.
+
+Once inside the app, click the current organization’s name in the sidebar: the **Switch Organization** menu lists the other organizations you belong to.
+
+## Sign in
+
+<Steps>
+
+1. Open [app.klastro.io](https://app.klastro.io) and click **Sign In**.
+
+2. On **Welcome back**, enter your email address and password, or use one of the **Continue with …** buttons if they are offered.
+
+3. Click **Sign In**.
+
+</Steps>
+
+## Recover access to your account
+
+If you forgot your password, Klastro emails you a one-time access code.
+
+<Steps>
+
+1. Open [app.klastro.io/auth/recovery](https://app.klastro.io/auth/recovery). The **Access your account** page appears.
+
+2. Enter your **Email address** and click **Send code**.
+
+3. On **Check your email**, enter the **Verification code** from the email, then click **Verify & continue**.
+
+4. Choose a new password under **Secure your account**, then click **Activate account**.
+
+</Steps>
+
+:::tip
+To change your password while signed in, use the same procedure: the **Profile** page only edits your name, email and photo.
+:::
+
+Seeing another error while signing in (**Session expired**, **Security check failed**, **Flow expired**)? See [Sign-in problems](/en/troubleshooting/sign-in/).
+
+## Next steps
+
+- [Choose your path](/en/getting-started/choose-your-path/) for your profile.
+- [Run your first lab](/en/learners/first-lab/).

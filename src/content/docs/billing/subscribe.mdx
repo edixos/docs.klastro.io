@@ -1,0 +1,152 @@
+---
+title: S’abonner à un forfait
+description: Choisir un forfait payant, payer via le paiement sécurisé, puis ajouter des licences, changer de forfait ou résilier.
+sidebar:
+  order: 2
+---
+
+import { Steps } from '@astrojs/starlight/components';
+
+Cette page explique comment faire passer votre organisation du forfait gratuit
+Community à Pro ou Instructor, puis comment gérer l’abonnement. Pour le contenu
+de chaque forfait, voir [Forfaits et crédits](/billing/plans-and-credits/).
+
+## Avant de commencer
+
+- Il vous faut le rôle **Administrateur** ou **Responsable facturation**. Les
+  autres membres ne voient que les onglets **Vue d’ensemble** et
+  **Consommation** de la page **Facturation**.
+- Votre organisation doit être en abonnement libre-service. Une organisation sous
+  contrat Enterprise n’achète pas de forfait en ligne.
+
+## S’abonner
+
+<Steps>
+
+1. Dans la barre latérale, ouvrez **Facturation**, puis l’onglet **Forfait**.
+
+2. Choisissez votre rythme de facturation avec le sélecteur **Mensuel** /
+   **Annuel**. En **Annuel**, chaque carte payante affiche barré le coût de douze
+   mensualités, et le nombre de mois offerts.
+
+3. Comparez les listes **Inclus** et **Limites** de chaque carte, puis cliquez
+   sur **Passer à Pro** ou **Passer à Instructor** sur le forfait voulu.
+
+4. Vérifiez la fenêtre **S’abonner à … ?**. Elle indique le **Prix**, le nombre
+   de **Licences** (**1 pour commencer**) et les **Crédits inclus dans la
+   licence**. Cliquez sur **Continuer vers le paiement**.
+
+   Rien n’est débité tant que le paiement n’est pas finalisé, et vous pourrez
+   ajouter ou retirer des licences ensuite.
+
+5. Payez sur la page de paiement sécurisée Stripe.
+
+6. Vous revenez sur la page **Facturation** avec le bandeau **Paiement reçu**.
+   Votre abonnement est en cours d’activation : votre forfait et vos crédits
+   apparaissent dans un instant.
+
+</Steps>
+
+Votre abonnement démarre avec une licence. Pour l’attribuer à quelqu’un, ou en
+acheter d’autres, voir [Gérer les licences](/billing/seats/).
+
+:::note
+Si vous quittez la page de paiement sans payer, vous revenez avec le bandeau
+**Paiement abandonné**. Rien n’a été débité, et vous pourrez choisir un forfait
+quand vous le souhaiterez.
+:::
+
+## Ajouter des licences d’un autre niveau
+
+Une organisation peut détenir des licences Pro et des licences Instructor en même
+temps ; chaque niveau est une ligne distincte du même abonnement. Une fois
+l’abonnement actif, les cartes payantes de l’onglet **Forfait** indiquent ce que
+vous détenez déjà (**achetées**, **attribuées**, et combien sont **libres**) et
+proposent **Ajouter une licence Pro** ou **Ajouter une licence Instructor** à la
+place du bouton de passage.
+
+<Steps>
+
+1. Dans l’onglet **Forfait**, cliquez sur **Ajouter une licence Pro** ou
+   **Ajouter une licence Instructor**.
+
+2. Vérifiez la fenêtre. Rien n’est débité aujourd’hui : le reste de la période
+   est calculé au prorata sur votre prochaine facture, puis la licence se
+   renouvelle au montant indiqué.
+
+3. Cliquez sur **Confirmer l’achat**.
+
+</Steps>
+
+Pour acheter plusieurs licences à la fois, utilisez l’onglet **Licences**. Voir
+[Gérer les licences](/billing/seats/).
+
+## Changer de forfait ou de moyen de paiement
+
+Les coordonnées de paiement, le changement de forfait et la résiliation se gèrent
+dans le portail de facturation sécurisé.
+
+<Steps>
+
+1. Dans l’onglet **Forfait**, cliquez sur **Gérer l’abonnement**.
+
+2. Dans le portail de facturation, changez de forfait, mettez à jour votre moyen
+   de paiement ou résiliez.
+
+</Steps>
+
+:::tip[Faire passer des membres de Pro à Instructor]
+Comme les deux niveaux sont des réserves distinctes, vous pouvez aussi basculer
+les personnes une par une : achetez des licences Instructor, attribuez à chaque
+membre une licence **Formateur**, puis retirez dans l’onglet **Licences** les
+licences Pro devenues inutiles.
+:::
+
+## Résilier votre abonnement
+
+Vous pouvez résilier de deux façons :
+
+- cliquez sur **Gérer l’abonnement** dans l’onglet **Forfait** et résiliez dans
+  le portail de facturation ;
+- retirez vos dernières licences payantes dans l’onglet **Licences**. Cela
+  résilie l’abonnement à la fin de la période.
+
+La résiliation prend effet à la fin de la période en cours. D’ici là, l’onglet
+**Vue d’ensemble** indique **Résilié. Vous conservez Pro et vos crédits
+jusqu’au** suivi de la date de fin, et tout continue de fonctionner. Vous pouvez
+reprendre l’abonnement à tout moment avant cette date depuis **Gérer
+l’abonnement**.
+
+Une fois la période terminée, l’onglet **Vue d’ensemble** indique que votre
+abonnement a pris fin, et vous pouvez vous réabonner à tout moment depuis
+l’onglet **Forfait**.
+
+## Statut de l’abonnement
+
+Le résumé du forfait, dans l’onglet **Vue d’ensemble**, affiche le statut de
+votre abonnement :
+
+| Statut | Signification |
+|---|---|
+| **Actif** | L’abonnement fonctionne normalement. |
+| **En attente** | L’abonnement est en cours de mise en place. |
+| **Impayé** | Un paiement a échoué. Votre forfait continue de fonctionner pour l’instant ; mettez à jour votre moyen de paiement depuis **Gérer l’abonnement**. |
+| **Résilié** | L’abonnement a pris fin. |
+
+## Demander un contrat Enterprise
+
+Pour des assessments de recrutement surveillés, une capacité de labs simultanés
+garantie ou une facturation sur contrat, utilisez la carte **Enterprise** en bas
+de l’onglet **Forfait**.
+
+<Steps>
+
+1. Cliquez sur **Contacter l’équipe commerciale**.
+
+2. Si vous le souhaitez, indiquez ce que l’équipe doit savoir (taille de
+   l’équipe, calendrier, besoins).
+
+3. Cliquez sur **Envoyer la demande**. La carte confirme la date de votre demande
+   et l’adresse à laquelle l’équipe vous répondra.
+
+</Steps>

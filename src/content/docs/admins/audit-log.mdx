@@ -1,0 +1,144 @@
+---
+title: Journal d’audit
+description: Référence du journal d’audit de l’organisation, des événements qu’il enregistre et de leur filtrage.
+sidebar:
+  order: 3
+---
+
+Le **Journal d’audit** est le relevé chronologique des actions sensibles pour la
+sécurité de votre organisation, de la plus récente à la plus ancienne.
+
+## Accès
+
+Seuls les membres ayant le rôle **Administrateur** peuvent consulter le journal
+d’audit. Ouvrez **Journal d’audit** dans la barre latérale.
+
+## Colonnes
+
+| Colonne | Contenu |
+|---|---|
+| **Date** | Date et heure de l’événement. |
+| **Événement** | Ce qui s’est passé, par exemple **Membre ajouté**. |
+| **Auteur** | L’e-mail de la personne à l’origine de l’action. **Système** désigne une action automatique de Klastro, comme la mise en pause d’un lab à court de crédits. **Klastro** désigne une action de l’équipe Klastro. |
+| **Cible** | L’objet de l’événement (**Membre**, **Session**, **Bon de crédit**…), avec un nom ou un e-mail quand il est connu. |
+| **Adresse IP** | La provenance de la requête. Affichée sur les écrans larges. |
+
+Cliquez sur la flèche en fin de ligne (**Afficher les détails**) pour voir le
+détail complet de l’événement, puis de nouveau (**Masquer les détails**) pour le
+replier.
+
+Le journal affiche 50 événements par page.
+
+## Filtrer les événements
+
+| Filtre | Utilisation |
+|---|---|
+| **Catégorie** | Ne garder qu’un groupe d’événements (voir ci-dessous). **Toutes les catégories** affiche tout. |
+| **Auteur** | Ne garder que les événements d’une personne. Saisissez son **e-mail exact**. |
+| **Du** / **Au** | Ne garder que les événements d’une période. **Du** doit précéder **Au**. |
+
+Cliquez sur **Filtrer** pour appliquer, et sur **Effacer** pour retirer tous les
+filtres. Si rien ne correspond, la page affiche **Aucun événement ne
+correspond**.
+
+## Événements par catégorie
+
+### Membres
+
+| Événement | Enregistré quand |
+|---|---|
+| **Membre ajouté** | Un administrateur ajoute quelqu’un à l’organisation. |
+| **Rôle du membre mis à jour** | Le rôle d’un membre change. |
+| **Membre retiré** | Un membre est retiré. |
+| **Invitation de membre envoyée** | Un e-mail d’invitation part vers un nouveau membre. |
+| **Invitation de membre renvoyée** | Un administrateur la renvoie. |
+| **Invitation de membre révoquée** | Une invitation cesse de fonctionner, par exemple parce que le membre a été retiré. |
+| **Invitation de membre utilisée** / **Invitation de membre acceptée** | Le nouveau membre utilise son invitation. |
+
+### Organisation
+
+**Organisation créée**, **Paramètres de l’organisation mis à jour** et
+**Organisation supprimée** n’ont pas de catégorie propre : ils apparaissent sous
+**Toutes les catégories**.
+
+### Candidats
+
+**Invitation de candidat envoyée**, **Invitation de candidat renvoyée**,
+**Invitation de candidat révoquée**, **Invitation de candidat acceptée**. Voir
+[Envoyer des invitations aux candidats](/recruiters/send-invitations/).
+
+### Facturation
+
+| Événement | Enregistré quand |
+|---|---|
+| **Abonnement activé** | Un abonnement payant démarre. |
+| **Abonnement mis à jour** | L’abonnement change. |
+| **Abonnement résilié** | L’abonnement est résilié. |
+| **Facture payée** | Une facture est réglée. |
+| **Échec du paiement** | Un paiement échoue. |
+| **Licences achetées** / **Licences retirées** | Des licences payantes sont ajoutées à l’abonnement ou en sont retirées. |
+| **Licence attribuée** / **Licence libérée** | Une licence payante est attribuée à un membre ou reprise. |
+| **Crédits transférés** | Un membre donne des crédits à un autre. |
+| **Réservation de licence demandée** | Quelqu’un demande l’activation de la réservation de licences à l’usage. |
+| **Achat automatique configuré**, **Quota mis à jour** | Des réglages de facturation de l’organisation changent. |
+
+### Bons de crédit
+
+**Bon de crédit utilisé** : un membre a utilisé un bon de crédit.
+
+### Sessions
+
+| Événement | Enregistré quand |
+|---|---|
+| **Session créée** | Un lab démarre. |
+| **Session mise en pause** / **Session reprise** | Un lab est mis en pause ou repris. |
+| **Session terminée** | Un lab se termine. |
+| **Session mise en pause automatiquement (crédits épuisés)** | Un lab a été mis en pause parce que son propriétaire n’avait plus de crédits. |
+
+### Assessments
+
+**Assessment créé**, **Assessment mis à jour**, **Assessment supprimé**,
+**Assessment démarré**, **Assessment terminé**, **Durée de l’assessment
+ajustée**.
+
+### Studio
+
+**Brouillon de scénario créé**, **Brouillon de scénario supprimé**, **Scénario
+publié**.
+
+### Parcours
+
+**Parcours créé**, **Parcours mis à jour**, **Parcours archivé**, **Support de
+parcours importé**, **Support de parcours supprimé**.
+
+### Formation
+
+**Formation créée**, **Formation mise à jour**, **Formation lancée**,
+**Formation terminée**, **Formation annulée**, **Apprenants inscrits**,
+**Apprenants invités**, **Apprenant retiré**, **Connexion à la session d’un
+apprenant**, **Environnement de formation recréé**, **Environnement de formation
+arrêté**. Voir [Animer une cohorte](/instructors/cohorts/).
+
+### Plateforme
+
+Les actions de l’équipe Klastro sur votre organisation :
+
+- **Mode commercial modifié par un administrateur de la plateforme**
+- **Limite de sessions modifiée par un administrateur de la plateforme**
+- **Abonnement résilié automatiquement par la plateforme**
+- **Bon de crédit généré par un administrateur de la plateforme**, **Bon de
+  crédit révoqué par un administrateur de la plateforme**, **Bon de crédit envoyé
+  par e-mail par un administrateur de la plateforme**, **Bon de crédit supprimé
+  par un administrateur de la plateforme**
+
+:::note
+Les événements de plateforme apparaissent toujours, pour que vous sachiez quand
+l’équipe Klastro est intervenue sur votre organisation. Leur **Auteur** est
+**Klastro**, et l’identité de l’intervenant, son adresse IP et les détails
+internes ne sont pas affichés.
+:::
+
+## Voir aussi
+
+- [Membres et rôles](/admins/members-roles/)
+- [Consommation et factures](/billing/usage-and-invoices/)

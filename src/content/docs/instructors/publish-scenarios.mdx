@@ -1,0 +1,139 @@
+---
+title: Publier et gérer vos scénarios
+description: Validez un brouillon, choisissez son type de produit, publiez-le au catalogue de votre organisation, puis modifiez et republiez un scénario déjà publié.
+sidebar:
+  order: 4
+---
+
+import { Steps } from '@astrojs/starlight/components';
+
+Un **brouillon** est votre canvas de travail dans le Scenario Studio. **Publier** le compile en
+un scénario que les membres de votre organisation retrouvent dans leur catalogue. Rien n’est
+publié sans votre accord, et le brouillon reste ouvert pour les versions suivantes.
+
+Avant de commencer, il vous faut un accès au Scenario Studio
+(voir [Votre premier scénario](/instructors/studio-first-scenario/)).
+
+## Choisir le type de produit
+
+Le type de produit décide de la façon dont le scénario est présenté et lancé. Vous le choisissez
+à la création du brouillon (**Type de produit**) et vous pouvez le changer ensuite dans
+**Paramètres**.
+
+| Type | Pour quoi faire | Tâches |
+|---|---|---|
+| **Tutorial — guidé, indices gratuits** | Un lab guidé, pas à pas. | Au moins une |
+| **Challenge — noté, les indices coûtent des points** | Une tâche réelle, notée. | Au moins une |
+| **Playground — aucune tâche** | Un environnement ouvert, sans consigne ni notation. | Aucune |
+| **Assessment — support d’examen** | Un support d’examen, passé uniquement dans un Assessment surveillé. | Au moins une |
+
+- Changer de type revérifie ce que votre organisation a le droit de créer.
+- Le type **Assessment** n’est disponible que pour les organisations sous contrat entreprise. Un
+  scénario Assessment ne se lance pas depuis le catalogue : il s’ajoute à un modèle d’Assessment
+  (voir [Modèles d’Assessment](/recruiters/assessment-templates/)).
+- Un scénario qui n’est pas un Playground ne peut être ni testé ni publié sans au moins une tâche :
+  le bandeau **Ajouter une tâche** s’affiche au-dessus du canvas tant qu’il en manque une.
+
+## Régler les paramètres du scénario
+
+Cliquez sur **Paramètres** dans la barre d’outils. Ce panneau regroupe tout ce qui concerne le
+scénario sans être un node du canvas.
+
+| Champ | Rôle |
+|---|---|
+| **Nom affiché** | Le titre du scénario dans le catalogue. |
+| **Description** | Le texte de présentation du scénario. |
+| **Tags** | Les compétences que couvre le scénario. Le catalogue permet de filtrer par tag. |
+| **Type de produit** | Voir ci-dessus. |
+| **Difficulté** | **Débutant**, **Intermédiaire** ou **Avancé**. |
+| **Durée estimée** | Une durée en secondes, par exemple `2700s`. Elle sert aussi au prix d’une place de cohorte. |
+| **Image de la carte** | Facultatif. Vide, elle est déduite du type d’environnement. |
+| **TTL de nettoyage (secondes)** | Combien de temps une session vit avant d’être détruite. |
+| **Score de réussite** | Le score à atteindre pour réussir. |
+
+Le total des points est affiché sous le score de réussite : il est recalculé à partir des
+tâches à chaque publication.
+
+## Valider puis publier
+
+<Steps>
+
+1. Dans la barre d’outils, cliquez sur **Vérifier**. Corrigez chaque erreur signalée : l’onglet
+   **Problèmes** du node concerné dit quoi faire. Les avertissements (une tâche sans points, une
+   tâche reliée à aucune étape…) n’empêchent pas la publication.
+
+2. Testez au moins une fois chaque tâche dans un aperçu
+   (voir [Étapes de setup et vérifications](/instructors/studio-actions-checks/)).
+
+3. Cliquez sur **Publier**.
+
+4. À la première publication, saisissez un **Nom du scénario** : en minuscules, séparé par des
+   tirets, par exemple `scale-a-deployment`.
+
+5. Cliquez sur **Publier**. Le message « Publié sous … » confirme la publication.
+
+</Steps>
+
+:::caution[Le nom est définitif]
+Le **Nom du scénario** est figé après la première publication, pour qu’une faute de frappe ne crée
+pas un second scénario. Pour publier sous un autre nom, créez un nouveau brouillon.
+:::
+
+Le scénario publié apparaît dans le catalogue de votre organisation avec le badge **Studio**. Le
+filtre **Toutes les sources** du catalogue permet de n’afficher que les scénarios de votre
+organisation ou que les scénarios **Officiel** de Klastro. Les scénarios publiés depuis le Studio
+ne sont visibles que dans votre organisation.
+
+## Modifier un scénario publié
+
+Un scénario publié se modifie depuis le brouillon qui l’a publié.
+
+<Steps>
+
+1. Ouvrez **Studio**, puis **Scenario Studio**. La colonne **Publié sous** de la liste
+   **Brouillons** indique quel scénario chaque brouillon a publié.
+
+2. Cliquez sur le nom du brouillon pour rouvrir son canvas.
+
+3. Faites vos modifications, puis testez-les dans un aperçu.
+
+4. Cliquez sur **Publier**. La fenêtre s’intitule **Republier le scénario** et le nom n’est plus
+   modifiable. Cliquez sur **Republier**.
+
+</Steps>
+
+## Partir d’un scénario existant
+
+Vous pouvez partir d’un scénario de votre organisation ou d’un scénario officiel Klastro : il est
+décompilé en un canvas déjà disposé, que vous modifiez librement.
+
+- Depuis le Studio : **Nouveau brouillon**, puis dans **Partir de**, cherchez le scénario. La liste
+  sépare **Studio de votre organisation** et **Klastro officiel**.
+- Depuis le catalogue : sur la page d’un scénario, cliquez sur **Cloner en brouillon**. La fenêtre
+  de création de brouillon s’ouvre, préremplie avec ce scénario.
+
+Le nouveau brouillon n’est lié à aucun scénario publié : à sa première publication, il demande un
+nouveau nom et crée un nouveau scénario. Le scénario d’origine n’est pas modifié.
+
+## Supprimer un brouillon
+
+Dans la liste **Brouillons**, cliquez sur l’icône de corbeille de la ligne. Un aperçu en cours est
+arrêté au passage.
+
+:::danger
+La suppression est immédiate, sans confirmation. Le scénario déjà publié depuis ce brouillon reste
+en ligne, mais vous ne pourrez plus le republier : il faudrait un nouveau brouillon, publié sous
+un autre nom.
+:::
+
+## Travailler à plusieurs sur un brouillon
+
+Le brouillon est enregistré automatiquement. Si quelqu’un d’autre (ou vous, dans un autre onglet)
+le modifie en même temps, le bandeau « Ce brouillon a changé ailleurs — vos modifications ne sont
+plus enregistrées. » s’affiche : cliquez sur **Recharger** pour récupérer la version actuelle avant
+de continuer.
+
+:::tip
+Les brouillons du Studio peuvent aussi être créés, prévisualisés et publiés depuis un assistant IA
+connecté à Klastro. Voir [Intégrations IA (MCP)](/mcp/overview/).
+:::

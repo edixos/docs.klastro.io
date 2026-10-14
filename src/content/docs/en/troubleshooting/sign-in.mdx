@@ -1,0 +1,101 @@
+---
+title: Sign-in, account recovery and organizations
+description: Fix problems signing in, recovering access to your account, accepting the terms and choosing the right organization.
+sidebar:
+  order: 2
+---
+
+Each problem below is laid out as **Symptom**, **Cause** and **Fix**.
+
+## I forgot my password
+
+**Symptom.** You cannot sign in because you no longer know your password, or you never finished choosing one.
+
+**Cause.** Passwords are not stored in a way anyone can read back, so they can only be reset.
+
+**Fix.**
+
+1. Go to [app.klastro.io/auth/recovery](https://app.klastro.io/auth/recovery). The page is titled **Access your account**.
+2. Enter your **Email address** and select **Send code**.
+3. Open the email from Klastro, copy the **Verification code** and select **Verify & continue**.
+4. Follow the prompts to choose a new password.
+
+If no email arrives within a few minutes, check your spam folder and that you typed the address your account uses.
+
+## "Sign in failed"
+
+**Symptom.** The sign-in page shows **Sign in failed** with a message.
+
+**Cause.** Usually a wrong email or password, or an account that was created with a social sign-in rather than a password.
+
+**Fix.** Check the email address and password. If you originally signed in with one of the **Continue with …** buttons shown under **Or continue with**, use the same button again. If you still cannot sign in, reset your password as described above.
+
+## "Session expired" or "Flow expired"
+
+**Symptom.** You see **Session expired** ("Your session has expired. Please sign in again to continue.") or **Flow expired** ("This authentication flow is no longer valid…").
+
+**Cause.** You stayed too long on a sign-in page, used an old link, or your session timed out.
+
+**Fix.** Select **Sign in again** and start over. Do not reuse old sign-in or recovery links from your browser history.
+
+## "Security check failed"
+
+**Symptom.** You see **Security check failed**, or **The security check did not complete. Refresh the page to try again.**
+
+**Cause.** You navigated back with the browser's back button during sign-in, or a content blocker stopped the security check from loading (**The security check could not load. Turn off any content blocker for this page, then refresh.**).
+
+**Fix.** Refresh the page and start again without using the back button. If the check cannot load, allow app.klastro.io in your ad or content blocker, then refresh.
+
+## "Registration requires an invitation"
+
+**Symptom.** You try to create an account and see **Klastro is in private preview. Registration requires an invitation.**
+
+**Cause.** During the private preview, new accounts can only be created from an invitation link.
+
+**Fix.** Use the link in your invitation email. If you were invited to an assessment or by your organization, see [Invitations](/en/troubleshooting/invitations/). Otherwise, ask the person or organization who should invite you.
+
+## "Register with the email address this invitation was sent to"
+
+**Symptom.** Registration is refused with this message.
+
+**Cause.** An invitation is tied to one email address.
+
+**Fix.** Register with the exact address the invitation email was sent to. If you need to use a different address, ask for a new invitation to that address.
+
+## I'm asked to accept the terms
+
+**Symptom.** After signing in, a **Terms of Use and Privacy Policy** screen blocks the app.
+
+**Cause.** You must accept the current Terms of Use and Privacy Policy before using Klastro, the first time and whenever they change.
+
+**Fix.** Read the documents, then select **Accept and continue**. If you see **Your acceptance could not be recorded**, try again: it is safe to repeat.
+
+## I don't see my organization, or I see the wrong one
+
+**Symptom.** After signing in you land on **Select Organization**, or the app shows sessions, invitations or tickets from another organization than the one you expect.
+
+**Cause.** Everything in Klastro (labs, credits, assessments, tickets) belongs to an organization. If you belong to several, you work in one at a time.
+
+**Fix.**
+
+- On **Select Organization**, choose the organization you want. Use **Search organizations...** if the list is long.
+- Once in the app, open the organization menu at the top of the left sidebar and select **Switch Organization**.
+- If the organization you expect is missing, you have not been added to it yet. Ask one of its admins to invite you; see [Members and roles](/en/admins/members-roles/).
+
+As a candidate, the organization that invited you appears under **Your Organizations** once you have an invitation. If you see **No Invitations Yet**, check your email for the invitation link.
+
+## "Unable to load your organizations"
+
+**Symptom.** **Select Organization** shows **Unable to load your organizations. Please try again.**
+
+**Cause.** A temporary network or service problem.
+
+**Fix.** Refresh the page. If it keeps happening, sign out with **Log out**, sign in again, and if it persists [open a support ticket](/en/support/open-ticket/) with the category **Account & access**.
+
+## "Account issue"
+
+**Symptom.** You see **Account issue** ("There is an issue with your account. Please contact support.").
+
+**Cause.** Something on your account needs a person to look at it.
+
+**Fix.** Select **Contact support**. If you cannot reach the Help Desk because you cannot sign in, ask an admin of your organization to open a ticket for you.

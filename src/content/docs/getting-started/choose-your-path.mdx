@@ -1,0 +1,97 @@
+---
+title: Choisir votre parcours
+description: Trouvez les pages de la documentation qui correspondent à votre rôle sur Klastro.
+sidebar:
+  order: 3
+---
+
+import { CardGrid, LinkCard } from '@astrojs/starlight/components';
+
+Klastro s’adresse à des profils très différents, et l’application ne montre à chacun que ce qui le concerne. Repérez-vous d’après ce que vous voyez dans la barre latérale, puis suivez les pages proposées.
+
+## Ce que montre la barre latérale
+
+La barre latérale regroupe l’application par produit. Une rubrique n’apparaît que si votre organisation et votre licence y donnent accès.
+
+| Rubrique | Contenu | Qui la voit |
+|---|---|---|
+| **Apprendre** | **Tutoriels**, **Challenges**, **Playgrounds**, **Parcours de certification** | Tout le monde |
+| **Former** | **Mes formations**, **Cohortes**, **Parcours** | **Mes formations** pour tous ; **Cohortes** et **Parcours** avec une licence Instructor |
+| **Évaluer** | **Modèles**, **Assessments**, **Résultats**, **Invitations** | Les organisations sous contrat Enterprise |
+| **Studio** | **Scenario Studio** | Les membres qui peuvent créer des scénarios |
+| **Personnel** | **Profil**, **Mes sessions**, **Mes résultats** | Tout le monde |
+| **Organisation** | **Facturation**, **Équipe**, **Journal d’audit**, **Paramètres**, **Assistance** | **Facturation** et **Assistance** pour tous ; le reste pour les administrateurs |
+
+## Candidat à un assessment
+
+Vous avez reçu un e-mail d’un recruteur vous invitant à une évaluation technique. Vous n’avez pas besoin de forfait ni de crédits : l’organisation qui vous invite prend tout en charge.
+
+<CardGrid>
+	<LinkCard title="Accepter une invitation" href="/learners/accept-invitation/" />
+	<LinkCard title="Le mode assessment" href="/lab/assessment-mode/" />
+	<LinkCard title="Webcam et surveillance" href="/troubleshooting/webcam/" />
+	<LinkCard title="Le terminal du lab" href="/lab/terminal/" />
+</CardGrid>
+
+## Apprenant en autonomie
+
+Vous voulez pratiquer Kubernetes et l’écosystème cloud native à votre rythme.
+
+<CardGrid>
+	<LinkCard title="Votre premier lab" href="/learners/first-lab/" />
+	<LinkCard title="Catalogue, challenges et parcours" href="/learners/catalog-challenges-paths/" />
+	<LinkCard title="Gérer vos sessions" href="/learners/manage-sessions/" />
+	<LinkCard title="Résultats et historique" href="/learners/results-history/" />
+</CardGrid>
+
+## Participant à une formation
+
+Un formateur vous a inscrit à une formation encadrée.
+
+<CardGrid>
+	<LinkCard title="Rejoindre une formation" href="/learners/join-training/" />
+	<LinkCard title="L’environnement de lab" href="/lab/overview/" />
+	<LinkCard title="Tâches et vérifications" href="/lab/tasks-and-checks/" />
+</CardGrid>
+
+## Recruteur ou responsable du recrutement
+
+Vous évaluez des candidats sur de vrais environnements.
+
+<CardGrid>
+	<LinkCard title="Votre premier assessment" href="/recruiters/first-assessment/" />
+	<LinkCard title="Envoyer des invitations" href="/recruiters/send-invitations/" />
+	<LinkCard title="Suivi en direct" href="/recruiters/live-supervision/" />
+	<LinkCard title="Le rapport candidat" href="/recruiters/candidate-report/" />
+</CardGrid>
+
+## Formateur ou auteur de scénarios
+
+Vous créez vos propres scénarios et animez des classes.
+
+<CardGrid>
+	<LinkCard title="Votre premier scénario dans Studio" href="/instructors/studio-first-scenario/" />
+	<LinkCard title="Publier des scénarios" href="/instructors/publish-scenarios/" />
+	<LinkCard title="Cohortes" href="/instructors/cohorts/" />
+	<LinkCard title="Animer une cohorte" href="/instructors/run-a-cohort/" />
+</CardGrid>
+
+## Administrateur d’organisation
+
+Vous gérez les membres, le forfait et les paramètres de votre organisation.
+
+<CardGrid>
+	<LinkCard title="Membres et rôles" href="/admins/members-roles/" />
+	<LinkCard title="Paramètres de l’organisation" href="/admins/organization-settings/" />
+	<LinkCard title="Forfaits et crédits" href="/billing/plans-and-credits/" />
+	<LinkCard title="Licences" href="/billing/seats/" />
+</CardGrid>
+
+## Développeur ou utilisateur d’assistant IA
+
+Vous voulez piloter Klastro depuis un assistant IA compatible MCP.
+
+<CardGrid>
+	<LinkCard title="Présentation de MCP" href="/mcp/overview/" />
+	<LinkCard title="Connecter un client" href="/mcp/connect-clients/" />
+</CardGrid>

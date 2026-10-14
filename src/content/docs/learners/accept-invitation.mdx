@@ -1,0 +1,107 @@
+---
+title: Accepter une invitation à un assessment
+description: Activer votre compte, accepter l’invitation d’un recruteur, préparer votre poste et entrer dans le lobby de l’assessment.
+sidebar:
+  order: 2
+---
+
+import { Steps, Tabs, TabItem } from '@astrojs/starlight/components';
+
+Un recruteur vous a invité à passer une évaluation technique sur Klastro. Ce guide vous mène de l’e-mail d’invitation jusqu’au lobby de l’assessment, d’où vous démarrez vos scénarios.
+
+**Ce qu’il vous faut** : l’e-mail d’invitation, un navigateur récent sur un ordinateur, une connexion internet stable et, si l’invitation l’exige, une webcam. Vous n’avez besoin d’aucun forfait ni d’aucun crédit.
+
+## 1. Ouvrir le lien de l’e-mail
+
+<Tabs>
+<TabItem label="Vous n’avez pas encore de compte">
+
+L’e-mail contient un lien d’activation de votre compte.
+
+<Steps>
+
+1. Ouvrez le lien. La page **Accéder à votre compte** s’affiche.
+
+2. Saisissez l’adresse e-mail à laquelle vous avez reçu l’invitation et cliquez sur **Envoyer le code**.
+
+3. Saisissez le **Code de vérification** reçu par e-mail, puis cliquez sur **Vérifier et continuer**.
+
+4. Sur **Bienvenue sur la plateforme 🎉**, vérifiez vos informations, choisissez un mot de passe et cliquez sur **Activer le compte**.
+
+</Steps>
+
+</TabItem>
+<TabItem label="Vous avez déjà un compte">
+
+L’e-mail contient un lien vers la liste de vos invitations dans l’organisation qui vous invite. Ouvrez-le et connectez-vous si nécessaire.
+
+</TabItem>
+</Tabs>
+
+À la première connexion, acceptez les conditions d’utilisation avec **Accepter et continuer** (voir [Créer un compte et se connecter](/getting-started/create-account/#accepter-les-conditions-dutilisation)).
+
+Si plusieurs organisations vous ont invité, la page **Vos organisations** s’affiche : choisissez celle dont vous voulez voir les invitations.
+
+## 2. Accepter l’invitation
+
+La page **Vos invitations** liste toutes vos invitations, avec en tête le nombre d’invitations **En attente**, **Acceptées** et **Expirées**. Chaque invitation indique sa date de réception et sa date d’expiration.
+
+<Steps>
+
+1. Repérez l’invitation de l’assessment concerné.
+
+2. Cliquez sur **Accepter**. Le message **Invitation acceptée** confirme l’action.
+
+3. Cliquez sur le bouton en forme d’œil de cette invitation pour ouvrir son détail.
+
+</Steps>
+
+:::caution[Date d’expiration]
+Une invitation a une date limite, fixée par le recruteur — sept jours par défaut. Passé ce délai, elle affiche **Expirée** et ne peut plus être démarrée : demandez-en une nouvelle à l’organisation. Quand il reste moins d’une semaine, la page de l’invitation affiche **Expire bientôt**.
+:::
+
+## 3. Lire le détail avant de commencer
+
+La page de l’invitation présente :
+
+- la **Durée** de l’assessment, le nombre de **Scénarios** et si la **Webcam** est **Requise** ou **Facultative** ;
+- la liste des **Scénarios de l’Assessment**, avec leur durée estimée ;
+- l’encadré **À savoir avant de commencer**.
+
+:::danger[Le chronomètre ne s’arrête pas]
+Une fois lancé, le chronomètre ne peut plus être mis en pause. Si l’assessment compte plusieurs scénarios, un seul chronomètre les couvre tous. Prévoyez la durée indiquée sans interruption avant de démarrer.
+:::
+
+Si la webcam est requise, vérifiez dès maintenant qu’elle fonctionne et que votre navigateur a le droit de l’utiliser : voir [Webcam et autorisations](/troubleshooting/webcam/).
+
+## 4. Démarrer et entrer dans le lobby
+
+<Steps>
+
+1. Cliquez sur **Démarrer l’Assessment**. Klastro vous emmène dans le lobby de l’assessment.
+
+2. Si l’assessment doit être autorisé par un recruteur, le lobby affiche **En attente d’autorisation**. Restez sur la page : vos scénarios seront préparés dès l’autorisation.
+
+3. Le lobby prépare chaque scénario : **Réservation de l’environnement**, **Démarrage des machines**, **Installation du scénario**. Le compteur indique combien sont prêts.
+
+4. Quand tous les scénarios affichent **Prêt**, cliquez sur **Entrer** sur le scénario par lequel vous voulez commencer.
+
+</Steps>
+
+:::tip[Le chronomètre démarre à votre entrée]
+Le décompte global de l’assessment ne démarre **pas** avant votre entrée dans le premier scénario. Vous pouvez prendre le temps de vous installer dans le lobby. Vous pouvez faire les scénarios dans l’ordre que vous préférez.
+:::
+
+Vous êtes maintenant dans le lab. Le fonctionnement propre aux assessments — chronomètre, passage d’un scénario au suivant, fin de l’assessment — est décrit dans [Le mode assessment](/lab/assessment-mode/).
+
+## Reprendre un assessment commencé
+
+Si vous avez quitté la page en cours de route, revenez sur la page de l’invitation : elle affiche **Assessment en cours** et le bouton **Reprendre l’Assessment** vous ramène au lobby. Le chronomètre, lui, a continué de tourner.
+
+Une fois l’assessment terminé, le bouton de la page affiche **Assessment terminé** ; vos résultats sont traités puis transmis au recruteur, et votre score peut s’afficher sur cette page.
+
+## En cas de problème
+
+- **Invitation révoquée** ou **Invitation expirée** : contactez l’organisation qui vous a invité.
+- Le lobby affiche **Préparation impossible** pour un scénario : contactez le recruteur qui vous a invité.
+- Autres situations : [Problèmes d’invitation](/troubleshooting/invitations/) et [Lab qui ne démarre pas](/troubleshooting/provisioning/).

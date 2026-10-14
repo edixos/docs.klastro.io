@@ -1,0 +1,118 @@
+---
+title: Organization settings
+description: Edit your organization's profile, company identifiers and billing details, switch between organizations, or delete one.
+sidebar:
+  order: 2
+---
+
+import { Steps } from '@astrojs/starlight/components';
+
+The **Settings** page holds your organization's profile and the details printed
+on your invoices. Company details are optional: a school, a community or a
+personal workspace can leave them empty.
+
+## Before you start
+
+- You need the **Admin** role to edit the settings. Admins find **Settings** in
+  the sidebar.
+- Other members can open **Organization Settings** from their user menu. They see
+  the page with a **Read only** badge and the message **Only organisation admins
+  can edit these settings. Contact your admin to make changes.**
+
+## Edit the organization profile
+
+<Steps>
+
+1. In the sidebar, open **Settings**.
+
+2. Update the fields you need (see the reference below).
+
+3. Click **Save changes**. A **Changes saved** message confirms the update.
+
+</Steps>
+
+### Organisation profile
+
+| Field | Notes |
+|---|---|
+| **Organisation name** | Between 2 and 100 characters. |
+| **Organisation slug** | The identifier in your workspace URL. It cannot be changed after creation. |
+| **Country** | Decides which company identifiers the page asks for. |
+| **Legal company name** | Optional. |
+| **SIREN** | France only. The 9-digit French company identifier. Once saved, it is permanent and cannot be changed. |
+| **VAT number** | Optional. Shown for organizations outside France: the EU VAT identification number for EU companies. |
+
+:::caution
+Check the **SIREN** before you save it. Once saved, it is locked and the field
+reads **Permanently assigned — cannot be changed.**
+:::
+
+### Company address
+
+**Street address**, **City** and **Postal code** of your registered address,
+used for invoicing and compliance.
+
+### Billing information
+
+Used on invoices. Leave these fields blank to use your company address.
+
+| Field | Notes |
+|---|---|
+| **Billing email** | Invoices and receipts are sent here. |
+| **Billing address**, **City**, **Postal code** | The address printed on invoices. |
+| **Billing country** | The country of the billing address. |
+
+## Company details at creation
+
+When you create an organization, the **Create your Organization** form asks for
+an **Organization name**, a **Workspace URL** and a **Country**. Company details
+are optional: tick **This organization is a company** to add a **SIRET** (the
+14-digit French establishment number), a **Billing address** and a **VAT
+number**. Leave the box unticked for a school, community or personal workspace.
+You can complete the details later from **Settings**.
+
+## Switch organization
+
+If you belong to several organizations, you switch between them without signing
+out.
+
+<Steps>
+
+1. In the sidebar, click the organization switcher, which shows the current
+   organization's name.
+
+2. Under **Switch Organization**, pick another organization. With more than five
+   organizations, use the search field to find it.
+
+</Steps>
+
+A **Switching to …** screen appears briefly, then the app shows the chosen
+organization. Your role, seat and credits are those of that organization: each
+membership is separate.
+
+To choose from the full list instead, click **Exit Organization** in the same
+menu. You land on the **Select Organization** page, where you can also create a
+**New Organization**.
+
+## Delete the organization
+
+:::danger
+Deleting an organization permanently removes all its members, sessions,
+scenarios and billing data. This cannot be undone.
+:::
+
+<Steps>
+
+1. In **Settings**, scroll to **Danger zone**.
+
+2. Click **Delete organisation**.
+
+3. Type the organization's slug to confirm, then click **Delete organisation**.
+
+</Steps>
+
+## Related
+
+- [Members and roles](/en/admins/members-roles/)
+- [Usage and invoices](/en/billing/usage-and-invoices/)
+- [Create your account](/en/getting-started/create-account/)

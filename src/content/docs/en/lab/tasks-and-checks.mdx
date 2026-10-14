@@ -1,0 +1,180 @@
+---
+title: Tasks, checks and hints
+description: How Klastro checks your work against the live environment, how tutorials, challenges and assessments differ, what hints cost, and how scoring works.
+sidebar:
+  order: 5
+---
+
+import { Steps, Tabs, TabItem } from '@astrojs/starlight/components';
+
+Every Klastro scenario is a list of tasks. Klastro does not grade your commands
+or your typing: it **inspects the live state of your environment** — whether the
+Deployment exists, whether the Pod is running, whether the file has the right
+content — and compares it with what the task asks for. This page explains how
+that works and how it differs between tutorials, challenges and assessments.
+
+## How a check works
+
+When a task is checked, Klastro looks at your environment at that moment and runs
+the task's checks against it. A task usually has several checks; it **passes**
+when all of its required checks pass.
+
+- **Passed** means your environment, right now, is in the state the task
+  describes. How you got there does not matter.
+- **Failed** means at least one check did not match. It is not an error: fix the
+  environment and the task can pass on the next check.
+
+Checking takes a few seconds, sometimes longer on a busy or large environment.
+If Klastro cannot reach part of your environment while checking, it keeps trying
+by itself rather than failing the task.
+
+:::tip
+Because Klastro grades the end state, a correct result reached by a different
+route than the instructions suggest still passes. Undoing your own work before a
+check, on the other hand, makes it fail.
+:::
+
+## Tutorials, challenges and assessments
+
+The same scenario format is used everywhere, but each kind of lab checks your
+work at a different moment.
+
+| | Tutorial | Challenge | Assessment |
+|---|---|---|---|
+| Task list called | **Steps** | **Tasks** | **Tasks** |
+| When work is checked | Whenever you click **Check this step** | When you click **Finish & submit** on the last task | Automatically, when the assessment ends |
+| Feedback while working | Yes, per step | No | No |
+| Hints | **Guided steps**, free | **Hints**, cost points | **Hints**, cost points (cost hidden) |
+| Points shown to you | No | Yes | No |
+
+A playground has no tasks, checks or hints.
+
+## Move between tasks
+
+Click any task in the list to open it, or use **Previous** and **Next** at the
+bottom of the pane. You can work on tasks in any order. The header shows how many
+are done, for example **3 of 8**, and a thin bar under it fills as you progress.
+
+To give the instructions more width, click the list toggle in the header
+(**Hide tasks** or **Hide steps**). The list shrinks to its numbers and stays
+usable.
+
+## Check a tutorial step
+
+<Steps>
+
+1. Do what the step asks, in the terminal, the editor or an app view.
+
+2. Click **Check this step**, under the step's instructions. The verdict reads
+   **Checking…** while Klastro inspects your environment.
+
+3. Read the verdict:
+   - **Step complete**: the step passed. Its number in the list becomes a tick
+     and the progress count goes up.
+   - **Not yet — try again**: at least one check failed. A short note under the
+     verdict lists what did not match yet.
+
+4. If the step failed, fix your environment and click **Check again**.
+
+5. On the last step, click **Finish**. A **Tutorial complete. Nice work.**
+   message appears.
+
+</Steps>
+
+:::caution[Checks are limited per step]
+Each step allows a limited number of checks — three, unless the scenario's author
+set a different number. Once you have used them all, further checks of that step
+fail. Read the feedback and fix the environment before you check again, and do
+not re-check a step that has already passed.
+:::
+
+After **Finish**:
+
+- If you started the tutorial from a certification path, the step is marked
+  complete on the path, the lab is ended, and you return to the path.
+- Otherwise you return to the tutorial catalog and **the lab keeps running**.
+  Pause or end it from **My Sessions** so it does not use credits needlessly. See
+  [Manage your sessions](/en/learners/manage-sessions/).
+
+## Submit a challenge
+
+A challenge has no per-task check: it is graded once, as a whole, so its answers
+cannot be found by trial and error.
+
+<Steps>
+
+1. Work through the tasks. Each task shows its points, and the header shows the
+   scenario total.
+
+2. On the last task, click **Finish & submit**.
+
+3. In **Finish and submit for grading?**, click **Submit & see results**, or
+   **Keep working** to go back.
+
+4. Klastro checks every task against your environment and opens the results page,
+   where each task moves from **Grading…** to **Passed** or **Not passed**.
+
+</Steps>
+
+Your lab keeps running after you submit, so you can go back, fix a task and
+submit again. Your latest submission is the one that counts.
+
+:::caution[Each submission uses one check per task]
+Submitting checks every task once. The per-task limit (three by default) applies:
+after the limit, every task in a new submission is counted as failed and your
+score drops. Submit when you are confident, not to see how you are doing.
+:::
+
+See [Your results and history](/en/learners/results-history/) for the results page.
+
+## Hints
+
+Hints sit under a task's instructions. How they behave depends on the lab.
+
+<Tabs>
+<TabItem label="Tutorial">
+
+The section is called **Guided steps** and each entry is a **Step**. Click
+**Show** to read it. Guided steps are free: they never affect anything. Show them
+in order, from the first.
+
+</TabItem>
+<TabItem label="Challenge">
+
+The section is called **Hints** and they form a chain: only the next hint can be
+opened, and the others read **Reveal hint 2 first** and so on. Click **Reveal** to
+open one. The button shows what it costs, for example **(−5 pts)**.
+
+</TabItem>
+<TabItem label="Assessment">
+
+Hints work as in a challenge — a chain, each with a cost — but the cost is not
+shown to you. Revealing a hint still reduces your score for that task.
+
+</TabItem>
+</Tabs>
+
+Revealed hints are recorded: they stay open after a reload or on another device,
+and a revealed hint cannot be hidden again.
+
+## Scoring
+
+Scoring applies to challenges and assessments; a tutorial is not scored.
+
+- Each task is worth the points shown next to it. The scenario's author decides
+  how they are split.
+- A task's points are earned check by check: each check that passes adds its
+  share, so a task that does not fully pass can still earn some points.
+- The cost of every hint you revealed for a task is subtracted from that task's
+  points. A task never goes below zero, so hints on one task cannot cost you
+  points earned on another.
+- Your score is the sum over all tasks, using the latest check of each task.
+
+In an assessment, the recruiter sees your score and per-task results in your
+report. You do not see points during the assessment.
+
+## Related
+
+- [Take an assessment](/en/lab/assessment-mode/)
+- [Your results and history](/en/learners/results-history/)
+- [Checks troubleshooting](/en/troubleshooting/checks/)

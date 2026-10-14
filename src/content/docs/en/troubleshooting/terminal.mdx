@@ -1,0 +1,65 @@
+---
+title: Terminal disconnects or does not open
+description: Fix a lab terminal that disconnects, shows a connection error, stays on a waiting message or stops accepting commands.
+sidebar:
+  order: 5
+---
+
+The lab terminal runs in your browser and keeps a live connection to your environment. For normal use, see [Use the lab terminal](/en/lab/terminal/). Each problem below is laid out as **Symptom**, **Cause** and **Fix**.
+
+## "Terminal disconnected"
+
+**Symptom.** The terminal shows **Terminal disconnected** with a **Reconnect** button.
+
+**Cause.** The connection between your browser and the lab was cut: an unstable network, a Wi-Fi change, a VPN reconnecting, or your computer going to sleep.
+
+**Fix.** Select **Reconnect**. Your environment kept running while you were disconnected: files and resources you created are still there. A command that was running in the foreground may have been interrupted, so check its result.
+
+:::tip
+For long commands, run them so they survive a disconnect, for example by redirecting their output to a file (`my-command > out.log 2>&1 &`), then read the file once you are reconnected.
+:::
+
+## "Terminal connection error"
+
+**Symptom.** The terminal shows **Terminal connection error** and never connects, even after **Reconnect**.
+
+**Cause.** Something between your browser and Klastro blocks the terminal's live connection. This is common on corporate networks, behind some proxies and VPNs, or with strict browser extensions.
+
+**Fix.**
+
+1. Reload the page.
+2. Try another network (a phone hotspot, for example) or turn the VPN off.
+3. Disable extensions that block or rewrite traffic for app.klastro.io, or try a private window.
+4. If you are on a company network, ask your IT team to allow secure WebSocket connections to app.klastro.io.
+
+If none of this helps, [report a problem](/en/support/report-lab-problem/) and mention your browser and network.
+
+## The terminal stays on a waiting message
+
+| Message | Cause | Fix |
+|---|---|---|
+| **Waiting for session…**, **Provisioning environment…**, **Your environment is being prepared** | The environment is still being prepared. | Wait. See [Lab preparation](/en/troubleshooting/provisioning/). |
+| **Waiting for authorization…** | The assessment waits for a recruiter's approval. | Keep the page open; it continues once approved. |
+| **Waiting for shell URL…** | The environment is ready but its terminal is still starting. | Wait a few seconds. If it lasts, reload the page. |
+| **Reconnecting…** | The terminal is re-establishing the connection. | Wait. If it ends on **Terminal disconnected**, select **Reconnect**. |
+| **Invalid terminal URL** | The page received a broken terminal address. | Reload the page. If it persists, report the problem. |
+
+## The terminal stopped accepting commands
+
+**Symptom.** You can no longer type, and the lab shows **This environment has ended** or **This environment is paused**.
+
+**Cause.**
+
+- **This environment has ended**: the lab reached its time limit or was ended. It no longer accepts commands. Checks you had passed are kept.
+- **This environment is paused**: in a class, your instructor moved you to another step. Your work is kept.
+- In a self-paced lab, the lab may also have been paused because your credits ran out.
+
+**Fix.** For a class, select **Back to the class**: the environment starts again when your instructor brings you back to that step. For credits, see [Credits and paused labs](/en/troubleshooting/credits-and-pauses/). For an ended lab, start the scenario again.
+
+## Commands fail with "connection refused" or "command not found"
+
+**Symptom.** `kubectl` cannot reach the cluster, or a tool seems missing.
+
+**Cause.** In labs with machines, the **Shell** tabs open the session shell: "kubectl, helm, and every machine within ssh reach. Not one of the machines." Some commands must run on a specific machine.
+
+**Fix.** Open the **Node** tab of the machine you need, or connect to it from a **Shell** tab with the ssh command shown under **Connect to the machines**. If the task tells you to work on a given machine, work on that machine.

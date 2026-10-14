@@ -1,0 +1,197 @@
+---
+title: Tâches, vérifications et indices
+description: Comment Klastro vérifie votre travail sur l’environnement en direct, ce qui distingue tutoriels, challenges et assessments, ce que coûtent les indices et comment le score est calculé.
+sidebar:
+  order: 5
+---
+
+import { Steps, Tabs, TabItem } from '@astrojs/starlight/components';
+
+Chaque scénario Klastro est une liste de tâches. Klastro ne note ni vos commandes
+ni votre saisie : il **inspecte l’état réel de votre environnement** — le
+Deployment existe-t-il, le Pod tourne-t-il, le fichier a-t-il le bon contenu — et
+le compare à ce que demande la tâche. Cette page explique ce fonctionnement et ce
+qui change entre tutoriels, challenges et assessments.
+
+## Comment se déroule une vérification
+
+Lorsqu’une tâche est vérifiée, Klastro examine votre environnement à cet instant
+et lui applique les contrôles de la tâche. Une tâche comporte généralement
+plusieurs contrôles ; elle est **réussie** lorsque tous ses contrôles
+obligatoires passent.
+
+- **Réussie** signifie que votre environnement est, à cet instant, dans l’état
+  décrit par la tâche. La façon d’y parvenir n’a pas d’importance.
+- **Échouée** signifie qu’au moins un contrôle ne correspond pas. Ce n’est pas une
+  erreur : corrigez l’environnement et la tâche pourra réussir à la vérification
+  suivante.
+
+Une vérification prend quelques secondes, parfois davantage sur un environnement
+chargé ou volumineux. Si Klastro ne parvient pas à joindre une partie de votre
+environnement pendant la vérification, il réessaie de lui-même au lieu de faire
+échouer la tâche.
+
+:::tip
+Comme Klastro note l’état final, un résultat correct obtenu par un autre chemin
+que celui des instructions est validé. À l’inverse, défaire votre propre travail
+avant une vérification la fait échouer.
+:::
+
+## Tutoriels, challenges et assessments
+
+Le format de scénario est le même partout, mais chaque type de lab vérifie votre
+travail à un moment différent.
+
+| | Tutoriel | Challenge | Assessment |
+|---|---|---|---|
+| La liste s’appelle | **Étapes** | **Tâches** | **Tâches** |
+| Moment de la vérification | Chaque fois que vous cliquez sur **Vérifier cette étape** | Quand vous cliquez sur **Terminer et envoyer** sur la dernière tâche | Automatiquement, à la fin de l’assessment |
+| Retour pendant le travail | Oui, étape par étape | Non | Non |
+| Indices | **Étapes guidées**, gratuites | **Indices**, qui coûtent des points | **Indices**, qui coûtent des points (coût masqué) |
+| Points affichés | Non | Oui | Non |
+
+Un playground n’a ni tâches, ni vérifications, ni indices.
+
+## Passer d’une tâche à l’autre
+
+Cliquez sur n’importe quelle tâche de la liste pour l’ouvrir, ou utilisez
+**Précédent** et **Suivant** en bas du panneau. Vous pouvez traiter les tâches
+dans l’ordre de votre choix. L’en-tête indique combien sont terminées, par exemple
+**3 sur 8**, et une fine barre se remplit en dessous au fil de votre progression.
+
+Pour donner plus de largeur aux instructions, cliquez sur le bouton de la liste
+dans l’en-tête (**Masquer les tâches** ou **Masquer les étapes**). La liste se
+réduit à ses numéros et reste utilisable.
+
+## Vérifier une étape de tutoriel
+
+<Steps>
+
+1. Faites ce que demande l’étape, dans le terminal, l’éditeur ou une app view.
+
+2. Cliquez sur **Vérifier cette étape**, sous les instructions de l’étape. Le
+   verdict affiche **Vérification en cours…** pendant que Klastro inspecte votre
+   environnement.
+
+3. Lisez le verdict :
+   - **Étape validée** : l’étape est réussie. Son numéro devient une coche dans
+     la liste et le compteur de progression augmente.
+   - **Pas encore — réessayez** : au moins un contrôle a échoué. Une courte note
+     sous le verdict liste ce qui ne correspond pas encore.
+
+4. Si l’étape a échoué, corrigez votre environnement et cliquez sur
+   **Vérifier à nouveau**.
+
+5. Sur la dernière étape, cliquez sur **Terminer**. Le message
+   **Tutoriel terminé. Beau travail.** s’affiche.
+
+</Steps>
+
+:::caution[Les vérifications sont limitées par étape]
+Chaque étape accepte un nombre limité de vérifications — trois, sauf si l’auteur
+du scénario en a fixé un autre. Une fois ce nombre atteint, les vérifications
+suivantes de cette étape échouent. Lisez le retour et corrigez l’environnement
+avant de vérifier à nouveau, et ne revérifiez pas une étape déjà validée.
+:::
+
+Après **Terminer** :
+
+- Si vous avez lancé le tutoriel depuis un parcours de certification, l’étape est
+  marquée comme terminée sur le parcours, le lab est arrêté et vous revenez au
+  parcours.
+- Sinon, vous revenez au catalogue des tutoriels et **le lab continue de
+  tourner**. Mettez-le en pause ou arrêtez-le depuis **Mes sessions** pour qu’il
+  ne consomme pas de crédits inutilement. Voir
+  [Gérer vos sessions](/learners/manage-sessions/).
+
+## Envoyer un challenge
+
+Un challenge n’a pas de vérification par tâche : il est noté une seule fois, dans
+son ensemble, pour que ses réponses ne puissent pas être trouvées par tâtonnement.
+
+<Steps>
+
+1. Traitez les tâches. Chacune affiche ses points, et l’en-tête affiche le total
+   du scénario.
+
+2. Sur la dernière tâche, cliquez sur **Terminer et envoyer**.
+
+3. Dans **Terminer et envoyer pour correction ?**, cliquez sur
+   **Envoyer et voir les résultats**, ou sur **Continuer à travailler** pour
+   revenir en arrière.
+
+4. Klastro vérifie chaque tâche sur votre environnement et ouvre la page de
+   résultats, où chaque tâche passe de **Correction…** à **Réussie** ou
+   **Échouée**.
+
+</Steps>
+
+Votre lab continue de tourner après l’envoi : vous pouvez y revenir, corriger une
+tâche et renvoyer. C’est votre dernier envoi qui compte.
+
+:::caution[Chaque envoi consomme une vérification par tâche]
+Un envoi vérifie chaque tâche une fois. La limite par tâche (trois par défaut)
+s’applique : au-delà, chaque tâche d’un nouvel envoi est comptée comme échouée et
+votre score baisse. Envoyez quand vous êtes sûr de vous, pas pour voir où vous en
+êtes.
+:::
+
+Voir [Vos résultats et votre historique](/learners/results-history/) pour la page
+de résultats.
+
+## Indices
+
+Les indices se trouvent sous les instructions d’une tâche. Leur comportement
+dépend du type de lab.
+
+<Tabs>
+<TabItem label="Tutoriel">
+
+La section s’appelle **Étapes guidées** et chaque entrée est une **Étape**.
+Cliquez sur **Afficher** pour la lire. Les étapes guidées sont gratuites : elles
+n’ont aucune conséquence. Affichez-les dans l’ordre, à partir de la première.
+
+</TabItem>
+<TabItem label="Challenge">
+
+La section s’appelle **Indices** et ils forment une chaîne : seul l’indice
+suivant peut être ouvert, les autres indiquent **Révélez d’abord l’indice 2**, et
+ainsi de suite. Cliquez sur **Révéler** pour en ouvrir un. Le bouton affiche son
+coût, par exemple **(−5 pts)**.
+
+</TabItem>
+<TabItem label="Assessment">
+
+Les indices fonctionnent comme dans un challenge — une chaîne, chacun avec un
+coût — mais le coût ne vous est pas affiché. Révéler un indice réduit tout de même
+votre score sur cette tâche.
+
+</TabItem>
+</Tabs>
+
+Les indices révélés sont enregistrés : ils restent ouverts après un rechargement
+ou sur un autre appareil, et un indice révélé ne peut pas être masqué de nouveau.
+
+## Calcul du score
+
+Le score concerne les challenges et les assessments ; un tutoriel n’est pas noté.
+
+- Chaque tâche vaut les points affichés à côté d’elle. L’auteur du scénario
+  décide de leur répartition.
+- Les points d’une tâche se gagnent contrôle par contrôle : chaque contrôle réussi
+  apporte sa part, si bien qu’une tâche qui n’est pas entièrement réussie peut
+  quand même rapporter des points.
+- Le coût de chaque indice révélé pour une tâche est retiré des points de cette
+  tâche. Une tâche ne descend jamais sous zéro : les indices d’une tâche ne peuvent
+  pas vous coûter des points gagnés sur une autre.
+- Votre score est la somme de toutes les tâches, d’après la dernière vérification
+  de chacune.
+
+Dans un assessment, le recruteur voit votre score et vos résultats par tâche dans
+votre rapport. Vous ne voyez pas les points pendant l’assessment.
+
+## Voir aussi
+
+- [Passer un assessment](/lab/assessment-mode/)
+- [Vos résultats et votre historique](/learners/results-history/)
+- [Dépannage des vérifications](/troubleshooting/checks/)

@@ -1,0 +1,124 @@
+---
+title: Create and edit assessment templates
+description: Compose an assessment template from the scenario catalog and set its order, duration and passing score.
+sidebar:
+  order: 2
+---
+
+import { Steps } from '@astrojs/starlight/components';
+
+An **assessment template** is the reusable definition you send to candidates: a sequence of graded
+scenarios, a single timer that covers all of them, and a passing score. Every invitation points to a
+template; every candidate who starts produces a separate **assessment run**.
+
+**Prerequisite:** be a **Recruiter** or an admin in an organization on a business contract.
+
+## Create a template
+
+<Steps>
+
+1. Open **Assess**, then **Templates**, and click **New template**.
+
+   If your organization has Scenario Studio and you can author in it, a menu offers two choices:
+
+   - **Compose from the catalog** opens the template editor described below;
+   - **Write a challenge in Studio**: author a custom scenario first. Once published, it appears
+     in the template catalog.
+
+   Otherwise the button opens the editor directly.
+
+2. Fill in **Assessment details**:
+
+   | Field | Rule |
+   |---|---|
+   | **Name** | Required, 120 characters at most. |
+   | **Description** | Optional, 500 characters at most. Tell the candidate what to expect. |
+   | **Total duration (min)** | Required, from 1 to 480 minutes (8 hours). |
+   | **Passing score (%)** | Required, from 0 to 100. Defaults to 70. |
+
+3. In the **Scenario catalog** on the right, find the scenarios to include. You can narrow it by:
+
+   - search (name, description or tag) with **Search scenarios…**;
+   - provenance: **Official** (Klastro scenarios) or **Studio** (written in your organization);
+   - difficulty: **Beginner**, **Intermediate**, **Advanced**;
+   - tag, by clicking one.
+
+   Only graded challenges appear in this catalog.
+
+4. Click **Add** on each scenario you want. The button turns into **Added** and the scenario joins
+   the **Scenario order** list.
+
+5. Set the order (see below), then click **Create assessment**.
+
+</Steps>
+
+The new template appears under **All assessment templates** with the **Draft** status.
+
+## Order the scenarios
+
+Under **Scenario order**, drag a row by its handle (**Drag to reorder**) to move it. This is the order
+in which the candidate sees the scenarios.
+
+To take a scenario out, click **Remove scenario** on its row.
+
+:::note
+In their lobby, the candidate can complete the scenarios in any order they prefer. The template order
+is the order of presentation, not an enforced path.
+:::
+
+## Set the duration
+
+Until you change it, **Total duration (min)** follows the scenarios: the sum of their estimated
+durations plus 25% headroom, rounded up to the next 5 minutes. The text under the field says so
+("Follows the scenarios: … estimated, plus 25% headroom").
+
+If you type another value, the **Use the suggested duration** link brings back the automatic figure.
+
+The **Time allocation** bar shows each scenario's share of the total time. If it turns red, the
+scenario durations exceed the total assessment time.
+
+:::caution
+A template whose scenarios exceed the total duration does not save correctly. Increase the total
+duration or remove a scenario before you click **Create assessment** or **Update assessment**.
+:::
+
+## Check with the preview
+
+Click **Preview** to see the assessment as the candidate will: name, description, total duration, and
+the scenario list with each scenario's task count. Scoring details and passing thresholds are hidden in
+this view, just as they are for the candidate.
+
+## Edit a template
+
+<Steps>
+
+1. Open **Assess**, then **Templates**.
+
+2. Click the template under **All assessment templates**.
+
+3. Change the details, or add, remove or reorder scenarios.
+
+4. Click **Update assessment**. The "Assessment updated" message confirms it was saved.
+
+</Steps>
+
+## Read the template list
+
+| Column | Content |
+|---|---|
+| **Name** | Template name. |
+| **Scenarios** | Number of scenarios. |
+| **Duration** | Total duration. |
+| **Pass %** | Passing score. |
+| **Status** | **Published**, **Draft** or **Archived**. |
+| **Created** | Creation date. |
+
+:::note
+The invitation form offers every template that is not archived, drafts included. A draft shows its
+status next to its name there.
+:::
+
+## See also
+
+- [Send and manage invitations](/en/recruiters/send-invitations/)
+- [Glossary](/en/getting-started/glossary/)

@@ -1,0 +1,182 @@
+---
+title: Use the lab terminal
+description: Open shells, reach the lab's machines, copy and paste, and recover from a disconnected terminal without losing running commands.
+sidebar:
+  order: 2
+---
+
+import { Steps, Tabs, TabItem } from '@astrojs/starlight/components';
+
+The terminal is where you do the work in a Klastro lab. It runs in your browser
+and connects to a real environment, so there is nothing to install. This page
+shows how to use it day to day.
+
+**Before you start:** open a lab and wait until the terminal stops showing
+**Your environment is being prepared**. See [The lab workspace](/en/lab/overview/)
+for the layout.
+
+## Shell tabs and Node tabs
+
+The terminal pane can hold two kinds of terminal tab.
+
+| Tab | When it appears | Where it puts you |
+|---|---|---|
+| **Shell 1**, **Shell 2**… | Always | The session shell. `kubectl`, `helm` and this lab's credentials are set up here. |
+| **Node**, or **Node 1**, **Node 2**… | Only when your lab has machines | A terminal directly on that machine. One tab per machine, up to five. |
+
+In a lab with machines, the terminal opens on **Node 1**, and hovering a Shell
+tab reminds you that the session shell is not one of the machines.
+
+### Open and close shells
+
+<Steps>
+
+1. Click the **+** button (**New shell**) at the end of the tab strip. A new
+   **Shell** tab opens and becomes active.
+
+2. Switch between tabs by clicking them. Every tab keeps running while hidden,
+   so a long command in **Shell 1** carries on while you work in **Shell 2**.
+
+3. To close a shell, hover its tab and click the **×** that appears.
+
+</Steps>
+
+You can have up to five Shell tabs open at once. The **+** button disappears when
+you reach the limit. The last remaining Shell tab cannot be closed, and Node tabs
+cannot be closed.
+
+### Reach a machine from the session shell
+
+When your lab has machines, the Instructions pane has a **Connect to the
+machines** section (collapsed by default). It lists one copy button per machine,
+for example `ssh node1`, `ssh node2`.
+
+<Steps>
+
+1. Expand **Connect to the machines** in the Instructions pane.
+
+2. Click the command for the machine you want. It is copied to your clipboard.
+
+3. Paste it into a **Shell** tab and press <kbd>Enter</kbd>.
+
+</Steps>
+
+To run a single command on a machine without opening a session there, use the
+same form with the command in quotes, as shown in that section:
+`ssh node1 'kubectl get nodes'`.
+
+:::tip
+You rarely need `ssh` at all: each machine already has its own **Node** tab.
+:::
+
+## Copy and paste
+
+The terminal uses your browser's normal copy and paste. Klastro does not ask for
+permission to read your clipboard.
+
+<Tabs syncKey="os">
+<TabItem label="macOS">
+
+| To | Do this |
+|---|---|
+| Copy text from the terminal | Select it with the mouse, then press <kbd>Cmd</kbd>+<kbd>C</kbd> |
+| Paste into the terminal | <kbd>Cmd</kbd>+<kbd>V</kbd> |
+| Interrupt the running command | <kbd>Ctrl</kbd>+<kbd>C</kbd> |
+
+</TabItem>
+<TabItem label="Windows / Linux">
+
+| To | Do this |
+|---|---|
+| Copy text from the terminal | Select it with the mouse, then right-click and choose **Copy**, or press <kbd>Ctrl</kbd>+<kbd>Insert</kbd> |
+| Paste into the terminal | <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>V</kbd>, <kbd>Shift</kbd>+<kbd>Insert</kbd>, or right-click and choose **Paste** |
+| Interrupt the running command | <kbd>Ctrl</kbd>+<kbd>C</kbd> |
+
+</TabItem>
+</Tabs>
+
+:::caution[Ctrl+C is not copy on Windows and Linux]
+Inside the terminal, <kbd>Ctrl</kbd>+<kbd>C</kbd> interrupts the running
+command, as in any Linux terminal, and <kbd>Ctrl</kbd>+<kbd>V</kbd> is sent to
+the shell rather than pasting. Use the shortcuts in the table above.
+:::
+
+:::tip
+Commands in the Instructions pane are copy buttons. Click one, then paste it in
+the terminal: it is quicker and avoids typos.
+:::
+
+## Scroll back through output
+
+If your shell shows a green status line at the bottom, it runs inside `tmux`,
+which is what keeps it alive across reloads. In that case, scroll back through
+earlier output with tmux's own scroll mode:
+
+<Steps>
+
+1. Press <kbd>Ctrl</kbd>+<kbd>B</kbd>, release, then press <kbd>[</kbd>.
+
+2. Move with the arrow keys or <kbd>Page Up</kbd> / <kbd>Page Down</kbd>.
+
+3. Press <kbd>q</kbd> to return to the prompt.
+
+</Steps>
+
+## Disconnects and reconnecting
+
+### What keeps running
+
+Your shells run in the lab, not in your browser. Closing the tab, reloading the
+page or losing your network does **not** stop them: commands keep running, and
+when the terminal reconnects you find the same shell with its output. Klastro
+also remembers which tabs you had open, in that browser tab, and reopens them
+after a reload.
+
+:::note
+Reconnecting brings back your shell and its running commands. Use the scroll
+mode above, rather than the mouse wheel, to read output that was printed while
+you were away.
+:::
+
+### Reconnect a terminal
+
+The terminal does not reconnect on its own after its connection drops. When it
+does, a bar appears at the bottom of the terminal reading
+**Terminal disconnected** or **Terminal connection error**, and the tab's dot
+turns grey or red.
+
+<Steps>
+
+1. Click **Reconnect** in that bar.
+
+2. If the terminal still does not come back, reload the page. Your shells are
+   still running and reattach as the tabs reopen.
+
+</Steps>
+
+Two other signs tell you the lab itself is waiting rather than the terminal:
+
+- A Wi-Fi-off icon at the right of the tab strip, and **Waiting to start
+  session...** in the status bar: the page has lost its live link to your lab.
+  It reconnects automatically.
+- **Reconnecting…** in the middle of the terminal pane, before any shell has
+  appeared: the same thing, seen before the terminal first connects.
+
+If a terminal will not reconnect at all, see
+[Terminal troubleshooting](/en/troubleshooting/terminal/).
+
+## What happens to running processes
+
+| Situation | Running commands |
+|---|---|
+| You switch to another tab in the lab | Keep running |
+| You reload the page or your connection drops | Keep running; the terminal reattaches to them |
+| You close a Shell tab with **×** | Klastro stops showing it. Do not rely on finding it again: finish or stop long-running commands before closing their tab. |
+| You pause the lab (**Pause & resume later**) | Your files and environment are kept. Check, after resuming, that any foreground command you need is still running, and start it again if not. |
+| You end the lab, or it ends | Everything stops and the environment is destroyed |
+
+## Related
+
+- [Keyboard shortcuts](/en/lab/keyboard-shortcuts/)
+- [Use the editor and app views](/en/lab/ide-and-app-views/)
+- [Terminal troubleshooting](/en/troubleshooting/terminal/)

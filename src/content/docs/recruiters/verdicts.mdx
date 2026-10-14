@@ -1,0 +1,111 @@
+---
+title: Enregistrer un verdict et filtrer les rapports
+description: Rendez votre verdict de recrutement sur un rapport, puis retrouvez vos candidats par statut, Assessment et verdict.
+sidebar:
+  order: 7
+---
+
+import { Steps } from '@astrojs/starlight/components';
+
+Le score mesure ce que le candidat a fait dans le lab ; le **verdict** est votre décision de recrutement.
+Klastro conserve les deux côte à côte : le verdict s’affiche dans la liste des rapports et sur le rapport
+lui-même, avec vos notes.
+
+**Prérequis :** être **Recruteur** ou administrateur d’une organisation sous contrat entreprise.
+
+## Les quatre verdicts
+
+| Verdict | Dans **Résultats** | Sur le rapport |
+|---|---|---|
+| Recruter sans réserve | **Recruter sans réserve** | **STRONG HIRE** |
+| Recruter | **Recruter** | **HIRE** |
+| Ne pas recruter | **Ne pas recruter** | **NO HIRE** |
+| Écarter | **Écarter** | **STRONG NO HIRE** |
+
+Les deux premiers s’affichent en vert, les deux derniers en rouge.
+
+## Enregistrer un verdict
+
+Le verdict s’enregistre depuis l’[intégration MCP](/mcp/overview/) de Klastro, c’est-à-dire depuis un
+assistant IA connecté à votre compte. La page du rapport, elle, affiche le verdict mais ne propose pas de
+formulaire pour le saisir.
+
+<Steps>
+
+1. Vérifiez que l’Assessment du candidat est terminé : son rapport doit figurer dans **Évaluer** →
+   **Résultats**. Un passage encore en cours ne peut pas recevoir de verdict.
+
+2. Lisez le rapport (voir [Lire le rapport d’un candidat](/recruiters/candidate-report/)).
+
+3. Dans votre assistant connecté à Klastro, demandez d’enregistrer le verdict en nommant le candidat,
+   par exemple : « Enregistre le verdict *Recruter* pour le rapport de Marie Dupont, avec la note :
+   diagnostic rapide, bonne méthode, à revoir sur le réseau. » L’assistant utilise l’outil
+   `submit_report_review`.
+
+4. Rechargez le rapport dans Klastro.
+
+</Steps>
+
+Le badge de verdict apparaît en haut du rapport, la section **Avis du recruteur** affiche le verdict et
+vos notes, et le statut du rapport passe à **Revu** (`REVIEWED`).
+
+- Les notes sont facultatives et limitées à 5 000 caractères.
+- Pour changer d’avis, enregistrez un nouveau verdict : il remplace le précédent, notes comprises.
+
+:::caution
+Le verdict est visible de tous les recruteurs et administrateurs de l’organisation. Rédigez vos notes
+comme un document que le candidat pourrait un jour demander à consulter.
+:::
+
+:::note
+Le score est un résultat de mesure, pas une décision. La décision de recrutement vous revient, avec une
+intervention humaine : c’est précisément le rôle du verdict.
+:::
+
+## Filtrer la liste des rapports
+
+<Steps>
+
+1. Ouvrez **Évaluer**, puis **Résultats**. La page **Rapports des candidats** liste les Assessments
+   terminés de toute l’organisation.
+
+2. Dans la ligne **Filtres**, choisissez un **Statut** :
+
+   - **Tous les statuts** ;
+   - **Terminé** : le candidat est allé au bout, sans verdict ;
+   - **Temps écoulé** : le temps imparti s’est épuisé, sans verdict ;
+   - **Revu** : un verdict a été enregistré.
+
+3. Choisissez éventuellement un **Assessment** pour ne garder qu’un modèle.
+
+4. Pour tout effacer, cliquez sur **Réinitialiser les filtres**.
+
+</Steps>
+
+:::tip
+Filtrez sur **Terminé** et **Temps écoulé** pour obtenir les candidats qui attendent encore votre verdict.
+:::
+
+La table **Tous les rapports** affiche 10 rapports par page, avec ces colonnes :
+
+| Colonne | Contenu |
+|---|---|
+| **Candidat** | Nom et e-mail. |
+| **Assessment** | Nom du modèle. |
+| **Score** | Pourcentage, points (`18/25 pts`) et jauge. |
+| **Résultat** | **Réussi** ou **Échoué**. |
+| **Statut** | **Terminé**, **Temps écoulé** ou **Revu**. |
+| **Verdict** | Le verdict, ou « — ». |
+| **Durée** | Temps entre le début et la fin du passage. |
+| **Terminé le** | Date de fin. |
+
+Sur un écran étroit, certaines colonnes sont masquées ; le **Candidat**, le **Score** et l’icône
+**Voir le rapport** restent toujours visibles.
+
+Les compteurs en haut de page (**Terminés**, **Réussis**, **Échoués**) portent sur les rapports affichés
+dans la page courante de la table.
+
+## Voir aussi
+
+- [Lire le rapport d’un candidat](/recruiters/candidate-report/)
+- [Présentation de l’intégration MCP](/mcp/overview/)

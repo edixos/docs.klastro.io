@@ -1,0 +1,287 @@
+---
+title: Setup steps and checks
+description: Order a scenario's setup steps, pick the right step type, and write and test the CEL checks that grade tasks.
+sidebar:
+  order: 2
+---
+
+import { Steps, Tabs, TabItem } from '@astrojs/starlight/components';
+
+A Studio scenario is a pipeline: the **environment**, then **setup steps** that prepare what the
+learner finds on arrival, then **tasks** whose **checks** grade their work. This page explains
+how to order steps, what each step type does, and how to write and test a check.
+
+If you have never opened the Studio, start with
+[Your first scenario in Scenario Studio](/en/instructors/studio-first-scenario/).
+
+## Order the steps
+
+Execution order comes from the wires you draw on the canvas. Drag from a node's output handle to
+the next node.
+
+<Steps>
+
+1. Wire the **Environment** to the first step. Nothing runs before the environment, and the
+   Studio refuses a wire into it.
+
+2. Wire a step to the one it has to wait for. In the step's form, **Runs after** shows the result:
+   "nothing — first step of the pipeline", or the names of the steps it waits for.
+
+3. To run several steps at the same time, wire them all from the same previous step. **Runs after**
+   then reads "Starts at the same time as: …".
+
+4. Wire each task from the step whose result it checks. A task wired from several steps waits
+   for the last of them.
+
+</Steps>
+
+A few rules worth knowing:
+
+- A step with no wire from another step runs **after the step before it** on the canvas, top to
+  bottom then left to right. For genuine parallel execution, draw the wires.
+- A loop (A waits for B, which waits for A) is an error: the pipeline must run one way.
+- A task wired to no step raises a warning: it runs after the whole pipeline.
+- Tasks reach the learner in the order of the steps they check.
+- **Tidy up**, in the toolbar, re-lays out the canvas without changing the wires.
+
+### Settings shared by every step
+
+| Field | Purpose |
+|---|---|
+| **Name** | Identifies the step in the preview's progress and in wiring. Required and unique. |
+| **Step type** | Fixed when the step is added from the palette. To change it, delete the step and add another. |
+| **Description** | Free note for you and your co-authors. |
+| **Timeout** | The step's deadline, e.g. `5m`. Empty uses the platform default. |
+| **Run on** | Follows the scenario's environment. Not editable. |
+| **Runs after** | Computed from the canvas wiring. |
+| **Continue on error** | Lets the pipeline carry on if this step fails. |
+
+## Step types
+
+| Step (palette) | What it does | Main fields |
+|---|---|---|
+| **Helm release** | Installs a chart from a repository into the environment. | **Where the chart comes from** (**Catalog** or **Custom**), **Repository URL**, **Repository name**, **Chart**, **Version**, **Release name**, **Namespace**, **Create namespace**, **Wait for readiness**, **Values** |
+| **Manifests** | Applies Kubernetes resources, in order, before the learner reaches the environment. | A list of resources, each in **Form** or **YAML** |
+| **Shell script** | Runs a script on the environment, as root unless told otherwise. | **Interpreter**, **Target** (`host` or `cluster-node`), **Run as user**, **Environment** (variables), **Script** |
+| **OS packages** | Installs OS packages. | **Package manager** (`apt`, `yum` or `apk`), **Packages** (one per line), **Update index first** |
+| **Files** | Writes files onto the machine. | Per file: **Path**, **Permissions** (e.g. `0644`), **From secret** or **Content** |
+| **Wait** | Pauses until a resource is ready, or for a fixed duration. | **Wait for**: **A Kubernetes resource condition** (**Resource** as `type/name`, **Namespace**, **Condition**, e.g. `Available`) or **A fixed duration** (**Duration**, e.g. `30s`) |
+| **HTTP call** | Calls an HTTP endpoint and asserts its status. | **Method**, **URL**, **Expected status**, **Headers**, **Body**, **Timeout** |
+
+The palette also lists **Custom**. The Studio reports that no environment can run it: do not use
+it in a scenario you intend to publish.
+
+:::caution[Not every step runs everywhere]
+Each environment accepts only some step types. When a step cannot run on the chosen environment,
+a "… cannot run on this environment." banner appears above the canvas, and the step's form says
+which environments accept it. Publishing or previewing as it stands will be refused.
+:::
+
+### Write manifests: form or YAML
+
+<Steps>
+
+1. In a **Manifests** step, click **Add resource**.
+
+2. Pick a template: **Deployment**, **Service**, **ConfigMap**, **Secret**, **Ingress**,
+   **HTTPRoute**, or **Blank object** for any other resource.
+
+3. Fill in the **Form** (name, namespace, image, replicas, ports, data…), or switch to **YAML**
+   to write the resource by hand. Edits made in YAML update the form.
+
+</Steps>
+
+- An empty **Namespace** applies the resource to the environment's default namespace.
+- **Secret** data is written in plain text, one `KEY=value` line per entry: the cluster encodes it.
+- If a resource uses fields the form does not cover, it stays in **YAML**: editing it in the form
+  would drop those fields.
+- A YAML resource must be a single mapping, not a list.
+
+### Install a Helm chart from the catalog
+
+<Steps>
+
+1. In a **Helm release** step, under **Where the chart comes from**, choose **Catalog**.
+
+2. Find the chart with **Search charts**, or browse the shelves: **GitOps & delivery**,
+   **Observability**, **Security & policy**, **Networking**, **Platform**, **Workloads**.
+
+3. Click the chart. The repository, chart and a version are filled in for you, as are the release
+   name and namespace if they were empty. **Values** the chart needs to work in a lab are
+   pre-filled where there are any.
+
+4. Check the **Version**: pin it. An unpinned chart makes the scenario a different lab every month.
+
+</Steps>
+
+For a chart that is not in the catalog, choose **Custom** and enter the **Repository URL**,
+**Repository name** and **Chart**. Some catalog charts, such as Cilium, need a real cluster rather
+than a virtual one: their description says so.
+
+:::caution
+Installing the same chart from the same repository twice in one scenario raises a warning: if the
+chart defines CRDs, the second step fails because they already belong to the first release.
+:::
+
+## Write a check
+
+A check reads one piece of data from the learner's environment, then evaluates a
+[CEL](https://cel.dev) expression over it. The expression must return a boolean.
+
+<Steps>
+
+1. Open a task and, under **Validation**, click **Add check**.
+
+2. Enter a **Description**: the learner sees it in the feedback on their attempt.
+
+3. Choose the **Type**. It decides what the check reads and which variables the expression may
+   use (see the table below).
+
+4. Fill in the type's target, then the **CEL expression**.
+
+5. Set **Points**, **Required** and, if needed, **Timeout**.
+
+</Steps>
+
+### Check fields
+
+| Field | Purpose |
+|---|---|
+| **Description** | Shown to the learner in feedback, and in the audit trail. |
+| **Type** | What the check reads. |
+| **CEL expression** | Must return a boolean. The help under the field lists the available variables. |
+| **Points** | Awarded when the expression is true. |
+| **Required** | Ticked by default. A failing required check blocks the whole task. |
+| **Timeout** | Per-check deadline. Empty: 10 s, with a maximum of 60 s. |
+
+### Check types and variables
+
+| Type | What it reads | Target to fill in | CEL variables |
+|---|---|---|---|
+| **ResourceExists** | Kubernetes resources exist | **API version**, **Kind**, **Namespace**, then **Names** (one per line) or a **Label selector** | `exists` (bool), `count` (int), `names` (list of strings) |
+| **KubernetesResource** | One field of one resource | **API version**, **Kind**, **Name**, **Namespace**, **JSONPath** | With **JSONPath**: `value` (string), `exists`. Without: `object` (the whole resource), `exists` |
+| **FileContent** | A file on the machine | **Path**, **Encoding** (`utf8` or `base64`), **Node** | `exists` (bool), `content` (string), `size` (int), `checksum` (string) |
+| **ShellCommand** | What a script printed | **Interpreter** (`/bin/bash` or `/bin/sh`), **Script**, **Environment**, **Node** | `stdout`, `stderr` (strings), `exitCode`, `durationMs` (int) |
+
+- An empty **Namespace** uses the session namespace.
+- **Names** wins over **Label selector** when both are set.
+- **Node** only matters for multi-machine kubeadm environments: `0` is the control plane, `1` the
+  worker. It is ignored elsewhere.
+
+### Example expressions
+
+<Tabs>
+<TabItem label="ResourceExists">
+
+At least two pods labelled `app=web` exist:
+
+```text
+exists && count >= 2
+```
+
+A Service named `web` exists (with `web` in **Names**):
+
+```text
+"web" in names
+```
+
+</TabItem>
+<TabItem label="KubernetesResource">
+
+With **JSONPath** `.status.readyReplicas`. `value` is always a string:
+
+```text
+exists && value == "3"
+```
+
+Without a JSONPath, the expression reads the whole resource in `object`:
+
+```text
+exists && object.spec.replicas == 3
+```
+
+</TabItem>
+<TabItem label="FileContent">
+
+The file exists and contains a specific directive:
+
+```text
+exists && content.contains("worker_processes 4;")
+```
+
+</TabItem>
+<TabItem label="ShellCommand">
+
+The script succeeded and printed exactly `Running`:
+
+```text
+exitCode == 0 && stdout.trim() == "Running"
+```
+
+For example with the script:
+
+```bash
+kubectl get pod web -n default -o jsonpath='{.status.phase}'
+```
+
+</TabItem>
+</Tabs>
+
+:::tip
+The usual string functions are available: `contains`, `startsWith`, `endsWith`, `matches`,
+`trim`, `lowerAscii`… Prefer a strict comparison to a loose `contains`: a check that passes
+without the work being done grades badly.
+:::
+
+### Hints
+
+Under **Hints**, click **Add hint**, then enter the **Text** and the **Cost**: the points deducted
+from the task when the learner reveals the hint. In a Tutorial, hints are free for the learner.
+
+## Test a check
+
+Test every check against a real environment before publishing. Test runs cost no credits and are
+never recorded against a learner.
+
+<Steps>
+
+1. Launch a preview: **Preview**, then **Launch preview**.
+
+2. Wait for the terminal to appear. While the preview is starting, the test control says "The
+   preview is still starting up."
+
+3. On the task node, click **Test validation**. Do it once **before** doing the work: a check that
+   already passes on the starting state is badly written.
+
+4. Do the work in the preview's terminal, then run the test again: **Test validation** on the node,
+   or **Run again** in the **Results** tab.
+
+5. Read the task's **Results** tab: each check shows its outcome, points and run time. "Fetch
+   failed" means the target could not be read (resource not found, script error) before the
+   expression was even evaluated.
+
+</Steps>
+
+:::note[You edited the canvas during the preview]
+The banner "Canvas updated — this preview is still running the version you launched." appears.
+Click **Apply changes** to replay the changed setup steps without losing the terminal, or
+**Recreate** to start again from a fresh environment. Testing is blocked until the preview is up
+to date.
+:::
+
+## Read the problems
+
+- **Check**, in the toolbar, compiles the canvas and lists errors and warnings. The chip shows the
+  error count, the warning count, or **Ready to publish**.
+- A node's **Issues** tab gives the reason for each error and what to fix.
+- During a preview, each step shows its state: **Queued**, **Running**, **Applied**, **Failed** or
+  **Skipped**. The preview drawer's **Output** view shows the full provisioning progress.
+
+If a check behaves differently for your learners, see
+[Troubleshooting checks](/en/troubleshooting/checks/). For an environment that will not start,
+see [Troubleshooting provisioning](/en/troubleshooting/provisioning/).
+
+## Import and export a canvas
+
+**Export** downloads the canvas as JSON. **Import** replaces the current canvas with the contents
+of an exported file; unreadable nodes are left out and reported.

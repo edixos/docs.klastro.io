@@ -1,0 +1,84 @@
+---
+title: Prendre des notes pendant un lab
+description: Utiliser le bloc-notes Notes pour garder commandes et constats, comprendre quand il s’enregistre, et savoir qui peut le lire.
+sidebar:
+  order: 4
+---
+
+import { Steps } from '@astrojs/starlight/components';
+
+L’onglet **Notes** est un bloc-notes en texte brut intégré au lab. Utilisez-le
+pour garder les commandes qui ont fonctionné, les valeurs dont vous aurez encore
+besoin, ou votre raisonnement au fil du travail.
+
+**Avant de commencer :** les notes sont disponibles dans les tutoriels, les
+challenges et les assessments. Un playground n’a pas d’onglet Notes.
+
+## Écrire des notes
+
+<Steps>
+
+1. Dans le panneau de gauche, cliquez sur l’onglet **Notes**, à côté
+   d’**Instructions**.
+
+2. Tapez ou collez ce que vous voulez. Le bloc-notes est en texte brut, dans une
+   police à chasse fixe : les commandes collées depuis le terminal gardent leur
+   espacement exact.
+
+3. Surveillez l’indicateur en haut à droite du panneau :
+
+   | Indicateur | Signification |
+   |---|---|
+   | **Enregistrement automatique** | Rien de nouveau à enregistrer |
+   | **Modifications non enregistrées…** | Vous êtes en train de taper ; l’enregistrement se fait à la pause |
+   | **Enregistrement…** | Vos notes sont en cours d’enregistrement |
+   | **Enregistré** | Votre dernier texte est sauvegardé |
+   | **Non enregistré — nouvelle tentative à la prochaine modification** | Le dernier enregistrement a échoué |
+
+4. Cliquez sur **Instructions** pour revenir à vos tâches. Vos notes, y compris
+   le texte pas encore enregistré, restent en place pendant que vous changez
+   d’onglet.
+
+</Steps>
+
+Les notes s’enregistrent environ une seconde après votre dernière frappe, et
+immédiatement lorsque vous cliquez en dehors du bloc-notes.
+
+:::caution
+Si vous voyez **Non enregistré — nouvelle tentative à la prochaine modification**,
+votre dernier texte n’existe que dans votre navigateur. Tapez n’importe quel
+caractère pour relancer un enregistrement, et attendez **Enregistré** avant de
+quitter le lab ou de recharger la page.
+:::
+
+## Où les notes sont conservées
+
+| Lab | Vos notes sont rattachées à |
+|---|---|
+| Un tutoriel ou un challenge que vous avez lancé vous-même | Ce lab précis. Le rouvrir plus tard les affiche ; un nouveau lab démarre avec un bloc-notes vide. |
+| Un assessment | L’assessment entier. Le même bloc-notes vous suit dans tous ses scénarios. |
+
+Les notes sont stockées avec votre compte, et non dans l’environnement du lab :
+rien de ce que vous faites dans le terminal ne peut les affecter. Un bloc-notes
+contient jusqu’à 256 Ko de texte.
+
+## Qui peut lire vos notes
+
+| Lab | Qui peut les lire |
+|---|---|
+| Un tutoriel ou un challenge que vous avez lancé vous-même | Vous seul |
+| Un assessment | Vous, et le recruteur qui examine votre assessment : vos notes figurent dans votre rapport de candidat |
+
+:::caution[Assessments : vos notes font partie de ce que voit le recruteur]
+Le texte d’aide du bloc-notes indique que les notes ne sont visibles que de vous,
+mais dans un assessment le recruteur les lit avec vos résultats. Rédigez-les comme
+vous voudriez qu’un évaluateur les lise — y expliquer votre démarche peut l’aider
+à comprendre votre travail. Voir
+[Lire un rapport de candidat](/recruiters/candidate-report/) pour le côté
+recruteur.
+:::
+
+## Voir aussi
+
+- [L’espace de travail du lab](/lab/overview/)
+- [Passer un assessment](/lab/assessment-mode/)

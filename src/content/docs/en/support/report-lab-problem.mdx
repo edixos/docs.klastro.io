@@ -1,0 +1,51 @@
+---
+title: Report a problem from a lab
+description: Send a support ticket from inside a running lab, with the session details attached automatically.
+sidebar:
+  order: 2
+---
+
+import { Steps } from '@astrojs/starlight/components';
+
+When something goes wrong inside a lab (the environment never finishes preparing, the terminal keeps disconnecting, a check fails although your work looks right), report it without leaving the lab. The ticket carries the details of that lab, so support can look at the exact environment you are working in instead of asking you for it.
+
+## Before you start
+
+- You are inside a lab: a tutorial, challenge, playground, training environment or assessment.
+- If you can, take a screenshot of the problem first. On most systems, <kbd>Win</kbd>+<kbd>Shift</kbd>+<kbd>S</kbd> on Windows or <kbd>Cmd</kbd>+<kbd>Shift</kbd>+<kbd>4</kbd> on macOS.
+
+## Send the report
+
+<Steps>
+
+1. In the lab's top bar, select **Report a problem** (the lifebuoy icon). On narrow screens only the icon is shown.
+
+2. The **Report a problem** form opens. Under the description, you see **Attaching the running lab session** followed by the session id. Your plan, your organization, the lab's setup progress and your browser version travel with it, where available.
+
+3. Fill in **Subject**, **Priority**, **Category** and **What happened?**. For a blocked lab or assessment, choose **P2 — High** and the category **Lab environment** or **Assessment**.
+
+4. Optionally attach a screenshot: select **Attach screenshot**, or paste the image with <kbd>Ctrl</kbd>+<kbd>V</kbd> (<kbd>Cmd</kbd>+<kbd>V</kbd> on macOS) or drop it on the form. PNG, JPEG or WebP, up to 5 MB.
+
+5. Select **Send ticket**.
+
+</Steps>
+
+The confirmation shows your ticket number. Select **Done** to return to the lab: it keeps running while you report. Replies arrive by email, and the ticket appears in the **Help Desk** of the lab's organization. See [Open a support ticket](/en/support/open-ticket/) to follow, escalate or close it.
+
+:::caution[During an assessment]
+Reporting a problem does **not** pause the assessment timer. Send your report, then carry on with your tasks while support looks into it. If you cannot continue at all, tell the recruiter as well.
+:::
+
+## What to write
+
+A good report answers three questions:
+
+- **What were you doing?** The task you were on and the last command you ran.
+- **What did you expect?** For example, "the check should pass because the pod is running".
+- **What happened instead?** The exact error message, copied from the terminal if you can.
+
+## Related
+
+- [Troubleshooting: lab preparation](/en/troubleshooting/provisioning/)
+- [Troubleshooting: terminal](/en/troubleshooting/terminal/)
+- [Troubleshooting: checks and validation](/en/troubleshooting/checks/)

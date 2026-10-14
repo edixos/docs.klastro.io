@@ -1,0 +1,138 @@
+---
+title: Usage and invoices
+description: Read your credit balance, the per-lab breakdown of what you were charged, the credit ledger, and where invoices come from.
+sidebar:
+  order: 5
+---
+
+import { Steps } from '@astrojs/starlight/components';
+
+The **Billing** page shows what you have spent and why. What you see depends on
+your role:
+
+| Tab | Who sees it | Scope |
+|---|---|---|
+| **Overview** | Everyone | Your own credits. Admins and billing admins also see the plan summary and recent organization activity. |
+| **Plan** | **Admin**, **Billing Admin** | The organization's subscription. |
+| **Seats** | **Admin**, **Billing Admin** | The organization's seat pool. |
+| **Usage** | Everyone | Your own balance and your own labs. |
+| **History** | **Admin**, **Billing Admin** | Every credit movement in the organization. |
+
+Credit figures always describe **your own** balance, even for an admin: each
+member spends their own credits, and the organization holds none of its own.
+
+:::note
+Organizations under an Enterprise contract have no credits. Their **Billing**
+page shows only the **Enterprise contract** notice and the **Contracted
+capacity**. See [Plans and credits](/en/billing/plans-and-credits/).
+:::
+
+## Overview tab
+
+The **Credits this period** card shows a meter of credits used out of your
+grant, the credits **remaining**, and when they renew:
+
+| Line | Meaning |
+|---|---|
+| **Refreshes** followed by a date | Seat credits renew on that date. |
+| **Refreshes monthly** | Seat credits renew every month. |
+| **One-time grant, does not renew** | Your organization is on Community, whose credits are granted once. |
+| **Concurrent sessions** · **up to** N | How many labs can run at once across your organization, when a limit is set. |
+
+Admins and billing admins also see the plan summary (plan, **Billing** cadence,
+**Seats**, **Credit grant**, and **Renews** or **Cancels** date) and a **Recent
+activity** list of the latest credit movements.
+
+## Usage tab
+
+### This period
+
+**Granted**, **Used** and **Remaining** show where your own balance stands right
+now. **Granted** is what you had this period, spent or not, so a zero means you
+had no credits.
+
+### What a lab costs
+
+A reference table of each **Environment** and its **Credits / hour**. See
+[How a lab consumes credits](/en/billing/plans-and-credits/#how-a-lab-consumes-credits).
+
+### Your labs
+
+Every lab charged to you, so you can check a charge against a lab you remember
+running. A lab appears here when it ends.
+
+| Column | Meaning |
+|---|---|
+| **Session** | The lab session. |
+| **Started** / **Ended** | When the lab started and ended. |
+| **Billed for** | The running time you were charged for. When the lab was paused, it reads, for example, **1h 10m less 20m paused**: paused time is free. |
+| **Rate** | The environment's credits per hour, for example **2/h**. |
+| **Credits** | What the lab cost, to the hundredth of a credit. |
+
+If you have not run a lab yet, the table reads **No labs charged yet**.
+
+## History tab
+
+The **Credit ledger** lists every credit movement in the organization, most
+recent first. Because each member has their own balance, the **Member** column
+says whose balance moved, and **Balance** is that member's balance after the
+movement.
+
+| Column | Meaning |
+|---|---|
+| **Type** | The kind of movement (see below). |
+| **Member** | Whose balance changed. |
+| **Reference** | What the movement relates to, such as a lab session. |
+| **Date** | When it happened. |
+| **Amount** | Credits added (positive) or spent (negative). |
+| **Balance** | The member's balance afterwards. |
+
+### Movement types
+
+| Type | Meaning |
+|---|---|
+| **Session usage** | A lab ended and its cost was charged. |
+| **Plan credit grant** | A plan granted credits: the one-time Community welcome credits, or a paid seat's monthly renewal. |
+| **Grant expired** | Unused credits were cleared just before a monthly renewal. Seat credits do not roll over. |
+| **Cohort overage** | Cohort places beyond those included, paid in credits before launch. |
+| **Credit transfer** | Credits given from one member to another. A transfer shows as two rows: one for the giver, one for the recipient. |
+| **Seat assigned** | A paid seat was assigned to the member, with the credits left on it. |
+| **Seat released** | A paid seat was taken back, with the credits left on it. |
+| `VOUCHER_REDEMPTION` | A member redeemed a credit voucher. |
+
+:::note
+**Seat assigned** and **Seat released** rows do not create or destroy credits:
+they show who may now spend the credits already on that seat.
+:::
+
+## Invoices and payment
+
+Klastro charges your subscription through Stripe. There are no separate invoices
+for lab usage: labs are paid in credits, and once your credits run out, labs
+pause rather than run up an overage.
+
+Invoices and receipts are sent by email to the **Billing email** set in your
+organization settings. See
+[Organization settings](/en/admins/organization-settings/#billing-information).
+
+To update your payment method, change plan or cancel:
+
+<Steps>
+
+1. Open **Billing**, then the **Plan** tab.
+
+2. Click **Manage subscription**.
+
+3. Make your changes in the secure billing portal.
+
+</Steps>
+
+If the portal does not open, the page shows **Could not open the billing
+portal**. Try again, and if it keeps failing,
+[open a support ticket](/en/support/open-ticket/).
+
+## Related
+
+- [Plans and credits](/en/billing/plans-and-credits/)
+- [Credits and paused labs](/en/troubleshooting/credits-and-pauses/)
+- [Manage your sessions](/en/learners/manage-sessions/)

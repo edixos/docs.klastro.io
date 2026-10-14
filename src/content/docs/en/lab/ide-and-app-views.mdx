@@ -1,0 +1,96 @@
+---
+title: Use the editor and app views
+description: Edit files in the in-browser VS Code editor, use the web tools a scenario embeds, sign in with the credentials shown, and open any of them in a full browser tab.
+sidebar:
+  order: 3
+---
+
+import { Steps } from '@astrojs/starlight/components';
+
+Some scenarios give you more than a terminal: an in-browser **VS Code** editor,
+and **app views** — web applications running inside your lab, such as a GitOps
+dashboard or a monitoring console. They open as extra tabs next to your terminal
+tabs.
+
+**Before you start:** these tabs only appear when the scenario includes them. If
+you see only **Shell** and **Node** tabs, this lab has neither.
+
+## Edit files in the Code tab
+
+The **Code** tab is a full VS Code editor running in your browser. It works on
+the same files as your terminal: anything you save in the editor is immediately
+visible from the shell, and the other way round.
+
+<Steps>
+
+1. Click the **Code** tab, after your terminal tabs.
+
+2. Open files from the editor's file explorer, edit them, and save with
+   <kbd>Cmd</kbd>+<kbd>S</kbd> on macOS or <kbd>Ctrl</kbd>+<kbd>S</kbd> on
+   Windows and Linux.
+
+3. Switch back to a **Shell** tab to apply or run what you edited, for example
+   `kubectl apply -f` on a manifest you just changed.
+
+</Steps>
+
+The **Code** tab only appears once the editor is ready to use. If it is missing
+right after the lab starts, wait a moment: it shows up on its own.
+
+:::tip
+The editor gets far more room in its own browser tab. Click **Open in new tab**
+in the strip above the editor. Your terminal stays in the lab tab, and both work
+on the same files.
+:::
+
+:::note
+Inside the embedded editor, some browser shortcuts are taken by the browser
+before the editor sees them. If a VS Code shortcut does not work, open the editor
+in a new tab or use the editor's menus.
+:::
+
+## Use an app view
+
+Each app view tab is named after its application. While the application is
+still starting, its tab shows a pulsing dot and the pane reads, for example,
+**Starting Argo CD…**. The application loads by itself as soon as it is serving;
+you do not need to reload.
+
+<Steps>
+
+1. Click the application's tab.
+
+2. If the scenario provides a login, it appears in the strip above the
+   application:
+   - **User** is shown in clear. Click its copy icon (**Copy User**) to copy it.
+   - **Password** is masked. Click the eye icon (**Show password**) to read it,
+     or the copy icon (**Copy Password**) to copy it without revealing it.
+
+3. Paste the credentials into the application's sign-in page.
+
+4. To work with more space, click **Open in new tab**.
+
+</Steps>
+
+## Open in a new tab
+
+**Open in new tab** sits at the right of the strip above the editor and every app
+view. It opens the same application in a separate browser tab.
+
+- The new tab is the same application, not a copy: changes you make there are
+  the changes in your lab.
+- It only works while the lab is running. Once the lab is paused or ended, the
+  page stops responding.
+
+## If a tab stays blank or keeps loading
+
+- Wait for the pulsing dot on the tab to stop: the application may still be
+  starting, especially right after the lab is created.
+- Click **Open in new tab** to see whether the application answers there.
+- If it never comes up, use **Report a problem** in the top bar. See
+  [Report a problem with a lab](/en/support/report-lab-problem/).
+
+## Related
+
+- [The lab workspace](/en/lab/overview/)
+- [Use the lab terminal](/en/lab/terminal/)

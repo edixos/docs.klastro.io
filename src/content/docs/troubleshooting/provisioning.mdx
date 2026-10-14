@@ -1,0 +1,68 @@
+---
+title: La préparation du lab est lente ou échoue
+description: Ce que signifie l’écran de préparation, combien de temps prend un lab pour être prêt, et que faire quand il ne démarre pas.
+sidebar:
+  order: 4
+---
+
+Quand vous lancez un lab, Klastro crée pour vous un environnement réel et isolé. Pendant sa préparation, le lab affiche **Préparation de votre environnement** et l’étape en cours :
+
+| Message | Ce qui se passe |
+|---|---|
+| **Réservation de votre environnement…** | Votre environnement est réservé. |
+| **Démarrage des machines…** | Les machines ou le cluster démarrent. |
+| **En attente de l’autorisation de votre session…** | Le lab attend une approbation (voir ci-dessous). |
+| **Installation de votre lab…** avec **2 étapes sur 5 terminées** | Les étapes d’installation du scénario s’exécutent une à une. La liste affiche chaque étape. |
+| **Démarrage…** | Les derniers instants avant l’ouverture du terminal. |
+
+Chaque problème ci-dessous est présenté sous la forme **Symptôme**, **Cause** et **Solution**.
+
+## La préparation est longue
+
+**Symptôme.** Le lab reste plusieurs minutes sur **Préparation de votre environnement**.
+
+**Cause.** La durée de préparation dépend du scénario. Un cluster unique est en général vite prêt ; un scénario à plusieurs machines avec une longue liste d’étapes d’installation (installer un cluster de zéro, déployer des outils) prend nettement plus de temps.
+
+**Solution.** Patientez tant que le compteur d’étapes progresse : l’écran affiche une progression réelle, pas une estimation. **N’actualisez pas** la page en boucle et ne relancez pas le lab depuis le catalogue. Si le compteur n’a pas bougé depuis longtemps, [signalez un problème](/support/report-lab-problem/) depuis le lab : l’avancement de la préparation est joint à votre signalement.
+
+## « Une étape n’a pas abouti. Nous réessayons »
+
+**Symptôme.** L’écran de préparation affiche **Une étape n’a pas abouti. Nous réessayons — cela peut prendre un peu plus longtemps.**
+
+**Cause.** Une étape d’installation a échoué, souvent parce qu’un élément dont elle dépend n’était pas encore prêt. Klastro la relance automatiquement.
+
+**Solution.** Patientez. La plupart des nouvelles tentatives réussissent. Si le message persiste et que le compteur ne bouge plus, signalez le problème depuis le lab.
+
+## « En attente de l’autorisation de votre session… »
+
+**Symptôme.** Le lab reste sur **En attente de l’autorisation de votre session…** (ou **En attente de l’autorisation…** dans le terminal).
+
+**Cause.** L’Assessment est en approbation manuelle : un recruteur doit autoriser votre session avant qu’elle démarre.
+
+**Solution.** Gardez la page ouverte. Le lab reprend tout seul dès que le recruteur approuve. S’il ne se passe rien, contactez le recruteur qui vous a invité.
+
+## « La session de lab a rencontré une erreur »
+
+**Symptôme.** La page du lab affiche **La session de lab a rencontré une erreur.**
+
+**Cause.** La page n’a pas pu charger la session, ou l’environnement n’a pas pu être créé.
+
+**Solution.** Actualisez la page une fois. Si l’erreur revient, ouvrez **Mes sessions**, vérifiez le statut de la session, puis [signalez un problème](/support/report-lab-problem/) ou [ouvrez un ticket](/support/open-ticket/) en indiquant l’identifiant de la session.
+
+## Le lab ne démarre pas du tout
+
+| Message | Cause | Solution |
+|---|---|---|
+| **Limite de sessions atteinte** | Votre forfait permet un nombre défini de sessions simultanées. | Sélectionnez **Mettre en pause** ou **Arrêter** sur l’une des sessions listées, puis **Réessayer**. Voir [Gérer vos sessions](/learners/manage-sessions/). |
+| **Trop de sessions sont en cours en ce moment…** | La plateforme ou votre organisation a atteint son nombre de labs simultanés. | Patientez quelques minutes et réessayez. Les labs en pause ne comptent pas. |
+| Un message commençant par `ERR_INSUFFICIENT_CREDITS` | Votre solde ne couvre pas une heure de cet environnement. | Voir [Crédits et labs en pause](/troubleshooting/credits-and-pauses/). |
+| **Changer de forfait pour lancer** à la place du bouton de lancement | Votre forfait n’inclut pas ce type de lab. | Voir [Forfaits et crédits](/billing/plans-and-credits/). |
+| **La session n’a pas démarré. Réessayez.** | Un problème temporaire. | Réessayez. Si le problème persiste, ouvrez un ticket. |
+
+## Le lab s’est arrêté tout seul
+
+**Symptôme.** Vous recevez la notification **Votre lab est terminé** (« … a atteint sa durée maximale et a été arrêté. »), ou le lab affiche **Cet environnement est terminé**.
+
+**Cause.** Chaque lab a une durée de vie maximale fixée par le scénario. Une fois atteinte, l’environnement est arrêté. Les validations déjà passées sont conservées.
+
+**Solution.** Relancez le scénario depuis le catalogue pour continuer à vous entraîner. Pour conserver un environnement entre deux séances de travail, mettez-le en pause avant de partir plutôt que de le laisser tourner.

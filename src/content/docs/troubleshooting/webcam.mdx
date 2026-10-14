@@ -1,0 +1,93 @@
+---
+title: Webcam et autorisations de la caméra
+description: Préparez votre navigateur et votre ordinateur pour un Assessment qui exige une webcam, et débloquez l’accès à la caméra dans Chrome, Firefox, Safari et Edge.
+sidebar:
+  order: 8
+---
+
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
+Certains Assessments exigent une webcam. L’invitation vous l’indique avant de commencer : sous **Webcam**, elle affiche **Requise** ou **Facultative**, et la rubrique **À savoir avant de commencer** mentionne **L’accès à votre webcam sera demandé**. Pendant un tel Assessment, la barre supérieure du lab affiche un indicateur de webcam. Pour savoir ce que la surveillance implique pour vous, consultez [Le mode Assessment](/lab/assessment-mode/).
+
+L’accès à la caméra est contrôlé par votre **navigateur** et votre **système d’exploitation**, pas par Klastro. Cette page explique comment vérifier les deux avant de commencer.
+
+:::caution
+Une fois lancé, le chronomètre de l’Assessment ne peut plus être mis en pause. Vérifiez votre webcam **avant** de sélectionner **Démarrer l’Assessment**.
+:::
+
+## Le navigateur bloque la caméra
+
+**Symptôme.** La caméra ne fonctionne pas sur app.klastro.io, la barre d’adresse affiche une icône de caméra barrée, ou le navigateur ne demande jamais l’autorisation.
+
+**Cause.** Vous avez déjà refusé l’accès à la caméra pour ce site, ou le réglage par défaut du navigateur bloque les caméras.
+
+**Solution.** Autorisez la caméra pour `https://app.klastro.io` dans votre navigateur, puis actualisez la page.
+
+<Tabs syncKey="browser">
+<TabItem label="Chrome">
+
+1. Sur app.klastro.io, sélectionnez l’icône à gauche de l’adresse dans la barre d’adresse (**Afficher les informations sur le site**).
+2. Réglez **Caméra** sur **Autoriser**. Si l’option n’apparaît pas, sélectionnez **Paramètres des sites** et réglez **Caméra** sur **Autoriser**.
+3. Actualisez la page.
+
+Pour vérifier le réglage global, ouvrez `chrome://settings/content/camera` : app.klastro.io ne doit pas figurer parmi les sites non autorisés à utiliser la caméra.
+
+</TabItem>
+<TabItem label="Firefox">
+
+1. Sur app.klastro.io, sélectionnez l’icône des permissions à gauche de l’adresse dans la barre d’adresse.
+2. À côté de la permission de caméra marquée **Bloqué** (ou **Bloqué temporairement**), sélectionnez la **×** pour l’effacer.
+3. Actualisez la page et acceptez la demande d’accès à la caméra quand Firefox la présente.
+
+Pour vérifier le réglage global, ouvrez **Paramètres** > **Vie privée et sécurité** > **Permissions** > **Caméra** > **Paramètres…** et vérifiez qu’app.klastro.io n’est pas réglé sur **Bloquer**.
+
+</TabItem>
+<TabItem label="Safari">
+
+1. Avec app.klastro.io ouvert, choisissez **Safari** > **Réglages…** dans la barre des menus (ou **Réglages pour app.klastro.io…**).
+2. Ouvrez l’onglet **Sites web**, puis **Caméra** dans la barre latérale.
+3. Réglez app.klastro.io sur **Autoriser** (ou **Demander**).
+4. Actualisez la page.
+
+</TabItem>
+<TabItem label="Edge">
+
+1. Sur app.klastro.io, sélectionnez l’icône de cadenas à gauche de l’adresse dans la barre d’adresse.
+2. Sélectionnez **Autorisations pour ce site** et réglez **Caméra** sur **Autoriser**.
+3. Actualisez la page.
+
+Pour vérifier le réglage global, ouvrez `edge://settings/content/camera`.
+
+</TabItem>
+</Tabs>
+
+## Le système d’exploitation bloque la caméra
+
+**Symptôme.** Le navigateur autorise la caméra, mais aucune image ne passe, ou le navigateur indique que la caméra est indisponible.
+
+**Cause.** Le système d’exploitation n’autorise pas votre navigateur à utiliser la caméra.
+
+**Solution.**
+
+- **macOS** : ouvrez **Réglages Système** > **Confidentialité et sécurité** > **Caméra** et activez votre navigateur. Quittez puis rouvrez le navigateur.
+- **Windows 11** : ouvrez **Paramètres** > **Confidentialité et sécurité** > **Caméra** et activez **Accès à la caméra**, **Autoriser les applications à accéder à votre caméra** et **Autoriser les applications de bureau à accéder à votre caméra**.
+
+## Une autre application utilise la caméra
+
+**Symptôme.** La caméra est autorisée partout mais ne démarre toujours pas, ou affiche une image noire.
+
+**Cause.** Une autre application (un outil de visioconférence, un autre onglet) monopolise la caméra. Certains ordinateurs ne la partagent qu’avec une application à la fois.
+
+**Solution.** Fermez les applications de visioconférence et les autres onglets qui utilisent la caméra, puis actualisez app.klastro.io. Sur un ordinateur portable équipé d’un cache ou d’une touche de caméra, vérifiez que la caméra est activée.
+
+## Un ordinateur géré par votre entreprise
+
+**Symptôme.** Les réglages de la caméra sont grisés ou se réinitialisent.
+
+**Cause.** La politique informatique de votre entreprise contrôle l’accès à la caméra.
+
+**Solution.** Passez l’Assessment sur un ordinateur personnel, ou demandez à votre équipe informatique d’autoriser la caméra pour app.klastro.io.
+
+## Toujours aucun résultat
+
+Si l’Assessment exige une webcam et que vous ne parvenez pas à la faire fonctionner, contactez le recruteur qui vous a invité **avant** de commencer. Si un problème survient pendant l’Assessment, sélectionnez **Signaler un problème** dans la barre supérieure du lab ; voir [Signaler un problème depuis un lab](/support/report-lab-problem/).

@@ -1,0 +1,169 @@
+---
+title: The lab workspace
+description: A tour of the lab screen — instructions, terminals, editor, app views, notes and the bars around them — and what survives a refresh or a pause.
+sidebar:
+  order: 1
+---
+
+import { CardGrid, LinkCard } from '@astrojs/starlight/components';
+
+Every Klastro lab opens in the same full-screen workspace, whether you are
+following a tutorial, practising a challenge, exploring a playground or sitting
+an assessment. This page explains how that screen is laid out and what each part
+does. The pages that follow go into each part in detail.
+
+## The layout at a glance
+
+The workspace is a single card split into two panes, with a thin bar above it and
+another below it.
+
+| Area | Where | What it holds |
+|---|---|---|
+| Top bar | Above the workspace | The Klastro logo, the scenario name, the assessment timer, **Report a problem**, language and theme toggles, and the way out of the lab |
+| Left pane | Left side of the card | The **Instructions** tab (tasks, hints, checks) and, where available, the **Notes** tab |
+| Right pane | Right side of the card | Terminal tabs, plus the **Code** tab and app view tabs when the scenario provides them |
+| Status bar | Below the workspace | **Connected** or **Waiting to start session...**, and the scenario name |
+
+A playground has no instructions: the left pane is removed and the terminal takes
+the whole card.
+
+## The left pane
+
+### Instructions
+
+The **Instructions** tab is where the scenario tells you what to do. From top to
+bottom it shows:
+
+- **A header** with the list toggle (**Show tasks** / **Hide tasks**, or
+  **Show steps** / **Hide steps** in a tutorial), your progress as
+  *done of total* (for example **2 of 8**), and, on a challenge, the scenario's
+  total points.
+- **About this scenario**, a collapsed section with the scenario description.
+- **Connect to the machines**, a collapsed section that only appears when your
+  lab has machines you reach over ssh. See [Use the lab terminal](/en/lab/terminal/).
+- **The task list** down the side, numbered. A tick replaces the number once a
+  step has passed its check.
+- **The current task**: its position (for example **3 of 8**), title, instructions,
+  the check control in a tutorial, and hints.
+- **Previous** and **Next** buttons at the bottom. On the last task they become
+  **Finish & submit** (challenge) or **Finish** (tutorial).
+
+Commands in the instructions are copy buttons: click any inline command or the
+**Copy** button on a code block, then paste it in the terminal.
+
+While your environment is still being built, the Instructions tab shows
+**Preparing your environment** with a progress bar and the setup steps instead of
+the tasks. Tasks only appear once there is a working environment to run them
+against.
+
+How tasks, hints and checks work is covered in
+[Tasks, checks and hints](/en/lab/tasks-and-checks/).
+
+### Notes
+
+The **Notes** tab is a plain-text scratchpad that saves itself as you type. It
+is available in tutorials, challenges and assessments. In an assessment, the
+recruiter can read it in your report. See [Take notes during a lab](/en/lab/notes/).
+
+## The right pane
+
+The right pane is a strip of tabs over one large surface.
+
+- **Shell** tabs (**Shell 1**, **Shell 2**…) are terminals in your lab. Use the
+  **+** button to open more, up to five.
+- **Node** tabs (**Node**, or **Node 1**, **Node 2**…) appear when your lab has
+  machines. Each one opens a terminal directly on that machine.
+- **Code** opens an in-browser VS Code editor, when the scenario includes one.
+- **App view** tabs, named after the application (for example a GitOps or
+  monitoring console), embed web tools running inside your lab.
+
+A small dot on each terminal tab shows its connection: green when connected, red
+on an error, grey when closed, and pulsing while connecting. A pulsing dot on an
+app view tab means the application is still starting.
+
+See [Use the lab terminal](/en/lab/terminal/) and
+[Use the editor and app views](/en/lab/ide-and-app-views/).
+
+## Resize the two panes
+
+Drag the grip between the left and right panes to give more room to the
+instructions or to the terminal. The left pane can take between roughly a fifth
+and a little over half of the width.
+
+To resize from the keyboard, press <kbd>Tab</kbd> until the grip (labelled
+**Resize panels**) is focused, then use <kbd>←</kbd> and <kbd>→</kbd>.
+
+:::note
+The split position is not remembered: reloading the page resets it. Whether the
+task list is collapsed, and which sections are open, is remembered for the rest
+of your visit in that browser tab.
+:::
+
+## The top bar
+
+The top bar changes with the kind of lab.
+
+**In every lab**
+
+- The **Klastro logo** takes you back to the dashboard.
+- The **scenario name** appears next to it on wide screens.
+- **Report a problem** opens a support form with this lab attached. See
+  [Report a problem with a lab](/en/support/report-lab-problem/).
+- The language and theme toggles. The terminal always stays dark, whatever the
+  theme.
+
+**In a tutorial, challenge or playground**
+
+- **Back to dashboard** (the dashboard icon) leaves the lab and keeps it running.
+- **Leave lab** (the exit icon) asks whether to **Pause & resume later** or
+  **End session**. See [What persists](#what-persists) below.
+- If you opened the lab from a certification path, a button takes you back to
+  that path.
+- If the lab belongs to an instructor-led class, an ask-for-help button lets you
+  raise your hand without leaving the lab.
+
+**In an assessment**
+
+- The **countdown timer** sits in the middle.
+- **Complete Assessment** ends the whole assessment.
+- **Exit lab** leaves the lab. The countdown keeps running while you are away.
+
+See [Take an assessment](/en/lab/assessment-mode/).
+
+:::note
+The lab bar does not show your credit balance or a live score. On a challenge,
+the points each task is worth appear in the Instructions pane, and your graded
+score appears on the results page after you submit. Credits are on the
+dashboard; see [Plans and credits](/en/billing/plans-and-credits/).
+:::
+
+## What persists
+
+| You do this | What happens to your work |
+|---|---|
+| Reload the page, or lose your connection briefly | Your shells keep running in the lab. Each terminal tab reconnects to the same shell, with the same commands still running. Your open tabs are restored in the same browser tab. |
+| Click **Back to dashboard** | Nothing stops. The lab keeps running (and, on a subscription, keeps using credits). Open it again from **My Sessions**. |
+| **Leave lab** → **Pause & resume later** | The environment is kept and stops running. Opening the lab again resumes it. |
+| **Leave lab** → **End session** | The environment is destroyed for good. This cannot be undone. |
+| Notes | Saved automatically to your account, about a second after you stop typing. |
+| Hints you have revealed | Recorded. They stay revealed after a reload, on any device. |
+| Checks you have run | Recorded. Passed steps stay ticked after a reload. |
+
+:::caution
+**End session** destroys the environment and everything in it. If you might come
+back, choose **Pause & resume later** instead.
+:::
+
+A lab can also end without you: when an instructor ends a class, the screen shows
+**This environment has ended**, and checks you already passed are kept. When an
+instructor moves you to another step of a class, the screen shows
+**This environment is paused** and your work is kept until they bring you back.
+
+## Next steps
+
+<CardGrid>
+	<LinkCard title="Use the lab terminal" href="/en/lab/terminal/" />
+	<LinkCard title="Tasks, checks and hints" href="/en/lab/tasks-and-checks/" />
+	<LinkCard title="Take an assessment" href="/en/lab/assessment-mode/" />
+	<LinkCard title="Keyboard shortcuts" href="/en/lab/keyboard-shortcuts/" />
+</CardGrid>

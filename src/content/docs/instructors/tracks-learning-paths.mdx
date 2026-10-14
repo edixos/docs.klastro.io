@@ -1,0 +1,136 @@
+---
+title: Composer un parcours et orienter vers les parcours de certification
+description: Composez un parcours réutilisable — une séquence de scénarios et ses supports — à livrer à vos cohortes, et orientez vos apprenants vers les parcours de certification Klastro.
+sidebar:
+  order: 5
+---
+
+import { Steps } from '@astrojs/starlight/components';
+
+Klastro distingue deux choses aux noms proches :
+
+- un **parcours** (menu **Former**) est un programme que vous composez : une séquence ordonnée de
+  scénarios et ses supports, réutilisable. Vous le livrez ensuite à un groupe sous forme de
+  **cohorte** ;
+- un **parcours de certification** (menu **Apprendre**) est une feuille de route fournie par
+  Klastro, que chaque apprenant suit seul, à son rythme.
+
+## Composer un parcours
+
+Avant de commencer, il vous faut :
+
+- dans une organisation en abonnement, une **licence Instructor** attribuée à votre compte
+  (voir [Licences](/billing/seats/)) ;
+- dans une organisation sous contrat, le rôle formateur ou administrateur
+  (voir [Membres et rôles](/admins/members-roles/)) ;
+- des scénarios publiés : ceux du catalogue Klastro, ou les vôtres
+  (voir [Publier et gérer vos scénarios](/instructors/publish-scenarios/)).
+
+### Créer le parcours
+
+<Steps>
+
+1. Dans le menu latéral, ouvrez **Former**, puis **Parcours**.
+
+2. Cliquez sur **Nouveau parcours**.
+
+3. Saisissez un **Nom**, par exemple « Kubernetes Fundamentals — 3 jours », et, si vous le
+   souhaitez, une **Description** : à qui il s’adresse et ce qu’on en retient.
+
+4. Cliquez sur **Créer le brouillon**. La page du parcours s’ouvre en trois étapes :
+   **Scénarios**, **Supports** et **Détails**.
+
+</Steps>
+
+Tout ce que vous faites ensuite est enregistré automatiquement. L’indicateur en haut de page
+passe par **Enregistrement…** puis **Enregistré** ; « Ajoutez un nom pour enregistrer » signale
+qu’un nom manque.
+
+### Construire la séquence
+
+<Steps>
+
+1. À l’étape **Scénarios**, cliquez sur **Ajouter un scénario…**.
+
+2. Cherchez un scénario. La liste sépare **Vos scénarios (Studio)** et le **Catalogue Klastro**.
+   Un scénario marqué **Pro** ne se lance qu’avec un forfait qui donne accès aux scénarios Pro.
+
+3. Ajoutez les labs dans l’ordre où les stagiaires doivent les rencontrer. Utilisez les flèches
+   pour avancer ou reculer un scénario, et la croix pour le retirer.
+
+4. Cliquez sur **Continuer : Supports**.
+
+</Steps>
+
+### Ajouter des supports
+
+Les supports accompagnent les labs : slides, enregistrements, documentation. Cette étape est
+facultative.
+
+<Steps>
+
+1. À l’étape **Supports**, cliquez sur **Ajouter un support**.
+
+2. Choisissez le **Type** : **Document**, **Vidéo** ou **Lien**. Il détermine seulement ce que voit
+   le stagiaire.
+
+3. Sous **Support**, choisissez **Lien externe** et collez l’URL, ou **Fichier importé** et cliquez
+   sur **Choisir un fichier…**. Un fichier importé fait 32 Mo au maximum : pour une vidéo, préférez
+   un lien.
+
+4. Saisissez un **Titre** et, si besoin, une **Description**, puis cliquez sur **Ajouter**.
+
+5. Cliquez sur **Continuer : Détails**, vérifiez le nom et la description.
+
+</Steps>
+
+### Lire le prix d’une place
+
+Le panneau **Prix par place**, à côté du parcours, montre ce que coûte un stagiaire une fois
+épuisées les places incluses dans votre forfait. Saisissez une **Durée de la cohorte** en minutes
+pour simuler le prix : un parcours n’a pas de durée propre, chaque cohorte fixe la sienne. Le prix
+dépend des environnements des scénarios et de leur durée estimée. Le détail est dans
+[Créer une cohorte](/instructors/cohorts/). Dans une organisation sous contrat, aucune place n’est
+facturée et ce panneau n’apparaît pas.
+
+### Publier le parcours
+
+Cliquez sur **Publier** en haut de page. Le bouton reste inactif tant que le parcours n’a pas de
+nom ou ne contient aucun scénario. Seul un parcours publié est proposé à la composition d’une
+cohorte.
+
+Le bouton **Livrer sous forme de cohorte** ouvre directement la création d’une cohorte
+(voir [Créer une cohorte](/instructors/cohorts/)).
+
+:::note[Modifier un parcours publié ne change aucune classe en cours]
+Une cohorte copie la séquence et les supports du parcours au moment de sa composition. Vous pouvez
+donc améliorer un parcours publié à tout moment : seules les cohortes composées ensuite en
+profitent.
+:::
+
+### Archiver un parcours
+
+Dans la liste **Parcours**, cliquez sur l’icône d’archivage de la ligne. Un parcours archivé n’est
+plus proposé pour composer une cohorte, mais il n’est pas supprimé : les cohortes qui en sont
+issues restent intactes.
+
+## Orienter vos apprenants vers les parcours de certification
+
+Les parcours de certification sont des feuilles de route conçues par Klastro, de la première
+notion à la préparation à l’examen (Kubernetes, sécurité, Linux). Ils sont identiques pour toutes
+les organisations : vous ne pouvez ni en créer ni en modifier.
+
+Ce qu’il faut savoir pour les recommander :
+
+- vos apprenants les trouvent dans **Apprendre**, puis **Parcours de certification**, filtrables
+  par **Domaine** et **Niveau** ;
+- chaque étape renvoie vers un scénario du catalogue. Une étape dont le scénario n’est pas dans le
+  catalogue de votre organisation est marquée **Indisponible** ;
+- la progression est déclarée par l’apprenant (**Marquer terminée**). Ce sont des jalons, pas des
+  certifications, et les étapes verrouillées sont une recommandation d’ordre, pas un blocage ;
+- la progression est personnelle et suit l’apprenant d’une organisation à l’autre. Vous ne la voyez
+  pas depuis votre compte.
+
+Pour un programme suivi en classe, avec votre propre ordre et un suivi en direct, composez plutôt un
+parcours et livrez-le en cohorte. Le point de vue de l’apprenant est décrit dans
+[Catalogue, challenges et parcours](/learners/catalog-challenges-paths/).

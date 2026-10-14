@@ -1,0 +1,125 @@
+---
+title: Créer et modifier des modèles d’Assessment
+description: Composez un modèle d’Assessment à partir du catalogue de scénarios, réglez son ordre, sa durée et son score de réussite.
+sidebar:
+  order: 2
+---
+
+import { Steps } from '@astrojs/starlight/components';
+
+Un **modèle d’Assessment** est la définition réutilisable que vous envoyez aux candidats : une suite de
+scénarios notés, un chronomètre unique qui les couvre tous et un score de réussite. Chaque invitation
+pointe vers un modèle ; chaque candidat qui démarre produit un **passage** distinct.
+
+**Prérequis :** être **Recruteur** ou administrateur d’une organisation sous contrat entreprise.
+
+## Créer un modèle
+
+<Steps>
+
+1. Ouvrez **Évaluer**, puis **Modèles**, et cliquez sur **Nouveau modèle**.
+
+   Si votre organisation dispose du Scenario Studio et que vous pouvez y écrire, un menu propose deux choix :
+
+   - **Composer depuis le catalogue** : ouvre l’éditeur de modèle décrit ci-dessous ;
+   - **Écrire un challenge dans le Studio** : créez d’abord un scénario sur mesure. Une fois publié,
+     il apparaît dans le catalogue du modèle.
+
+   Sinon, le bouton ouvre directement l’éditeur.
+
+2. Remplissez **Détails de l’Assessment** :
+
+   | Champ | Règle |
+   |---|---|
+   | **Nom** | Obligatoire, 120 caractères au plus. |
+   | **Description** | Facultative, 500 caractères au plus. Dites au candidat à quoi s’attendre. |
+   | **Durée totale (min)** | Obligatoire, de 1 minute à 480 minutes (8 heures). |
+   | **Score de réussite (%)** | Obligatoire, de 0 à 100. Vaut 70 par défaut. |
+
+3. Dans le **Catalogue de scénarios**, à droite, trouvez les scénarios à inclure. Vous pouvez filtrer par :
+
+   - recherche (nom, description ou tag) avec **Rechercher un scénario…** ;
+   - provenance : **Officiel** (scénarios Klastro) ou **Studio** (écrits dans votre organisation) ;
+   - difficulté : **Débutant**, **Intermédiaire**, **Avancé** ;
+   - tag, en cliquant sur l’un d’eux.
+
+   Seuls les challenges notés apparaissent dans ce catalogue.
+
+4. Cliquez sur **Ajouter** sur chaque scénario voulu. Le bouton devient **Ajouté** et le scénario
+   rejoint la liste **Ordre des scénarios**.
+
+5. Réglez l’ordre (voir ci-dessous), puis cliquez sur **Créer l’Assessment**.
+
+</Steps>
+
+Le nouveau modèle apparaît dans **Tous les modèles d’Assessment** avec le statut **Brouillon**.
+
+## Ordonner les scénarios
+
+Dans **Ordre des scénarios**, faites glisser une ligne par sa poignée (**Glisser pour réordonner**)
+pour la déplacer. Cet ordre est celui dans lequel le candidat voit les scénarios.
+
+Pour retirer un scénario, cliquez sur **Retirer le scénario** sur sa ligne.
+
+:::note
+Dans son lobby, le candidat peut faire les scénarios dans l’ordre qu’il préfère. L’ordre du modèle
+est l’ordre de présentation, pas un parcours imposé.
+:::
+
+## Régler la durée
+
+Tant que vous ne la modifiez pas, la **Durée totale (min)** suit les scénarios : la somme de leurs durées
+estimées, plus 25 % de marge, arrondie aux 5 minutes supérieures. Le texte sous le champ l’indique
+(« Suit les scénarios : … estimés, plus 25 % de marge »).
+
+Si vous saisissez une autre valeur, le lien **Revenir à la durée suggérée** permet de retrouver le calcul automatique.
+
+La barre **Répartition du temps** montre la part de chaque scénario dans le temps total.
+Si elle passe au rouge, la durée des scénarios dépasse le temps total de l’Assessment.
+
+:::caution
+Un modèle dont les scénarios dépassent la durée totale ne s’enregistre pas correctement.
+Augmentez la durée totale ou retirez un scénario avant de cliquer sur **Créer l’Assessment**
+ou **Modifier l’Assessment**.
+:::
+
+## Vérifier avec l’aperçu
+
+Cliquez sur **Aperçu** pour voir l’Assessment comme le candidat le verra : nom, description, durée totale
+et liste des scénarios avec leur nombre de tâches. Le détail de la notation et les seuils sont masqués
+dans cette vue, comme pour le candidat.
+
+## Modifier un modèle
+
+<Steps>
+
+1. Ouvrez **Évaluer**, puis **Modèles**.
+
+2. Cliquez sur le modèle dans **Tous les modèles d’Assessment**.
+
+3. Changez les détails, ajoutez, retirez ou réordonnez des scénarios.
+
+4. Cliquez sur **Modifier l’Assessment**. Le message « Assessment modifié » confirme l’enregistrement.
+
+</Steps>
+
+## Lire la liste des modèles
+
+| Colonne | Contenu |
+|---|---|
+| **Nom** | Nom du modèle. |
+| **Scénarios** | Nombre de scénarios. |
+| **Durée** | Durée totale. |
+| **Réussite %** | Score de réussite. |
+| **Statut** | **Publié**, **Brouillon** ou **Archivé**. |
+| **Créé le** | Date de création. |
+
+:::note
+Le formulaire d’invitation propose tous les modèles qui ne sont pas archivés, y compris les brouillons.
+Un brouillon y apparaît avec son statut à côté de son nom.
+:::
+
+## Voir aussi
+
+- [Envoyer et gérer les invitations](/recruiters/send-invitations/)
+- [Glossaire](/getting-started/glossary/)

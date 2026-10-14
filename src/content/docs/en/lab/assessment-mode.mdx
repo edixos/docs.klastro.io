@@ -1,0 +1,172 @@
+---
+title: Take an assessment
+description: Go from the assessment lobby to the lab, understand the timer and the rules, and finish — or run out of time — without losing your work.
+sidebar:
+  order: 6
+---
+
+import { Steps } from '@astrojs/starlight/components';
+
+An assessment is a timed, graded set of one or more lab scenarios that a recruiter
+has invited you to. It uses the same lab workspace as any other lab, with a few
+differences: a countdown timer, no visible points, no check button, and grading
+that happens when the assessment ends.
+
+**Before you start:**
+
+- Accept your invitation. See [Accept an invitation](/en/learners/accept-invitation/).
+- Use a recent desktop browser on a stable connection, with enough time to finish
+  in one sitting. The countdown does not pause.
+- Read [The lab workspace](/en/lab/overview/) and
+  [Use the lab terminal](/en/lab/terminal/) if you have not used a Klastro lab
+  before.
+
+## 1. Wait in the lobby
+
+Opening the assessment takes you to its lobby. It lists the assessment's
+scenarios and prepares an environment for each one.
+
+<Steps>
+
+1. If the lobby shows **Waiting for Authorization**, the recruiter has not
+   approved the assessment yet. Keep the page open: it updates by itself once
+   they do.
+
+2. Watch each scenario card. While its environment is being prepared, it shows
+   three stages — **Reserve environment**, **Start machines**,
+   **Install scenario** — then **Ready**. The heading counts them, for example
+   **2 of 3 ready**. Larger environments can take several minutes.
+
+3. Each card also shows the scenario's difficulty and estimated duration, for
+   example **Est. 30m**.
+
+4. When every scenario is **Ready**, the **Enter** buttons become active. Click
+   **Enter** on the scenario you want to start with.
+
+</Steps>
+
+:::note
+The countdown does **not** start while you wait in the lobby. It starts when you
+enter your first scenario, as the lobby says under
+**Start Whenever You’re Ready**. You can do the scenarios in any order.
+:::
+
+If a scenario shows **Could not be prepared**, you cannot fix it from your side.
+Contact the recruiter who invited you. See also
+[Lab provisioning troubleshooting](/en/troubleshooting/provisioning/).
+
+## 2. Work in the lab
+
+Once you enter, the top bar shows the assessment timer, and the lab works as
+described in [The lab workspace](/en/lab/overview/), with these differences:
+
+| | In an assessment |
+|---|---|
+| Points | Not shown. You are scored, but the numbers are for the recruiter. |
+| Checking your work | There is no check button. Every task is checked automatically when the assessment ends. |
+| Hints | Available, in a chain. Each one you reveal reduces your score for that task, even though the cost is not shown. |
+| Notes | Available, and shared with the recruiter in your report. See [Take notes during a lab](/en/lab/notes/). |
+| Moving between scenarios | Use the scenario selector in the Instructions header, or **Next** on a scenario's last task (**Next Scenario?** → **Yes, continue**). You can go back the same way. |
+
+See [Tasks, checks and hints](/en/lab/tasks-and-checks/) for how grading works.
+
+## The timer
+
+Before you enter the first scenario, the top bar shows the total duration, for
+example **Duration: 1h30m**, with **Timer starts on first scenario** under it.
+Once you enter, it counts down in hours, minutes and seconds.
+
+| Timer colour | Time left |
+|---|---|
+| Neutral | More than 15 minutes |
+| Amber | 15 minutes or less |
+| Red | 5 minutes or less |
+
+There is one timer for the whole assessment, shared by all its scenarios. It is
+kept by Klastro, not by your browser: reloading the page, switching scenarios or
+leaving the lab does not stop or reset it.
+
+:::caution
+**Exit lab** in the top bar takes you out of the lab but does not pause the
+assessment. The countdown keeps running while you are away.
+:::
+
+## Rules of conduct
+
+Klastro does not set rules of its own beyond the lab itself; the recruiter who
+invited you may give you instructions with the invitation. Whatever those are,
+keep in mind:
+
+- **Your environment is the answer.** What counts is the state of your lab when
+  the assessment ends, not the commands you typed. Leave it in its final, working
+  state.
+- **Hints are recorded.** Every hint you reveal is kept and reduces your score
+  for that task.
+- **Your notes are read.** The recruiter sees your notepad in your report.
+- **Your terminal can be watched.** People from the recruiting organization can
+  follow your terminal tabs live, in read-only mode. They cannot type in your
+  terminal, and nothing on your screen tells you when they are watching.
+
+### Webcam, microphone and screen
+
+The top bar shows a camera icon labelled **Webcam off**. In the current version,
+the lab does not ask for access to your webcam, microphone or screen, and does
+not record them. If your browser asks for one of these permissions on a Klastro
+page, see [Webcam troubleshooting](/en/troubleshooting/webcam/). Recruiters can
+find what they can follow in
+[Proctoring and supervision](/en/recruiters/proctoring-supervision/).
+
+## 3. Finish the assessment
+
+When you have done all you can, in every scenario:
+
+<Steps>
+
+1. Click **Complete Assessment** in the top bar.
+
+2. Read the confirmation. It warns that **You will not be able to return to this
+   lab once you finish.**
+
+3. Click **Yes, Complete Assessment**.
+
+</Steps>
+
+The screen shows **Assessment Completed** and
+**Your work has been saved and the recruiter will receive the final results shortly.**
+A few seconds later you are taken back to the dashboard. Klastro then checks
+every task of every scenario against your environments and sends the results to
+the recruiter.
+
+:::danger
+**Complete Assessment** ends the whole assessment, not just the scenario you are
+on. Check that you have worked through every scenario first.
+:::
+
+## If time runs out
+
+When the countdown reaches zero, the timer turns red and shows **Expired**, and
+the assessment ends on its own:
+
+- The screen shows **Time is up!** and
+  **Your assessment has timed out. Your work has been saved and the recruiter will receive the final results shortly.**
+- You are taken back to the dashboard a few seconds later.
+- Every task is checked against your environments as they were when time ran
+  out. Work you had already done counts, exactly as if you had clicked
+  **Complete Assessment**.
+
+:::tip
+Partial credit is real: each check a task passes earns its points. In the last
+minutes, make sure what you have done is in place and saved rather than starting
+something new.
+:::
+
+If the screen shows **Assessment Failed** instead, the assessment hit a technical
+problem on Klastro's side. Your work has been saved; contact the recruiter who
+invited you.
+
+## Related
+
+- [Accept an invitation](/en/learners/accept-invitation/)
+- [Tasks, checks and hints](/en/lab/tasks-and-checks/)
+- [Report a problem with a lab](/en/support/report-lab-problem/)
+- [FAQ](/en/troubleshooting/faq/)

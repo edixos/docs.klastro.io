@@ -1,0 +1,143 @@
+---
+title: Consommation et factures
+description: Lire votre solde de crédits, le détail lab par lab de ce qui vous a été facturé, l’historique des crédits et la provenance des factures.
+sidebar:
+  order: 5
+---
+
+import { Steps } from '@astrojs/starlight/components';
+
+La page **Facturation** montre ce que vous avez dépensé et pourquoi. Ce que vous
+y voyez dépend de votre rôle :
+
+| Onglet | Qui le voit | Périmètre |
+|---|---|---|
+| **Vue d’ensemble** | Tout le monde | Vos propres crédits. Administrateurs et responsables facturation voient aussi le résumé du forfait et l’activité récente de l’organisation. |
+| **Forfait** | **Administrateur**, **Responsable facturation** | L’abonnement de l’organisation. |
+| **Licences** | **Administrateur**, **Responsable facturation** | La réserve de licences de l’organisation. |
+| **Consommation** | Tout le monde | Votre propre solde et vos propres labs. |
+| **Historique** | **Administrateur**, **Responsable facturation** | Tous les mouvements de crédits de l’organisation. |
+
+Les chiffres de crédits décrivent toujours **votre propre** solde, même pour un
+administrateur : chaque membre dépense ses propres crédits, et l’organisation
+n’en détient aucun en propre.
+
+:::note
+Les organisations sous contrat Enterprise n’ont pas de crédits. Leur page
+**Facturation** n’affiche que l’encart **Contrat Enterprise** et la **Capacité
+contractuelle**. Voir [Forfaits et crédits](/billing/plans-and-credits/).
+:::
+
+## Onglet Vue d’ensemble
+
+La carte **Crédits de la période** affiche une jauge des crédits consommés sur
+votre dotation, les crédits **restants**, et leur renouvellement :
+
+| Ligne | Signification |
+|---|---|
+| **Renouvellement le** suivi d’une date | Les crédits de licence se renouvellent à cette date. |
+| **Renouvellement mensuel** | Les crédits de licence se renouvellent chaque mois. |
+| **Dotation unique, sans renouvellement** | Votre organisation est sur Community, dont les crédits sont versés une seule fois. |
+| **Sessions simultanées** · **jusqu’à** N | Le nombre de labs pouvant tourner en même temps dans votre organisation, quand une limite est fixée. |
+
+Administrateurs et responsables facturation voient aussi le résumé du forfait
+(forfait, rythme de **Facturation**, **Licences**, **Dotation de crédits**, et
+date de **Renouvellement** ou de **Fin prévue**) et une liste **Activité
+récente** des derniers mouvements de crédits.
+
+## Onglet Consommation
+
+### Cette période
+
+**Attribués**, **Consommés** et **Restants** indiquent où en est votre propre
+solde en ce moment. **Attribués** correspond à ce dont vous disposiez sur la
+période, dépensé ou non : un zéro signifie que vous n’aviez pas de crédits.
+
+### Ce que coûte un lab
+
+Un tableau de référence de chaque **Environnement** et de ses **Crédits /
+heure**. Voir
+[Comment un lab consomme des crédits](/billing/plans-and-credits/#comment-un-lab-consomme-des-crédits).
+
+### Vos labs
+
+Chaque lab qui vous a été facturé, pour vérifier une consommation par rapport à
+un lab dont vous vous souvenez. Un lab apparaît ici à sa fin.
+
+| Colonne | Signification |
+|---|---|
+| **Session** | La session de lab. |
+| **Début** / **Fin** | Les heures de début et de fin du lab. |
+| **Facturé** | Le temps de fonctionnement facturé. Si le lab a été mis en pause, une mention du type **1 h 10 min moins 20 min en pause** apparaît : le temps en pause est gratuit. |
+| **Tarif** | Les crédits par heure de l’environnement, par exemple **2/h**. |
+| **Crédits** | Le coût du lab, au centième de crédit près. |
+
+Si vous n’avez encore lancé aucun lab, le tableau affiche **Aucun lab facturé
+pour l’instant**.
+
+## Onglet Historique
+
+L’**Historique des crédits** liste tous les mouvements de crédits de
+l’organisation, du plus récent au plus ancien. Comme chaque membre a son propre
+solde, la colonne **Membre** indique quel solde a bougé, et **Solde** est le
+solde de ce membre après le mouvement.
+
+| Colonne | Signification |
+|---|---|
+| **Type** | La nature du mouvement (voir ci-dessous). |
+| **Membre** | Le membre dont le solde a changé. |
+| **Référence** | Ce à quoi se rapporte le mouvement, par exemple une session de lab. |
+| **Date** | Le moment du mouvement. |
+| **Montant** | Crédits ajoutés (positif) ou dépensés (négatif). |
+| **Solde** | Le solde du membre après le mouvement. |
+
+### Types de mouvements
+
+| Type | Signification |
+|---|---|
+| **Consommation de session** | Un lab s’est terminé et son coût a été décompté. |
+| **Dotation du forfait** | Un forfait a versé des crédits : les crédits de bienvenue Community, versés une fois, ou le renouvellement mensuel d’une licence payante. |
+| **Dotation expirée** | Les crédits inutilisés ont été remis à zéro juste avant un renouvellement mensuel. Les crédits de licence ne se reportent pas. |
+| **Dépassement de cohorte** | Les places de cohorte au-delà de celles incluses, payées en crédits avant le lancement. |
+| **Transfert de crédits** | Des crédits donnés d’un membre à un autre. Un transfert apparaît sur deux lignes : une pour le donateur, une pour le bénéficiaire. |
+| **Licence attribuée** | Une licence payante a été attribuée au membre, avec les crédits qui lui restaient. |
+| **Licence libérée** | Une licence payante a été reprise, avec les crédits qui lui restaient. |
+| `VOUCHER_REDEMPTION` | Un membre a utilisé un bon de crédit. |
+
+:::note
+Les lignes **Licence attribuée** et **Licence libérée** ne créent ni ne
+détruisent de crédits : elles indiquent qui peut désormais dépenser les crédits
+déjà présents sur cette licence.
+:::
+
+## Factures et paiement
+
+Klastro facture votre abonnement via Stripe. Il n’y a pas de facture distincte
+pour l’utilisation des labs : les labs se paient en crédits, et une fois vos
+crédits épuisés, les labs se mettent en pause au lieu de générer un dépassement.
+
+Les factures et les reçus sont envoyés par e-mail à l’**E-mail de facturation**
+renseigné dans les paramètres de votre organisation. Voir
+[Paramètres de l’organisation](/admins/organization-settings/#informations-de-facturation).
+
+Pour mettre à jour votre moyen de paiement, changer de forfait ou résilier :
+
+<Steps>
+
+1. Ouvrez **Facturation**, puis l’onglet **Forfait**.
+
+2. Cliquez sur **Gérer l’abonnement**.
+
+3. Effectuez vos modifications dans le portail de facturation sécurisé.
+
+</Steps>
+
+Si le portail ne s’ouvre pas, la page affiche **Impossible d’ouvrir le portail
+de facturation**. Réessayez, et si le problème persiste,
+[ouvrez un ticket de support](/support/open-ticket/).
+
+## Voir aussi
+
+- [Forfaits et crédits](/billing/plans-and-credits/)
+- [Crédits et labs en pause](/troubleshooting/credits-and-pauses/)
+- [Gérer vos sessions](/learners/manage-sessions/)

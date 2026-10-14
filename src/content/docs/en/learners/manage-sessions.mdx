@@ -1,0 +1,84 @@
+---
+title: Manage your sessions
+description: Find your labs in My sessions, pause them, resume them, end them, and understand how long they live.
+sidebar:
+  order: 5
+---
+
+import { Steps } from '@astrojs/starlight/components';
+
+Every lab you launch creates a session: a real environment that runs, and draws credits, as long as it is neither paused nor ended. This guide shows you how to stay in control of your sessions.
+
+## Open My sessions
+
+In the **Personal** section of the sidebar, click **My Sessions**. The page lists every lab you have started, most recent first, each with:
+
+- the **Scenario**, its type, difficulty and number of tasks;
+- its **Status**: **Starting**, **Provisioning**, **Ready**, **Paused** or **Ended**;
+- the **Score** for challenges;
+- when it **Started**, as a relative time for a running session (“23 minutes ago”) and as a date once it has ended.
+
+The **All**, **Active** and **Ended** filters narrow the list.
+
+## Get back into a lab
+
+On a running session, click the row or the button in the **Action** column:
+
+- **Open** for a ready session;
+- **Resume** for a paused session, which starts up again first;
+- **View progress** for a session still being prepared.
+
+You can also get back in from the scenario’s page in the catalog: the launch button turns into **Resume** when you already have a session for that scenario.
+
+## Pause a session
+
+Pausing stops the environment while keeping your work. Paused time does not draw credits, and a paused session does not count towards your limit of concurrent sessions.
+
+<Steps>
+
+1. In the lab, click **Leave lab** in the top bar.
+
+2. In the **Leave this lab?** window, click **Pause & resume later**.
+
+</Steps>
+
+From **My Sessions**, open the **Session actions** menu (the three dots) of a ready session and click **Pause**.
+
+To pick it back up, click **Resume** in **My Sessions** or on the scenario’s page. You find your environment exactly as you left it.
+
+:::note
+If resuming is refused because too many sessions are running, or because you have reached your plan’s limit, pause or end another session and try again.
+:::
+
+## Leave the lab without stopping anything
+
+The lab’s **Back to dashboard** icon takes you to the dashboard and leaves the session running. It is handy for a short break, but the environment keeps drawing credits.
+
+## End a session
+
+Ending a session destroys its environment for good. Checks you already passed and challenge results you already submitted are kept.
+
+<Steps>
+
+1. In the lab, click **Leave lab**, then **End session**.
+
+   Or, from **My Sessions**, open the **Session actions** menu, click **Delete**, then confirm with **Delete session**.
+
+2. The session shows **Removing…** while the environment is destroyed, then moves to the **Ended** sessions.
+
+</Steps>
+
+:::danger[This can’t be undone]
+An ended session cannot be resumed. Anything not saved elsewhere — files, cluster resources — is lost. When in doubt, choose **Pause & resume later**.
+:::
+
+## How long a session lives
+
+Each scenario sets a maximum lifetime for its sessions. Paused time is not counted. When that lifetime runs out, the session ends on its own and the lab shows **This environment has ended**: the environment no longer accepts commands, but any checks you had already passed were recorded.
+
+A session can also be paused automatically when your credits run out. See [Credits and automatic pauses](/en/troubleshooting/credits-and-pauses/).
+
+## Going further
+
+- [Results and history](/en/learners/results-history/) to review your graded challenges.
+- [The lab environment](/en/lab/overview/) for everything you can do inside a lab.

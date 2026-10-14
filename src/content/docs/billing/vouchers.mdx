@@ -1,0 +1,66 @@
+---
+title: Utiliser un bon de crédit
+description: Échanger un code contre des crédits ajoutés à votre propre solde.
+sidebar:
+  order: 4
+---
+
+import { Steps } from '@astrojs/starlight/components';
+
+Un bon de crédit est un code qui ajoute des crédits à votre solde. Klastro peut
+vous en envoyer un, par exemple dans le cadre d’une offre ou d’une évaluation.
+
+## Avant de commencer
+
+- Tout membre de l’organisation peut utiliser un bon de crédit. Aucun rôle
+  d’administrateur ni forfait payant n’est nécessaire.
+- Utilisez le code avec l’organisation pour laquelle il a été émis sélectionnée :
+  certains codes ne sont valables que pour une organisation. Pour changer
+  d’organisation, voir
+  [Paramètres de l’organisation](/admins/organization-settings/#changer-dorganisation).
+- Les organisations sous contrat Enterprise ne peuvent pas utiliser de bons de
+  crédit, et la carte correspondante ne leur est pas affichée.
+
+## Utiliser un code
+
+<Steps>
+
+1. Dans la barre latérale, ouvrez **Facturation**. L’onglet **Vue d’ensemble**
+   s’affiche.
+
+2. Dans la carte **Utiliser un bon de crédit**, saisissez ou collez le code dans
+   le champ **CODE-DU-BON**. Les lettres passent automatiquement en majuscules.
+
+3. Cliquez sur **Utiliser**.
+
+</Steps>
+
+Une confirmation indique le nombre de crédits ajoutés, et la carte affiche
+**Crédits ajoutés**. Les crédits rejoignent **votre propre** solde, pas celui de
+l’organisation ni celui des autres membres, et apparaissent dans **Crédits de la
+période** dans l’onglet **Vue d’ensemble**.
+
+## Si le code est refusé
+
+La carte indique la raison sous le champ :
+
+| Message | Que faire |
+|---|---|
+| **Ce code n’est pas valide.** | Vérifiez qu’il n’y a pas de faute de frappe. |
+| **Ce code n’est plus actif.** | Le code a été retiré. Demandez-en un nouveau à la personne qui vous l’a envoyé. |
+| **Ce code n’est pas encore valable.** | Le code a une date de début. Réessayez une fois celle-ci passée. |
+| **Ce code a expiré.** | La période de validité du code est terminée. |
+| **Ce code a atteint sa limite d’utilisation.** | Toutes les utilisations du code ont été consommées. |
+| **Vous avez déjà utilisé ce code.** | Chaque personne ne peut utiliser un code qu’une fois. |
+| **Ce code n’est pas valable pour cette organisation.** | Passez à l’organisation pour laquelle le code a été émis, puis réessayez. |
+| **Les organisations sous contrat ne peuvent pas utiliser de bons de crédit.** | L’organisation sélectionnée est sous contrat Enterprise. |
+| **Vous devez être membre de cette organisation pour utiliser ce code.** | Demandez à un administrateur de vous ajouter à l’organisation. |
+| **Trop de codes invalides. Réessayez dans … s.** | Attendez la fin du décompte avant de réessayer. |
+
+Si aucun de ces messages n’explique le problème,
+[ouvrez un ticket de support](/support/open-ticket/).
+
+## Voir aussi
+
+- [Forfaits et crédits](/billing/plans-and-credits/)
+- [Consommation et factures](/billing/usage-and-invoices/)

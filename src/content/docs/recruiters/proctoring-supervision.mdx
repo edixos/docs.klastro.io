@@ -1,0 +1,86 @@
+---
+title: Webcam et surveillance
+description: Exiger la webcam sur une invitation, ce que le candidat voit avant de commencer, et vos obligations en matière de vie privée.
+sidebar:
+  order: 4
+---
+
+import { Steps } from '@astrojs/starlight/components';
+
+Klastro vous permet d’annoncer qu’un Assessment est surveillé par webcam. Le réglage se fait
+**invitation par invitation**, au moment où vous l’envoyez. Cette page explique comment l’activer,
+ce que le candidat en sait et ce qui reste de votre responsabilité.
+
+## Exiger la webcam sur une invitation
+
+<Steps>
+
+1. Ouvrez **Évaluer**, puis **Invitations**, et cliquez sur **Inviter un candidat**.
+
+2. Remplissez le candidat, le modèle et la date d’expiration
+   (voir [Envoyer et gérer les invitations](/recruiters/send-invitations/)).
+
+3. Dans **Paramètres de session**, activez **Exiger la webcam**
+   (« Activer la surveillance en direct par webcam »).
+
+4. Cliquez sur **Envoyer l’invitation**.
+
+</Steps>
+
+Le réglage est désactivé par défaut. Il apparaît ensuite sur la page de l’invitation, dans la carte
+**Paramètres**, à la ligne **Webcam requise** (**Oui** ou **Non**).
+
+:::caution
+Le réglage ne se modifie plus après l’envoi. Pour changer d’avis, révoquez l’invitation et envoyez-en
+une nouvelle, tant que le candidat ne l’a pas acceptée.
+:::
+
+## Ce que le candidat voit
+
+Sur la page de son invitation, avant de démarrer, le candidat voit :
+
+- la ligne **Webcam**, avec la valeur **Requise** ou **Facultative** ;
+- quand la webcam est exigée, une ligne supplémentaire dans **À savoir avant de commencer** :
+  « L’accès à votre webcam sera demandé ».
+
+Le candidat découvre donc la condition **avant** de cliquer sur **Démarrer l’Assessment**, jamais en cours
+d’épreuve. Le parcours du candidat est décrit dans
+[Le lab en mode Assessment](/lab/assessment-mode/).
+
+## Ce que vous voyez pendant l’épreuve
+
+La supervision en direct depuis le tableau de bord passe par le **terminal en lecture seule** du candidat
+et par le suivi de ses scénarios (voir [Superviser un passage en direct](/recruiters/live-supervision/)).
+
+Le tableau de bord ne propose pas de lecteur vidéo pour la webcam, et le rapport du candidat ne contient
+aucune image ni vidéo. Ne présentez pas la webcam au candidat comme un enregistrement versé à son dossier.
+
+## Vie privée : ce qui vous incombe
+
+Quand vous activez la surveillance par webcam, votre organisation est **responsable du traitement** de
+ces données ; Klastro agit pour votre compte, en tant que sous-traitant. Concrètement, avant d’exiger la
+webcam, il vous revient :
+
+- de disposer d’une **base légale** valable. Dans un contexte de recrutement, le consentement libre et
+  éclairé du candidat est en pratique la seule sur laquelle s’appuyer de façon fiable ;
+- d’**informer le candidat**, avant l’épreuve, des méthodes et techniques d’évaluation employées
+  (articles L1221-8 et L1221-9 du Code du travail) ; aucune méthode non portée à sa connaissance ne peut
+  être utilisée ;
+- d’évaluer si une **analyse d’impact** (article 35 du RGPD) est nécessaire, la surveillance
+  systématique de candidats faisant partie des critères à examiner.
+
+:::tip
+N’exigez la webcam que si elle sert réellement votre processus. La lecture du terminal suffit le plus
+souvent à juger le travail d’un candidat, et chaque donnée en moins est une obligation en moins.
+:::
+
+Les flux temps réel de Klastro sont hébergés par Klastro sur son infrastructure, dans l’Union européenne :
+aucun flux n’est confié à un fournisseur tiers.
+
+Un candidat qui souhaite exercer ses droits sur ses données (accès, effacement…) doit s’adresser à votre
+organisation, qui a déclenché l’évaluation. Une demande reçue directement par Klastro vous est transmise.
+
+## Voir aussi
+
+- [Problèmes de webcam](/troubleshooting/webcam/)
+- [Questions fréquentes](/troubleshooting/faq/)

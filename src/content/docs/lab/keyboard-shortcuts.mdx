@@ -1,0 +1,109 @@
+---
+title: Raccourcis clavier
+description: Tous les raccourcis clavier utilisables dans le lab Klastro, et ceux qui viennent de Klastro, du terminal ou de votre navigateur.
+sidebar:
+  order: 7
+---
+
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
+Cette page liste les touches utilisables dans le lab. Klastro n’ajoute que
+quelques raccourcis qui lui sont propres ; l’essentiel de ce que vous utilisez au
+quotidien vient du terminal et de votre navigateur. Chaque tableau indique
+l’origine de chaque raccourci.
+
+Sous macOS, <kbd>Cmd</kbd> est la touche ⌘ et <kbd>Option</kbd> la touche ⌥.
+
+## Terminal
+
+Ces raccourcis viennent du terminal lui-même et se comportent comme dans tout
+terminal Linux.
+
+<Tabs syncKey="os">
+<TabItem label="macOS">
+
+| Action | Touches | Origine |
+|---|---|---|
+| Copier le texte sélectionné | <kbd>Cmd</kbd>+<kbd>C</kbd> | Navigateur |
+| Coller | <kbd>Cmd</kbd>+<kbd>V</kbd> | Navigateur |
+| Interrompre la commande en cours | <kbd>Ctrl</kbd>+<kbd>C</kbd> | Terminal |
+| Fin de saisie / fermer un shell | <kbd>Ctrl</kbd>+<kbd>D</kbd> | Terminal |
+| Effacer l’écran | <kbd>Ctrl</kbd>+<kbd>L</kbd> | Terminal |
+| Rechercher dans l’historique des commandes | <kbd>Ctrl</kbd>+<kbd>R</kbd> | Terminal |
+| Compléter une commande ou un nom de fichier | <kbd>Tab</kbd> | Terminal |
+
+</TabItem>
+<TabItem label="Windows / Linux">
+
+| Action | Touches | Origine |
+|---|---|---|
+| Copier le texte sélectionné | <kbd>Ctrl</kbd>+<kbd>Inser</kbd>, ou clic droit → **Copier** | Navigateur |
+| Coller | <kbd>Ctrl</kbd>+<kbd>Maj</kbd>+<kbd>V</kbd> ou <kbd>Maj</kbd>+<kbd>Inser</kbd>, ou clic droit → **Coller** | Navigateur |
+| Interrompre la commande en cours | <kbd>Ctrl</kbd>+<kbd>C</kbd> | Terminal |
+| Fin de saisie / fermer un shell | <kbd>Ctrl</kbd>+<kbd>D</kbd> | Terminal |
+| Effacer l’écran | <kbd>Ctrl</kbd>+<kbd>L</kbd> | Terminal |
+| Rechercher dans l’historique des commandes | <kbd>Ctrl</kbd>+<kbd>R</kbd> | Terminal |
+| Compléter une commande ou un nom de fichier | <kbd>Tab</kbd> | Terminal |
+
+</TabItem>
+</Tabs>
+
+:::caution
+Sous Windows et Linux, <kbd>Ctrl</kbd>+<kbd>C</kbd> dans le terminal interrompt la
+commande en cours — il ne copie pas — et <kbd>Ctrl</kbd>+<kbd>V</kbd> ne colle
+pas. Dans certains navigateurs, <kbd>Ctrl</kbd>+<kbd>Maj</kbd>+<kbd>C</kbd> ouvre
+les outils de développement au lieu de copier.
+:::
+
+### Remonter dans un shell
+
+Quand votre shell tourne dans `tmux` (une ligne d’état verte en bas), utilisez
+son mode de défilement pour relire la sortie précédente :
+
+| Action | Touches | Origine |
+|---|---|---|
+| Entrer en mode défilement | <kbd>Ctrl</kbd>+<kbd>B</kbd>, puis <kbd>[</kbd> | tmux |
+| Faire défiler | Flèches, <kbd>Page préc.</kbd>, <kbd>Page suiv.</kbd> | tmux |
+| Quitter le mode défilement | <kbd>q</kbd> | tmux |
+
+## Panneau Instructions
+
+Ces raccourcis sont propres à Klastro.
+
+| Action | Touches | Où |
+|---|---|---|
+| Tâche suivante / précédente | <kbd>↓</kbd> ou <kbd>→</kbd> / <kbd>↑</kbd> ou <kbd>←</kbd> | Focus dans la liste des tâches |
+| Première / dernière tâche | <kbd>Début</kbd> / <kbd>Fin</kbd> | Focus dans la liste des tâches |
+| Copier une commande en ligne | <kbd>Entrée</kbd> ou <kbd>Espace</kbd> | Focus sur la commande |
+| Passer d’un contrôle à l’autre | <kbd>Tab</kbd> / <kbd>Maj</kbd>+<kbd>Tab</kbd> | Partout |
+
+La liste des tâches compte pour un seul arrêt de <kbd>Tab</kbd> : entrez-y avec
+<kbd>Tab</kbd>, puis utilisez les flèches. Déplacer la sélection ouvre
+immédiatement la tâche correspondante.
+
+## Espace de travail
+
+| Action | Touches | Où |
+|---|---|---|
+| Élargir / réduire le panneau Instructions | <kbd>→</kbd> / <kbd>←</kbd> | Focus sur la poignée **Redimensionner les panneaux** |
+| Fermer une boîte de dialogue sans confirmer | <kbd>Échap</kbd> | Dans une boîte de confirmation |
+
+## Éditeur et app views
+
+L’onglet **Code** est VS Code, avec ses raccourcis habituels, et les app views
+gardent les leurs. Lorsqu’ils sont intégrés au lab, le navigateur peut garder
+certaines combinaisons pour lui (ouvrir ou fermer des onglets, par exemple).
+Utilisez **Ouvrir dans un nouvel onglet** pour donner tout l’onglet du navigateur
+à l’éditeur ou à l’application.
+
+## Ce qui n’existe pas
+
+Pour vous éviter de les chercher : le lab n’a pas de raccourci propre pour changer
+d’onglet de terminal, ouvrir un nouveau shell, lancer une vérification, révéler un
+indice ou envoyer. Utilisez la souris, ou <kbd>Tab</kbd> jusqu’au bouton puis
+<kbd>Entrée</kbd>.
+
+## Voir aussi
+
+- [Utiliser le terminal du lab](/lab/terminal/)
+- [L’espace de travail du lab](/lab/overview/)

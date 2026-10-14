@@ -1,0 +1,180 @@
+---
+title: Members and roles
+description: Add people to your organization, choose their role, give them seats or credits, and remove them.
+sidebar:
+  order: 1
+---
+
+import { Steps } from '@astrojs/starlight/components';
+
+The **Team** page is where an admin decides who belongs to the organization and
+what each person can do. A member's **role** says what they may manage; their
+**seat** says which scenarios they reach and which credits they receive.
+
+## Before you start
+
+- You need the **Admin** role. The **Team** page appears in the sidebar for
+  admins only.
+- To give paid seats, your organization needs a Pro or Instructor subscription.
+  See [Subscribe to a plan](/en/billing/subscribe/).
+
+## Roles
+
+| Role | What it is for |
+|---|---|
+| **Admin** | Full control over the organization, its members and billing. |
+| **Billing Admin** | Manages subscriptions and buys seats for members. |
+| **Learner** | Self-paced labs, playgrounds and tutorials. |
+| **Instructor** | Authors scenarios and runs cohorts, with an Instructor seat. |
+| **Recruiter** | Manages assessments and candidate invitations. |
+
+Which roles you can choose depends on how your organization is billed:
+
+- a **self-serve subscription** offers **Learner**, **Instructor**, **Admin**
+  and **Billing Admin**;
+- an **Enterprise contract** also offers **Recruiter**, because hiring
+  assessments are part of the contract.
+
+## Permissions
+
+| | Admin | Billing Admin | Learner | Instructor | Recruiter |
+|---|---|---|---|---|---|
+| Open the **Team** page: add, remove and change roles | Yes | No | No | No | No |
+| Edit **Settings** | Yes | Read only | Read only | Read only | Read only |
+| Read the **Audit Log** | Yes | No | No | No | No |
+| **Billing**: **Plan**, **Seats** and **History** tabs | Yes | Yes | No | No | No |
+| **Billing**: **Overview** and **Usage** of their own credits | Yes | Yes | Yes | Yes | Yes |
+| Hold a paid seat | Yes | No | Yes | Yes | No |
+| Give their own credits to a member | Yes | No | No | With an Instructor seat | No |
+| Redeem a credit voucher | Yes | Yes | Yes | Yes | Yes |
+
+What a member can **launch** depends on their seat, not their role. Scenario
+Studio and cohorts need an **Instructor** seat; Pro scenarios need a **Pro
+Learner** or **Instructor** seat. See [Plans and credits](/en/billing/plans-and-credits/#seats).
+
+## Add a member
+
+<Steps>
+
+1. In the sidebar, open **Team**, then click **Add member**.
+
+2. In the **Add team member** dialog, enter the person's **Email address** and
+   pick a **Role**.
+
+3. Click **Add member**.
+
+</Steps>
+
+The person is added straight away and a **Member added** confirmation appears.
+They sign in with email, Google or GitHub.
+
+- If the person has no Klastro account yet, one is created for them and they
+  receive an invitation email to finish setting it up. Until they do, the
+  **Status** column shows **Invited**, then **Setup started** once they have
+  opened the link.
+- If they already have an account, they find the organization the next time
+  they sign in.
+
+:::note
+During the private preview, you may see **This person has no Klastro account
+yet.** New accounts then need a platform invitation before you can add the
+person.
+:::
+
+Every new member starts on the free **Trainee** seat with **no credits**. Being
+added never costs you anything. To let them run labs, give them a paid seat or
+some credits (see below).
+
+### Resend an invitation
+
+If the invitation was not used, click **Resend invitation** in the member's
+**Status** column. A new invitation link is sent to the member's address.
+
+- **Link expired** means the previous link timed out: resend it.
+- **Email not delivered** means the last email bounced. Check the address, then
+  resend.
+- After a resend, the button shows **Resend available in …s** until you can send
+  again.
+
+## Change a member's role
+
+Pick the new role in the **Role** column of the member's row. The change applies
+at once and a **Role updated** confirmation appears.
+
+Changing a role never changes the member's seat. A member who held a paid seat
+keeps it until you release it.
+
+## Give a member a seat
+
+In the **Seat** column, choose **Pro Learner** or **Instructor**, then confirm
+with **Allocate seat**. The seat comes out of the pool you already paid for, so
+your bill does not change.
+
+To take a seat back, choose **Trainee** and confirm with **Release seat**. The
+member keeps their account but only reaches free scenarios and the sessions an
+instructor assigns them.
+
+A member can receive a seat only after they have signed in; until then the column
+reads **Awaiting sign-in**. For the full procedure, see
+[Manage seats](/en/billing/seats/).
+
+## Give a member credits
+
+You can hand some of **your own** credits to another member, for example so a
+learner without a paid seat can run labs.
+
+<Steps>
+
+1. On the member's row, click the coins icon (**Give credits**).
+
+2. Enter the **Amount**. The dialog shows how much is **available to give**.
+   Decimals are allowed.
+
+3. Click **Give credits**.
+
+</Steps>
+
+The credits leave your balance and are added to theirs, to spend on their own
+labs. Credits that came with your seat stay with the seat and cannot be given,
+so the amount you can give may be lower than what you can spend.
+
+## Remove a member
+
+<Steps>
+
+1. On the member's row, click the remove icon (**Remove member**).
+
+2. In the **Remove team member** dialog, click **Remove member**.
+
+</Steps>
+
+:::caution
+The member immediately loses access to all of the organization's resources, and
+any invitation link they were sent stops working. This cannot be undone: to bring
+them back, add them again.
+:::
+
+:::tip
+If the member holds a paid seat, release it first so it goes back to your pool
+with its credits.
+:::
+
+## What each member sees
+
+Klastro scopes what members see to themselves:
+
+- the **Billing** page shows each member their **own** credits and their own
+  labs only. Admins and billing admins also see the organization's plan, seats
+  and credit history;
+- the **Team** page lists each member's **Credits** balance, which only their
+  own labs draw down. It can be negative when a running lab outlasted the
+  credits that started it.
+
+Organizations under an Enterprise contract do not have the **Seat** and
+**Credits** columns: their capacity is set by contract.
+
+## Related
+
+- [Manage seats](/en/billing/seats/)
+- [Audit log](/en/admins/audit-log/)
+- [Send candidate invitations](/en/recruiters/send-invitations/)

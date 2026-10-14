@@ -1,0 +1,151 @@
+---
+title: Envoyer et gérer les invitations
+description: Invitez un candidat à passer un Assessment, choisissez l’expiration et le mode d’autorisation, puis renvoyez ou révoquez l’invitation.
+sidebar:
+  order: 3
+---
+
+import { Steps } from '@astrojs/starlight/components';
+
+Une invitation donne à **une** personne, identifiée par son adresse e-mail, le droit de passer **un**
+modèle d’Assessment avant une date limite. Le candidat ne peut l’accepter et démarrer que connecté avec
+cette adresse.
+
+**Prérequis :**
+
+- être **Recruteur** ou administrateur d’une organisation sous contrat entreprise ;
+- avoir au moins un modèle d’Assessment (voir [Créer et modifier des modèles d’Assessment](/recruiters/assessment-templates/)).
+
+## Envoyer une invitation
+
+<Steps>
+
+1. Ouvrez **Évaluer**, puis **Invitations**, et cliquez sur **Inviter un candidat**.
+
+2. Dans **Candidat**, renseignez :
+
+   - **Nom complet** : de 2 à 100 caractères ;
+   - **Adresse e-mail** : l’adresse avec laquelle le candidat se connectera.
+
+3. Dans **Assessment**, ouvrez **Modèle** (**Rechercher et sélectionner un Assessment**), tapez quelques
+   lettres pour filtrer, puis choisissez le modèle. Les modèles archivés ne sont pas proposés.
+
+4. Réglez la **Date d’expiration** : cliquez sur **7 jours**, **14 jours** ou **30 jours**, ou choisissez
+   une date et une heure précises. La date doit être dans le futur.
+
+5. Dans **Paramètres de session**, choisissez le mode d’autorisation :
+
+   - **Validation automatique** (par défaut) : le candidat démarre immédiatement ;
+   - **Validation manuelle** : vous validez avant le démarrage.
+
+6. Activez **Exiger la webcam** si vous voulez annoncer au candidat une surveillance par webcam
+   (voir [Webcam et surveillance](/recruiters/proctoring-supervision/)).
+
+7. Cliquez sur **Envoyer l’invitation**.
+
+</Steps>
+
+Le message « Invitation envoyée — Envoyée à … » confirme l’envoi. Le candidat reçoit aussitôt un e-mail
+contenant le lien vers son invitation et le délai dont il dispose. L’e-mail est adapté selon que le
+candidat a déjà un compte Klastro ou non. Ce qu’il voit ensuite est décrit dans
+[Accepter une invitation](/learners/accept-invitation/).
+
+Le bouton **Réinitialiser** vide le formulaire sans rien envoyer.
+
+:::caution[Validation manuelle]
+Avec la **Validation manuelle**, le candidat qui démarre arrive sur l’écran « En attente d’autorisation »
+et ses scénarios ne sont préparés qu’après votre accord. Le tableau de bord n’a pas de bouton pour donner
+cet accord : il se donne depuis l’[intégration MCP](/mcp/overview/) de Klastro. Si vous n’utilisez pas
+cette intégration, choisissez la **Validation automatique**.
+:::
+
+## Comprendre les statuts
+
+| Statut | Signification |
+|---|---|
+| **Créée** | L’invitation existe et l’e-mail est parti. Le candidat n’a pas encore répondu. |
+| **Envoyée** | Vous avez renvoyé l’e-mail avec **Renvoyer l’e-mail**. Le candidat n’a pas encore répondu. |
+| **Acceptée** | Le candidat a accepté l’invitation. Il peut démarrer l’Assessment. |
+| **Révoquée** | Vous avez annulé l’invitation. Le candidat ne peut plus l’accepter. |
+| **Expirée** | La date d’expiration est passée sans que l’invitation soit utilisée. |
+
+Une fois le passage commencé, la carte **Cycle de vie de l’invitation** de la page de l’invitation
+prolonge ce parcours avec l’état de l’Assessment (**En cours**, **Terminé**, **Temps écoulé**, **Évalué**),
+puis **RÉUSSI** ou **ÉCHOUÉ**.
+
+:::note
+Le statut passe à **Expirée** au moment où quelqu’un tente d’utiliser l’invitation après la date
+limite. En attendant, la date **Expire le** s’affiche en rouge sur la page de l’invitation.
+:::
+
+:::caution
+L’expiration compte aussi après l’acceptation : un candidat qui a accepté mais n’a pas démarré avant
+la date d’expiration ne peut plus démarrer. Choisissez un délai qui lui laisse le temps de bloquer un
+créneau.
+:::
+
+## Renvoyer l’e-mail
+
+Utile si le candidat ne retrouve pas le message.
+
+<Steps>
+
+1. Ouvrez **Évaluer**, puis **Invitations**, et cliquez sur la ligne de l’invitation.
+
+2. Cliquez sur **Renvoyer l’e-mail**.
+
+</Steps>
+
+Le message « Invitation renvoyée par e-mail » confirme l’envoi et le statut passe à **Envoyée**.
+Le bouton n’apparaît que pour une invitation **Créée** ou **Envoyée**. Une invitation dont la date
+d’expiration est passée ne peut pas être renvoyée : créez-en une nouvelle.
+
+## Révoquer une invitation
+
+<Steps>
+
+1. Ouvrez la page de l’invitation et cliquez sur **Révoquer**.
+
+2. Dans la fenêtre **Révoquer l’invitation ?**, cliquez sur **Révoquer l’invitation**.
+
+</Steps>
+
+:::danger
+La révocation est définitive : le candidat ne pourra plus accepter cette invitation. Pour l’inviter à
+nouveau, envoyez-lui une nouvelle invitation.
+:::
+
+Vous ne pouvez révoquer qu’une invitation **Créée** ou **Envoyée**. Une invitation **Acceptée** ne se
+révoque plus.
+
+## Retrouver une invitation
+
+La page **Invitations** affiche trois compteurs (**En attente**, **Acceptées**, **Expirées**) et la table
+**Toutes les invitations**, 10 lignes par page.
+
+Pour filtrer la table, utilisez :
+
+- **Statut** : un des cinq statuts ci-dessus, ou **Tous les statuts** ;
+- **Assessment** : un modèle, ou **Tous les Assessments** ;
+- deux dates pour borner la date de création (**Créée à partir du**, **Créée jusqu’au**).
+
+**Réinitialiser les filtres** les efface tous.
+
+La page d’une invitation regroupe :
+
+| Carte | Contenu |
+|---|---|
+| **Candidat** | Nom et e-mail. |
+| **Assessment** | Nom et identifiant du modèle. |
+| **Paramètres** | **Mode d’autorisation** (**Automatique** ou **Validation manuelle**) et **Webcam requise**. |
+| **Chronologie** | **Créé le** et **Expire le**. |
+| **Cycle de vie de l’invitation** | Le parcours décrit plus haut. |
+| **Résultat de l’Assessment** | Dès que le candidat a démarré : statut, score, score requis, résultat, dates et durée. |
+
+Quand l’Assessment est terminé, le bouton **Voir le rapport** ouvre le rapport du candidat
+(voir [Lire le rapport d’un candidat](/recruiters/candidate-report/)).
+
+## Voir aussi
+
+- [Problèmes d’invitation](/troubleshooting/invitations/)
+- [Superviser un passage en direct](/recruiters/live-supervision/)

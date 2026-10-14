@@ -1,0 +1,182 @@
+---
+title: L’espace de travail du lab
+description: Visite de l’écran du lab — instructions, terminaux, éditeur, app views, notes et barres qui les entourent — et ce qui survit à un rechargement ou à une pause.
+sidebar:
+  order: 1
+---
+
+import { CardGrid, LinkCard } from '@astrojs/starlight/components';
+
+Tous les labs Klastro s’ouvrent dans le même espace de travail plein écran, que
+vous suiviez un tutoriel, pratiquiez un challenge, exploriez un playground ou
+passiez un assessment. Cette page présente l’organisation de cet écran et le rôle
+de chacune de ses parties. Les pages suivantes détaillent chaque partie.
+
+## L’écran en un coup d’œil
+
+L’espace de travail est une carte unique, divisée en deux panneaux, avec une fine
+barre au-dessus et une autre en dessous.
+
+| Zone | Emplacement | Contenu |
+|---|---|---|
+| Barre supérieure | Au-dessus de l’espace de travail | Le logo Klastro, le nom du scénario, le minuteur d’assessment, **Signaler un problème**, les sélecteurs de langue et de thème, et la sortie du lab |
+| Panneau de gauche | Côté gauche de la carte | L’onglet **Instructions** (tâches, indices, vérifications) et, quand il est disponible, l’onglet **Notes** |
+| Panneau de droite | Côté droit de la carte | Les onglets de terminal, plus l’onglet **Code** et les onglets d’app views quand le scénario les prévoit |
+| Barre d’état | Sous l’espace de travail | **Connecté** ou **En attente du démarrage de la session…**, et le nom du scénario |
+
+Un playground n’a pas d’instructions : le panneau de gauche disparaît et le
+terminal occupe toute la carte.
+
+## Le panneau de gauche
+
+### Instructions
+
+L’onglet **Instructions** indique ce que le scénario attend de vous. De haut en
+bas, il affiche :
+
+- **Un en-tête** avec le bouton de la liste (**Afficher les tâches** /
+  **Masquer les tâches**, ou **Afficher les étapes** / **Masquer les étapes**
+  dans un tutoriel), votre progression sous la forme *terminées sur total* (par
+  exemple **2 sur 8**) et, dans un challenge, le total de points du scénario.
+- **À propos du scénario**, une section repliée qui contient la description du
+  scénario.
+- **Se connecter aux machines**, une section repliée qui n’apparaît que si votre
+  lab comporte des machines accessibles en ssh. Voir
+  [Utiliser le terminal du lab](/lab/terminal/).
+- **La liste des tâches**, numérotée, sur le côté. Une coche remplace le numéro
+  dès qu’une étape a réussi sa vérification.
+- **La tâche en cours** : sa position (par exemple **3 sur 8**), son titre, ses
+  instructions, la vérification dans un tutoriel, et les indices.
+- **Les boutons Précédent et Suivant** en bas. Sur la dernière tâche, ils
+  deviennent **Terminer et envoyer** (challenge) ou **Terminer** (tutoriel).
+
+Les commandes des instructions sont des boutons de copie : cliquez sur une
+commande en ligne ou sur le bouton **Copier** d’un bloc de code, puis collez-la
+dans le terminal.
+
+Tant que votre environnement est en cours de création, l’onglet Instructions
+affiche **Préparation de votre environnement** avec une barre de progression et
+les étapes d’installation, à la place des tâches. Les tâches n’apparaissent qu’une
+fois l’environnement prêt à les exécuter.
+
+Le fonctionnement des tâches, des indices et des vérifications est décrit dans
+[Tâches, vérifications et indices](/lab/tasks-and-checks/).
+
+### Notes
+
+L’onglet **Notes** est un bloc-notes en texte brut qui s’enregistre pendant que
+vous tapez. Il est disponible dans les tutoriels, les challenges et les
+assessments. Dans un assessment, le recruteur peut le lire dans votre rapport.
+Voir [Prendre des notes pendant un lab](/lab/notes/).
+
+## Le panneau de droite
+
+Le panneau de droite est une rangée d’onglets au-dessus d’une grande surface.
+
+- Les onglets **Shell** (**Shell 1**, **Shell 2**…) sont des terminaux dans votre
+  lab. Le bouton **+** en ouvre d’autres, jusqu’à cinq.
+- Les onglets **Node** (**Node**, ou **Node 1**, **Node 2**…) apparaissent quand
+  votre lab comporte des machines. Chacun ouvre un terminal directement sur la
+  machine correspondante.
+- **Code** ouvre un éditeur VS Code dans le navigateur, quand le scénario en
+  prévoit un.
+- Les onglets d’**app views**, au nom de l’application (une console GitOps ou de
+  supervision, par exemple), intègrent des outils web qui tournent dans votre lab.
+
+Un petit point sur chaque onglet de terminal indique sa connexion : vert quand il
+est connecté, rouge en cas d’erreur, gris quand il est fermé, clignotant pendant
+la connexion. Un point clignotant sur un onglet d’app view signifie que
+l’application démarre encore.
+
+Voir [Utiliser le terminal du lab](/lab/terminal/) et
+[Utiliser l’éditeur et les app views](/lab/ide-and-app-views/).
+
+## Redimensionner les deux panneaux
+
+Faites glisser la poignée entre les panneaux de gauche et de droite pour donner
+plus de place aux instructions ou au terminal. Le panneau de gauche peut occuper
+d’environ un cinquième à un peu plus de la moitié de la largeur.
+
+Pour redimensionner au clavier, appuyez sur <kbd>Tab</kbd> jusqu’à placer le focus
+sur la poignée (nommée **Redimensionner les panneaux**), puis utilisez
+<kbd>←</kbd> et <kbd>→</kbd>.
+
+:::note
+La position de la séparation n’est pas mémorisée : recharger la page la
+réinitialise. L’état replié de la liste des tâches et des sections est mémorisé
+pour la suite de votre visite, dans cet onglet du navigateur.
+:::
+
+## La barre supérieure
+
+La barre supérieure change selon le type de lab.
+
+**Dans tous les labs**
+
+- Le **logo Klastro** vous ramène au tableau de bord.
+- Le **nom du scénario** s’affiche à côté, sur les écrans larges.
+- **Signaler un problème** ouvre un formulaire de support auquel ce lab est
+  rattaché. Voir [Signaler un problème sur un lab](/support/report-lab-problem/).
+- Les sélecteurs de langue et de thème. Le terminal reste sombre quel que soit le
+  thème.
+
+**Dans un tutoriel, un challenge ou un playground**
+
+- **Retour au tableau de bord** (l’icône du tableau de bord) quitte le lab sans
+  l’arrêter.
+- **Quitter le lab** (l’icône de sortie) vous demande de choisir entre
+  **Mettre en pause** et **Arrêter la session**. Voir
+  [Ce qui est conservé](#ce-qui-est-conservé) plus bas.
+- Si vous avez ouvert le lab depuis un parcours de certification, un bouton vous
+  ramène à ce parcours.
+- Si le lab fait partie d’une formation animée par un formateur, un bouton vous
+  permet de demander de l’aide sans quitter le lab.
+
+**Dans un assessment**
+
+- Le **minuteur** occupe le centre de la barre.
+- **Terminer l’assessment** met fin à l’assessment entier.
+- **Quitter le lab** vous fait sortir du lab. Le compte à rebours continue pendant
+  votre absence.
+
+Voir [Passer un assessment](/lab/assessment-mode/).
+
+:::note
+La barre du lab n’affiche ni votre solde de crédits ni un score en direct. Dans un
+challenge, la valeur en points de chaque tâche figure dans le panneau
+Instructions, et votre score apparaît sur la page de résultats après l’envoi. Les
+crédits se consultent depuis le tableau de bord ; voir
+[Forfaits et crédits](/billing/plans-and-credits/).
+:::
+
+## Ce qui est conservé
+
+| Vous faites ceci | Ce que devient votre travail |
+|---|---|
+| Recharger la page, ou perdre brièvement la connexion | Vos shells continuent de tourner dans le lab. Chaque onglet de terminal se reconnecte au même shell, avec les mêmes commandes en cours. Vos onglets ouverts sont restaurés dans le même onglet du navigateur. |
+| Cliquer sur **Retour au tableau de bord** | Rien ne s’arrête. Le lab continue de tourner (et, avec un abonnement, de consommer des crédits). Rouvrez-le depuis **Mes sessions**. |
+| **Quitter le lab** → **Mettre en pause** | L’environnement est conservé et cesse de tourner. Rouvrir le lab le relance. |
+| **Quitter le lab** → **Arrêter la session** | L’environnement est détruit définitivement. Cette action est irréversible. |
+| Notes | Enregistrées automatiquement sur votre compte, environ une seconde après votre dernière frappe. |
+| Indices révélés | Enregistrés. Ils restent visibles après un rechargement, sur n’importe quel appareil. |
+| Vérifications lancées | Enregistrées. Les étapes validées restent cochées après un rechargement. |
+
+:::caution
+**Arrêter la session** détruit l’environnement et tout ce qu’il contient. Si vous
+comptez revenir, choisissez plutôt **Mettre en pause**.
+:::
+
+Un lab peut aussi se terminer sans vous : quand un formateur clôt une formation,
+l’écran affiche **Cet environnement est terminé**, et les vérifications déjà
+réussies sont conservées. Quand un formateur vous place sur une autre étape de la
+formation, l’écran affiche **Cet environnement est en pause** et votre travail est
+conservé jusqu’à ce qu’il vous ramène à cette étape.
+
+## Pour aller plus loin
+
+<CardGrid>
+	<LinkCard title="Utiliser le terminal du lab" href="/lab/terminal/" />
+	<LinkCard title="Tâches, vérifications et indices" href="/lab/tasks-and-checks/" />
+	<LinkCard title="Passer un assessment" href="/lab/assessment-mode/" />
+	<LinkCard title="Raccourcis clavier" href="/lab/keyboard-shortcuts/" />
+</CardGrid>

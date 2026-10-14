@@ -1,0 +1,127 @@
+---
+title: Lire le rapport d’un candidat
+description: Référence de la page de rapport — score, détail par scénario, radar des compétences, tâches et tentatives, notes et avis du recruteur.
+sidebar:
+  order: 6
+---
+
+Le rapport d’un candidat est produit à la fin de son Assessment, qu’il l’ait terminé ou que le temps
+soit écoulé. Cette page décrit chacune de ses sections.
+
+**Accès :** **Recruteur** ou administrateur de l’organisation.
+
+## Ouvrir un rapport
+
+| Depuis | Action |
+|---|---|
+| **Évaluer** → **Résultats** | Icône en forme d’œil (**Voir le rapport**) sur la ligne du candidat. |
+| **Évaluer** → **Invitations** → une invitation | Bouton **Voir le rapport**, affiché une fois l’Assessment terminé. |
+| **Évaluer** → **Assessments** | Le score dans la colonne **Score final** (**Voir le rapport**), ou le bouton **Voir le rapport** sur la page du passage. |
+
+Si le rapport affiche **Rapport indisponible**, l’Assessment est probablement encore en cours.
+Le lien **Retour à l’invitation** ramène à la page de l’invitation.
+
+## En-tête
+
+| Élément | Contenu |
+|---|---|
+| Titre | Nom du candidat (à défaut, son e-mail). |
+| Sous-titre | Nom de l’Assessment · e-mail du candidat. |
+| Badge de résultat | **Réussi** si le score atteint le score de réussite du modèle, **Échoué** sinon. |
+| Badge de verdict | Le verdict enregistré, s’il y en a un (voir [Enregistrer un verdict](/recruiters/verdicts/)). |
+
+## Indicateurs
+
+| Indicateur | Valeur | Ligne secondaire |
+|---|---|---|
+| **Score** | Pourcentage obtenu, avec une jauge. | Points obtenus / points possibles (`12 / 20 pts`). |
+| **Score requis** | Score de réussite du modèle, en %. | « seuil de réussite » |
+| **Durée** | Temps passé par le candidat. | « temps de pratique » |
+| **Tâches réussies** | Tâches réussies / tâches au total, tous scénarios confondus. | Nombre de scénarios. |
+
+Les pourcentages sont colorés selon trois paliers fixes : vert à partir de 75 %, orange de 50 à 74 %,
+rouge sous 50 %.
+
+:::note
+Les couleurs ne dépendent pas du score de réussite de votre modèle. Un 72 % en orange peut très bien
+être **Réussi** si votre seuil est 70 %. Fiez-vous au badge **Réussi** / **Échoué**.
+:::
+
+## Fiche de l’Assessment
+
+| Champ | Contenu |
+|---|---|
+| **Résultat** | **Réussi** ou **Échoué**. |
+| **Score** | Points obtenus / points possibles. |
+| **Score en %** | Pourcentage obtenu. |
+| **Statut** | `COMPLETED` (terminé), `TIMED_OUT` (temps écoulé) ou `REVIEWED` (verdict enregistré). |
+| **Verdict** | Le verdict enregistré, ou « — ». |
+| **Démarré le** | Date et heure du début. |
+| **Terminé le** | Date et heure de la fin. |
+| **Durée** | Durée totale du passage. |
+| **Assessment** | Nom du modèle. |
+
+## Détail par scénario
+
+Une ligne par scénario de l’Assessment, avec :
+
+- le nom du scénario ;
+- les tâches réussies sur le total (`3/4 tâches`) ;
+- le temps passé sur le scénario ;
+- les points obtenus (`12/20 pts`) ;
+- une jauge et le pourcentage du scénario.
+
+## Radar des compétences
+
+Le radar montre le pourcentage obtenu dans chaque domaine de compétence évalué par les scénarios.
+Survolez un sommet pour voir le pourcentage et les points correspondants (`80 % (8/10 pts)`).
+
+Le radar affiche au plus **8** compétences : celles qui pèsent le plus de points. Les suivantes sont
+listées sous le graphique, avec leurs points et leur pourcentage.
+
+Le radar n’apparaît pas si l’Assessment n’a mesuré aucune compétence.
+
+## Points forts et axes de progrès
+
+À côté du radar :
+
+- **Points forts** liste les compétences où le candidat obtient **75 % ou plus** ;
+- **Axes de progrès** liste celles où il obtient **moins de 50 %**.
+
+Une compétence entre 50 et 74 % n’apparaît dans aucune des deux listes.
+
+## Détail des tâches
+
+Un panneau dépliable par scénario. Son en-tête rappelle le pourcentage, les tâches réussies et les
+points du scénario. Une fois déplié, chaque tâche affiche :
+
+| Élément | Contenu |
+|---|---|
+| Icône | Coche verte si la tâche est réussie, croix rouge sinon. |
+| Identifiant | L’identifiant de la tâche dans le scénario. |
+| Points | Points obtenus / points possibles. |
+| Tentatives | Nombre de fois où le candidat a soumis la tâche (`2 tentatives`). |
+| Vérifications | Les règles de validation de la **dernière** tentative : description, réussite ou échec, et durée de la vérification en millisecondes. Une règle marquée **(facultatif)** n’était pas obligatoire pour réussir la tâche. |
+
+Ce détail vous dit **ce** que le candidat a réussi ou manqué, pas seulement combien. Pour comprendre
+comment les tâches sont vérifiées côté candidat, voir [Tâches et vérifications](/lab/tasks-and-checks/).
+
+## Notes du candidat
+
+Si le candidat a utilisé son bloc-notes pendant le lab, la section **Notes du candidat** reproduit son
+contenu tel quel (voir [Les notes du lab](/lab/notes/)). La section n’apparaît pas si le bloc-notes est vide.
+
+:::tip
+Les notes montrent souvent le raisonnement du candidat : hypothèses, pistes abandonnées, commandes
+préparées. Lisez-les avant de rendre votre verdict.
+:::
+
+## Avis du recruteur
+
+Une fois un verdict enregistré, la section **Avis du recruteur** affiche le **Verdict** et, s’il y en a,
+les notes de la personne qui l’a enregistré.
+
+## Voir aussi
+
+- [Enregistrer un verdict et filtrer les rapports](/recruiters/verdicts/)
+- [Glossaire](/getting-started/glossary/)

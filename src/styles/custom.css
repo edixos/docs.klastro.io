@@ -1,0 +1,13 @@
+/* Klastro brand accent, taken from the klastro.io palette (globals.css
+   --primary / --accent) so docs and marketing read as one product. */
+:root {
+	--sl-color-accent-low: oklch(0.295 0.042 252);
+	--sl-color-accent: oklch(0.62 0.08 250);
+	--sl-color-accent-high: oklch(0.925 0.024 228);
+}
+
+:root[data-theme='light'] {
+	--sl-color-accent-low: oklch(0.925 0.024 228);
+	--sl-color-accent: oklch(0.443 0.059 254);
+	--sl-color-accent-high: oklch(0.3 0.05 254);
+}

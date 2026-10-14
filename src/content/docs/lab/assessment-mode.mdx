@@ -1,0 +1,182 @@
+---
+title: Passer un assessment
+description: Du lobby de l’assessment jusqu’au lab, comprendre le minuteur et les règles, et terminer — ou arriver au bout du temps — sans perdre votre travail.
+sidebar:
+  order: 6
+---
+
+import { Steps } from '@astrojs/starlight/components';
+
+Un assessment est un ensemble chronométré et noté d’un ou plusieurs scénarios de
+lab, auquel un recruteur vous a invité. Il utilise le même espace de travail que
+tout autre lab, avec quelques différences : un compte à rebours, aucun point
+affiché, aucun bouton de vérification, et une notation qui a lieu à la fin de
+l’assessment.
+
+**Avant de commencer :**
+
+- Acceptez votre invitation. Voir [Accepter une invitation](/learners/accept-invitation/).
+- Utilisez un navigateur récent sur ordinateur, avec une connexion stable, et
+  prévoyez assez de temps pour terminer d’une traite. Le compte à rebours ne se
+  met pas en pause.
+- Lisez [L’espace de travail du lab](/lab/overview/) et
+  [Utiliser le terminal du lab](/lab/terminal/) si vous n’avez jamais utilisé un
+  lab Klastro.
+
+## 1. Patienter dans le lobby
+
+Ouvrir l’assessment vous amène à son lobby. Il liste les scénarios de
+l’assessment et prépare un environnement pour chacun.
+
+<Steps>
+
+1. Si le lobby affiche **En attente d’autorisation**, le recruteur n’a pas encore
+   approuvé l’assessment. Gardez la page ouverte : elle se met à jour d’elle-même
+   dès qu’il le fait.
+
+2. Suivez chaque carte de scénario. Pendant la préparation de son environnement,
+   elle affiche trois étapes — **Réservation de l’environnement**,
+   **Démarrage des machines**, **Installation du scénario** — puis **Prêt**. Le
+   titre en tient le compte, par exemple **2 sur 3 prêts**. Les environnements
+   plus lourds peuvent prendre plusieurs minutes.
+
+3. Chaque carte indique aussi la difficulté du scénario et sa durée estimée, par
+   exemple **Env. 30m**.
+
+4. Lorsque tous les scénarios sont **Prêt**, les boutons **Entrer** deviennent
+   actifs. Cliquez sur **Entrer** sur le scénario par lequel vous voulez
+   commencer.
+
+</Steps>
+
+:::note
+Le compte à rebours ne démarre **pas** pendant que vous attendez dans le lobby. Il
+démarre lorsque vous entrez dans votre premier scénario, comme l’indique le lobby
+sous **Commencez quand vous voulez**. Vous pouvez faire les scénarios dans l’ordre
+de votre choix.
+:::
+
+Si un scénario affiche **Préparation impossible**, vous ne pouvez pas le corriger
+de votre côté. Contactez le recruteur qui vous a invité. Voir aussi
+[Dépannage du provisionnement des labs](/troubleshooting/provisioning/).
+
+## 2. Travailler dans le lab
+
+Une fois entré, la barre supérieure affiche le minuteur de l’assessment, et le lab
+fonctionne comme décrit dans [L’espace de travail du lab](/lab/overview/), avec
+ces différences :
+
+| | Dans un assessment |
+|---|---|
+| Points | Non affichés. Vous êtes noté, mais les chiffres sont destinés au recruteur. |
+| Vérification de votre travail | Pas de bouton de vérification. Chaque tâche est vérifiée automatiquement à la fin de l’assessment. |
+| Indices | Disponibles, en chaîne. Chaque indice révélé réduit votre score sur la tâche, même si son coût n’est pas affiché. |
+| Notes | Disponibles, et partagées avec le recruteur dans votre rapport. Voir [Prendre des notes pendant un lab](/lab/notes/). |
+| Passer d’un scénario à l’autre | Utilisez le sélecteur de scénario dans l’en-tête des Instructions, ou **Suivant** sur la dernière tâche d’un scénario (**Scénario suivant ?** → **Oui, continuer**). Vous pouvez revenir en arrière de la même façon. |
+
+Voir [Tâches, vérifications et indices](/lab/tasks-and-checks/) pour le
+fonctionnement de la notation.
+
+## Le minuteur
+
+Avant votre entrée dans le premier scénario, la barre supérieure affiche la durée
+totale, par exemple **Durée : 1h30m**, avec
+**Le compte à rebours démarre au premier scénario** en dessous. Une fois entré, il
+décompte en heures, minutes et secondes.
+
+| Couleur du minuteur | Temps restant |
+|---|---|
+| Neutre | Plus de 15 minutes |
+| Orange | 15 minutes ou moins |
+| Rouge | 5 minutes ou moins |
+
+Il n’y a qu’un minuteur pour tout l’assessment, partagé par tous ses scénarios. Il
+est tenu par Klastro, pas par votre navigateur : recharger la page, changer de
+scénario ou quitter le lab ne l’arrête pas et ne le remet pas à zéro.
+
+:::caution
+**Quitter le lab** dans la barre supérieure vous fait sortir du lab mais ne met
+pas l’assessment en pause. Le compte à rebours continue pendant votre absence.
+:::
+
+## Règles de conduite
+
+Klastro n’impose pas de règles propres au-delà du lab lui-même ; le recruteur qui
+vous a invité peut vous donner des consignes avec l’invitation. Quelles qu’elles
+soient, gardez à l’esprit que :
+
+- **Votre environnement est la réponse.** Ce qui compte, c’est l’état de votre lab
+  à la fin de l’assessment, pas les commandes que vous avez tapées. Laissez-le dans
+  son état final et fonctionnel.
+- **Les indices sont enregistrés.** Chaque indice révélé est conservé et réduit
+  votre score sur la tâche.
+- **Vos notes sont lues.** Le recruteur voit votre bloc-notes dans votre rapport.
+- **Votre terminal peut être observé.** Des membres de l’organisation qui recrute
+  peuvent suivre vos onglets de terminal en direct, en lecture seule. Ils ne
+  peuvent pas taper dans votre terminal, et rien à l’écran ne vous signale qu’ils
+  observent.
+
+### Webcam, micro et écran
+
+La barre supérieure affiche une icône de caméra intitulée **Webcam désactivée**.
+Dans la version actuelle, le lab ne demande pas l’accès à votre webcam, à votre
+micro ni à votre écran, et ne les enregistre pas. Si votre navigateur vous demande
+l’une de ces autorisations sur une page Klastro, voir
+[Dépannage de la webcam](/troubleshooting/webcam/). Les recruteurs trouveront ce
+qu’ils peuvent suivre dans
+[Surveillance et supervision](/recruiters/proctoring-supervision/).
+
+## 3. Terminer l’assessment
+
+Lorsque vous avez fait tout ce que vous pouviez, dans chaque scénario :
+
+<Steps>
+
+1. Cliquez sur **Terminer l’assessment** dans la barre supérieure.
+
+2. Lisez la confirmation. Elle prévient que
+   **Vous ne pourrez plus revenir dans ce lab une fois terminé.**
+
+3. Cliquez sur **Oui, terminer l’assessment**.
+
+</Steps>
+
+L’écran affiche **Assessment terminé** et
+**Votre travail a été enregistré ; le recruteur recevra les résultats définitifs sous peu.**
+Quelques secondes plus tard, vous êtes ramené au tableau de bord. Klastro vérifie
+ensuite chaque tâche de chaque scénario sur vos environnements et transmet les
+résultats au recruteur.
+
+:::danger
+**Terminer l’assessment** met fin à l’assessment entier, pas seulement au
+scénario en cours. Vérifiez d’abord que vous avez traité tous les scénarios.
+:::
+
+## Si le temps est écoulé
+
+Lorsque le compte à rebours atteint zéro, le minuteur passe au rouge et affiche
+**Expiré**, puis l’assessment se termine de lui-même :
+
+- L’écran affiche **Le temps est écoulé** et
+  **Votre assessment a expiré. Votre travail a été enregistré ; le recruteur recevra les résultats définitifs sous peu.**
+- Vous êtes ramené au tableau de bord quelques secondes plus tard.
+- Chaque tâche est vérifiée sur vos environnements tels qu’ils étaient à
+  l’expiration du temps. Le travail déjà fait compte, exactement comme si vous
+  aviez cliqué sur **Terminer l’assessment**.
+
+:::tip
+Les points partiels existent : chaque contrôle réussi d’une tâche rapporte sa
+part. Dans les dernières minutes, assurez-vous que ce que vous avez fait est en
+place et enregistré plutôt que de commencer autre chose.
+:::
+
+Si l’écran affiche **Assessment en échec**, l’assessment a rencontré un problème
+technique côté Klastro. Votre travail a été enregistré ; contactez le recruteur
+qui vous a invité.
+
+## Voir aussi
+
+- [Accepter une invitation](/learners/accept-invitation/)
+- [Tâches, vérifications et indices](/lab/tasks-and-checks/)
+- [Signaler un problème sur un lab](/support/report-lab-problem/)
+- [FAQ](/troubleshooting/faq/)

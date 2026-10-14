@@ -1,0 +1,138 @@
+---
+title: Create a cohort
+description: Deliver a track to a group at a scheduled time — pick the track, schedule it, enrol participants, read the price of places and launch the class.
+sidebar:
+  order: 6
+---
+
+import { Steps } from '@astrojs/starlight/components';
+
+A **cohort** is one delivery of a track to a group at a scheduled time: an instructor-led class.
+Every trainee on the roster gets their own lab environment, and you follow the class live from
+the cohort's page (see [Run a cohort](/en/instructors/run-a-cohort/)).
+
+Before you start, you need:
+
+- in a subscription organization, an **Instructor seat** assigned to your account
+  (see [Seats](/en/billing/seats/)); in a contract organization, the instructor or admin role
+  (see [Members and roles](/en/admins/members-roles/));
+- a **published** track containing at least one scenario
+  (see [Compose a track](/en/instructors/tracks-learning-paths/)).
+
+:::note[Places and seats are different things]
+A **place** is one trainee's slot in one cohort. It is paid in credits, from your own balance,
+when the cohort launches. A **seat** is a named subscription in the organization (Pro,
+Instructor), managed from billing. Enrolling someone in a cohort uses no seat and does not change
+the one they hold. See [Seats](/en/billing/seats/).
+:::
+
+## 1. Pick the track
+
+<Steps>
+
+1. In the sidebar, open **Train**, then **Cohorts**.
+
+2. Click **New cohort**. The wizard shows three steps: **Track**, **Schedule** and **Roster**.
+
+3. Under **Pick a track**, click the track to deliver. The cohort copies its sequence and
+   materials: editing the track later will not change this class.
+
+</Steps>
+
+## 2. Schedule it
+
+<Steps>
+
+1. Under **When it runs**, enter a **Name**, for example "Kubernetes Fundamentals — September".
+   The track's name is suggested by default.
+
+2. Pick the **Scheduled start**. It is an announcement for participants: nothing provisions or
+   charges off it. You launch the class yourself.
+
+3. Set the **Length** in minutes. It is suggested from the scenarios' estimated durations. It is
+   the wall-clock length of the whole class, not of one scenario: the sequence is worked through
+   inside it, and it is the time each trainee's environment is given.
+
+4. Click **Compose cohort**. The cohort is created as a draft: it costs nothing and already shows
+   in the list.
+
+</Steps>
+
+## 3. Enrol participants
+
+On the **Roster** step, the **Who is attending** panel offers two ways to add places.
+
+<Steps>
+
+1. For people who are already members of the organization: under **Enrol members**, tick them,
+   then click **Enrol**. Enrolment sends no invitation. A member must have joined the organization
+   to be enrolled.
+
+2. For people who are not members yet: in **Invite by email**, enter the addresses, one per line or
+   comma-separated, then click **Invite**. A repeated address counts once.
+
+</Steps>
+
+An invited address with no Klastro account yet receives an email invitation, and the person joins
+your organization to attend the class. An address that already matches an account is added
+directly, with no email: let the person know yourself. A cohort takes up to 500 participants.
+
+To remove someone, open the cohort's page and click the remove icon on their row in the **Roster**
+table. This is only possible while the cohort has not been launched.
+
+:::tip
+Missing some names? Click **Save and finish later**. From the cohort's page, **Resume composing**
+takes you straight back to the roster.
+:::
+
+## 4. Read the price
+
+The **What it will cost** panel updates with every roster change.
+
+| Line | Meaning |
+|---|---|
+| **Places on the roster** | The number of trainees enrolled. |
+| **Included by your plan** | The places your plan covers at no extra cost, for each cohort. |
+| **Extra places** | The places beyond that, with their unit price in credits. |
+| **Total on launch** | What will be debited from your balance when you launch. |
+
+The price of an extra place depends on the environments of the scenarios in the sequence and their
+estimated duration, capped at the cohort's length. A longer cohort can therefore cost more. Plans
+and included places are described in [Plans and credits](/en/billing/plans-and-credits/).
+
+In a contract organization, the cohort is covered by the contract: no credits are debited and no
+price is shown.
+
+## 5. Launch the cohort
+
+<Steps>
+
+1. Click **Launch**. The button becomes active fifteen minutes before the **Scheduled start**;
+   before that it reads "Opens in …".
+
+2. If your class is ready early, click **Start now**. The confirmation reminds you that the
+   cohort's length starts running from the launch.
+
+3. Read the confirmation: it states the exact amount debited from your balance and the number of
+   environments started. Click **Launch and pay …**, or **Launch** when the cohort is inside your
+   plan's allowance.
+
+</Steps>
+
+:::caution[What becomes final at launch]
+- Credits are debited up front, from **your** balance, and are not refunded if the class ends
+  early.
+- The roster is fixed: nobody can be added or removed.
+- The cohort's length runs from the launch. Once it has elapsed, no new environment can be started
+  for this class.
+:::
+
+After launch, each trainee starts their own environment from **My Training**: it is built at that
+moment, so the session's time is spent on the work. Participants need no credits for their cohort
+labs. What they see is described in [Join a training session](/en/learners/join-training/).
+
+## Cancel a draft cohort
+
+On the page of a cohort that has not been launched, click **Cancel this cohort**, then confirm. It
+leaves your upcoming classes without being deleted: the roster and the sequence stay readable.
+Nothing is refunded because nothing was charged.

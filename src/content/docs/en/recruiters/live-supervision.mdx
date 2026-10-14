@@ -1,0 +1,140 @@
+---
+title: Supervise a run live
+description: Follow a candidate's run in real time, watch their terminal read-only, adjust their time, or stop a scenario.
+sidebar:
+  order: 5
+---
+
+import { Steps } from '@astrojs/starlight/components';
+
+While a candidate takes their assessment, you can follow their progress scenario by scenario, watch
+their terminal without being able to type in it, add or remove time, and pause or stop a scenario.
+
+**Prerequisites:** be a **Recruiter** or an admin in the organization, and have a candidate who has
+started their assessment from their invitation.
+
+## Open a candidate's run
+
+<Steps>
+
+1. Open **Assess**, then **Assessments**.
+
+2. Under **All assessments**, find the candidate. The counters at the top show the total number of
+   runs, the **Active** ones (in progress) and the **Completed** ones.
+
+3. Click the **View assessment** icon at the end of the row.
+
+</Steps>
+
+The run page updates by itself while the **Live** badge is shown. If the badge says **Disconnected**,
+reload the page.
+
+| Card | Content |
+|---|---|
+| **Information** | **Candidate Name**, **Candidate Email**, **Assessment**, **Started**. |
+| **Time Remaining** | The assessment's global countdown, then **Final Score** once the run is over. |
+| **Sessions** | One scenario per row: **Scenario**, **Status**, **Started**, **Duration**, **Score**. |
+
+Until the assessment is over, the **Score** column shows an information icon ("Score will be revealed
+after the assessment is complete.").
+
+:::note
+Before the candidate enters their first scenario, the **Time Remaining** card reads "Timer starts once
+the candidate begins". The timer covers all scenarios at once.
+:::
+
+## Watch the candidate's terminal
+
+<Steps>
+
+1. On the run page, under **Sessions**, click the scenario's **View session** icon.
+
+2. In the **Infrastructure Deployment Status** card, the **Live CloudShell Terminal** area shows the
+   candidate's terminal, marked **Observing**.
+
+3. If the lab has several machines, switch between them with the terminal tabs.
+
+</Steps>
+
+This terminal is a **read-only mirror**: you see what the candidate types and what their commands print,
+but your keystrokes never reach them. The candidate stays in control.
+
+The terminal is not shown while the scenario is paused, stopping or finished. The area then becomes
+**Isolated User Space Shell**, with a badge showing the state.
+
+The **Session Diagnostics** card gives the **Created at** and **Started at** dates, the elapsed
+**Duration** and, once the assessment is over, the scenario's **Final Points**.
+
+## Add or remove time
+
+Useful when the candidate lost time for a reason outside their control.
+
+<Steps>
+
+1. On the run page, find the **Time Remaining** card.
+
+2. In the field under the countdown (**Adjust time (minutes)**), enter a number of minutes. The default
+   is 5.
+
+3. Click **+** (**Add N min**) or **−** (**Remove N min**).
+
+</Steps>
+
+The "Added N min to the assessment" or "Removed N min from the assessment" message confirms the change,
+and the countdown updates. The total duration never drops below 1 minute. The control disappears once
+the assessment is over.
+
+:::caution
+Removing time can make the assessment run out immediately if the remaining time reaches zero.
+:::
+
+## Pause or resume a scenario
+
+On a scenario's supervision panel:
+
+- **Pause** suspends the scenario's environment. The "Session paused successfully" message confirms it;
+- **Resume** brings it back. The "Session resumed successfully" message confirms it.
+
+:::caution
+The assessment countdown is global and keeps running. If you pause a scenario on the candidate's behalf,
+add the matching time back.
+:::
+
+## Stop a scenario
+
+<Steps>
+
+1. On the scenario's supervision panel, click **Complete**.
+
+2. In the **Complete Session?** window, click **Yes, Complete Session**.
+
+</Steps>
+
+:::danger
+The scenario's environment is destroyed permanently and the candidate loses access to it. Anything the
+candidate has not yet had validated on that scenario can no longer be.
+:::
+
+After stopping, you return to the run page.
+
+## Run and scenario states
+
+| Badge | Meaning |
+|---|---|
+| **Created** | The run has just been created. |
+| **Pending auth** | The run is waiting for your authorization (invitation set to **Manual approval**). |
+| **Creating**, **Provisioning** | The candidate's environment is being prepared. |
+| **Ready** | The environment is ready; the candidate can enter. |
+| **Active** | The candidate is working. |
+| **Paused** | The scenario is paused. |
+| **Completed** | The run went to its end. |
+| **Timed out** | The allotted time ran out. |
+| **Terminated** | The scenario was stopped before the end. |
+| **Failed** | The environment could not be prepared. |
+| **Rejected** | The run was rejected. |
+
+## See also
+
+- [Webcam and proctoring](/en/recruiters/proctoring-supervision/)
+- [Read a candidate report](/en/recruiters/candidate-report/)
+- [The lab in assessment mode](/en/lab/assessment-mode/)

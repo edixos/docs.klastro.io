@@ -1,0 +1,143 @@
+---
+title: Créer une cohorte
+description: Livrez un parcours à un groupe à une date planifiée — choisissez le parcours, planifiez, inscrivez les participants, lisez le prix des places et lancez la formation.
+sidebar:
+  order: 6
+---
+
+import { Steps } from '@astrojs/starlight/components';
+
+Une **cohorte** est une livraison d’un parcours à un groupe, à une date planifiée : une formation
+encadrée. Chaque stagiaire de la liste reçoit son propre environnement de lab, et vous suivez la
+classe en direct depuis la page de la cohorte (voir [Animer une cohorte](/instructors/run-a-cohort/)).
+
+Avant de commencer, il vous faut :
+
+- dans une organisation en abonnement, une **licence Instructor** attribuée à votre compte
+  (voir [Licences](/billing/seats/)) ; dans une organisation sous contrat, le rôle formateur ou
+  administrateur (voir [Membres et rôles](/admins/members-roles/)) ;
+- un parcours **publié** contenant au moins un scénario
+  (voir [Composer un parcours](/instructors/tracks-learning-paths/)).
+
+:::note[Places et licences : deux choses différentes]
+Une **place** est le créneau d’un stagiaire dans une cohorte. Elle se paie en crédits, sur votre
+propre solde, au lancement de la cohorte. Une **licence** est un abonnement nominatif dans
+l’organisation (Pro, Instructor), géré depuis la facturation. Inscrire quelqu’un à une cohorte ne
+consomme aucune licence et ne change pas celle qu’il possède. Voir [Licences](/billing/seats/).
+:::
+
+## 1. Choisir le parcours
+
+<Steps>
+
+1. Dans le menu latéral, ouvrez **Former**, puis **Cohortes**.
+
+2. Cliquez sur **Nouvelle cohorte**. L’assistant affiche trois étapes : **Parcours**,
+   **Planification** et **Participants**.
+
+3. Sous **Choisir un parcours**, cliquez sur le parcours à livrer. La cohorte copie sa séquence et
+   ses supports : modifier le parcours plus tard ne changera pas cette classe.
+
+</Steps>
+
+## 2. Planifier
+
+<Steps>
+
+1. Sous **Quand elle a lieu**, saisissez un **Nom**, par exemple « Kubernetes Fundamentals —
+   septembre ». Le nom du parcours est proposé par défaut.
+
+2. Choisissez le **Début planifié**. C’est une annonce pour les participants : rien n’est
+   provisionné ni facturé à partir de cette heure. C’est vous qui lancez.
+
+3. Réglez la **Durée** en minutes. Elle est proposée à partir des durées estimées des scénarios.
+   C’est la durée réelle de toute la classe, pas d’un scénario : la séquence se déroule à
+   l’intérieur, et c’est le temps dont dispose l’environnement de chaque stagiaire.
+
+4. Cliquez sur **Composer la cohorte**. La cohorte est créée en brouillon : elle ne coûte rien et
+   apparaît déjà dans la liste.
+
+</Steps>
+
+## 3. Inscrire les participants
+
+À l’étape **Participants**, le panneau **Qui participe** propose deux façons d’ajouter des places.
+
+<Steps>
+
+1. Pour des personnes déjà membres de l’organisation : sous **Inscrire des membres**, cochez-les,
+   puis cliquez sur **Inscrire**. L’inscription n’envoie aucune invitation. Un membre doit avoir
+   rejoint l’organisation pour être inscrit.
+
+2. Pour des personnes qui ne sont pas encore membres : dans **Inviter par e-mail**, saisissez les
+   adresses, une par ligne ou séparées par des virgules, puis cliquez sur **Inviter**. Une adresse
+   en double ne compte qu’une fois.
+
+</Steps>
+
+Une adresse invitée qui n’a pas encore de compte Klastro reçoit une invitation par e-mail, et la
+personne rejoint votre organisation pour suivre la formation. Une adresse qui correspond déjà à un
+compte est ajoutée directement, sans e-mail : prévenez la personne vous-même. Une cohorte accepte
+jusqu’à 500 participants.
+
+Pour retirer quelqu’un, ouvrez la page de la cohorte et cliquez sur l’icône de retrait de sa ligne,
+dans le tableau **Participants**. C’est possible uniquement tant que la cohorte n’est pas lancée.
+
+:::tip
+Vous n’avez pas tout sous la main ? Cliquez sur **Enregistrer et terminer plus tard**. Depuis la
+page de la cohorte, **Reprendre la composition** vous ramène directement aux participants.
+:::
+
+## 4. Lire le prix
+
+Le panneau **Ce que cela coûtera** se met à jour à chaque changement de la liste.
+
+| Ligne | Signification |
+|---|---|
+| **Places sur la liste** | Le nombre de stagiaires inscrits. |
+| **Incluses dans votre forfait** | Les places que votre forfait couvre sans surcoût, pour chaque cohorte. |
+| **Places supplémentaires** | Les places au-delà, avec leur prix unitaire en crédits. |
+| **Total au lancement** | Ce qui sera débité de votre solde quand vous lancerez. |
+
+Le prix d’une place supplémentaire dépend des environnements des scénarios de la séquence et de leur
+durée estimée, plafonnée à la durée de la cohorte. Allonger la cohorte peut donc augmenter le prix.
+Les forfaits et les places incluses sont décrits dans
+[Forfaits et crédits](/billing/plans-and-credits/).
+
+Dans une organisation sous contrat, la cohorte est couverte par le contrat : aucun crédit n’est
+débité et le prix n’est pas affiché.
+
+## 5. Lancer la cohorte
+
+<Steps>
+
+1. Cliquez sur **Lancer**. Le bouton s’active quinze minutes avant le **Début planifié** ; avant,
+   il affiche « Ouvre dans … ».
+
+2. Si votre classe est prête plus tôt, cliquez sur **Démarrer maintenant**. La fenêtre de
+   confirmation rappelle que la durée de la cohorte commence à courir dès le lancement.
+
+3. Lisez la confirmation : elle indique le montant exact débité de votre solde et le nombre
+   d’environnements démarrés. Cliquez sur **Lancer et payer …**, ou sur **Lancer** si la cohorte
+   tient dans la dotation de votre forfait.
+
+</Steps>
+
+:::caution[Ce qui est définitif au lancement]
+- Les crédits sont débités d’avance, sur **votre** solde, et ne sont pas remboursés si la classe se
+  termine plus tôt.
+- La liste des participants est figée : impossible d’ajouter ou de retirer quelqu’un.
+- La durée de la cohorte court à partir du lancement. Une fois écoulée, plus aucun nouvel
+  environnement ne peut être démarré pour cette classe.
+:::
+
+Après le lancement, chaque stagiaire démarre lui-même son environnement depuis **Mes formations** :
+il est créé à ce moment-là, pour que le temps de la séance serve à travailler. Les participants
+n’ont pas besoin de crédits pour leurs labs de cohorte. Ce qu’ils voient est décrit dans
+[Rejoindre une formation](/learners/join-training/).
+
+## Annuler une cohorte en brouillon
+
+Sur la page d’une cohorte non lancée, cliquez sur **Annuler la cohorte**, puis confirmez. Elle quitte
+les cohortes à venir sans être supprimée : la liste et la séquence restent consultables. Rien n’est
+remboursé, car rien n’a été facturé.

@@ -1,0 +1,83 @@
+---
+title: Documentation Klastro
+description: Apprenez à utiliser Klastro, la plateforme de labs cloud native dans le navigateur, pour vous former, évaluer des candidats et animer des formations.
+template: splash
+hero:
+  tagline: De vrais clusters, provisionnés à la demande dans votre navigateur. Tout ce qu’il faut savoir pour pratiquer, évaluer et former avec Klastro.
+  actions:
+    - text: Découvrir Klastro
+      link: /getting-started/what-is-klastro/
+      icon: right-arrow
+    - text: Lancer mon premier lab
+      link: /learners/first-lab/
+      icon: rocket
+      variant: secondary
+    - text: Ouvrir app.klastro.io
+      link: https://app.klastro.io
+      icon: external
+      variant: minimal
+---
+
+import { CardGrid, LinkCard } from '@astrojs/starlight/components';
+
+## Par où commencer ?
+
+Choisissez le profil qui vous ressemble le plus. Chaque section part de votre objectif, pas de la structure de l’application.
+
+<CardGrid>
+	<LinkCard
+		title="J’ai reçu une invitation à un assessment"
+		description="Acceptez l’invitation, préparez votre poste et démarrez votre évaluation technique."
+		href="/learners/accept-invitation/"
+	/>
+	<LinkCard
+		title="Je veux m’entraîner"
+		description="Tutoriels, challenges, playgrounds et parcours de certification, à votre rythme."
+		href="/learners/first-lab/"
+	/>
+	<LinkCard
+		title="Je participe à une formation"
+		description="Retrouvez votre formation, démarrez votre environnement et demandez de l’aide au formateur."
+		href="/learners/join-training/"
+	/>
+	<LinkCard
+		title="Je recrute"
+		description="Composez un assessment, invitez des candidats et lisez leur rapport."
+		href="/recruiters/first-assessment/"
+	/>
+	<LinkCard
+		title="Je forme ou je crée des scénarios"
+		description="Écrivez vos scénarios dans Scenario Studio, puis animez des cohortes."
+		href="/instructors/studio-first-scenario/"
+	/>
+	<LinkCard
+		title="J’administre une organisation"
+		description="Membres, rôles, paramètres, journal d’audit, forfaits et crédits."
+		href="/admins/members-roles/"
+	/>
+</CardGrid>
+
+## Aller plus loin
+
+<CardGrid>
+	<LinkCard
+		title="Choisir votre parcours"
+		description="Un aiguillage détaillé, profil par profil."
+		href="/getting-started/choose-your-path/"
+	/>
+	<LinkCard
+		title="Glossaire"
+		description="Scénario, session, tâche, crédit, licence, cohorte : le vocabulaire de Klastro."
+		href="/getting-started/glossary/"
+	/>
+	<LinkCard
+		title="FAQ et dépannage"
+		description="Les réponses aux problèmes les plus fréquents."
+		href="/troubleshooting/faq/"
+	/>
+	<LinkCard
+		title="Contacter le support"
+		description="Ouvrez un ticket depuis l’application."
+		href="/support/open-ticket/"
+	/>
+</CardGrid>

@@ -1,0 +1,109 @@
+---
+title: Add an editor and app views to a scenario
+description: Give learners an in-browser VS Code editor and the web UIs of the lab's tools, as tabs beside the terminal.
+sidebar:
+  order: 3
+---
+
+import { Steps } from '@astrojs/starlight/components';
+
+By default, a lab offers only a terminal. From a scenario's **Workspace** you can add:
+
+- a **Code** tab: a VS Code editor (code-server) that shares the terminal's working directory;
+- **app views**: the web UI of a tool running in the session's cluster (Argo CD, Grafana…),
+  shown in a tab of the lab.
+
+What the learner then sees is described in [Editor and app views](/en/lab/ide-and-app-views/).
+
+Before you start, you need a draft open in Scenario Studio with an environment chosen
+(see [Your first scenario](/en/instructors/studio-first-scenario/)).
+
+:::caution[Check that the environment supports them]
+Not every environment can serve the editor or app views: app views need a cluster inside the
+environment. The environment form says so in its chips (**In-browser editor**,
+**Tool web UIs as tabs**), and the workspace shows a warning when what you configure cannot
+appear. Configured on an incompatible environment, the editor or app views publish but never
+appear.
+:::
+
+## Enable the VS Code editor
+
+<Steps>
+
+1. In the canvas toolbar, click **Workspace**.
+
+2. On the **Coder (VS Code)** tab, tick **Enable Coder (VS Code)**.
+
+3. In **Pre-installed extensions**, enter one extension id per line, for example
+   `redhat.vscode-yaml`. **Add YAML support** fills the list with the YAML extension when it is
+   empty.
+
+4. Optional: set a **Working directory** (for example `/home/coder/project`) or an
+   **Editor image** to override the default code-server image. Leave them empty to keep the
+   platform's values.
+
+</Steps>
+
+:::note[The extension marketplace is disabled]
+Learners cannot install anything into the environment your tasks grade, so the
+**Pre-installed extensions** list is the only way an extension gets in. They are installed before
+the editor starts.
+:::
+
+## Add an app view
+
+An app view exposes, in a lab tab, a Service running in the session's cluster. So a setup step
+has to install the tool, for example a **Helm release**
+(see [Setup steps and checks](/en/instructors/studio-actions-checks/)).
+
+<Steps>
+
+1. In **Workspace**, open the **App Views** tab, then click **Add app view**.
+
+2. Fill in the app view:
+
+   | Field | Purpose | Example |
+   |---|---|---|
+   | **ID** | Lowercase slug, used in the tab's URL. | `grafana` |
+   | **Display name** | The tab label the learner sees. | `Grafana` |
+   | **Icon** | The tab's icon, from a fixed list. | **Gauge** |
+   | **Service name** | The Kubernetes Service to show. | `grafana` |
+   | **Service namespace** | Its namespace, inside the session's cluster. | `monitoring` |
+   | **Port** | The Service's port. | `80` |
+   | **Scheme** | What the Service itself speaks: `http` or `https`. | `http` |
+
+3. If the tool needs a login, tick **Show default credentials**, then fill in:
+   - **Secret name** and **Secret namespace**: the Secret in the session's cluster that holds the
+     password;
+   - **Username**: a fixed username, for example `admin`;
+   - **Password key**: the Secret key holding the password.
+
+   The credentials are read from the Secret during the lab and shown above the tab so the learner
+   can log in.
+
+4. With several app views, reorder them with the **Move up** and **Move down** arrows: that is the
+   tab order in the lab.
+
+</Steps>
+
+## Check it in the preview
+
+<Steps>
+
+1. Click **Preview**, then **Launch preview** (or **Recreate** if a preview is already running).
+
+2. Once the terminal is ready, the **Code** tab and your app view tabs appear beside the terminal.
+   In the preview drawer they offer a link that opens the tool in a new browser tab, with the
+   credentials if you configured them.
+
+3. Open each tab and check that the tool loads and works, login included.
+
+</Steps>
+
+:::tip
+A Service that answers does not guarantee a working UI. Some web apps must be configured to be
+served from a sub-path: actually click through the tool in the preview before publishing.
+:::
+
+Workspace changes take effect at the next publish
+(see [Publish and manage your scenarios](/en/instructors/publish-scenarios/)).

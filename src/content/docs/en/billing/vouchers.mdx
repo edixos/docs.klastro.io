@@ -1,0 +1,62 @@
+---
+title: Redeem a credit voucher
+description: Exchange a voucher code for credits added to your own balance.
+sidebar:
+  order: 4
+---
+
+import { Steps } from '@astrojs/starlight/components';
+
+A credit voucher is a code that adds credits to your balance. Klastro may send you
+one, for example as part of an offer or an evaluation.
+
+## Before you start
+
+- Any member of the organization can redeem a voucher. You do not need an admin
+  role or a paid plan.
+- Redeem the code while the organization it was issued for is selected: some codes
+  are only valid for one organization. To change organization, see
+  [Organization settings](/en/admins/organization-settings/#switch-organization).
+- Organizations under an Enterprise contract cannot redeem vouchers, and the
+  voucher card is not shown to them.
+
+## Redeem a code
+
+<Steps>
+
+1. In the sidebar, open **Billing**. The **Overview** tab opens.
+
+2. In the **Redeem a voucher** card, type or paste the code in the
+   **VOUCHER-CODE** field. Letters are capitalized for you.
+
+3. Click **Redeem**.
+
+</Steps>
+
+A confirmation shows how many credits were added, and the card reads **Credits
+applied**. The credits go to **your own** balance, not to the organization or to
+other members, and appear in **Credits this period** on the **Overview** tab.
+
+## If the code is refused
+
+The card explains why under the field:
+
+| Message | What to do |
+|---|---|
+| **Invalid code.** | Check the code for typos. |
+| **This code is no longer active.** | The code was withdrawn. Ask whoever sent it for a new one. |
+| **This code is not valid yet.** | The code has a start date. Try again once it has started. |
+| **This code has expired.** | The code's validity period is over. |
+| **This code has reached its redemption limit.** | Every use of the code has been taken. |
+| **You already redeemed this code.** | Each person can redeem a code once. |
+| **This code is not valid for this organization.** | Switch to the organization the code was issued for, then try again. |
+| **Contract organizations cannot redeem credit vouchers.** | The selected organization is under an Enterprise contract. |
+| **You must be a member of this organization to redeem this code.** | Ask an admin to add you to the organization. |
+| **Too many invalid codes. Try again in …s.** | Wait for the countdown before trying again. |
+
+If none of these explains the problem, [open a support ticket](/en/support/open-ticket/).
+
+## Related
+
+- [Plans and credits](/en/billing/plans-and-credits/)
+- [Usage and invoices](/en/billing/usage-and-invoices/)

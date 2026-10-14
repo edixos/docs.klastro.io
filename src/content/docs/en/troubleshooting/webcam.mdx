@@ -1,0 +1,93 @@
+---
+title: Webcam and camera permissions
+description: Prepare your browser and computer for an assessment that requires a webcam, and unblock camera access in Chrome, Firefox, Safari and Edge.
+sidebar:
+  order: 8
+---
+
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
+Some assessments require a webcam. The invitation tells you before you start: under **Webcam**, it shows **Required** or **Optional**, and **Important Information** includes **Webcam access will be required**. During such an assessment, the lab's top bar shows a webcam indicator. For what proctoring means for you, see [Assessment mode](/en/lab/assessment-mode/).
+
+Camera access is controlled by your **browser** and your **operating system**, not by Klastro. This page shows how to check both before you start.
+
+:::caution
+Once started, the assessment timer cannot be paused. Check your webcam **before** you select **Start Assessment**.
+:::
+
+## The browser blocks the camera
+
+**Symptom.** The camera does not work on app.klastro.io, the address bar shows a crossed-out camera icon, or the browser never asks for permission.
+
+**Cause.** You previously refused camera access for this site, or the browser's default setting blocks cameras.
+
+**Fix.** Allow the camera for `https://app.klastro.io` in your browser, then reload the page.
+
+<Tabs syncKey="browser">
+<TabItem label="Chrome">
+
+1. On app.klastro.io, select the icon to the left of the address in the address bar (**View site information**).
+2. Set **Camera** to **Allow**. If you do not see it, select **Site settings** and set **Camera** to **Allow** there.
+3. Reload the page.
+
+To check the global setting, open `chrome://settings/content/camera`: app.klastro.io must not be listed under the sites not allowed to use your camera.
+
+</TabItem>
+<TabItem label="Firefox">
+
+1. On app.klastro.io, select the permissions icon to the left of the address in the address bar.
+2. Next to the camera permission marked **Blocked** (or **Blocked Temporarily**), select the **×** to clear it.
+3. Reload the page and accept the camera request when Firefox asks.
+
+To check the global setting, open **Settings** > **Privacy & Security** > **Permissions** > **Camera** > **Settings…** and make sure app.klastro.io is not set to **Block**.
+
+</TabItem>
+<TabItem label="Safari">
+
+1. With app.klastro.io open, choose **Safari** > **Settings…** in the menu bar (or **Settings for app.klastro.io…**).
+2. Open the **Websites** tab, then **Camera** in the sidebar.
+3. Set app.klastro.io to **Allow** (or **Ask**).
+4. Reload the page.
+
+</TabItem>
+<TabItem label="Edge">
+
+1. On app.klastro.io, select the lock icon to the left of the address in the address bar.
+2. Select **Permissions for this site** and set **Camera** to **Allow**.
+3. Reload the page.
+
+To check the global setting, open `edge://settings/content/camera`.
+
+</TabItem>
+</Tabs>
+
+## The operating system blocks the camera
+
+**Symptom.** The browser allows the camera but no image comes through, or the browser says the camera is unavailable.
+
+**Cause.** The operating system does not let your browser use the camera.
+
+**Fix.**
+
+- **macOS**: open **System Settings** > **Privacy & Security** > **Camera** and turn on your browser. Quit and reopen the browser afterwards.
+- **Windows 11**: open **Settings** > **Privacy & security** > **Camera** and turn on **Camera access**, **Let apps access your camera** and **Let desktop apps access your camera**.
+
+## Another application is using the camera
+
+**Symptom.** The camera is allowed everywhere but still does not start, or shows a black image.
+
+**Cause.** Another application (a video-call tool, another browser tab) is holding the camera. Some computers only let one application use it at a time.
+
+**Fix.** Close video-call applications and other tabs that use the camera, then reload app.klastro.io. On a laptop with a physical camera cover or a camera key, make sure the camera is enabled.
+
+## A company-managed computer
+
+**Symptom.** The camera settings are greyed out or reset themselves.
+
+**Cause.** Your organization's IT policy controls camera access.
+
+**Fix.** Use a personal computer for the assessment, or ask your IT team to allow the camera for app.klastro.io.
+
+## Still not working
+
+If the assessment requires a webcam and you cannot make it work, contact the recruiter who invited you **before** starting. If a problem appears during the assessment, select **Report a problem** in the lab's top bar; see [Report a problem from a lab](/en/support/report-lab-problem/).

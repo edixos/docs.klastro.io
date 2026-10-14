@@ -1,0 +1,107 @@
+---
+title: Accept an assessment invitation
+description: Activate your account, accept a recruiter’s invitation, get your setup ready and enter the assessment lobby.
+sidebar:
+  order: 2
+---
+
+import { Steps, Tabs, TabItem } from '@astrojs/starlight/components';
+
+A recruiter invited you to a technical assessment on Klastro. This guide takes you from the invitation email to the assessment lobby, where you start your scenarios.
+
+**What you need**: the invitation email, a recent browser on a computer, a stable internet connection and, if the invitation requires it, a webcam. You need no plan and no credits.
+
+## 1. Open the link in the email
+
+<Tabs>
+<TabItem label="You don’t have an account yet">
+
+The email contains a link to activate your account.
+
+<Steps>
+
+1. Open the link. The **Access your account** page appears.
+
+2. Enter the email address the invitation was sent to and click **Send code**.
+
+3. Enter the **Verification code** from the email, then click **Verify & continue**.
+
+4. On **Welcome to the platform 🎉**, check your details, choose a password and click **Activate account**.
+
+</Steps>
+
+</TabItem>
+<TabItem label="You already have an account">
+
+The email contains a link to your invitations in the inviting organization. Open it and sign in if needed.
+
+</TabItem>
+</Tabs>
+
+The first time you sign in, accept the terms of use with **Accept and continue** (see [Create an account and sign in](/en/getting-started/create-account/#accept-the-terms-of-use)).
+
+If several organizations have invited you, the **Your Organizations** page appears: pick the one whose invitations you want to see.
+
+## 2. Accept the invitation
+
+The **Your Invitations** page lists all your invitations, headed by the number that are **Pending**, **Accepted** and **Expired**. Each invitation shows when you received it and when it expires.
+
+<Steps>
+
+1. Find the invitation for the assessment you were told about.
+
+2. Click **Accept**. The message **Invitation accepted!** confirms it.
+
+3. Click the eye-shaped button on that invitation to open its details.
+
+</Steps>
+
+:::caution[Expiry date]
+An invitation has a deadline, set by the recruiter — seven days by default. After it passes, the invitation shows as expired and can no longer be started: ask the organization for a new one. When less than a week is left, the invitation page shows **Expiring Soon**.
+:::
+
+## 3. Read the details before you start
+
+The invitation page shows:
+
+- the assessment **Duration**, the number of **Scenarios** and whether the **Webcam** is **Required** or **Optional**;
+- the list of **Assessment Scenarios**, with their estimated time;
+- the **Important Information** box.
+
+:::danger[The timer does not stop]
+Once started, the timer cannot be paused. If the assessment has several scenarios, one timer covers all of them. Set aside the stated duration of uninterrupted time before you start.
+:::
+
+If the webcam is required, check now that it works and that your browser is allowed to use it: see [Webcam and permissions](/en/troubleshooting/webcam/).
+
+## 4. Start and enter the lobby
+
+<Steps>
+
+1. Click **Start Assessment**. Klastro takes you to the assessment lobby.
+
+2. If the assessment must be authorized by a recruiter, the lobby shows **Waiting for Authorization**. Stay on the page: your scenarios are prepared as soon as it is authorized.
+
+3. The lobby prepares each scenario: **Reserve environment**, **Start machines**, **Install scenario**. A counter shows how many are ready.
+
+4. When every scenario shows **Ready**, click **Enter** on the scenario you want to start with.
+
+</Steps>
+
+:::tip[The timer starts when you enter]
+The global assessment countdown does **not** start until you enter your first scenario. Take your time to settle in the lobby. You can complete the scenarios in any order you prefer.
+:::
+
+You are now in the lab. What is specific to assessments — the timer, moving from one scenario to the next, completing the assessment — is covered in [Assessment mode](/en/lab/assessment-mode/).
+
+## Resume an assessment you started
+
+If you left the page part-way through, go back to the invitation page: it shows **Assessment in progress**, and **Resume Assessment** takes you back to the lobby. The timer kept running in the meantime.
+
+Once the assessment is over, the page button reads **Assessment Completed**; your results are processed and sent to the recruiter, and your score may show on this page.
+
+## If something goes wrong
+
+- **Invitation Revoked** or **Invitation Expired**: contact the organization that invited you.
+- The lobby shows **Could not be prepared** for a scenario: contact the recruiter who invited you.
+- Anything else: [Invitation problems](/en/troubleshooting/invitations/) and [Lab won’t start](/en/troubleshooting/provisioning/).

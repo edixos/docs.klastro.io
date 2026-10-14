@@ -1,0 +1,191 @@
+---
+title: Utiliser le terminal du lab
+description: Ouvrir des shells, accéder aux machines du lab, copier-coller, et retrouver un terminal déconnecté sans perdre les commandes en cours.
+sidebar:
+  order: 2
+---
+
+import { Steps, Tabs, TabItem } from '@astrojs/starlight/components';
+
+Le terminal est l’endroit où vous travaillez dans un lab Klastro. Il s’exécute dans
+votre navigateur et se connecte à un véritable environnement : rien à installer.
+Cette page explique comment l’utiliser au quotidien.
+
+**Avant de commencer :** ouvrez un lab et attendez que le terminal n’affiche plus
+**Votre environnement est en cours de préparation**. Voir
+[L’espace de travail du lab](/lab/overview/) pour l’organisation de l’écran.
+
+## Onglets Shell et onglets Node
+
+Le panneau du terminal peut contenir deux types d’onglets.
+
+| Onglet | Quand il apparaît | Où il vous place |
+|---|---|---|
+| **Shell 1**, **Shell 2**… | Toujours | Le shell de la session. `kubectl`, `helm` et les identifiants de ce lab y sont configurés. |
+| **Node**, ou **Node 1**, **Node 2**… | Seulement si votre lab comporte des machines | Un terminal directement sur cette machine. Un onglet par machine, jusqu’à cinq. |
+
+Dans un lab avec des machines, le terminal s’ouvre sur **Node 1**, et le survol
+d’un onglet Shell rappelle que le shell de la session n’est pas l’une des
+machines.
+
+### Ouvrir et fermer des shells
+
+<Steps>
+
+1. Cliquez sur le bouton **+** (**Nouveau shell**) au bout de la rangée
+   d’onglets. Un nouvel onglet **Shell** s’ouvre et devient actif.
+
+2. Passez d’un onglet à l’autre en cliquant dessus. Chaque onglet continue de
+   tourner lorsqu’il est masqué : une longue commande dans **Shell 1** se poursuit
+   pendant que vous travaillez dans **Shell 2**.
+
+3. Pour fermer un shell, survolez son onglet et cliquez sur le **×** qui
+   apparaît.
+
+</Steps>
+
+Vous pouvez ouvrir jusqu’à cinq onglets Shell à la fois. Le bouton **+**
+disparaît une fois la limite atteinte. Le dernier onglet Shell ne peut pas être
+fermé, et les onglets Node ne se ferment pas.
+
+### Accéder à une machine depuis le shell de la session
+
+Quand votre lab comporte des machines, le panneau Instructions contient une
+section **Se connecter aux machines** (repliée par défaut). Elle propose un bouton
+de copie par machine, par exemple `ssh node1`, `ssh node2`.
+
+<Steps>
+
+1. Dépliez **Se connecter aux machines** dans le panneau Instructions.
+
+2. Cliquez sur la commande de la machine voulue. Elle est copiée dans votre
+   presse-papiers.
+
+3. Collez-la dans un onglet **Shell** et appuyez sur <kbd>Entrée</kbd>.
+
+</Steps>
+
+Pour lancer une seule commande sur une machine sans y ouvrir de session, utilisez
+la même forme avec la commande entre guillemets, comme le montre cette section :
+`ssh node1 'kubectl get nodes'`.
+
+:::tip
+Vous avez rarement besoin de `ssh` : chaque machine possède déjà son propre
+onglet **Node**.
+:::
+
+## Copier et coller
+
+Le terminal utilise le copier-coller habituel de votre navigateur. Klastro ne
+demande pas l’autorisation de lire votre presse-papiers.
+
+<Tabs syncKey="os">
+<TabItem label="macOS">
+
+| Pour | Faites ceci |
+|---|---|
+| Copier du texte du terminal | Sélectionnez-le à la souris, puis appuyez sur <kbd>Cmd</kbd>+<kbd>C</kbd> |
+| Coller dans le terminal | <kbd>Cmd</kbd>+<kbd>V</kbd> |
+| Interrompre la commande en cours | <kbd>Ctrl</kbd>+<kbd>C</kbd> |
+
+</TabItem>
+<TabItem label="Windows / Linux">
+
+| Pour | Faites ceci |
+|---|---|
+| Copier du texte du terminal | Sélectionnez-le à la souris, puis faites un clic droit et choisissez **Copier**, ou appuyez sur <kbd>Ctrl</kbd>+<kbd>Inser</kbd> |
+| Coller dans le terminal | <kbd>Ctrl</kbd>+<kbd>Maj</kbd>+<kbd>V</kbd>, <kbd>Maj</kbd>+<kbd>Inser</kbd>, ou clic droit puis **Coller** |
+| Interrompre la commande en cours | <kbd>Ctrl</kbd>+<kbd>C</kbd> |
+
+</TabItem>
+</Tabs>
+
+:::caution[Ctrl+C ne copie pas sous Windows et Linux]
+Dans le terminal, <kbd>Ctrl</kbd>+<kbd>C</kbd> interrompt la commande en cours,
+comme dans tout terminal Linux, et <kbd>Ctrl</kbd>+<kbd>V</kbd> est transmis au
+shell au lieu de coller. Utilisez les raccourcis du tableau ci-dessus.
+:::
+
+:::tip
+Les commandes du panneau Instructions sont des boutons de copie. Cliquez dessus,
+puis collez dans le terminal : c’est plus rapide et cela évite les fautes de
+frappe.
+:::
+
+## Remonter dans l’historique de l’affichage
+
+Si votre shell affiche une ligne d’état verte en bas, il tourne dans `tmux`, ce
+qui lui permet de survivre aux rechargements. Dans ce cas, remontez dans la
+sortie précédente avec le mode de défilement de tmux :
+
+<Steps>
+
+1. Appuyez sur <kbd>Ctrl</kbd>+<kbd>B</kbd>, relâchez, puis appuyez sur
+   <kbd>[</kbd>.
+
+2. Déplacez-vous avec les flèches ou <kbd>Page préc.</kbd> /
+   <kbd>Page suiv.</kbd>.
+
+3. Appuyez sur <kbd>q</kbd> pour revenir à l’invite de commande.
+
+</Steps>
+
+## Déconnexions et reconnexion
+
+### Ce qui continue de tourner
+
+Vos shells tournent dans le lab, pas dans votre navigateur. Fermer l’onglet,
+recharger la page ou perdre le réseau ne les arrête **pas** : les commandes
+continuent, et à la reconnexion vous retrouvez le même shell avec sa sortie.
+Klastro retient aussi les onglets que vous aviez ouverts, dans cet onglet du
+navigateur, et les rouvre après un rechargement.
+
+:::note
+La reconnexion vous rend votre shell et ses commandes en cours. Pour lire ce qui
+s’est affiché pendant votre absence, utilisez le mode de défilement ci-dessus
+plutôt que la molette de la souris.
+:::
+
+### Reconnecter un terminal
+
+Le terminal ne se reconnecte pas tout seul lorsque sa connexion est coupée. Dans
+ce cas, une barre apparaît en bas du terminal avec **Terminal déconnecté** ou
+**Erreur de connexion au terminal**, et le point de l’onglet devient gris ou
+rouge.
+
+<Steps>
+
+1. Cliquez sur **Reconnecter** dans cette barre.
+
+2. Si le terminal ne revient toujours pas, rechargez la page. Vos shells tournent
+   toujours et se rattachent à la réouverture des onglets.
+
+</Steps>
+
+Deux autres signes indiquent que c’est le lab lui-même qui est en attente, et non
+le terminal :
+
+- Une icône Wi-Fi barrée à droite de la rangée d’onglets, et
+  **En attente du démarrage de la session…** dans la barre d’état : la page a
+  perdu son lien en direct avec votre lab. Elle se reconnecte automatiquement.
+- **Reconnexion…** au milieu du panneau du terminal, avant l’apparition d’un
+  shell : la même situation, vue avant la première connexion du terminal.
+
+Si un terminal refuse de se reconnecter, voir
+[Dépannage du terminal](/troubleshooting/terminal/).
+
+## Ce que deviennent les processus en cours
+
+| Situation | Commandes en cours |
+|---|---|
+| Vous passez à un autre onglet du lab | Elles continuent |
+| Vous rechargez la page ou la connexion est coupée | Elles continuent ; le terminal s’y rattache |
+| Vous fermez un onglet Shell avec **×** | Klastro cesse de l’afficher. Ne comptez pas le retrouver : terminez ou arrêtez les commandes longues avant de fermer leur onglet. |
+| Vous mettez le lab en pause (**Mettre en pause**) | Vos fichiers et votre environnement sont conservés. À la reprise, vérifiez que les commandes de premier plan dont vous avez besoin tournent toujours, et relancez-les sinon. |
+| Vous arrêtez le lab, ou il se termine | Tout s’arrête et l’environnement est détruit |
+
+## Voir aussi
+
+- [Raccourcis clavier](/lab/keyboard-shortcuts/)
+- [Utiliser l’éditeur et les app views](/lab/ide-and-app-views/)
+- [Dépannage du terminal](/troubleshooting/terminal/)

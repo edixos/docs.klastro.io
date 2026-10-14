@@ -1,0 +1,74 @@
+---
+title: Credits, paused labs and session limits
+description: Why a lab will not start or was paused, what credit and session limits apply, and how to get going again.
+sidebar:
+  order: 7
+---
+
+On self-serve plans, labs are paid for in **credits**: each lab draws a number of credits per hour that depends on its environment, and only for the time it runs. Organizations on an Enterprise contract do not use credits; their capacity is set in the contract. For how credits work, see [Plans and credits](/en/billing/plans-and-credits/).
+
+Each problem below is laid out as **Symptom**, **Cause** and **Fix**.
+
+## I can't start a lab: not enough credits
+
+**Symptom.** Starting a lab shows a message beginning with `ERR_INSUFFICIENT_CREDITS`, stating how many credits you have available and how many are required.
+
+**Cause.** Starting a lab needs **one hour of its credits** in your balance. Credits already committed to labs that are running count against your balance, so starting a second lab can fail even though your balance looks positive.
+
+**Fix.**
+
+- Pause or end another running lab to free the credits it is using, then try again.
+- Choose a lighter environment: smaller environments draw fewer credits per hour.
+- Add credits: redeem a voucher (see [Vouchers](/en/billing/vouchers/)), or ask your organization admin. Admins and Instructor seat holders can give credits to a member.
+
+## My lab was paused automatically
+
+**Symptom.** You receive the notification **Your lab was paused** ("You ran out of credits. Add credits to resume your lab."), and the session shows **Paused** in **My Sessions**.
+
+**Cause.** When your credits run out, Klastro pauses your running labs instead of charging an overage. Paused time is not charged, and nothing is invoiced beyond your balance. Your work is kept in the paused environment.
+
+**Fix.** Add credits first, then open **My Sessions** and resume the session. If resuming shows **Could not resume the session. Please reload to try again.**, check that your balance now covers at least one hour of that lab.
+
+:::tip
+The notification **Credits running low** ("You have … credits left in …") warns you before your balance reaches zero. That is a good moment to pause labs you are not using.
+:::
+
+## "You’re at your session limit"
+
+**Symptom.** The dialog **You’re at your session limit** appears when you start or resume a lab: "Your plan runs one session at a time…" or "Your plan runs N sessions at a time…".
+
+**Cause.** Each plan runs a set number of sessions at once. Paused sessions do not count.
+
+**Fix.** In the dialog, select **Pause** or **End** next to a session listed under **Running now**, then **Try again**. You can also open **All my sessions**, or **Upgrade plan** to run more labs at once.
+
+## "Too many sessions are running right now"
+
+**Symptom.** Starting or resuming shows **Too many sessions are running right now, so this session can't resume yet. Try again in a few minutes.**, or the same sentence for an assessment.
+
+**Cause.** Either the platform is at capacity, or your organization has reached its number of labs running at once (shown on your plan as "Up to N labs running at once across your organization; paused labs do not count").
+
+**Fix.** Wait a few minutes and try again. Ask colleagues to pause labs they are not using. If your organization regularly hits its limit, an admin can review the plan; on an Enterprise contract, contact your account manager.
+
+## I can't start a second lab of the same scenario
+
+**Symptom.** Starting a scenario takes you back to a session you already have instead of creating a new one.
+
+**Cause.** Each member can run one lab per scenario at a time.
+
+**Fix.** Use the existing session, or end it from **My Sessions** if you want a fresh environment. Ending a session destroys its environment for good.
+
+## My lab is paused and I didn't pause it
+
+| Where you see it | Cause | Fix |
+|---|---|---|
+| **This environment is paused** in a class | Your instructor moved you to another step. | Select **Back to the class**. The environment starts again when you return to that step. |
+| **Your lab was paused** notification | Your credits ran out. | Add credits, then resume. See above. |
+| **Session paused. Resume it any time from your dashboard.** | You selected **Pause & resume later** when leaving the lab. | Resume it from your dashboard or **My Sessions**. |
+
+## My credits went down faster than expected
+
+**Symptom.** Your balance dropped more than you expected.
+
+**Cause.** A lab draws credits for every minute it runs, including when you are not using it. Heavier environments (several machines) draw more per hour.
+
+**Fix.** Pause labs when you step away, and end those you no longer need. Your organization's billing page shows every session charged to you and the time it was billed for. If a charge still looks wrong, [open a ticket](/en/support/open-ticket/) with the category **Billing & credits**.

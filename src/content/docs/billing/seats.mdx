@@ -1,0 +1,143 @@
+---
+title: Gérer les licences
+description: Acheter et retirer des licences payantes, puis les attribuer aux membres ou les libérer dans votre réserve.
+sidebar:
+  order: 3
+---
+
+import { Steps } from '@astrojs/starlight/components';
+
+Les licences payantes fonctionnent comme une réserve. Vous **achetez** des
+licences dans la réserve, ce qui modifie votre abonnement, puis vous les
+**attribuez** aux membres, ce qui ne le modifie pas. Libérer une licence la remet
+dans la réserve pour quelqu’un d’autre. Pour ce que donne chaque licence, voir
+[Forfaits et crédits](/billing/plans-and-credits/#licences).
+
+## Avant de commencer
+
+- Il vous faut le rôle **Administrateur** ou **Responsable facturation**.
+- Votre organisation doit avoir un abonnement Pro ou Instructor actif. Sans
+  abonnement, l’onglet **Licences** indique **Abonnez-vous à Pro ou Instructor
+  depuis l’onglet Forfait pour commencer à acheter des licences.** Voir
+  [S’abonner à un forfait](/billing/subscribe/).
+- Les organisations sous contrat Enterprise n’ont pas de réserve de licences :
+  chaque membre accède à tous les scénarios, et l’onglet **Licences** comme la
+  colonne **Licence** ne s’affichent pas.
+
+## Lire l’onglet Licences
+
+Ouvrez **Facturation**, puis l’onglet **Licences**. De haut en bas :
+
+| Zone | Contenu |
+|---|---|
+| **Licences Formateur** / **Licences Apprenant Pro** | Licences attribuées sur licences achetées pour chaque niveau, le nombre de licences non attribuées et les crédits mensuels de chaque licence. |
+| **Licences** | Une carte par licence achetée, avec son titulaire et les crédits qui lui restent. Une licence libre affiche **Non attribuée**. |
+| **Ajuster vos licences payantes** | Acheter ou retirer des licences d’un niveau. |
+| Tableau des membres | Chaque membre pouvant détenir une licence, avec son **Rôle**, les **Crédits restants / licence** de la licence qu’il détient, et un sélecteur **Licence**. Une ligne **Réserve non attribuée** totalise les licences que personne ne détient encore. |
+
+:::note[Les crédits restent sur la licence]
+Les crédits d’une licence appartiennent à la licence, pas à la personne. Quand une
+licence change de titulaire en cours de mois, le nouveau titulaire reçoit ce que
+le précédent y a laissé, et la licence retrouve sa dotation complète au
+renouvellement mensuel suivant. C’est pourquoi deux licences libres du même
+niveau peuvent contenir des montants différents.
+:::
+
+## Acheter des licences
+
+<Steps>
+
+1. Sous **Ajuster vos licences payantes**, choisissez le niveau :
+   **Apprenant Pro** ou **Formateur**.
+
+2. Réglez la quantité avec les boutons moins et plus, ou saisissez-la.
+
+3. Cliquez sur **Acheter**, vérifiez la fenêtre **Acheter … licences … ?**, puis
+   cliquez sur **Acheter les licences**.
+
+</Steps>
+
+Les licences s’ajoutent à votre abonnement et votre facture augmente. Elles
+arrivent dans la réserve, non attribuées.
+
+## Attribuer une licence à un membre
+
+Un membre peut recevoir une licence dès qu’il s’est connecté au moins une fois.
+D’ici là, la colonne **Licence** affiche **En attente de connexion**.
+
+<Steps>
+
+1. Dans le tableau des membres de l’onglet **Licences**, ouvrez le sélecteur
+   **Licence** sur la ligne du membre.
+
+2. Choisissez **Apprenant Pro** ou **Formateur**. Chaque option affiche le prix
+   de la licence à titre indicatif ; un niveau sans licence libre est grisé.
+
+3. Dans la fenêtre **Attribuer une licence … à … ?**, vérifiez les crédits que
+   le membre pourra dépenser. Si plusieurs licences libres de ce niveau
+   contiennent des montants différents, choisissez celle à attribuer ; la plus
+   remplie est sélectionnée par défaut.
+
+4. Cliquez sur **Attribuer la licence**.
+
+</Steps>
+
+Attribuer une licence ne vous coûte rien : elle est prise sur une licence déjà
+payée.
+
+:::tip
+Les administrateurs peuvent faire de même depuis la colonne **Licence** de la
+page **Équipe**. La fenêtre s’intitule alors **Attribuer une licence …** et le
+bouton est **Attribuer la licence**. Voir
+[Membres et rôles](/admins/members-roles/).
+:::
+
+Seuls certains rôles peuvent détenir une licence. Les membres **Responsable
+facturation** et **Recruteur** affichent un tiret dans la colonne **Licence**,
+avec l’info-bulle **Ce rôle ne détient pas de licence.**
+
+## Faire changer un membre de niveau
+
+Choisissez l’autre niveau dans le sélecteur **Licence** du membre. Passer de
+**Apprenant Pro** à **Formateur** se fait en une étape, mais demande une licence
+Instructor libre : les deux niveaux s’achètent séparément, et une licence Pro ne
+peut pas financer une licence Instructor.
+
+## Libérer une licence
+
+Pour reprendre une licence payante, choisissez **Apprenant** dans le sélecteur
+**Licence** du membre.
+
+- Dans l’onglet **Licences**, la licence est libérée immédiatement.
+- Sur la page **Équipe**, une fenêtre **Libérer la licence** vous demande
+  d’abord de confirmer.
+
+Le membre devient apprenant : il conserve son compte et son appartenance à
+l’organisation, mais n’accède plus qu’aux scénarios gratuits et aux sessions
+qu’un formateur lui assigne. La licence retourne dans la réserve avec les crédits
+qui lui restent. La libérer n’annule ni ne réduit votre abonnement.
+
+## Retirer des licences de votre abonnement
+
+<Steps>
+
+1. Libérez les licences de ce niveau encore détenues par des membres. Vous ne
+   pouvez pas retirer des licences encore attribuées.
+
+2. Sous **Ajuster vos licences payantes**, choisissez le niveau et la quantité,
+   puis cliquez sur **Retirer**.
+
+3. Vérifiez la fenêtre **Retirer … licences … ?**, puis cliquez sur **Retirer
+   les licences**.
+
+</Steps>
+
+:::caution
+Retirer vos **dernières** licences payantes résilie l’abonnement à la fin de la
+période. Vous conservez votre forfait et vos crédits jusque-là.
+:::
+
+## Voir aussi
+
+- [Membres et rôles](/admins/members-roles/)
+- [Consommation et factures](/billing/usage-and-invoices/)

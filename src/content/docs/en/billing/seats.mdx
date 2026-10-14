@@ -1,0 +1,132 @@
+---
+title: Manage seats
+description: Buy and remove paid seats, then assign them to members or release them back to your pool.
+sidebar:
+  order: 3
+---
+
+import { Steps } from '@astrojs/starlight/components';
+
+Paid seats work like a pool. You **buy** seats into the pool, which changes your
+subscription, then **assign** them to members, which does not. Releasing a seat
+returns it to the pool for someone else. For what each seat gives, see
+[Plans and credits](/en/billing/plans-and-credits/#seats).
+
+## Before you start
+
+- You need the **Admin** or **Billing Admin** role.
+- Your organization needs a live Pro or Instructor subscription. Without one, the
+  **Seats** tab reads **Subscribe to Pro or Instructor from the Plan tab to start
+  buying seats.** See [Subscribe to a plan](/en/billing/subscribe/).
+- Organizations under an Enterprise contract have no seat pool: every member
+  reaches every scenario, and the **Seats** tab and the **Seat** column are not
+  shown.
+
+## Read the Seats tab
+
+Open **Billing**, then the **Seats** tab. From top to bottom:
+
+| Area | What it shows |
+|---|---|
+| **Instructor seats** / **Pro Learner seats** | Seats assigned out of seats purchased for each tier, how many are unassigned, and the monthly credits each seat carries. |
+| **Seat licences** | One card per purchased seat, with who holds it and the credits left on it. Free seats read **Unassigned**. |
+| **Adjust your paid seats** | Buy or remove seats of one tier. |
+| Members table | Each member who can hold a seat, with their **Role**, the **Credits left / seat** on the seat they hold, and a **Seat** control. An **Unallocated pool** row totals the seats nobody holds yet. |
+
+:::note[Credits stay with the seat]
+A seat's credits belong to the seat, not to the person. When a seat changes hands
+during the month, the new holder gets whatever the previous holder left on it, and
+the seat refills to its full grant at the next monthly reset. That is why two free
+seats of the same tier can hold different amounts.
+:::
+
+## Buy seats
+
+<Steps>
+
+1. Under **Adjust your paid seats**, pick the tier: **Pro Learner** or
+   **Instructor**.
+
+2. Set the quantity with the minus and plus buttons, or type it.
+
+3. Click **Buy**, check the **Buy … seats?** dialog, then click **Buy seats**.
+
+</Steps>
+
+The seats are added to your subscription and your bill increases. They land in
+the pool, unassigned.
+
+## Assign a seat to a member
+
+A member can receive a seat once they have signed in at least once. Until then,
+the **Seat** column reads **Awaiting sign-in**.
+
+<Steps>
+
+1. In the members table of the **Seats** tab, open the **Seat** control on the
+   member's row.
+
+2. Choose **Pro Learner** or **Instructor**. Each option shows the seat's price
+   for reference; a tier with no free seat left is greyed out.
+
+3. In the **Give … seat?** dialog, check the credits the member will be able to
+   spend. If several free seats of that tier hold different amounts, pick the one
+   to hand over; the fullest is selected by default.
+
+4. Click **Assign seat**.
+
+</Steps>
+
+Assigning a seat never charges you: it uses a seat you already paid for.
+
+:::tip
+Admins can do the same from the **Seat** column of the **Team** page. There the
+dialog is titled **Allocate … seat** and the button is **Allocate seat**. See
+[Members and roles](/en/admins/members-roles/).
+:::
+
+Only some roles can hold a seat. **Billing Admin** and **Recruiter** members show
+a dash in the **Seat** column, with the tooltip **This role does not hold a
+seat.**
+
+## Move a member to another tier
+
+Choose the other tier in the member's **Seat** control. Moving from **Pro
+Learner** to **Instructor** is one step, but it needs a free Instructor seat: the
+two tiers are bought separately, so a Pro seat cannot pay for an Instructor one.
+
+## Release a seat
+
+To take a paid seat back, choose **Trainee** in the member's **Seat** control.
+
+- On the **Seats** tab, the seat is released straight away.
+- On the **Team** page, a **Release seat** dialog asks you to confirm first.
+
+The member becomes a trainee: they keep their account and their membership, but
+reach only free scenarios and the sessions an instructor assigns them. The seat
+goes back to the pool with the credits left on it. Releasing does not cancel or
+lower your subscription.
+
+## Remove seats from your subscription
+
+<Steps>
+
+1. Release the seats of that tier that members still hold. You cannot remove
+   seats that are still assigned.
+
+2. Under **Adjust your paid seats**, pick the tier and quantity, then click
+   **Remove**.
+
+3. Check the **Remove … seats?** dialog, then click **Remove seats**.
+
+</Steps>
+
+:::caution
+Removing your **last** paid seats cancels the subscription at the end of the
+period. You keep your plan and your credits until then.
+:::
+
+## Related
+
+- [Members and roles](/en/admins/members-roles/)
+- [Usage and invoices](/en/billing/usage-and-invoices/)

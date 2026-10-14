@@ -1,0 +1,117 @@
+---
+title: Votre premier Assessment
+description: De la sélection des scénarios au verdict, faites passer un premier Assessment à un candidat sur une infrastructure réelle.
+sidebar:
+  order: 1
+---
+
+import { Steps } from '@astrojs/starlight/components';
+
+Dans ce tutoriel, vous construisez un modèle d’Assessment à partir du catalogue de scénarios,
+vous invitez un candidat, vous suivez son passage en direct, puis vous lisez son rapport.
+Comptez une dizaine de minutes de votre côté, plus le temps que le candidat passe dans le lab.
+
+Avant de commencer, il vous faut :
+
+- un compte membre d’une organisation sous **contrat entreprise** : les Assessments, les modèles,
+  les invitations et les rapports font partie du forfait Enterprise
+  (voir [Forfaits et crédits](/billing/plans-and-credits/)) ;
+- le rôle **Recruteur** ou administrateur dans cette organisation
+  (voir [Membres et rôles](/admins/members-roles/)) ;
+- l’adresse e-mail d’un candidat. Pour un premier essai, une seconde adresse à vous fait très bien l’affaire.
+
+:::tip
+Si les entrées du menu **Évaluer** affichent « Les Assessments nécessitent un contrat entreprise »,
+votre organisation est sur un abonnement en libre-service. Contactez Klastro pour activer le forfait Enterprise.
+:::
+
+## 1. Construire le modèle
+
+<Steps>
+
+1. Dans le menu latéral, ouvrez **Évaluer**, puis **Modèles**.
+
+2. Cliquez sur **Nouveau modèle**. Si le menu vous propose deux choix, choisissez
+   **Composer depuis le catalogue**.
+
+3. Dans **Détails de l’Assessment**, saisissez un **Nom**, par exemple
+   « Dépannage Kubernetes — SRE confirmé ». Laissez le **Score de réussite (%)** à 70.
+
+4. Dans le **Catalogue de scénarios**, à droite, cliquez sur **Ajouter** sur deux scénarios.
+   Ils apparaissent à gauche dans **Ordre des scénarios**, et la **Durée totale (min)** se calcule
+   toute seule à partir de leur durée estimée.
+
+5. Cliquez sur **Aperçu** pour voir l’Assessment tel que le candidat le verra, puis fermez l’aperçu.
+
+6. Cliquez sur **Créer l’Assessment**. Le message « Assessment créé » confirme l’enregistrement.
+
+</Steps>
+
+## 2. Inviter le candidat
+
+<Steps>
+
+1. Ouvrez **Évaluer**, puis **Invitations**, et cliquez sur **Inviter un candidat**.
+
+2. Renseignez le **Nom complet** et l’**Adresse e-mail** du candidat.
+
+3. Dans **Modèle**, choisissez le modèle que vous venez de créer.
+
+4. Sous **Date d’expiration**, cliquez sur **7 jours**.
+
+5. Laissez **Validation automatique** sélectionnée : le candidat pourra démarrer sans attendre votre accord.
+
+6. Cliquez sur **Envoyer l’invitation**. Le message « Invitation envoyée » s’affiche, et le candidat
+   reçoit un e-mail avec le lien vers son invitation.
+
+</Steps>
+
+Le candidat accepte ensuite l’invitation et démarre l’Assessment
+(voir [Accepter une invitation](/learners/accept-invitation/)).
+
+## 3. Suivre le passage en direct
+
+<Steps>
+
+1. Une fois que le candidat a démarré, ouvrez **Évaluer**, puis **Assessments**.
+   Son passage apparaît dans **Tous les Assessments**.
+
+2. Cliquez sur la ligne pour ouvrir le passage. Le badge **En direct** indique que la page
+   se met à jour toute seule, et la carte **Temps restant** affiche le décompte.
+
+3. Dans **Sessions**, cliquez sur un scénario pour ouvrir son panneau de supervision.
+   Vous y voyez le terminal du candidat en lecture seule, marqué **Observation**.
+
+</Steps>
+
+Vous ne pouvez rien taper dans ce terminal : vous observez, le candidat travaille.
+Les scores restent masqués tant que l’Assessment n’est pas terminé.
+
+## 4. Lire le rapport
+
+<Steps>
+
+1. Quand le candidat a terminé (ou que le temps est écoulé), ouvrez **Évaluer**, puis **Résultats**.
+
+2. Sur la ligne du candidat, cliquez sur l’icône en forme d’œil (**Voir le rapport**).
+
+3. Parcourez le rapport : le **Score**, le **Score requis**, le **Détail par scénario**,
+   le **Radar des compétences** et le **Détail des tâches**.
+
+</Steps>
+
+Le badge **Réussi** ou **Échoué**, en haut à droite, compare le score du candidat au score de réussite
+du modèle.
+
+## 5. Enregistrer votre verdict
+
+Le verdict (**Recruter sans réserve**, **Recruter**, **Ne pas recruter**, **Écarter**) s’enregistre
+depuis l’intégration MCP de Klastro, puis s’affiche dans **Résultats** et sur le rapport.
+La marche à suivre est détaillée dans [Enregistrer un verdict](/recruiters/verdicts/).
+
+## Et ensuite ?
+
+- [Créer et modifier des modèles d’Assessment](/recruiters/assessment-templates/)
+- [Envoyer et gérer les invitations](/recruiters/send-invitations/)
+- [Superviser un passage en direct](/recruiters/live-supervision/)
+- [Lire le rapport d’un candidat](/recruiters/candidate-report/)

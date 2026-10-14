@@ -1,0 +1,65 @@
+---
+title: Le terminal se déconnecte ou ne s’ouvre pas
+description: Résolvez les problèmes d’un terminal de lab qui se déconnecte, affiche une erreur de connexion, reste sur un message d’attente ou n’accepte plus de commandes.
+sidebar:
+  order: 5
+---
+
+Le terminal du lab s’exécute dans votre navigateur et maintient une connexion en direct avec votre environnement. Pour l’usage courant, consultez [Utiliser le terminal du lab](/lab/terminal/). Chaque problème ci-dessous est présenté sous la forme **Symptôme**, **Cause** et **Solution**.
+
+## « Terminal déconnecté »
+
+**Symptôme.** Le terminal affiche **Terminal déconnecté** avec un bouton **Reconnecter**.
+
+**Cause.** La connexion entre votre navigateur et le lab a été coupée : réseau instable, changement de Wi-Fi, VPN qui se reconnecte ou ordinateur en veille.
+
+**Solution.** Sélectionnez **Reconnecter**. Votre environnement a continué de tourner pendant la déconnexion : les fichiers et ressources créés sont toujours là. Une commande en cours au premier plan a pu être interrompue : vérifiez son résultat.
+
+:::tip
+Pour les commandes longues, lancez-les de façon à ce qu’elles survivent à une déconnexion, par exemple en redirigeant leur sortie vers un fichier (`ma-commande > out.log 2>&1 &`), puis lisez le fichier une fois reconnecté.
+:::
+
+## « Erreur de connexion au terminal »
+
+**Symptôme.** Le terminal affiche **Erreur de connexion au terminal** et ne se connecte jamais, même après **Reconnecter**.
+
+**Cause.** Un élément entre votre navigateur et Klastro bloque la connexion en direct du terminal. C’est fréquent sur les réseaux d’entreprise, derrière certains proxys et VPN, ou avec des extensions de navigateur restrictives.
+
+**Solution.**
+
+1. Actualisez la page.
+2. Essayez un autre réseau (le partage de connexion d’un téléphone, par exemple) ou désactivez le VPN.
+3. Désactivez les extensions qui bloquent ou modifient le trafic vers app.klastro.io, ou essayez une fenêtre de navigation privée.
+4. Sur un réseau d’entreprise, demandez à votre équipe informatique d’autoriser les connexions WebSocket sécurisées vers app.klastro.io.
+
+Si rien n’y fait, [signalez un problème](/support/report-lab-problem/) en précisant votre navigateur et votre réseau.
+
+## Le terminal reste sur un message d’attente
+
+| Message | Cause | Solution |
+|---|---|---|
+| **En attente de la session…**, **Provisionnement de l’environnement…**, **Votre environnement est en cours de préparation** | L’environnement est encore en préparation. | Patientez. Voir [Préparation du lab](/troubleshooting/provisioning/). |
+| **En attente de l’autorisation…** | L’Assessment attend l’approbation d’un recruteur. | Gardez la page ouverte ; le lab reprend une fois l’approbation donnée. |
+| **En attente de l’URL du shell…** | L’environnement est prêt, mais son terminal démarre encore. | Patientez quelques secondes. Si cela dure, actualisez la page. |
+| **Reconnexion…** | Le terminal rétablit la connexion. | Patientez. S’il finit sur **Terminal déconnecté**, sélectionnez **Reconnecter**. |
+| **URL de terminal invalide** | La page a reçu une adresse de terminal erronée. | Actualisez la page. Si le problème persiste, signalez-le. |
+
+## Le terminal n’accepte plus de commandes
+
+**Symptôme.** Vous ne pouvez plus saisir de commandes, et le lab affiche **Cet environnement est terminé** ou **Cet environnement est en pause**.
+
+**Cause.**
+
+- **Cet environnement est terminé** : le lab a atteint sa durée maximale ou a été arrêté. Il n’accepte plus de commandes. Les validations déjà passées sont conservées.
+- **Cet environnement est en pause** : pendant une formation, votre formateur vous a placé sur une autre étape. Votre travail est conservé.
+- Dans un lab en autonomie, le lab a aussi pu être mis en pause parce que vos crédits sont épuisés.
+
+**Solution.** En formation, sélectionnez **Revenir à la session** : l’environnement redémarre lorsque votre formateur vous ramène à cette étape. Pour les crédits, consultez [Crédits et labs en pause](/troubleshooting/credits-and-pauses/). Pour un lab terminé, relancez le scénario.
+
+## Les commandes échouent avec « connection refused » ou « command not found »
+
+**Symptôme.** `kubectl` n’atteint pas le cluster, ou un outil semble manquer.
+
+**Cause.** Dans les labs avec des machines, les onglets **Shell** ouvrent le shell de la session : « Shell de la session : kubectl, helm et toutes les machines à portée de ssh. Ce n’est pas une des machines. » Certaines commandes doivent s’exécuter sur une machine précise.
+
+**Solution.** Ouvrez l’onglet **Node** de la machine voulue, ou connectez-vous à elle depuis un onglet **Shell** avec la commande ssh indiquée sous **Se connecter aux machines**. Si la tâche vous demande de travailler sur une machine donnée, travaillez sur cette machine.

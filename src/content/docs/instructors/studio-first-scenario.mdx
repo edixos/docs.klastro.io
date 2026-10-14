@@ -1,0 +1,204 @@
+---
+title: Votre premier scénario dans le Scenario Studio
+description: Construisez un challenge Kubernetes complet sur le canvas du Studio, testez-le dans un aperçu gratuit, puis publiez-le au catalogue de votre organisation.
+sidebar:
+  order: 1
+---
+
+import { Steps } from '@astrojs/starlight/components';
+
+Dans ce tutoriel, vous construisez un petit challenge : l’apprenant doit faire passer un
+Deployment `web` de une à trois réplicas. Vous posez l’environnement, une étape de setup qui
+déploie `web`, une tâche notée avec sa vérification, puis vous essayez le tout dans un aperçu
+avant de le publier. Comptez une vingtaine de minutes, dont quelques-unes d’attente pendant
+le provisionnement de l’aperçu.
+
+Avant de commencer, il vous faut :
+
+- une organisation dont le forfait donne accès au Scenario Studio (le forfait Instructor, ou un
+  contrat entreprise — voir [Forfaits et crédits](/billing/plans-and-credits/)) ;
+- dans une organisation en abonnement, une **licence Instructor** attribuée à votre compte
+  (voir [Licences](/billing/seats/)). Dans une organisation sous contrat, le rôle formateur,
+  recruteur ou administrateur suffit (voir [Membres et rôles](/admins/members-roles/)).
+
+:::tip[Les aperçus ne coûtent rien]
+Tout ce que vous lancez depuis le Studio pour tester est gratuit : les aperçus ne débitent aucun
+crédit et les essais de vérification ne sont jamais enregistrés pour un apprenant.
+:::
+
+## 1. Créer le brouillon
+
+<Steps>
+
+1. Dans le menu latéral, ouvrez **Studio**, puis **Scenario Studio**.
+
+2. Cliquez sur **Nouveau brouillon**.
+
+3. Dans **Nom**, saisissez « Mettre un Deployment à l’échelle ».
+
+4. Dans **Type de produit**, laissez **Challenge — noté, les indices coûtent des points**.
+
+5. Dans **Partir de**, laissez **Un canvas vide**, puis cliquez sur **Créer le brouillon**.
+
+   Le canvas s’ouvre, vide. Tout ce que vous y faites est enregistré automatiquement : la pastille
+   de la barre d’outils passe de **Modifications non enregistrées** à **Enregistré**.
+
+</Steps>
+
+## 2. Poser l’environnement
+
+<Steps>
+
+1. Dans la palette, sous **Point d’ancrage**, cliquez sur **Environnement**. Le node apparaît sur
+   le canvas. (Vous pouvez aussi le glisser à l’endroit voulu.)
+
+2. Cliquez sur le node **Environnement** pour ouvrir son formulaire.
+
+3. Dans **Type d’environnement**, choisissez un environnement qui contient un cluster
+   Kubernetes, par exemple **Virtual Cluster** si votre plateforme le propose. Sous la liste,
+   des puces résument ce que l’environnement sait faire (nombre de machines, éditeur dans le
+   navigateur, pause et reprise…).
+
+4. Laissez **Requests** et **Limits** vides : l’environnement applique ses propres valeurs.
+   Cliquez sur **Terminé**.
+
+</Steps>
+
+## 3. Ajouter l’étape de setup
+
+L’étape de setup prépare ce que l’apprenant trouve en arrivant : ici, un Deployment `web` à
+une seule réplica.
+
+<Steps>
+
+1. Dans la palette, sous **Étapes de setup**, cliquez sur **Manifests**.
+
+2. Reliez l’environnement à cette étape : faites glisser depuis le point de sortie du node
+   **Environnement** jusqu’au node de l’étape. Le pipeline part toujours de l’environnement.
+
+3. Cliquez sur le node de l’étape. Dans **Nom**, saisissez `deploy-web`. Le nom doit être unique
+   dans le scénario.
+
+4. Sous **Manifests**, cliquez sur **Ajouter une ressource**, puis choisissez **Deployment**.
+
+5. Remplissez le formulaire :
+   - **Nom** : `web`
+   - **Namespace** : `default`
+   - **Image** : `nginx:1.27`
+   - **Replicas** : `1`
+
+6. Cliquez sur **Terminé**.
+
+</Steps>
+
+## 4. Ajouter la tâche et sa vérification
+
+<Steps>
+
+1. Dans la palette, sous **Notation**, cliquez sur **Tâche**.
+
+2. Reliez l’étape `deploy-web` à la tâche. Une tâche se relie à l’étape dont elle vérifie le
+   résultat.
+
+3. Cliquez sur le node de la tâche et remplissez :
+   - **Identifiant de la tâche** : `scale-web`
+   - **Titre** : « Passer web à trois réplicas »
+   - **Consigne** : « Le Deployment `web` du namespace `default` tourne avec une seule réplica.
+     Faites-le passer à trois réplicas prêtes. »
+   - **Points** : `10`
+   - **Tentatives maximum** : `3`
+
+4. Sous **Validation**, cliquez sur **Ajouter une vérification**, puis remplissez :
+   - **Description** : « Trois réplicas sont prêtes »
+   - **Type** : **KubernetesResource — un champ d’une ressource**
+   - **API version** : `apps/v1`
+   - **Kind** : `Deployment`
+   - **Nom** : `web`
+   - **Namespace** : `default`
+   - **JSONPath** : `.status.readyReplicas`
+   - **Expression CEL** : `exists && value == "3"`
+   - **Points** : `10`
+
+   Laissez **Obligatoire** coché.
+
+5. Cliquez sur **Terminé**.
+
+</Steps>
+
+:::note
+Avec un **JSONPath**, l’expression lit le champ sous forme de texte dans `value` : comparez-le
+à `"3"`, avec les guillemets. Le détail des variables par type de vérification est dans
+[Étapes de setup et vérifications](/instructors/studio-actions-checks/).
+:::
+
+## 5. Vérifier le canvas
+
+<Steps>
+
+1. Dans la barre d’outils, cliquez sur **Vérifier**.
+
+2. Si le message « Aucun problème bloquant. » s’affiche, passez à la suite. Sinon, les nodes
+   concernés portent un badge : ouvrez-les, l’onglet **Problèmes** de chaque node explique ce
+   qui manque.
+
+</Steps>
+
+## 6. Essayer le scénario dans un aperçu
+
+<Steps>
+
+1. Dans la barre d’outils, cliquez sur **Aperçu**. Le tiroir d’aperçu s’ouvre en bas du canvas.
+
+2. Cliquez sur **Lancer l’aperçu**. Le message « Provisionnement de l’environnement. Le terminal
+   apparaît dès qu’il est prêt. » s’affiche pendant que l’environnement se prépare. Pendant ce
+   temps, le node `deploy-web` passe de **En attente** à **En cours**, puis à **Appliquée**.
+
+3. Quand le terminal apparaît, vérifiez l’état de départ :
+
+   ```bash
+   kubectl get deployment web -n default
+   ```
+
+4. Sur le node de la tâche, cliquez sur **Tester la validation**. La vérification échoue : il n’y a
+   encore qu’une réplica. C’est le résultat attendu.
+
+5. Faites le travail de l’apprenant dans le terminal :
+
+   ```bash
+   kubectl scale deployment web -n default --replicas=3
+   kubectl rollout status deployment web -n default
+   ```
+
+6. Cliquez de nouveau sur **Tester la validation**. L’onglet **Résultats** de la tâche affiche
+   « 1/1 vérifications · 10/10 pts ».
+
+</Steps>
+
+Un aperçu dure une heure. Le bouton **Prolonger** remet le compteur à une heure, trois fois au
+plus. Quand vous avez terminé, cliquez sur **Arrêter** dans l’en-tête du tiroir.
+
+## 7. Publier
+
+<Steps>
+
+1. Dans la barre d’outils, cliquez sur **Publier**.
+
+2. Dans **Nom du scénario**, saisissez `scale-a-deployment`. Ce nom est en minuscules, séparé par
+   des tirets, et il est figé après la première publication.
+
+3. Cliquez sur **Publier**. Le message « Publié sous scale-a-deployment. » confirme la publication.
+
+</Steps>
+
+Votre challenge apparaît maintenant dans le catalogue de votre organisation, avec le badge
+**Studio**. Les membres peuvent le lancer comme n’importe quel challenge, et vous pouvez l’ajouter
+à un parcours.
+
+## Et ensuite
+
+- Découvrez tous les types d’étapes et de vérifications :
+  [Étapes de setup et vérifications](/instructors/studio-actions-checks/).
+- Ajoutez un éditeur VS Code ou l’interface web d’un outil au lab :
+  [Éditeur et app views](/instructors/studio-ide-app-views/).
+- Modifiez et republiez votre scénario : [Publier et gérer vos scénarios](/instructors/publish-scenarios/).
+- Livrez-le à une classe : [Parcours et parcours de certification](/instructors/tracks-learning-paths/).

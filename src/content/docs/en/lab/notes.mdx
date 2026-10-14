@@ -1,0 +1,77 @@
+---
+title: Take notes during a lab
+description: Use the Notes scratchpad to keep commands and findings, understand when it saves, and know who can read it.
+sidebar:
+  order: 4
+---
+
+import { Steps } from '@astrojs/starlight/components';
+
+The **Notes** tab is a plain-text scratchpad inside the lab. Use it to keep
+commands that worked, values you will need again, or your reasoning as you go.
+
+**Before you start:** notes are available in tutorials, challenges and
+assessments. A playground has no Notes tab.
+
+## Write notes
+
+<Steps>
+
+1. In the left pane, click the **Notes** tab, next to **Instructions**.
+
+2. Type or paste anything you like. The notepad is plain text in a monospaced
+   font, so commands pasted from the terminal keep their exact spacing.
+
+3. Watch the indicator at the top right of the pane:
+
+   | Indicator | Meaning |
+   |---|---|
+   | **Autosaved** | Nothing new to save |
+   | **Unsaved changes…** | You are typing; it saves when you pause |
+   | **Saving…** | Your notes are being saved |
+   | **Saved** | Your latest text is stored |
+   | **Not saved — retrying on next edit** | The last save failed |
+
+4. Click **Instructions** to go back to your tasks. Your notes, and any text not
+   yet saved, stay in place while you switch.
+
+</Steps>
+
+Notes save about a second after you stop typing, and immediately when you click
+outside the notepad.
+
+:::caution
+If you see **Not saved — retrying on next edit**, your latest text is only in
+your browser. Type any character to trigger a new save, and wait for **Saved**
+before you leave the lab or reload the page.
+:::
+
+## Where notes are kept
+
+| Lab | Your notes belong to |
+|---|---|
+| A tutorial or challenge you started yourself | That one lab. Opening the same lab again later shows them; a new lab starts with an empty notepad. |
+| An assessment | The whole assessment. The same notepad follows you through every scenario of it. |
+
+Notes are stored with your account, not in the lab environment, so they are not
+affected by anything you do in the terminal. A notepad holds up to 256 KB of text.
+
+## Who can read your notes
+
+| Lab | Who can read them |
+|---|---|
+| A tutorial or challenge you started yourself | Only you |
+| An assessment | You, and the recruiter who reviews your assessment: your notes appear in your candidate report |
+
+:::caution[Assessments: your notes are part of what the recruiter sees]
+The notepad's hint text says notes are private, but in an assessment the
+recruiter reads them alongside your results. Write them as you would want a
+reviewer to see them — explaining your approach there can help them understand
+your work. See [Read a candidate report](/en/recruiters/candidate-report/) for the
+recruiter's side.
+:::
+
+## Related
+
+- [The lab workspace](/en/lab/overview/)
+- [Take an assessment](/en/lab/assessment-mode/)

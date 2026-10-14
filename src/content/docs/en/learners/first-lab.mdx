@@ -1,0 +1,100 @@
+---
+title: Your first lab
+description: Tutorial — from the catalog to a finished tutorial and a released environment, in about twenty minutes.
+sidebar:
+  order: 1
+---
+
+import { Steps } from '@astrojs/starlight/components';
+
+In this tutorial you launch a guided tutorial on a real cluster, check each step, then release the environment. By the end you will know how to launch, use and stop any Klastro lab.
+
+**What you need**: a Klastro account and an organization (see [Create an account and sign in](/en/getting-started/create-account/)), and credits available in your balance (see [Plans and credits](/en/billing/plans-and-credits/)).
+
+## 1. Pick a tutorial
+
+<Steps>
+
+1. In the sidebar, open **Learn**, then click **Tutorials**.
+
+   The catalog opens, filtered on tutorials. Each card shows the level (**Beginner**, **Intermediate**, **Advanced**) and the number of tasks.
+
+2. Pick a **Beginner** tutorial and click **Explore**.
+
+3. On the scenario page, look over the **Estimated time**, the **Environment** and the list of **Guided steps**. You now know what lies ahead.
+
+</Steps>
+
+:::note
+An **Upgrade to launch** button in place of the launch button means the scenario is reserved for the Pro plan. Pick another one marked **Free**.
+:::
+
+## 2. Launch the environment
+
+<Steps>
+
+1. Click **Start Tutorial**.
+
+2. Klastro opens the lab page and shows **Preparing your environment**. The stages go by: **Reserving your environment…**, **Starting the machines…**, then **Setting up your lab…**.
+
+   Depending on the environment, this takes from a few seconds to a few minutes. Stay on the page: it turns into your workspace on its own.
+
+3. When the environment is ready, the workspace appears: **Instructions** on one side, the terminal on the other.
+
+</Steps>
+
+## 3. Complete the first step
+
+<Steps>
+
+1. Read the first step in the **Instructions** panel.
+
+2. Click into the terminal and type the commands you are asked for. To start, try:
+
+   ```sh
+   kubectl get nodes
+   ```
+
+   You are connected to a real cluster: the command lists its nodes.
+
+3. Once you have done the step, click **Check this step**. Klastro inspects your environment and shows **Step complete**.
+
+   If you see **Not yet — try again**, reread the step, fix things, then click **Check again**.
+
+</Steps>
+
+:::tip[Stuck?]
+Open the **Hints** under the step and click **Show**. Hints are free in a tutorial: use as many as you need.
+:::
+
+## 4. See it through
+
+<Steps>
+
+1. Click **Next** to move to the next step, and repeat: read, do, check.
+
+2. On the last step, click **Finish**. The message **Tutorial complete. Nice work.** appears, and Klastro takes you back to the tutorials catalog.
+
+</Steps>
+
+## 5. Release the environment
+
+Finishing a tutorial does not destroy its environment: it keeps running, and drawing credits, until you end it.
+
+<Steps>
+
+1. In the **Personal** section of the sidebar, click **My Sessions**. Your tutorial is at the top of the list.
+
+2. Click the **Session actions** menu (the three dots) at the end of the row, then **Delete**.
+
+3. Confirm with **Delete session**. The row shows **Removing…**, then moves to the **Ended** sessions.
+
+</Steps>
+
+Congratulations: you launched a real environment, validated your work and released the resources.
+
+## Next steps
+
+- Take on a graded challenge: [Catalog, challenges and paths](/en/learners/catalog-challenges-paths/).
+- Learn to pause a session and pick it up later: [Manage your sessions](/en/learners/manage-sessions/).
+- Explore the whole workspace: [The lab environment](/en/lab/overview/), [the terminal](/en/lab/terminal/) and [notes](/en/lab/notes/).

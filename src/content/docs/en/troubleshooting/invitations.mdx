@@ -1,0 +1,109 @@
+---
+title: Invitation problems
+description: What to do when an invitation link has expired, was already used, was withdrawn or replaced, or when an assessment invitation cannot be started.
+sidebar:
+  order: 3
+---
+
+Klastro sends two kinds of invitation by email:
+
+- an **account invitation**, to join Klastro or an organization (**Join your team on Klastro**, **Your invitation to Klastro**);
+- an **assessment invitation**, to take a technical assessment as a candidate.
+
+Each problem below is laid out as **Symptom**, **Cause** and **Fix**. For the normal flow, see [Accept an invitation](/en/learners/accept-invitation/).
+
+## Account invitations
+
+### "This invitation has expired"
+
+**Symptom.** The link opens a page titled **This invitation has expired**.
+
+**Cause.** Invitation links stop working after a few days.
+
+**Fix.** Ask the person who invited you for a new one. An organization admin can send it again from the team page with **Resend invitation**; the new email contains a working link.
+
+### "This invitation was already used"
+
+**Symptom.** The page shows **This invitation was already used** ("The account for this invitation is already set up."), or **This link was already used**.
+
+**Cause.** Each link works once. Your account already exists, or you opened the link before and did not finish choosing a password.
+
+**Fix.** Select **Sign in** and use your account. If you never finished setting your password, select **Forgot your password?** and follow [the recovery steps](/en/troubleshooting/sign-in/). You can also ask your organization admin to resend the invitation.
+
+### "This invitation was withdrawn"
+
+**Symptom.** The page shows **This invitation was withdrawn**.
+
+**Cause.** The person who invited you cancelled it.
+
+**Fix.** Contact them if you think this is a mistake. Only they can send you a new invitation.
+
+### "A newer invitation was sent"
+
+**Symptom.** The page shows **A newer invitation was sent**.
+
+**Cause.** You were invited again, which replaced the earlier link.
+
+**Fix.** Find the most recent invitation email and use its link.
+
+### "This link does not work"
+
+**Symptom.** The page shows **This link does not work** ("The invitation link is incomplete or not valid.").
+
+**Cause.** The link was cut when it was copied, for example across two lines, or it was modified.
+
+**Fix.** Open the link directly from the email instead of copying it. If that fails, ask for a new invitation.
+
+### "We could not check this invitation"
+
+**Symptom.** **We could not check this invitation. Check your connection and try again.**, or **We could not start account setup. Try again in a moment.**
+
+**Cause.** A network problem or a temporary service issue.
+
+**Fix.** Check your connection and select **Try again**.
+
+## Assessment invitations (candidates)
+
+### "Invitation Expired"
+
+**Symptom.** The invitation shows **Invitation Expired**, or the list shows **This invitation has expired. Contact the organization for a new one.**
+
+**Cause.** The recruiter set an expiry date and it has passed. The invitation's **Expires On** date shows when.
+
+**Fix.** Contact the recruiter or organization that invited you and ask for a new invitation. Klastro cannot extend it for you. When an invitation shows **Expiring Soon**, start the assessment before that date.
+
+### "Invitation Revoked"
+
+**Symptom.** The invitation shows **Invitation Revoked** ("This invitation has been revoked by the organization.").
+
+**Cause.** The organization cancelled it.
+
+**Fix.** Contact the organization if you think this is a mistake.
+
+### "Unable to load invitation"
+
+**Symptom.** **Unable to load invitation**: "This invitation may have been revoked, expired, or is for a different email address."
+
+**Cause.** You are signed in with a different email address from the one the invitation was sent to, or the invitation is no longer valid.
+
+**Fix.** Sign out and sign in with the address that received the invitation email. Also check that the right organization is selected; see [Sign-in and organizations](/en/troubleshooting/sign-in/).
+
+### I can't start the assessment
+
+| What you see | Cause | Fix |
+|---|---|---|
+| **Accept Invitation First** | You have not accepted the invitation yet. | Go back to **Your Invitations** and select **Accept**. |
+| **Too many sessions are running right now. Please try again in a few minutes.** | The platform or the organization is at capacity. | Wait a few minutes and select **Start Assessment** again. Your invitation is not affected. |
+| **Failed to start assessment** | A temporary problem. | Try again. If it persists, [report it](/en/support/open-ticket/) with the category **Assessment**. |
+| **Assessment Completed** | You already finished this assessment. | Nothing to do: the recruiter receives your results. |
+
+If the assessment needs a recruiter's approval before it starts, the lab shows **Waiting for your session to be authorized…** until they approve it. See [Lab preparation](/en/troubleshooting/provisioning/).
+
+## For recruiters and admins
+
+| Situation | Fix |
+|---|---|
+| A candidate's invitation expired. | Send a new invitation from **Invitations**. See [Send invitations](/en/recruiters/send-invitations/). |
+| **Already invited**: "A pending invitation exists for this email. Revoke it first." | Open the existing invitation, select **Revoke**, then invite again. Or select **Resend email** to send the same invitation again. |
+| A member's invitation shows **Link expired** on the team page. | Select **Resend invitation**: the new email revives it. |
+| A member's invitation shows **Setup started**. | They opened the link but did not choose a password. Ask them to use **Forgot your password?**, or resend the invitation. |

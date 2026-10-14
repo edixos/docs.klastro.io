@@ -1,0 +1,115 @@
+---
+title: Ajouter un éditeur et des app views à un scénario
+description: Donnez à l’apprenant un éditeur VS Code dans le navigateur et les interfaces web des outils du lab, en onglets à côté du terminal.
+sidebar:
+  order: 3
+---
+
+import { Steps } from '@astrojs/starlight/components';
+
+Par défaut, un lab n’offre qu’un terminal. Depuis l’**Espace de travail** d’un scénario, vous
+pouvez ajouter :
+
+- un onglet **Code** : un éditeur VS Code (code-server) qui partage le répertoire de travail du
+  terminal ;
+- des **app views** : l’interface web d’un outil qui tourne dans le cluster de la session
+  (Argo CD, Grafana…), affichée dans un onglet du lab.
+
+Ce que l’apprenant voit ensuite est décrit dans [Éditeur et app views](/lab/ide-and-app-views/).
+
+Avant de commencer, il vous faut un brouillon ouvert dans le Scenario Studio avec un
+environnement choisi (voir [Votre premier scénario](/instructors/studio-first-scenario/)).
+
+:::caution[Vérifiez que l’environnement les accepte]
+Tous les environnements ne peuvent pas servir l’éditeur ou les app views : les app views ont
+besoin d’un cluster dans l’environnement. Le formulaire de l’environnement l’indique dans ses
+puces (**Éditeur dans le navigateur**, **Interfaces web des outils en onglets**), et l’espace de
+travail affiche un avertissement quand ce que vous configurez ne pourra pas apparaître. Configurés
+sur un environnement incompatible, l’éditeur ou les app views sont publiés mais n’apparaissent
+jamais.
+:::
+
+## Activer l’éditeur VS Code
+
+<Steps>
+
+1. Dans la barre d’outils du canvas, cliquez sur **Espace de travail**.
+
+2. Dans l’onglet **Coder (VS Code)**, cochez **Activer Coder (VS Code)**.
+
+3. Dans **Extensions préinstallées**, saisissez un identifiant d’extension par ligne, par exemple
+   `redhat.vscode-yaml`. Le bouton **Ajouter le support YAML** remplit la liste avec l’extension
+   YAML quand elle est vide.
+
+4. Facultatif : renseignez un **Répertoire de travail** (par exemple `/home/coder/project`) ou une
+   **Image de l’éditeur** pour remplacer l’image code-server par défaut. Laissez-les vides pour
+   garder les valeurs de la plateforme.
+
+</Steps>
+
+:::note[Le marketplace d’extensions est désactivé]
+Les apprenants ne peuvent rien installer dans l’environnement que vos tâches notent : la liste
+**Extensions préinstallées** est le seul moyen d’y ajouter une extension. Elles sont installées
+avant le démarrage de l’éditeur.
+:::
+
+## Ajouter une app view
+
+Une app view rend accessible, dans un onglet du lab, un Service qui tourne dans le cluster de la
+session. Il faut donc qu’une étape de setup installe l’outil, par exemple une **Release Helm**
+(voir [Étapes de setup et vérifications](/instructors/studio-actions-checks/)).
+
+<Steps>
+
+1. Dans **Espace de travail**, ouvrez l’onglet **App Views**, puis cliquez sur
+   **Ajouter une app view**.
+
+2. Renseignez l’app view :
+
+   | Champ | Rôle | Exemple |
+   |---|---|---|
+   | **ID** | Slug en minuscules, utilisé dans l’URL de l’onglet. | `grafana` |
+   | **Nom affiché** | Le libellé de l’onglet que voit l’apprenant. | `Grafana` |
+   | **Icône** | L’icône de l’onglet, choisie dans une liste fixe. | **Jauge** |
+   | **Nom du Service** | Le Service Kubernetes à afficher. | `grafana` |
+   | **Namespace du Service** | Son namespace, dans le cluster de la session. | `monitoring` |
+   | **Port** | Le port du Service. | `80` |
+   | **Schéma** | Ce que le Service lui-même parle : `http` ou `https`. | `http` |
+
+3. Si l’outil demande une connexion, cochez **Afficher les identifiants par défaut**, puis
+   renseignez :
+   - **Nom du Secret** et **Namespace du Secret** : le Secret du cluster de la session qui contient
+     le mot de passe ;
+   - **Nom d’utilisateur** : un nom fixe, par exemple `admin` ;
+   - **Clé du mot de passe** : la clé du Secret qui contient le mot de passe.
+
+   Les identifiants sont lus dans le Secret au moment du lab et affichés au-dessus de l’onglet,
+   pour que l’apprenant puisse se connecter.
+
+4. Pour plusieurs app views, ajustez leur ordre avec les flèches **Monter** et **Descendre** :
+   c’est l’ordre des onglets dans le lab.
+
+</Steps>
+
+## Vérifier dans l’aperçu
+
+<Steps>
+
+1. Cliquez sur **Aperçu**, puis **Lancer l’aperçu** (ou **Recréer** si un aperçu tourne déjà).
+
+2. Quand le terminal est prêt, les onglets **Code** et ceux de vos app views apparaissent à côté
+   du terminal. Dans le tiroir d’aperçu, ils proposent un lien pour ouvrir l’outil dans un nouvel
+   onglet du navigateur, avec les identifiants si vous les avez configurés.
+
+3. Ouvrez chaque onglet et vérifiez que l’outil s’affiche et fonctionne, connexion comprise.
+
+</Steps>
+
+:::tip
+Une réponse du Service ne garantit pas que l’interface fonctionne. Certaines applications web
+doivent être configurées pour être servies depuis un sous-chemin : parcourez réellement l’outil
+dans l’aperçu avant de publier.
+:::
+
+Les changements de l’espace de travail sont pris en compte à la prochaine publication
+(voir [Publier et gérer vos scénarios](/instructors/publish-scenarios/)).

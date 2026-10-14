@@ -1,0 +1,101 @@
+---
+title: Connexion, récupération du compte et organisations
+description: Résolvez les problèmes de connexion, de récupération de l’accès à votre compte, d’acceptation des conditions et de choix de l’organisation.
+sidebar:
+  order: 2
+---
+
+Chaque problème ci-dessous est présenté sous la forme **Symptôme**, **Cause** et **Solution**.
+
+## J’ai oublié mon mot de passe
+
+**Symptôme.** Vous ne pouvez pas vous connecter, car vous ne connaissez plus votre mot de passe, ou vous n’avez jamais fini de le choisir.
+
+**Cause.** Les mots de passe ne sont pas stockés de façon lisible : ils ne peuvent qu’être réinitialisés.
+
+**Solution.**
+
+1. Rendez-vous sur [app.klastro.io/auth/recovery](https://app.klastro.io/auth/recovery). La page s’intitule **Accéder à votre compte**.
+2. Saisissez votre **Adresse e-mail** et sélectionnez **Envoyer le code**.
+3. Ouvrez l’e-mail de Klastro, recopiez le **Code de vérification** et sélectionnez **Vérifier et continuer**.
+4. Suivez les instructions pour choisir un nouveau mot de passe.
+
+Si aucun e-mail n’arrive au bout de quelques minutes, vérifiez vos courriers indésirables et l’adresse saisie.
+
+## « Échec de la connexion »
+
+**Symptôme.** La page de connexion affiche **Échec de la connexion** avec un message.
+
+**Cause.** Le plus souvent, une adresse ou un mot de passe erroné, ou un compte créé avec une connexion sociale plutôt qu’un mot de passe.
+
+**Solution.** Vérifiez l’adresse e-mail et le mot de passe. Si vous vous étiez connecté avec l’un des boutons **Continuer avec …** affichés sous **Ou continuer avec**, utilisez de nouveau le même bouton. Si vous ne parvenez toujours pas à vous connecter, réinitialisez votre mot de passe comme indiqué ci-dessus.
+
+## « Session expirée » ou « Demande expirée »
+
+**Symptôme.** Vous voyez **Session expirée** (« Votre session a expiré. Reconnectez-vous pour continuer. ») ou **Demande expirée** (« Cette demande d’authentification n’est plus valide… »).
+
+**Cause.** Vous êtes resté trop longtemps sur une page de connexion, vous avez utilisé un ancien lien, ou votre session a expiré.
+
+**Solution.** Sélectionnez **Se reconnecter** et recommencez. Ne réutilisez pas d’anciens liens de connexion ou de récupération depuis l’historique du navigateur.
+
+## « Échec de la vérification de sécurité »
+
+**Symptôme.** Vous voyez **Échec de la vérification de sécurité**, ou **La vérification de sécurité n’a pas abouti. Actualisez la page pour réessayer.**
+
+**Cause.** Vous êtes revenu en arrière avec le bouton du navigateur pendant la connexion, ou un bloqueur de contenu a empêché le chargement de la vérification (**La vérification de sécurité n’a pas pu se charger. Désactivez tout bloqueur de contenu pour cette page, puis actualisez.**).
+
+**Solution.** Actualisez la page et recommencez sans utiliser le bouton Précédent. Si la vérification ne se charge pas, autorisez app.klastro.io dans votre bloqueur de publicités ou de contenu, puis actualisez.
+
+## « L’inscription nécessite une invitation »
+
+**Symptôme.** En créant un compte, vous voyez **Klastro est en accès anticipé privé. L’inscription nécessite une invitation.**
+
+**Cause.** Pendant l’accès anticipé privé, un compte ne peut être créé qu’à partir d’un lien d’invitation.
+
+**Solution.** Utilisez le lien de votre e-mail d’invitation. Si vous avez été invité à un Assessment ou par votre organisation, consultez [Invitations](/troubleshooting/invitations/). Sinon, demandez une invitation à la personne ou à l’organisation concernée.
+
+## « Inscrivez-vous avec l’adresse e-mail à laquelle cette invitation a été envoyée »
+
+**Symptôme.** L’inscription est refusée avec ce message.
+
+**Cause.** Une invitation est liée à une seule adresse e-mail.
+
+**Solution.** Inscrivez-vous avec l’adresse exacte à laquelle l’e-mail d’invitation a été envoyé. Pour utiliser une autre adresse, demandez une nouvelle invitation à cette adresse.
+
+## On me demande d’accepter les conditions
+
+**Symptôme.** Après la connexion, un écran **Conditions d’utilisation et confidentialité** bloque l’application.
+
+**Cause.** Vous devez accepter les conditions générales d’utilisation et la politique de confidentialité en vigueur avant d’utiliser Klastro, la première fois puis à chaque modification.
+
+**Solution.** Lisez les documents, puis sélectionnez **Accepter et continuer**. Si vous voyez **Impossible d’enregistrer votre acceptation**, réessayez : l’opération peut être répétée sans risque.
+
+## Je ne vois pas mon organisation, ou je vois la mauvaise
+
+**Symptôme.** Après la connexion, vous arrivez sur **Choisir une organisation**, ou l’application affiche des sessions, des invitations ou des tickets d’une autre organisation que celle attendue.
+
+**Cause.** Tout dans Klastro (labs, crédits, Assessments, tickets) appartient à une organisation. Si vous êtes membre de plusieurs, vous travaillez dans une seule à la fois.
+
+**Solution.**
+
+- Sur **Choisir une organisation**, choisissez l’organisation voulue. Utilisez **Rechercher une organisation…** si la liste est longue.
+- Dans l’application, ouvrez le menu d’organisation en haut de la barre latérale gauche et sélectionnez **Changer d’organisation**.
+- Si l’organisation attendue n’apparaît pas, vous n’y avez pas encore été ajouté. Demandez à l’un de ses administrateurs de vous inviter ; voir [Membres et rôles](/admins/members-roles/).
+
+En tant que candidat, l’organisation qui vous a invité apparaît sous **Vos organisations** dès que vous avez une invitation. Si vous voyez **Aucune invitation pour le moment**, cherchez le lien d’invitation dans vos e-mails.
+
+## « Impossible de charger vos organisations »
+
+**Symptôme.** **Choisir une organisation** affiche **Impossible de charger vos organisations. Réessayez.**
+
+**Cause.** Un problème temporaire de réseau ou de service.
+
+**Solution.** Actualisez la page. Si le problème se répète, déconnectez-vous avec **Se déconnecter**, reconnectez-vous, et s’il persiste, [ouvrez un ticket d’assistance](/support/open-ticket/) dans la catégorie **Compte et accès**.
+
+## « Problème de compte »
+
+**Symptôme.** Vous voyez **Problème de compte** (« Un problème affecte votre compte. Contactez l’assistance. »).
+
+**Cause.** Votre compte nécessite l’intervention d’une personne.
+
+**Solution.** Sélectionnez **Contacter l’assistance**. Si vous ne pouvez pas accéder à l’Assistance faute de pouvoir vous connecter, demandez à un administrateur de votre organisation d’ouvrir un ticket pour vous.

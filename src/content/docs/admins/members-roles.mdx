@@ -1,0 +1,189 @@
+---
+title: Membres et rôles
+description: Ajouter des personnes à votre organisation, choisir leur rôle, leur attribuer des licences ou des crédits, et les retirer.
+sidebar:
+  order: 1
+---
+
+import { Steps } from '@astrojs/starlight/components';
+
+La page **Équipe** est l’endroit où un administrateur décide qui fait partie de
+l’organisation et ce que chacun peut faire. Le **rôle** d’un membre indique ce
+qu’il peut gérer ; sa **licence** indique les scénarios auxquels il accède et les
+crédits qu’il reçoit.
+
+## Avant de commencer
+
+- Il vous faut le rôle **Administrateur**. La page **Équipe** n’apparaît dans la
+  barre latérale que pour les administrateurs.
+- Pour attribuer des licences payantes, votre organisation doit avoir un
+  abonnement Pro ou Instructor. Voir [S’abonner à un forfait](/billing/subscribe/).
+
+## Rôles
+
+| Rôle | À quoi il sert |
+|---|---|
+| **Administrateur** | Contrôle total sur l’organisation, les membres et la facturation. |
+| **Responsable facturation** | Gère les abonnements et achète les licences des membres. |
+| **Apprenant** | Labs, playgrounds et tutoriels en autonomie. |
+| **Formateur** | Rédige les scénarios et anime les cohortes, avec une licence Formateur. |
+| **Recruteur** | Gère les assessments et les invitations de candidats. |
+
+Les rôles proposés dépendent du mode de facturation de votre organisation :
+
+- un **abonnement en libre-service** propose **Apprenant**, **Formateur**,
+  **Administrateur** et **Responsable facturation** ;
+- un **contrat Enterprise** propose aussi **Recruteur**, car les assessments de
+  recrutement font partie du contrat.
+
+## Permissions
+
+| | Administrateur | Responsable facturation | Apprenant | Formateur | Recruteur |
+|---|---|---|---|---|---|
+| Ouvrir la page **Équipe** : ajouter, retirer, changer les rôles | Oui | Non | Non | Non | Non |
+| Modifier les **Paramètres** | Oui | Lecture seule | Lecture seule | Lecture seule | Lecture seule |
+| Consulter le **Journal d’audit** | Oui | Non | Non | Non | Non |
+| **Facturation** : onglets **Forfait**, **Licences** et **Historique** | Oui | Oui | Non | Non | Non |
+| **Facturation** : **Vue d’ensemble** et **Consommation** de ses propres crédits | Oui | Oui | Oui | Oui | Oui |
+| Détenir une licence payante | Oui | Non | Oui | Oui | Non |
+| Donner ses propres crédits à un membre | Oui | Non | Non | Avec une licence Formateur | Non |
+| Utiliser un bon de crédit | Oui | Oui | Oui | Oui | Oui |
+
+Ce qu’un membre peut **lancer** dépend de sa licence, pas de son rôle. Scenario
+Studio et les cohortes demandent une licence **Formateur** ; les scénarios Pro,
+une licence **Apprenant Pro** ou **Formateur**. Voir
+[Forfaits et crédits](/billing/plans-and-credits/#licences).
+
+## Ajouter un membre
+
+<Steps>
+
+1. Dans la barre latérale, ouvrez **Équipe**, puis cliquez sur **Ajouter un
+   membre**.
+
+2. Dans la fenêtre **Ajouter un membre**, saisissez l’**Adresse e-mail** de la
+   personne et choisissez un **Rôle**.
+
+3. Cliquez sur **Ajouter un membre**.
+
+</Steps>
+
+La personne est ajoutée immédiatement et la confirmation **Membre ajouté**
+s’affiche. Elle se connecte par e-mail, Google ou GitHub.
+
+- Si la personne n’a pas encore de compte Klastro, un compte est créé pour elle
+  et elle reçoit un e-mail d’invitation pour finir de le configurer. D’ici là, la
+  colonne **Statut** affiche **Invité**, puis **Configuration commencée** une fois
+  le lien ouvert.
+- Si elle a déjà un compte, elle retrouve l’organisation à sa prochaine
+  connexion.
+
+:::note
+Pendant la preview privée, vous pouvez voir **Cette personne n’a pas encore de
+compte Klastro.** Les nouveaux comptes nécessitent alors une invitation de la
+plateforme avant que vous puissiez ajouter la personne.
+:::
+
+Tout nouveau membre démarre avec la licence gratuite **Apprenant**, **sans
+crédits**. L’ajout ne vous coûte jamais rien. Pour lui permettre de lancer des
+labs, attribuez-lui une licence payante ou donnez-lui des crédits (voir
+ci-dessous).
+
+### Renvoyer une invitation
+
+Si l’invitation n’a pas été utilisée, cliquez sur **Renvoyer l’invitation** dans
+la colonne **Statut** du membre. Un nouveau lien d’invitation est envoyé à son
+adresse.
+
+- **Lien expiré** signifie que le lien précédent a expiré : renvoyez-le.
+- **E-mail non remis** signifie que le dernier e-mail n’a pas pu être remis.
+  Vérifiez l’adresse, puis renvoyez-le.
+- Après un renvoi, le bouton affiche **Renvoi possible dans … s** jusqu’à ce que
+  vous puissiez renvoyer.
+
+## Changer le rôle d’un membre
+
+Choisissez le nouveau rôle dans la colonne **Rôle** de la ligne du membre. Le
+changement s’applique aussitôt et la confirmation **Rôle mis à jour** s’affiche.
+
+Changer de rôle ne modifie jamais la licence du membre. Un membre qui détenait
+une licence payante la conserve jusqu’à ce que vous la libériez.
+
+## Attribuer une licence à un membre
+
+Dans la colonne **Licence**, choisissez **Apprenant Pro** ou **Formateur**, puis
+confirmez avec **Attribuer la licence**. La licence est prise sur la réserve que
+vous avez déjà payée : votre facture ne change pas.
+
+Pour reprendre une licence, choisissez **Apprenant** et confirmez avec
+**Libérer la licence**. Le membre conserve son compte mais n’accède plus qu’aux
+scénarios gratuits et aux sessions qu’un formateur lui assigne.
+
+Un membre ne peut recevoir de licence qu’après s’être connecté ; d’ici là, la
+colonne affiche **En attente de connexion**. Pour la procédure complète, voir
+[Gérer les licences](/billing/seats/).
+
+## Donner des crédits à un membre
+
+Vous pouvez céder une partie de **vos propres** crédits à un autre membre, par
+exemple pour qu’un apprenant sans licence payante puisse lancer des labs.
+
+<Steps>
+
+1. Sur la ligne du membre, cliquez sur l’icône des pièces (**Donner des
+   crédits**).
+
+2. Saisissez le **Montant**. La fenêtre indique combien sont **disponibles à
+   donner**. Les décimales sont acceptées.
+
+3. Cliquez sur **Donner des crédits**.
+
+</Steps>
+
+Les crédits quittent votre solde pour rejoindre le sien, à dépenser sur ses
+propres labs. Les crédits venus de votre licence restent attachés à la licence et
+ne peuvent pas être donnés : le montant que vous pouvez donner peut donc être
+inférieur à ce que vous pouvez dépenser.
+
+## Retirer un membre
+
+<Steps>
+
+1. Sur la ligne du membre, cliquez sur l’icône de retrait (**Retirer le
+   membre**).
+
+2. Dans la fenêtre **Retirer un membre**, cliquez sur **Retirer le membre**.
+
+</Steps>
+
+:::caution
+La personne perd immédiatement l’accès à toutes les ressources de
+l’organisation, et tout lien d’invitation qui lui a été envoyé cesse de
+fonctionner. Cette action est irréversible : pour la faire revenir, ajoutez-la de
+nouveau.
+:::
+
+:::tip
+Si le membre détient une licence payante, libérez-la d’abord pour qu’elle
+retourne dans votre réserve avec ses crédits.
+:::
+
+## Ce que voit chaque membre
+
+Klastro limite ce que voit chaque membre à ce qui le concerne :
+
+- la page **Facturation** montre à chaque membre **ses propres** crédits et ses
+  propres labs uniquement. Administrateurs et responsables facturation voient en
+  plus le forfait, les licences et l’historique des crédits de l’organisation ;
+- la page **Équipe** affiche le solde de **Crédits** de chaque membre, que seuls
+  ses propres labs consomment. Il peut être négatif quand un lab en cours a
+  dépassé les crédits qui l’avaient lancé.
+
+Les organisations sous contrat Enterprise n’ont pas les colonnes **Licence** et
+**Crédits** : leur capacité est fixée par contrat.
+
+## Voir aussi
+
+- [Gérer les licences](/billing/seats/)
+- [Journal d’audit](/admins/audit-log/)
+- [Envoyer des invitations aux candidats](/recruiters/send-invitations/)

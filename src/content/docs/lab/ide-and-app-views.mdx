@@ -1,0 +1,103 @@
+---
+title: Utiliser l’éditeur et les app views
+description: Modifier des fichiers dans l’éditeur VS Code du navigateur, utiliser les outils web intégrés par un scénario, se connecter avec les identifiants affichés, et ouvrir chacun dans un onglet complet.
+sidebar:
+  order: 3
+---
+
+import { Steps } from '@astrojs/starlight/components';
+
+Certains scénarios vous donnent plus qu’un terminal : un éditeur **VS Code** dans
+le navigateur, et des **app views** — des applications web qui tournent dans votre
+lab, comme un tableau de bord GitOps ou une console de supervision. Elles
+s’ouvrent dans des onglets supplémentaires, à côté de vos onglets de terminal.
+
+**Avant de commencer :** ces onglets n’apparaissent que si le scénario les
+prévoit. Si vous ne voyez que des onglets **Shell** et **Node**, ce lab n’en a
+pas.
+
+## Modifier des fichiers dans l’onglet Code
+
+L’onglet **Code** est un éditeur VS Code complet, dans votre navigateur. Il
+travaille sur les mêmes fichiers que votre terminal : ce que vous enregistrez dans
+l’éditeur est immédiatement visible depuis le shell, et inversement.
+
+<Steps>
+
+1. Cliquez sur l’onglet **Code**, après vos onglets de terminal.
+
+2. Ouvrez les fichiers depuis l’explorateur de l’éditeur, modifiez-les, puis
+   enregistrez avec <kbd>Cmd</kbd>+<kbd>S</kbd> sous macOS ou
+   <kbd>Ctrl</kbd>+<kbd>S</kbd> sous Windows et Linux.
+
+3. Revenez à un onglet **Shell** pour appliquer ou exécuter ce que vous avez
+   modifié, par exemple `kubectl apply -f` sur un manifeste que vous venez de
+   changer.
+
+</Steps>
+
+L’onglet **Code** n’apparaît qu’une fois l’éditeur prêt. S’il manque juste après
+le démarrage du lab, patientez : il apparaît de lui-même.
+
+:::tip
+L’éditeur dispose de bien plus de place dans son propre onglet du navigateur.
+Cliquez sur **Ouvrir dans un nouvel onglet** dans la bande au-dessus de
+l’éditeur. Votre terminal reste dans l’onglet du lab, et les deux travaillent sur
+les mêmes fichiers.
+:::
+
+:::note
+Dans l’éditeur intégré, certains raccourcis sont interceptés par le navigateur
+avant d’atteindre l’éditeur. Si un raccourci VS Code ne fonctionne pas, ouvrez
+l’éditeur dans un nouvel onglet ou passez par ses menus.
+:::
+
+## Utiliser une app view
+
+Chaque onglet d’app view porte le nom de son application. Tant que l’application
+démarre, son onglet affiche un point clignotant et le panneau indique, par
+exemple, **Argo CD démarre…**. L’application se charge d’elle-même dès qu’elle
+répond ; inutile de recharger.
+
+<Steps>
+
+1. Cliquez sur l’onglet de l’application.
+
+2. Si le scénario fournit un identifiant de connexion, il s’affiche dans la bande
+   au-dessus de l’application :
+   - **Utilisateur** est affiché en clair. Cliquez sur son icône de copie
+     (**Copier l’identifiant**) pour le copier.
+   - **Mot de passe** est masqué. Cliquez sur l’icône en forme d’œil
+     (**Afficher le mot de passe**) pour le lire, ou sur l’icône de copie
+     (**Copier le mot de passe**) pour le copier sans l’afficher.
+
+3. Collez ces identifiants dans la page de connexion de l’application.
+
+4. Pour travailler plus à l’aise, cliquez sur **Ouvrir dans un nouvel onglet**.
+
+</Steps>
+
+## Ouvrir dans un nouvel onglet
+
+**Ouvrir dans un nouvel onglet** se trouve à droite de la bande au-dessus de
+l’éditeur et de chaque app view. Il ouvre la même application dans un onglet
+séparé du navigateur.
+
+- Le nouvel onglet affiche la même application, pas une copie : ce que vous y
+  modifiez est modifié dans votre lab.
+- Il ne fonctionne que tant que le lab tourne. Une fois le lab en pause ou arrêté,
+  la page ne répond plus.
+
+## Si un onglet reste vide ou charge indéfiniment
+
+- Attendez que le point clignotant de l’onglet s’arrête : l’application démarre
+  peut-être encore, surtout juste après la création du lab.
+- Cliquez sur **Ouvrir dans un nouvel onglet** pour voir si l’application y
+  répond.
+- Si elle n’apparaît jamais, utilisez **Signaler un problème** dans la barre
+  supérieure. Voir [Signaler un problème sur un lab](/support/report-lab-problem/).
+
+## Voir aussi
+
+- [L’espace de travail du lab](/lab/overview/)
+- [Utiliser le terminal du lab](/lab/terminal/)

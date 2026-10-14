@@ -1,0 +1,64 @@
+---
+title: Résultats et historique
+description: Lire les résultats d’un challenge noté et retrouver l’historique de tous vos challenges, même après la fin des sessions.
+sidebar:
+  order: 6
+---
+
+import { Steps } from '@astrojs/starlight/components';
+
+Les challenges sont les seuls labs en libre-service qui produisent un score. Klastro conserve chaque passage noté, avec le détail par tâche, bien après la destruction de l’environnement.
+
+:::note
+Les tutoriels et les playgrounds ne sont pas notés. Les résultats d’un assessment sont transmis au recruteur, pas à cette page.
+:::
+
+## Lire les résultats d’un challenge
+
+La page **Résultats** s’ouvre automatiquement quand vous cliquez sur **Envoyer et voir les résultats** à la fin d’un challenge (voir [Passer un challenge](/learners/catalog-challenges-paths/#passer-un-challenge)).
+
+Pendant la correction, la page affiche **Validation de votre travail sur l’environnement en cours d’exécution…** et chaque tâche porte le badge **Correction…**. Restez sur la page : elle se met à jour seule.
+
+Une fois la correction terminée, vous voyez :
+
+- votre **Score**, en points ;
+- le nombre de **Tâches réussies** ;
+- pour chaque tâche (**Tâche 1**, **Tâche 2**…), le résultat **Réussie** ou **Échouée**.
+
+Depuis cette page :
+
+- **Plus de challenges** ouvre le catalogue des challenges ;
+- **Mes challenges** ouvre votre historique ;
+- **Arrêter la session** détruit l’environnement du challenge, qui tourne encore après l’envoi.
+
+:::tip
+Une tâche **Échouée** ? Votre session est toujours active : vous pouvez retourner dans le lab, comprendre ce qui manquait, puis relancer un nouveau passage plus tard. Arrêtez la session quand vous avez fini pour ne plus consommer de crédits.
+:::
+
+## Retrouver les résultats d’une session terminée
+
+<Steps>
+
+1. Dans la section **Personnel** de la barre latérale, cliquez sur **Mes sessions**.
+
+2. Cliquez sur le filtre **Terminées**.
+
+3. Sur la ligne d’un challenge, cliquez sur **Résultats**.
+
+</Steps>
+
+## Consulter votre historique de challenges
+
+<Steps>
+
+1. Dans la section **Personnel** de la barre latérale, cliquez sur **Mes résultats**. La page **Challenges** liste tous vos passages notés.
+
+2. Chaque ligne affiche le challenge, le **Score** et le nombre de **Tâches** réussies.
+
+3. Cliquez sur une ligne pour déplier le détail tâche par tâche.
+
+</Steps>
+
+Cet historique est conservé même après la fin de chaque session : c’est la trace durable de ce que vous avez réussi. Pour commencer un nouveau challenge, cliquez sur **Nouveau challenge**.
+
+Si la page affiche **Aucun challenge terminé**, terminez un challenge et envoyez-le pour correction : il apparaîtra ici.

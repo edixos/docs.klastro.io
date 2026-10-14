@@ -1,0 +1,136 @@
+---
+title: Publish and manage your scenarios
+description: Validate a draft, choose its product type, publish it to your organization's catalog, then edit and republish a scenario that is already live.
+sidebar:
+  order: 4
+---
+
+import { Steps } from '@astrojs/starlight/components';
+
+A **draft** is your working canvas in Scenario Studio. **Publish** compiles it into a scenario
+that your organization's members find in their catalog. Nothing is published until you say so,
+and the draft stays open for later versions.
+
+Before you start, you need access to Scenario Studio
+(see [Your first scenario](/en/instructors/studio-first-scenario/)).
+
+## Choose the product type
+
+The product type decides how the scenario is presented and launched. You pick it when creating
+the draft (**Product type**) and can change it later in **Settings**.
+
+| Type | What it is for | Tasks |
+|---|---|---|
+| **Tutorial — guided, free hints** | A guided, step-by-step lab. | At least one |
+| **Challenge — graded, hints cost points** | A real, graded task. | At least one |
+| **Playground — no tasks** | An open environment with no instructions and no grading. | None |
+| **Assessment — exam material** | Exam material, run only inside a proctored Assessment. | At least one |
+
+- Changing the type re-checks what your organization may author.
+- The **Assessment** type is only available to organizations on an enterprise contract. An
+  Assessment scenario is not launched from the catalog: it is added to an assessment template
+  (see [Assessment templates](/en/recruiters/assessment-templates/)).
+- A scenario that is not a Playground cannot be tested or published without at least one task:
+  the **Add a task** banner shows above the canvas while one is missing.
+
+## Set the scenario settings
+
+Click **Settings** in the toolbar. This panel holds everything about the scenario that is not a
+node on the canvas.
+
+| Field | Purpose |
+|---|---|
+| **Display name** | The scenario's title in the catalog. |
+| **Description** | The scenario's introduction text. |
+| **Tags** | The skills the scenario covers. The catalog can filter by tag. |
+| **Product type** | See above. |
+| **Difficulty** | **Beginner**, **Intermediate** or **Advanced**. |
+| **Estimated duration** | A duration in seconds, e.g. `2700s`. It also feeds the price of a cohort place. |
+| **Card image** | Optional. Empty derives one from the environment type. |
+| **Cleanup TTL (seconds)** | How long a session lives before it is torn down. |
+| **Passing score** | The score needed to pass. |
+
+The points total is shown under the passing score: it is recomputed from the tasks on every
+publish.
+
+## Validate, then publish
+
+<Steps>
+
+1. In the toolbar, click **Check**. Fix every error reported: the affected node's **Issues** tab
+   says what to do. Warnings (a task worth no points, a task wired to no step…) do not block
+   publishing.
+
+2. Test every task at least once in a preview
+   (see [Setup steps and checks](/en/instructors/studio-actions-checks/)).
+
+3. Click **Publish**.
+
+4. On the first publish, enter a **Scenario name**: lowercase and dash-separated, for example
+   `scale-a-deployment`.
+
+5. Click **Publish**. "Published as …" confirms it.
+
+</Steps>
+
+:::caution[The name is permanent]
+The **Scenario name** is fixed after the first publish, so a typo cannot fork a second scenario.
+To publish under another name, create a new draft.
+:::
+
+The published scenario appears in your organization's catalog with the **Studio** badge. The
+catalog's **All sources** filter lets you show only your organization's scenarios, or only
+Klastro's **Official** ones. Scenarios published from the Studio are visible only inside your
+organization.
+
+## Edit a published scenario
+
+A published scenario is edited from the draft that published it.
+
+<Steps>
+
+1. Open **Studio**, then **Scenario Studio**. The **Published as** column of the **Drafts** list
+   shows which scenario each draft published.
+
+2. Click the draft's name to reopen its canvas.
+
+3. Make your changes, then test them in a preview.
+
+4. Click **Publish**. The dialog is titled **Republish scenario** and the name can no longer be
+   changed. Click **Republish**.
+
+</Steps>
+
+## Start from an existing scenario
+
+You can start from one of your organization's scenarios or from an official Klastro scenario: it
+is decompiled into a laid-out canvas that you are free to change.
+
+- From the Studio: **New draft**, then search for the scenario in **Start from**. The list separates
+  **Your organization's Studio** and **Official Klastro**.
+- From the catalog: on a scenario's page, click **Clone to Draft**. The new-draft dialog opens,
+  pre-filled with that scenario.
+
+The new draft is not linked to any published scenario: on its first publish it asks for a new name
+and creates a new scenario. The original scenario is left unchanged.
+
+## Delete a draft
+
+In the **Drafts** list, click the row's bin icon. A running preview is stopped on the way.
+
+:::danger
+Deletion is immediate, with no confirmation. A scenario already published from that draft stays
+live, but you can no longer republish it: that would take a new draft, published under another
+name.
+:::
+
+## Several people on one draft
+
+The draft saves automatically. If someone else (or you, in another tab) edits it at the same time,
+the banner "This draft changed elsewhere — your edits are no longer being saved." appears: click
+**Reload** to pick up the current version before carrying on.
+
+:::tip
+Studio drafts can also be created, previewed and published from an AI assistant connected to
+Klastro. See [AI integrations (MCP)](/en/mcp/overview/).
+:::

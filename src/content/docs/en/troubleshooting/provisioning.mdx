@@ -1,0 +1,68 @@
+---
+title: Lab preparation is slow or fails
+description: What the preparation screen means, how long a lab takes to be ready, and what to do when it does not start.
+sidebar:
+  order: 4
+---
+
+When you start a lab, Klastro creates a real, isolated environment for you. While it is being prepared, the lab shows **Preparing your environment** and the current stage:
+
+| Message | What is happening |
+|---|---|
+| **Reserving your environment…** | Your environment is being reserved. |
+| **Starting the machines…** | The machines or the cluster are booting. |
+| **Waiting for your session to be authorized…** | The lab waits for someone to approve it (see below). |
+| **Setting up your lab…** with **2 of 5 steps done** | The scenario's setup steps are running, one by one. The list shows each step. |
+| **Starting up…** | The last moments before the terminal opens. |
+
+Each problem below is laid out as **Symptom**, **Cause** and **Fix**.
+
+## Preparation takes a long time
+
+**Symptom.** The lab stays on **Preparing your environment** for several minutes.
+
+**Cause.** Preparation time depends on the scenario. A single cluster is usually ready quickly; a scenario with several machines and a long list of setup steps (installing a cluster from scratch, deploying tools) takes noticeably longer.
+
+**Fix.** Wait as long as the step counter keeps moving: the screen shows real progress, not an estimate. Do **not** reload repeatedly or start the lab again from the catalog. If the counter has not moved for a long time, [report a problem](/en/support/report-lab-problem/) from the lab: the setup progress is attached to your report.
+
+## "One step did not complete. We are retrying it"
+
+**Symptom.** The preparation screen shows **One step did not complete. We are retrying it — this may take a little longer.**
+
+**Cause.** A setup step failed, often because something it depends on was not ready yet. Klastro retries it automatically.
+
+**Fix.** Wait. Most retries succeed. If the message stays and the counter stops moving, report the problem from the lab.
+
+## "Waiting for your session to be authorized…"
+
+**Symptom.** The lab waits on **Waiting for your session to be authorized…** (or **Waiting for authorization…** in the terminal).
+
+**Cause.** The assessment is set to manual approval: a recruiter must authorize your session before it starts.
+
+**Fix.** Keep the page open. The lab continues on its own once the recruiter approves. If nothing happens, contact the recruiter who invited you.
+
+## "The lab session encountered an error"
+
+**Symptom.** The lab page shows **The lab session encountered an error.**
+
+**Cause.** The page could not load the session, or the environment could not be created.
+
+**Fix.** Reload the page once. If the error comes back, go to **My Sessions**, check the session's status, and [report a problem](/en/support/report-lab-problem/) or [open a ticket](/en/support/open-ticket/) with the session id.
+
+## The lab does not start at all
+
+| Message | Cause | Fix |
+|---|---|---|
+| **You’re at your session limit** | Your plan runs a set number of sessions at once. | **Pause** or **End** one of the sessions listed, then **Try again**. See [Manage your sessions](/en/learners/manage-sessions/). |
+| **Too many sessions are running right now…** | The platform or your organization has reached its number of labs running at once. | Wait a few minutes and try again. Paused labs do not count. |
+| A message starting with `ERR_INSUFFICIENT_CREDITS` | Your balance does not cover one hour of this environment. | See [Credits and paused labs](/en/troubleshooting/credits-and-pauses/). |
+| **Upgrade to launch** instead of a start button | Your plan does not include this kind of lab. | See [Plans and credits](/en/billing/plans-and-credits/). |
+| **Session did not start. Please try again.** | A temporary problem. | Try again. If it persists, open a ticket. |
+
+## The lab ended on its own
+
+**Symptom.** You receive the notification **Your lab has ended** ("… reached its time limit and was shut down."), or the lab shows **This environment has ended**.
+
+**Cause.** Every lab has a maximum lifetime set by the scenario. When it is reached, the environment is stopped. Checks you had already passed are kept.
+
+**Fix.** Start the scenario again from the catalog if you want to continue practising. To keep an environment between work sessions, pause it before you leave rather than leaving it running.

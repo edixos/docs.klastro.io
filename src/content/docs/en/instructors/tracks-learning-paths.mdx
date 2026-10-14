@@ -1,0 +1,127 @@
+---
+title: Compose a track and point learners to certification paths
+description: Compose a reusable track — a sequence of scenarios plus its materials — to deliver to your cohorts, and point your learners to Klastro's certification paths.
+sidebar:
+  order: 5
+---
+
+import { Steps } from '@astrojs/starlight/components';
+
+Klastro has two things with similar names:
+
+- a **track** (**Train** menu) is a curriculum you compose: an ordered, reusable sequence of
+  scenarios plus its materials. You then deliver it to a group as a **cohort**;
+- a **certification path** (**Learn** menu) is a roadmap provided by Klastro, which each learner
+  follows alone, at their own pace.
+
+## Compose a track
+
+Before you start, you need:
+
+- in a subscription organization, an **Instructor seat** assigned to your account
+  (see [Seats](/en/billing/seats/));
+- in a contract organization, the instructor or admin role
+  (see [Members and roles](/en/admins/members-roles/));
+- published scenarios: Klastro's catalog, or your own
+  (see [Publish and manage your scenarios](/en/instructors/publish-scenarios/)).
+
+### Create the track
+
+<Steps>
+
+1. In the sidebar, open **Train**, then **Tracks**.
+
+2. Click **New track**.
+
+3. Enter a **Name**, for example "Kubernetes Fundamentals — 3 days", and optionally a
+   **Description**: who it is for and what they leave knowing.
+
+4. Click **Create draft**. The track's page opens in three steps: **Scenarios**, **Materials** and
+   **Details**.
+
+</Steps>
+
+Everything you do from here saves automatically. The indicator at the top of the page goes
+through **Saving…** then **Saved**; "Add a name to save" means a name is missing.
+
+### Build the sequence
+
+<Steps>
+
+1. On the **Scenarios** step, click **Add a scenario…**.
+
+2. Search for a scenario. The list separates **Your scenarios (Studio)** and the **Klastro catalog**.
+   A scenario marked **Pro** can only be launched on a plan that reaches Pro scenarios.
+
+3. Add the labs in the order trainees should meet them. Use the arrows to move a scenario earlier
+   or later, and the cross to remove it.
+
+4. Click **Continue to Materials**.
+
+</Steps>
+
+### Add materials
+
+Materials go with the labs: slides, recordings, documentation. This step is optional.
+
+<Steps>
+
+1. On the **Materials** step, click **Add material**.
+
+2. Choose the **Kind**: **Document**, **Video** or **Link**. It only changes what the trainee sees.
+
+3. Under **Material**, choose **External link** and paste the URL, or **Uploaded file** and click
+   **Choose a file…**. An uploaded file is 32 MB at most: link a video instead.
+
+4. Enter a **Title** and, if needed, a **Description**, then click **Add**.
+
+5. Click **Continue to Details** and check the name and description.
+
+</Steps>
+
+### Read the price of a place
+
+The **Price per place** panel beside the track shows what one trainee costs once your plan's
+included places are used up. Enter a **Cohort length** in minutes to simulate the price: a track
+has no length of its own, each cohort sets one. The price depends on the scenarios' environments
+and their estimated duration. The details are in [Create a cohort](/en/instructors/cohorts/). In a
+contract organization no place is charged and this panel does not appear.
+
+### Publish the track
+
+Click **Publish** at the top of the page. The button stays inactive while the track has no name or
+no scenario. Only a published track is offered when composing a cohort.
+
+**Deliver as a cohort** takes you straight to creating a cohort
+(see [Create a cohort](/en/instructors/cohorts/)).
+
+:::note[Editing a published track never changes a running class]
+A cohort copies the track's sequence and materials when it is composed. So you can improve a
+published track at any time: only cohorts composed afterwards get the changes.
+:::
+
+### Archive a track
+
+In the **Tracks** list, click the row's archive icon. An archived track is no longer offered when
+composing a cohort, but it is not deleted: the cohorts that came from it stay intact.
+
+## Point your learners to certification paths
+
+Certification paths are roadmaps designed by Klastro, from the first concept to exam readiness
+(Kubernetes, security, Linux). They are the same for every organization: you cannot create or edit
+them.
+
+What to know before recommending them:
+
+- your learners find them under **Learn**, then **Certification Paths**, filterable by **Topic** and
+  **Level**;
+- each step points to a catalog scenario. A step whose scenario is not in your organization's
+  catalog is marked **Unavailable**;
+- progress is declared by the learner (**Mark complete**). They are milestones, not credentials,
+  and locked steps recommend an order rather than enforce it;
+- progress is personal and follows the learner across organizations. You do not see it from your
+  account.
+
+For a programme taught in class, with your own order and live monitoring, compose a track and
+deliver it as a cohort instead. The learner's side is described in
+[Catalog, challenges and paths](/en/learners/catalog-challenges-paths/).

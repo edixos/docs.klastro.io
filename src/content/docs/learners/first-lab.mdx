@@ -1,0 +1,100 @@
+---
+title: Votre premier lab
+description: Tutoriel — du catalogue jusqu’à un tutoriel terminé et un environnement libéré, en une vingtaine de minutes.
+sidebar:
+  order: 1
+---
+
+import { Steps } from '@astrojs/starlight/components';
+
+Dans ce tutoriel, vous lancez un tutoriel guidé sur un vrai cluster, vous validez chaque étape, puis vous libérez l’environnement. À la fin, vous saurez lancer, utiliser et arrêter n’importe quel lab Klastro.
+
+**Ce qu’il vous faut** : un compte Klastro et une organisation (voir [Créer un compte et se connecter](/getting-started/create-account/)), et des crédits disponibles sur votre solde (voir [Forfaits et crédits](/billing/plans-and-credits/)).
+
+## 1. Choisir un tutoriel
+
+<Steps>
+
+1. Dans la barre latérale, ouvrez **Apprendre**, puis cliquez sur **Tutoriels**.
+
+   Le catalogue s’ouvre, filtré sur les tutoriels. Chaque carte indique le niveau (**Débutant**, **Intermédiaire**, **Avancé**) et le nombre de tâches.
+
+2. Choisissez un tutoriel de niveau **Débutant**, et cliquez sur **Explorer**.
+
+3. Sur la fiche du scénario, parcourez la **Durée estimée**, l’**Environnement** et la liste des **Étapes guidées**. Vous savez maintenant ce qui vous attend.
+
+</Steps>
+
+:::note
+Un bouton **Changer de forfait pour lancer** à la place du bouton de lancement signifie que ce scénario est réservé au forfait Pro. Choisissez-en un autre, marqué **Gratuit**.
+:::
+
+## 2. Lancer l’environnement
+
+<Steps>
+
+1. Cliquez sur **Démarrer le tutoriel**.
+
+2. Klastro ouvre la page du lab et affiche **Préparation de votre environnement**. Les étapes défilent : **Réservation de votre environnement…**, **Démarrage des machines…**, puis **Installation de votre lab…**.
+
+   Selon l’environnement, cela prend de quelques secondes à quelques minutes. Restez sur la page : elle devient votre espace de travail toute seule.
+
+3. Quand l’environnement est prêt, l’espace de travail s’affiche : les **Instructions** d’un côté, le terminal de l’autre.
+
+</Steps>
+
+## 3. Réaliser la première étape
+
+<Steps>
+
+1. Lisez la première étape dans le panneau **Instructions**.
+
+2. Cliquez dans le terminal et tapez les commandes demandées. Pour commencer, essayez :
+
+   ```sh
+   kubectl get nodes
+   ```
+
+   Vous êtes connecté à un vrai cluster : la commande liste ses nœuds.
+
+3. Une fois l’étape réalisée, cliquez sur **Vérifier cette étape**. Klastro inspecte votre environnement et affiche **Étape validée**.
+
+   Si vous voyez **Pas encore — réessayez**, relisez l’étape, corrigez, puis cliquez sur **Vérifier à nouveau**.
+
+</Steps>
+
+:::tip[Bloqué ?]
+Ouvrez les **Indices** sous l’étape et cliquez sur **Afficher**. Dans un tutoriel, les indices sont gratuits : utilisez-en autant que nécessaire.
+:::
+
+## 4. Aller jusqu’au bout
+
+<Steps>
+
+1. Cliquez sur **Suivant** pour passer à l’étape suivante, et recommencez : lire, faire, vérifier.
+
+2. Sur la dernière étape, cliquez sur **Terminer**. Le message **Tutoriel terminé. Beau travail.** s’affiche, et Klastro vous ramène au catalogue des tutoriels.
+
+</Steps>
+
+## 5. Libérer l’environnement
+
+Terminer un tutoriel ne détruit pas son environnement : il continue de tourner, et de consommer des crédits, jusqu’à ce que vous l’arrêtiez.
+
+<Steps>
+
+1. Dans la section **Personnel** de la barre latérale, cliquez sur **Mes sessions**. Votre tutoriel apparaît en tête de liste.
+
+2. Cliquez sur le menu **Actions sur la session** (les trois points) au bout de la ligne, puis sur **Supprimer**.
+
+3. Confirmez avec **Supprimer la session**. La ligne affiche **Suppression…**, puis passe dans les sessions **Terminées**.
+
+</Steps>
+
+Félicitations : vous avez lancé un environnement réel, validé votre travail et libéré les ressources.
+
+## Et ensuite ?
+
+- Mesurez-vous à un challenge noté : [Catalogue, challenges et parcours](/learners/catalog-challenges-paths/).
+- Apprenez à mettre une session en pause et à la reprendre : [Gérer vos sessions](/learners/manage-sessions/).
+- Découvrez tout l’espace de travail : [L’environnement de lab](/lab/overview/), [le terminal](/lab/terminal/) et [les notes](/lab/notes/).

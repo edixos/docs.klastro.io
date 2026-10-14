@@ -1,0 +1,74 @@
+---
+title: Klastro et les assistants IA (MCP)
+description: Ce qu’est le serveur MCP de Klastro, ce qu’un assistant IA peut faire avec votre compte Klastro, et comment les autorisations l’encadrent.
+sidebar:
+  order: 1
+---
+
+Klastro dispose d’un serveur **Model Context Protocol (MCP)**. MCP est un standard ouvert qui permet à des assistants IA comme Claude, Cursor ou GitHub Copilot dans VS Code d’appeler des outils externes. Une fois votre assistant connecté à Klastro, vous pouvez lui demander en langage courant de faire ce que vous feriez autrement dans app.klastro.io.
+
+Le serveur se trouve à l’adresse :
+
+```
+https://mcp.klastro.io/mcp
+```
+
+## Ce que vous pouvez faire
+
+L’assistant utilise les mêmes fonctionnalités que celles de l’application, dans l’organisation que vous choisissez au moment de le connecter :
+
+- **Parcourir le catalogue** : lister les scénarios et consulter leur détail.
+- **Vous entraîner** : lancer un lab, le mettre en pause, le reprendre ou l’arrêter, soumettre une tâche à la correction, révéler un indice, prendre des notes et consulter l’historique de vos challenges.
+- **Suivre des parcours de certification** : voir votre progression et marquer des étapes comme commencées ou terminées.
+- **Mener des Assessments de recrutement** (recruteurs) : créer et modifier des modèles d’Assessment, suivre l’avancement des candidats, autoriser un démarrage, ajuster la durée, arrêter un Assessment, lire les rapports des candidats, les exporter en PDF et rendre votre évaluation.
+- **Créer des scénarios** (Scenario Studio) : créer et modifier des brouillons, les valider et les publier, lancer un aperçu en direct, y pousser vos modifications et tester les vérifications d’une tâche avant que des apprenants ne les rencontrent.
+
+Par exemple : *« Liste les scénarios Kubernetes auxquels j’ai accès »*, *« Quels candidats ont terminé l’Assessment Platform Engineer cette semaine, et avec quel score ? »* ou *« Lance un aperçu de mon brouillon et teste les vérifications de la tâche 2 »*.
+
+La liste complète figure dans la [référence des outils](/mcp/tools-reference/). La facturation, l’administration de l’organisation, les invitations, les documents juridiques et les paramètres de profil **ne sont pas** accessibles par MCP : utilisez l’application pour ces sujets.
+
+## Fonctionnement des accès
+
+### Vous vous connectez avec votre compte Klastro
+
+Aucune clé d’API à copier. La première fois que votre assistant appelle Klastro, il ouvre votre navigateur sur la page de connexion de Klastro. Vous vous connectez comme d’habitude, puis un écran de consentement vous demande d’approuver la connexion. L’assistant ne voit jamais votre mot de passe.
+
+### Vous choisissez l’organisation et les autorisations
+
+L’écran de consentement, intitulé d’après l’application (par exemple *« Claude Code demande l’accès à votre compte Klastro »*), vous demande de choisir :
+
+- **Organisation** : l’application agira uniquement dans cette organisation. Pour travailler dans une autre, reconnectez-vous et choisissez-la.
+- **Autorisations** :
+
+  | Autorisation | Ce qu’elle permet |
+  |---|---|
+  | **Lecture** | Consulter les scénarios, sessions, évaluations et rapports. |
+  | **Écriture** | Lancer et arrêter des labs, modifier des brouillons Studio, soumettre des tentatives. |
+  | **Administration** | Gérer l’organisation. Réservé aux administrateurs. Jamais cochée par défaut. |
+
+Sélectionnez **Autoriser** pour approuver ou **Refuser** pour décliner. Une connexion limitée à la **Lecture** peut consulter mais ne peut rien modifier : toute action qui lance, modifie, soumet ou supprime demande l’**Écriture**.
+
+### Vos propres droits s’appliquent toujours
+
+L’assistant agit **en votre nom, avec vos droits**. Accorder une autorisation ne lui donne jamais plus que ce que vous avez dans l’application : l’assistant d’un apprenant ne peut pas lire les rapports des candidats, et un assistant ne peut pas ouvrir Scenario Studio pour une personne qui n’y a pas accès.
+
+### Les crédits sont consommés comme dans l’application
+
+Lancer ou reprendre un lab par un assistant coûte les mêmes crédits que dans l’application, et les mêmes limites s’appliquent (solde, nombre de sessions simultanées). Les aperçus Studio ne consomment pas de crédits. Voir [Forfaits et crédits](/billing/plans-and-credits/).
+
+:::caution
+N’autorisez que les applications que vous venez de lancer vous-même. Un assistant disposant de l’**Écriture** peut lancer des labs qui consomment vos crédits et arrêter des sessions. Relisez ce qu’il propose de faire avant de le laisser agir.
+:::
+
+### Vous pouvez révoquer l’accès à tout moment
+
+Votre page **Profil** liste toutes les applications que vous avez autorisées sous **Applications connectées**, avec leurs autorisations et leur organisation. Sélectionnez **Révoquer** à côté de l’une d’elles pour lui couper l’accès immédiatement : ses jetons cessent de fonctionner et elle devra redemander votre autorisation.
+
+### Limites d’utilisation
+
+Chaque utilisateur peut envoyer jusqu’à 120 requêtes par minute au serveur MCP. Au-delà, les requêtes sont refusées pendant un court instant et l’assistant doit réessayer un peu plus tard.
+
+## Étapes suivantes
+
+- [Connecter votre client IA](/mcp/connect-clients/)
+- [Référence des outils](/mcp/tools-reference/)

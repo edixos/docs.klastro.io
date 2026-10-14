@@ -1,0 +1,104 @@
+---
+title: Keyboard shortcuts
+description: Every keyboard shortcut that works in the Klastro lab, and which ones come from Klastro, the terminal or your browser.
+sidebar:
+  order: 7
+---
+
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
+This page lists the keys you can use in the lab. Klastro adds only a few
+shortcuts of its own; most of what you use every day comes from the terminal and
+from your browser. Each table says which is which.
+
+On macOS, <kbd>Cmd</kbd> is the ⌘ key and <kbd>Option</kbd> is ⌥.
+
+## Terminal
+
+These come from the terminal itself and behave as in any Linux terminal.
+
+<Tabs syncKey="os">
+<TabItem label="macOS">
+
+| Action | Keys | Source |
+|---|---|---|
+| Copy the selected text | <kbd>Cmd</kbd>+<kbd>C</kbd> | Browser |
+| Paste | <kbd>Cmd</kbd>+<kbd>V</kbd> | Browser |
+| Interrupt the running command | <kbd>Ctrl</kbd>+<kbd>C</kbd> | Terminal |
+| End input / log out of a shell | <kbd>Ctrl</kbd>+<kbd>D</kbd> | Terminal |
+| Clear the screen | <kbd>Ctrl</kbd>+<kbd>L</kbd> | Terminal |
+| Search your command history | <kbd>Ctrl</kbd>+<kbd>R</kbd> | Terminal |
+| Complete a command or file name | <kbd>Tab</kbd> | Terminal |
+
+</TabItem>
+<TabItem label="Windows / Linux">
+
+| Action | Keys | Source |
+|---|---|---|
+| Copy the selected text | <kbd>Ctrl</kbd>+<kbd>Insert</kbd>, or right-click → **Copy** | Browser |
+| Paste | <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>V</kbd> or <kbd>Shift</kbd>+<kbd>Insert</kbd>, or right-click → **Paste** | Browser |
+| Interrupt the running command | <kbd>Ctrl</kbd>+<kbd>C</kbd> | Terminal |
+| End input / log out of a shell | <kbd>Ctrl</kbd>+<kbd>D</kbd> | Terminal |
+| Clear the screen | <kbd>Ctrl</kbd>+<kbd>L</kbd> | Terminal |
+| Search your command history | <kbd>Ctrl</kbd>+<kbd>R</kbd> | Terminal |
+| Complete a command or file name | <kbd>Tab</kbd> | Terminal |
+
+</TabItem>
+</Tabs>
+
+:::caution
+On Windows and Linux, <kbd>Ctrl</kbd>+<kbd>C</kbd> in the terminal interrupts
+the running command — it does not copy — and <kbd>Ctrl</kbd>+<kbd>V</kbd> does not
+paste. In some browsers <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>C</kbd> opens the
+developer tools instead of copying.
+:::
+
+### Scrolling back in a shell
+
+When your shell runs inside `tmux` (a green status line at the bottom), use its
+scroll mode to read earlier output:
+
+| Action | Keys | Source |
+|---|---|---|
+| Enter scroll mode | <kbd>Ctrl</kbd>+<kbd>B</kbd>, then <kbd>[</kbd> | tmux |
+| Scroll | Arrow keys, <kbd>Page Up</kbd>, <kbd>Page Down</kbd> | tmux |
+| Leave scroll mode | <kbd>q</kbd> | tmux |
+
+## Instructions pane
+
+These are Klastro's own shortcuts.
+
+| Action | Keys | Where |
+|---|---|---|
+| Next / previous task | <kbd>↓</kbd> or <kbd>→</kbd> / <kbd>↑</kbd> or <kbd>←</kbd> | With focus in the task list |
+| First / last task | <kbd>Home</kbd> / <kbd>End</kbd> | With focus in the task list |
+| Copy an inline command | <kbd>Enter</kbd> or <kbd>Space</kbd> | With focus on the command |
+| Move between controls | <kbd>Tab</kbd> / <kbd>Shift</kbd>+<kbd>Tab</kbd> | Anywhere |
+
+The task list counts as a single <kbd>Tab</kbd> stop: tab into it, then use the
+arrow keys. Moving the selection opens that task straight away.
+
+## Workspace
+
+| Action | Keys | Where |
+|---|---|---|
+| Widen / narrow the instructions pane | <kbd>→</kbd> / <kbd>←</kbd> | With focus on the **Resize panels** grip |
+| Close a dialog without confirming | <kbd>Esc</kbd> | In a confirmation dialog |
+
+## Editor and app views
+
+The **Code** tab is VS Code, with VS Code's usual shortcuts, and app views keep
+their own. When they are embedded in the lab, the browser may keep some
+combinations for itself (opening or closing tabs, for example). Use
+**Open in new tab** to give the editor or the application the whole browser tab.
+
+## What does not exist
+
+To save you looking for them: the lab has no shortcut of its own to switch
+terminal tabs, open a new shell, run a check, reveal a hint or submit. Use the
+mouse, or <kbd>Tab</kbd> to the button and press <kbd>Enter</kbd>.
+
+## Related
+
+- [Use the lab terminal](/en/lab/terminal/)
+- [The lab workspace](/en/lab/overview/)

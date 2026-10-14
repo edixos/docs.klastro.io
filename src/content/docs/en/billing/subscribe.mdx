@@ -1,0 +1,142 @@
+---
+title: Subscribe to a plan
+description: Choose a paid plan, pay through secure checkout, then add seats, change plan or cancel.
+sidebar:
+  order: 2
+---
+
+import { Steps } from '@astrojs/starlight/components';
+
+This page shows how to move your organization from the free Community plan to
+Pro or Instructor, and how to manage the subscription afterwards. For what each
+plan includes, see [Plans and credits](/en/billing/plans-and-credits/).
+
+## Before you start
+
+- You need the **Admin** or **Billing Admin** role. Other members see only the
+  **Overview** and **Usage** tabs of the **Billing** page.
+- Your organization must be on a self-serve subscription. An organization under
+  an Enterprise contract does not buy plans online.
+
+## Subscribe
+
+<Steps>
+
+1. In the sidebar, open **Billing**, then the **Plan** tab.
+
+2. Choose how you want to be invoiced with the **Monthly** / **Yearly** toggle.
+   On **Yearly**, each paid card shows the cost of twelve monthly payments struck
+   through, and how many months you save.
+
+3. Compare the **Included** and **Limits** lists on each card, then click
+   **Upgrade to Pro** or **Upgrade to Instructor** on the plan you want.
+
+4. Check the **Subscribe to …?** dialog. It shows the **Price**, the number of
+   **Seats** (**1 to start**) and the **Credits with the seat**. Click **Continue
+   to checkout**.
+
+   Nothing is charged until you finish checkout, and you can add or remove seats
+   afterwards.
+
+5. Pay on the secure Stripe checkout page.
+
+6. You return to the **Billing** page with a **Payment received** banner. Your
+   subscription is being activated: your plan and credits appear within a
+   moment.
+
+</Steps>
+
+Your subscription starts with one seat. To give it to someone, or to buy more,
+see [Manage seats](/en/billing/seats/).
+
+:::note
+If you leave the checkout page without paying, you return with a **Checkout
+canceled** banner. No charge was made, and you can pick a plan again whenever you
+are ready.
+:::
+
+## Add seats of another tier
+
+An organization can hold Pro seats and Instructor seats at the same time; each
+tier is billed as its own line on the same subscription. Once you have a live
+subscription, the paid cards on the **Plan** tab show what you already hold
+(**purchased**, **assigned**, and how many are **free**) and offer **Add a Pro
+seat** or **Add a Instructor seat** instead of an upgrade button.
+
+<Steps>
+
+1. On the **Plan** tab, click **Add a Pro seat** or **Add a Instructor seat**.
+
+2. Check the dialog. Nothing is charged today: the rest of the current period is
+   prorated onto your next invoice, and the seat then renews at the price shown.
+
+3. Click **Confirm purchase**.
+
+</Steps>
+
+To buy several seats at once, use the **Seats** tab. See
+[Manage seats](/en/billing/seats/).
+
+## Change your plan or payment method
+
+Payment details, plan changes and cancellation are handled in the secure billing
+portal.
+
+<Steps>
+
+1. On the **Plan** tab, click **Manage subscription**.
+
+2. In the billing portal, change plan, update your payment method, or cancel.
+
+</Steps>
+
+:::tip[Moving members from Pro to Instructor]
+Because the two tiers are separate pools, you can also switch people one at a
+time: buy Instructor seats, move each member to an **Instructor** seat, then
+remove the Pro seats you no longer use from the **Seats** tab.
+:::
+
+## Cancel your subscription
+
+You can cancel in two ways:
+
+- click **Manage subscription** on the **Plan** tab and cancel in the billing
+  portal;
+- remove your last paid seats from the **Seats** tab. This cancels the
+  subscription at the end of the period.
+
+Cancellation takes effect at the end of the current period. Until then, the
+**Overview** tab reads **Canceled. You keep Pro and your credits until** the end
+date, and everything keeps working. You can resume the subscription at any time
+before that date from **Manage subscription**.
+
+Once the period has ended, the **Overview** tab says your subscription has ended,
+and you can resubscribe at any time from the **Plan** tab.
+
+## Subscription status
+
+The plan summary on the **Overview** tab shows your subscription status:
+
+| Status | Meaning |
+|---|---|
+| **Active** | The subscription is running normally. |
+| **Pending** | The subscription is being set up. |
+| **Past due** | A payment failed. Your plan keeps working for now; update your payment method from **Manage subscription**. |
+| **Canceled** | The subscription has ended. |
+
+## Ask for an Enterprise contract
+
+For proctored hiring assessments, a fixed concurrent-lab capacity or contract
+billing, use the **Enterprise** card at the bottom of the **Plan** tab.
+
+<Steps>
+
+1. Click **Contact sales**.
+
+2. Optionally, tell the team what they should know (team size, timeline, what you
+   need).
+
+3. Click **Send request**. The card confirms the date of your request and the
+   address the team will reply to.
+
+</Steps>

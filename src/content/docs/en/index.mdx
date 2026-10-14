@@ -1,0 +1,83 @@
+---
+title: Klastro documentation
+description: Learn how to use Klastro, the in-browser cloud-native lab platform, to practise, assess candidates and run training.
+template: splash
+hero:
+  tagline: Real clusters, provisioned on demand in your browser. Everything you need to practise, assess and train with Klastro.
+  actions:
+    - text: Discover Klastro
+      link: /en/getting-started/what-is-klastro/
+      icon: right-arrow
+    - text: Run my first lab
+      link: /en/learners/first-lab/
+      icon: rocket
+      variant: secondary
+    - text: Open app.klastro.io
+      link: https://app.klastro.io
+      icon: external
+      variant: minimal
+---
+
+import { CardGrid, LinkCard } from '@astrojs/starlight/components';
+
+## Where to start
+
+Pick the profile that fits you best. Each section starts from what you want to get done, not from how the app is organized.
+
+<CardGrid>
+	<LinkCard
+		title="I was invited to an assessment"
+		description="Accept the invitation, get your setup ready and start your technical assessment."
+		href="/en/learners/accept-invitation/"
+	/>
+	<LinkCard
+		title="I want to practise"
+		description="Tutorials, challenges, playgrounds and certification paths, at your own pace."
+		href="/en/learners/first-lab/"
+	/>
+	<LinkCard
+		title="I’m attending a training session"
+		description="Find your class, start your environment and ask your instructor for help."
+		href="/en/learners/join-training/"
+	/>
+	<LinkCard
+		title="I’m hiring"
+		description="Build an assessment, invite candidates and read their report."
+		href="/en/recruiters/first-assessment/"
+	/>
+	<LinkCard
+		title="I teach or author scenarios"
+		description="Write scenarios in Scenario Studio, then run cohorts."
+		href="/en/instructors/studio-first-scenario/"
+	/>
+	<LinkCard
+		title="I administer an organization"
+		description="Members, roles, settings, audit log, plans and credits."
+		href="/en/admins/members-roles/"
+	/>
+</CardGrid>
+
+## Go further
+
+<CardGrid>
+	<LinkCard
+		title="Choose your path"
+		description="A detailed guide, profile by profile."
+		href="/en/getting-started/choose-your-path/"
+	/>
+	<LinkCard
+		title="Glossary"
+		description="Scenario, session, task, credit, seat, cohort: Klastro’s vocabulary."
+		href="/en/getting-started/glossary/"
+	/>
+	<LinkCard
+		title="FAQ & troubleshooting"
+		description="Answers to the most common problems."
+		href="/en/troubleshooting/faq/"
+	/>
+	<LinkCard
+		title="Contact support"
+		description="Open a ticket from inside the app."
+		href="/en/support/open-ticket/"
+	/>
+</CardGrid>

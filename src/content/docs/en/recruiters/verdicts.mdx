@@ -1,0 +1,108 @@
+---
+title: Record a verdict and filter reports
+description: Give your hiring verdict on a report, then find candidates by status, assessment and verdict.
+sidebar:
+  order: 7
+---
+
+import { Steps } from '@astrojs/starlight/components';
+
+The score measures what the candidate did in the lab; the **verdict** is your hiring decision. Klastro
+keeps both side by side: the verdict shows in the report list and on the report itself, with your notes.
+
+**Prerequisite:** be a **Recruiter** or an admin in an organization on a business contract.
+
+## The four verdicts
+
+| Verdict | Shown in **Results** and on the report |
+|---|---|
+| Strong hire | **STRONG HIRE** |
+| Hire | **HIRE** |
+| No hire | **NO HIRE** |
+| Strong no hire | **STRONG NO HIRE** |
+
+The first two show in green, the last two in red.
+
+## Record a verdict
+
+The verdict is recorded through the Klastro [MCP integration](/en/mcp/overview/), that is, from an AI
+assistant connected to your account. The report page displays the verdict but has no form to enter it.
+
+<Steps>
+
+1. Check that the candidate's assessment is over: their report must be listed under **Assess** →
+   **Results**. A run still in progress cannot receive a verdict.
+
+2. Read the report (see [Read a candidate report](/en/recruiters/candidate-report/)).
+
+3. In your assistant connected to Klastro, ask it to record the verdict, naming the candidate, for
+   example: "Record a *Hire* verdict on Jane Smith's report, with the note: fast diagnosis, sound method,
+   needs work on networking." The assistant uses the `submit_report_review` tool.
+
+4. Reload the report in Klastro.
+
+</Steps>
+
+The verdict badge appears at the top of the report, the **Recruiter review** section shows the verdict
+and your notes, and the report status changes to **Reviewed** (`REVIEWED`).
+
+- Notes are optional and limited to 5,000 characters.
+- To change your mind, record a new verdict: it replaces the previous one, notes included.
+
+:::caution
+The verdict is visible to every recruiter and admin in the organization. Write your notes as a document
+the candidate might one day ask to see.
+:::
+
+:::note
+The score is a measurement, not a decision. The hiring decision is yours, made with human involvement:
+that is exactly what the verdict is for.
+:::
+
+## Filter the report list
+
+<Steps>
+
+1. Open **Assess**, then **Results**. The **Candidate Reports** page lists the completed assessments of
+   the whole organization.
+
+2. In the **Filters** row, choose a **Status**:
+
+   - **All statuses**;
+   - **Completed**: the candidate went to the end, no verdict yet;
+   - **Timed out**: the allotted time ran out, no verdict yet;
+   - **Reviewed**: a verdict has been recorded.
+
+3. Optionally choose an **Assessment** to keep a single template.
+
+4. To clear everything, click **Clear filters**.
+
+</Steps>
+
+:::tip
+Filter on **Completed** and **Timed out** to get the candidates still waiting for your verdict.
+:::
+
+The **All reports** table shows 10 reports per page, with these columns:
+
+| Column | Content |
+|---|---|
+| **Candidate** | Name and email. |
+| **Assessment** | Template name. |
+| **Score** | Percentage, points (`18/25 pts`) and gauge. |
+| **Result** | **Passed** or **Failed**. |
+| **Status** | **Completed**, **Timed out** or **Reviewed**. |
+| **Verdict** | The verdict, or "—". |
+| **Duration** | Time between the start and the end of the run. |
+| **Completed** | End date. |
+
+On a narrow screen some columns are hidden; **Candidate**, **Score** and the **View report** icon always
+stay visible.
+
+The counters at the top of the page (**Completed**, **Passed**, **Failed**) cover the reports shown on
+the table's current page.
+
+## See also
+
+- [Read a candidate report](/en/recruiters/candidate-report/)
+- [MCP integration overview](/en/mcp/overview/)

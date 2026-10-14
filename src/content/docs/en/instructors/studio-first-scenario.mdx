@@ -1,0 +1,196 @@
+---
+title: Your first scenario in Scenario Studio
+description: Build a complete Kubernetes challenge on the Studio canvas, try it in a free preview, then publish it to your organization's catalog.
+sidebar:
+  order: 1
+---
+
+import { Steps } from '@astrojs/starlight/components';
+
+In this tutorial you build a small challenge: the learner has to scale a Deployment called
+`web` from one replica to three. You place the environment, a setup step that deploys `web`,
+a graded task with its check, then try the whole thing in a preview before publishing it.
+Allow about twenty minutes, a few of which are spent waiting for the preview to provision.
+
+Before you start, you need:
+
+- an organization whose plan includes Scenario Studio (the Instructor plan, or an enterprise
+  contract — see [Plans and credits](/en/billing/plans-and-credits/));
+- in a subscription organization, an **Instructor seat** assigned to your account
+  (see [Seats](/en/billing/seats/)). In a contract organization, the instructor, recruiter or
+  admin role is enough (see [Members and roles](/en/admins/members-roles/)).
+
+:::tip[Previews are free]
+Everything you launch from the Studio to test costs nothing: previews debit no credits, and test
+runs of your checks are never recorded against a learner.
+:::
+
+## 1. Create the draft
+
+<Steps>
+
+1. In the sidebar, open **Studio**, then **Scenario Studio**.
+
+2. Click **New draft**.
+
+3. In **Name**, type "Scale a Deployment".
+
+4. In **Product type**, keep **Challenge — graded, hints cost points**.
+
+5. In **Start from**, keep **An empty canvas**, then click **Create draft**.
+
+   The empty canvas opens. Everything you do on it is saved automatically: the chip in the
+   toolbar moves from **Unsaved changes** to **Saved**.
+
+</Steps>
+
+## 2. Place the environment
+
+<Steps>
+
+1. In the palette, under **Anchor**, click **Environment**. The node appears on the canvas.
+   (You can also drag it where you want it.)
+
+2. Click the **Environment** node to open its form.
+
+3. In **Environment type**, pick an environment that contains a Kubernetes cluster, for example
+   **Virtual Cluster** if your platform offers it. Below the list, chips summarize what the
+   environment can do (number of machines, in-browser editor, pause and resume…).
+
+4. Leave **Requests** and **Limits** empty: the environment applies its own values. Click **Done**.
+
+</Steps>
+
+## 3. Add the setup step
+
+The setup step prepares what the learner finds on arrival: here, a `web` Deployment with a
+single replica.
+
+<Steps>
+
+1. In the palette, under **Setup steps**, click **Manifests**.
+
+2. Wire the environment to this step: drag from the output handle of the **Environment** node to
+   the step's node. The pipeline always starts at the environment.
+
+3. Click the step's node. In **Name**, type `deploy-web`. The name must be unique within the
+   scenario.
+
+4. Under **Manifests**, click **Add resource**, then choose **Deployment**.
+
+5. Fill in the form:
+   - **Name**: `web`
+   - **Namespace**: `default`
+   - **Image**: `nginx:1.27`
+   - **Replicas**: `1`
+
+6. Click **Done**.
+
+</Steps>
+
+## 4. Add the task and its check
+
+<Steps>
+
+1. In the palette, under **Grading**, click **Task**.
+
+2. Wire the `deploy-web` step to the task. A task is wired from the step whose result it checks.
+
+3. Click the task's node and fill in:
+   - **Task id**: `scale-web`
+   - **Title**: "Scale web to three replicas"
+   - **Instruction**: "The `web` Deployment in the `default` namespace runs a single replica.
+     Bring it to three ready replicas."
+   - **Points**: `10`
+   - **Max attempts**: `3`
+
+4. Under **Validation**, click **Add check**, then fill in:
+   - **Description**: "Three replicas are ready"
+   - **Type**: **KubernetesResource — one field of one resource**
+   - **API version**: `apps/v1`
+   - **Kind**: `Deployment`
+   - **Name**: `web`
+   - **Namespace**: `default`
+   - **JSONPath**: `.status.readyReplicas`
+   - **CEL expression**: `exists && value == "3"`
+   - **Points**: `10`
+
+   Keep **Required** ticked.
+
+5. Click **Done**.
+
+</Steps>
+
+:::note
+With a **JSONPath** set, the expression reads the field as text in `value`: compare it to `"3"`,
+quotes included. The variables available for each check type are listed in
+[Setup steps and checks](/en/instructors/studio-actions-checks/).
+:::
+
+## 5. Check the canvas
+
+<Steps>
+
+1. In the toolbar, click **Check**.
+
+2. If "No blocking problems found." appears, carry on. Otherwise the affected nodes carry a badge:
+   open them, and each node's **Issues** tab says what is missing.
+
+</Steps>
+
+## 6. Try the scenario in a preview
+
+<Steps>
+
+1. In the toolbar, click **Preview**. The preview drawer opens below the canvas.
+
+2. Click **Launch preview**. "Provisioning the environment. The terminal appears once it is
+   ready." shows while the environment is prepared. Meanwhile the `deploy-web` node moves from
+   **Queued** to **Running**, then **Applied**.
+
+3. When the terminal appears, look at the starting state:
+
+   ```bash
+   kubectl get deployment web -n default
+   ```
+
+4. On the task node, click **Test validation**. The check fails: there is still only one
+   replica. That is the expected result.
+
+5. Do the learner's work in the terminal:
+
+   ```bash
+   kubectl scale deployment web -n default --replicas=3
+   kubectl rollout status deployment web -n default
+   ```
+
+6. Click **Test validation** again. The task's **Results** tab shows "1/1 checks · 10/10 pts".
+
+</Steps>
+
+A preview lasts one hour. **Extend** resets the countdown to one hour, at most three times.
+When you are done, click **Stop** in the drawer header.
+
+## 7. Publish
+
+<Steps>
+
+1. In the toolbar, click **Publish**.
+
+2. In **Scenario name**, type `scale-a-deployment`. The name is lowercase and dash-separated, and
+   it is fixed after the first publish.
+
+3. Click **Publish**. "Published as scale-a-deployment." confirms it.
+
+</Steps>
+
+Your challenge now appears in your organization's catalog with the **Studio** badge. Members can
+launch it like any other challenge, and you can add it to a track.
+
+## Next steps
+
+- Learn every step type and check type: [Setup steps and checks](/en/instructors/studio-actions-checks/).
+- Give the lab a VS Code editor or a tool's web UI:
+  [Editor and app views](/en/instructors/studio-ide-app-views/).
+- Edit and republish your scenario: [Publish and manage your scenarios](/en/instructors/publish-scenarios/).
+- Deliver it to a class: [Tracks and certification paths](/en/instructors/tracks-learning-paths/).

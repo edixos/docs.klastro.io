@@ -1,0 +1,60 @@
+---
+title: A check fails or grading seems wrong
+description: Understand why a task check does not pass, what to verify before checking again, and when to report a problem.
+sidebar:
+  order: 6
+---
+
+Klastro grades your work by checking the **live state of your environment**, not the commands you typed. A check passes when the resources the task asks for exist and are in the expected state at the moment the check runs. For how checks work, see [Tasks and checks](/en/lab/tasks-and-checks/).
+
+Each problem below is laid out as **Symptom**, **Cause** and **Fix**.
+
+## "Not yet — try again"
+
+**Symptom.** In a tutorial, **Check this step** ends on **Not yet — try again**. In a challenge's results, a task shows **Not passed**.
+
+**Cause.** The environment does not match what the task asks for yet. The most common reasons:
+
+- **A name differs**: the resource, namespace, label or file name is not exactly the one in the task. Names are case-sensitive.
+- **The wrong namespace**: the resource was created in `default` instead of the namespace the task names.
+- **Not ready yet**: you checked while pods were still starting, an image was still downloading, or a rollout was in progress.
+- **The wrong machine**: in labs with several machines, the change was made on another machine than the one the task targets.
+- **Partly done**: the task has several requirements and one is missing (a port, a replica count, a label).
+
+**Fix.**
+
+1. Reread the task word by word and compare every name with what you created, for example with `kubectl get <kind> -n <namespace>` and `kubectl describe`.
+2. Wait until the resources are ready (`kubectl get pods -w`, `kubectl rollout status`), then select **Check again**.
+3. If you are stuck, open the hints. In a tutorial, hints are free. In a challenge, revealing a hint costs points, shown next to it.
+
+## The check stays on "Checking…"
+
+**Symptom.** The step shows **Checking…**, or the results show **Grading…** and **Validating your work against the live environment…**, for a long time.
+
+**Cause.** Checks run against your live environment and can take a few moments, especially in labs with several machines.
+
+**Fix.** Wait. The result appears on its own; you do not need to select the button again. If it never completes, [report a problem](/en/support/report-lab-problem/) from the lab.
+
+## My work is right but the check fails
+
+**Symptom.** You are confident the environment matches the task, and the check still fails after **Check again**.
+
+**Cause.** It can be a difference you have not spotted, or, more rarely, a problem with the check itself.
+
+**Fix.** Check the list above once more, then [report a problem](/en/support/report-lab-problem/) from the lab with the category **Lab environment**. Include the task name, what you created and the output of the `kubectl` commands that show it. The lab's details are attached, so support can examine your environment while it is still running: **do not end the session** before you have reported it.
+
+## A passed step shows as not passed after I changed something
+
+**Symptom.** A step you had passed is no longer shown as complete after you checked again.
+
+**Cause.** Each check reflects the environment at the time it runs. If you deleted or changed what an earlier task created, a new check of that task sees the new state.
+
+**Fix.** Restore what the task asked for and check again.
+
+## In an assessment
+
+During an assessment, your tasks are also graded from the state of your environment. You can move freely between scenarios, but you cannot return to the lab once you select **Complete Assessment**, so make sure every task is done before you confirm. See [Assessment mode](/en/lab/assessment-mode/).
+
+:::caution
+Do not end or delete a lab before its grading has finished. Grading reads your live environment: once the environment is destroyed, there is nothing left to check.
+:::

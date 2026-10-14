@@ -1,0 +1,165 @@
+---
+title: Run a cohort
+description: Follow your class live, move each trainee forward or back through the sequence, join their environment, answer raised hands, then read the results and feedback.
+sidebar:
+  order: 7
+---
+
+import { Steps } from '@astrojs/starlight/components';
+
+Once a cohort is launched, its page becomes your class monitor: who has arrived, where each person
+is, which checks pass, who is asking for help. This page covers every action available during the
+class and after it.
+
+Before you start, you need a launched cohort (see [Create a cohort](/en/instructors/cohorts/)).
+Open **Train**, then **Cohorts**: the cohort is listed under **Live now**.
+
+## Read the roster
+
+During the class, the **Live** indicator means the table updates on its own (**Reconnecting…** if
+the connection drops). Each row is one trainee.
+
+| Column | What it shows |
+|---|---|
+| **Trainee** | Their name and email, or their help request if their hand is up. |
+| **Status** | **Enrolled**, **In lab** or **Finished**. **Not started**: they have not opened their environment yet. |
+| **Environment** | Their environment's state. A warning icon and "Stopped: …" flag an environment that failed or went away. |
+| **Progress** | The step of the sequence they are on, e.g. "Step 2 of 4". |
+| **Type** | The kind of scenario in progress: tutorial, challenge, playground. |
+| **Earlier steps** | The score earned on each step they have already left. |
+| **Checks** | The checks passed on the current step. |
+| **Current task** | The task they are working on. |
+
+Some columns are hidden on small screens. The actions always stay visible on the right.
+
+## Move trainees through the sequence
+
+The class does not move in lockstep: each trainee moves through the sequence individually.
+
+<Steps>
+
+1. To move a trainee to the next scenario, click **Advance** on their row. The button disappears
+   once they are on the last step.
+
+2. To send them to any step, forward or back, click the arrow to the left of their name. The
+   **Their run through the class** panel lists every step.
+
+3. On the step you want, click **Move here**. "Moved to step …" confirms the move.
+
+</Steps>
+
+Leaving a step does not destroy the lab: it is paused with the trainee's work on it, and the step
+shows **kept**. Moving the trainee back to that step restarts that same environment, as they left
+it. Their score on the step they leave is recorded at the moment they leave.
+
+:::caution[The cohort's time is limited]
+No new environment can be started once the cohort's length has elapsed: with less than five minutes
+left, **Advance** and **Move here** are refused. End the class then, or schedule a new cohort to
+carry on.
+:::
+
+## Fix a trainee's environment
+
+In the **Their run through the class** panel, the current step offers three actions:
+
+| Action | Effect |
+|---|---|
+| **Join** | Opens a terminal in the trainee's environment (see below). |
+| **Restart** | Replaces the current step's environment with a fresh one, on the same step. With no environment, it creates one. |
+| **Stop** | Stops this environment and leaves it stopped, without touching the rest of the class. |
+
+When an environment has failed or gone away, a **Recreate the environment** icon also appears
+directly on the trainee's row.
+
+:::caution
+**Restart** and **Stop** run without confirmation and destroy the current environment. The score
+is recorded first, but the terminal history and anything not yet checked are lost.
+:::
+
+## Join a trainee's environment
+
+<Steps>
+
+1. On the trainee's row, or on their current step, click **Join**.
+
+2. The **…'s environment** window opens with a terminal in their lab. You work in it just as they
+   do.
+
+</Steps>
+
+The trainee is told so in their own lab, and the connection is recorded. You get the terminal,
+never the passwords of their app views. **Join** is only offered during the class, once the
+trainee has started their environment, and only to the instructor running the cohort.
+
+## Answer raised hands
+
+During the class, a trainee can click **Ask for help** in their lab and, if they want, describe
+what has them stuck.
+
+<Steps>
+
+1. The roster header shows "… waiting", and a hand appears under the trainee's name with their
+   message or the step concerned.
+
+2. Go and help: beside them, or with **Join**.
+
+3. Click **Mark as handled**. The hand disappears from their row.
+
+</Steps>
+
+The trainee can also withdraw the request themselves. Raised hands are addressed to you alone: for a
+broken environment you cannot fix, open a support ticket instead.
+
+## Follow scores step by step
+
+The **Their run through the class** panel shows a trainee's whole run, during and after the class:
+
+- the current step shows its checks live;
+- each finished step shows its recorded score, and its list of checks expands;
+- a step not reached yet is marked **not reached**.
+
+Only challenges are scored: tutorials and playgrounds produce no score.
+
+## Update the materials
+
+The cohort's materials stay editable during and after the class, without touching the original
+track.
+
+<Steps>
+
+1. In the cohort's **Materials** card, click **Edit**.
+
+2. In **Session materials**, click **Add a material**, choose the **Type**, enter the **Title** and
+   the **Link**.
+
+3. Click **Save**. Participants find the materials in their training, even after it ends.
+
+</Steps>
+
+## End the class
+
+<Steps>
+
+1. Click **End session** at the top of the page.
+
+2. Confirm. The class closes for everyone on the roster and their environments are stopped.
+
+</Steps>
+
+In a subscription organization, the credits charged at launch are not refunded: ending early costs
+the same as running to the end.
+
+## Read the results and feedback
+
+Once the cohort has finished, its page shows two more cards:
+
+- **Results**: each participant's score, step by step, and their total. They stay available after
+  the session ends.
+- **What the class said**: the average rating out of 5, the number of replies out of the roster
+  size, the spread of ratings and the comments. Participants can give feedback while the class runs
+  and after it has finished, and change it later.
+
+:::note[Anonymous feedback]
+Feedback is only signed when the participant ticked the box to put their name on it. Otherwise you
+see the rating and comment marked **Anonymous**, with no way to tell who wrote them.
+:::

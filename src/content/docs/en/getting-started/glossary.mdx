@@ -1,0 +1,61 @@
+---
+title: Glossary
+description: The terms used in Klastro and in this documentation, from “assessment” to “task”.
+sidebar:
+  order: 4
+---
+
+Terms in bold are the ones the app displays.
+
+## Labs and scenarios
+
+| Term | Definition |
+|---|---|
+| **Scenario** | The definition of a lab: its environment, what is installed at the start, its tasks and its scoring. A scenario is **Official** (written by the Klastro team) or **Studio** (authored by your organization). |
+| **Lab** | General word for any environment you launch, whatever its type. |
+| **Session** | Your running copy of a scenario: a real, isolated environment built for you and destroyed when it ends. Its states are **Starting**, **Provisioning**, **Ready**, **Paused** and **Ended**. |
+| **Environment** | The machines or cluster behind a session. Its type shows on the scenario page, for example **Virtual Cluster**, **Lightweight Kubernetes**, **Multi Node Cluster** or **Virtual Machine**. |
+| **Lifetime** | The maximum duration of a session, set by the scenario. Paused time is not counted. When it runs out, the session ends automatically. |
+| **Pause** | Pausing a session stops its environment while keeping your work; you **Resume** it later at the same point. |
+| **Catalog** | The list of scenarios your organization can launch, filterable by product, level, source and tag. |
+| **Tutorial** | A guided, step-by-step lab where each step can be checked. Hints are free. |
+| **Challenge** | A graded task on a real environment. Your work is graded when you submit; hints cost points. |
+| **Playground** | A blank environment with no instructions and no grading, for open exploration. |
+| **Assessment** | A timed, proctored technical assessment made of one or more scenarios, which a candidate takes by invitation. Also the type of scenario reserved for that use. |
+| **Scenario Studio** | Klastro’s scenario authoring tool, available on the plans that include it. |
+
+## Inside the lab
+
+| Term | Definition |
+|---|---|
+| **Task** | A goal to reach in a scenario. In a tutorial, tasks show as **Steps**. |
+| **Check** | The automatic test that inspects your environment to decide whether a task passes. In a tutorial you run it with **Check this step**. |
+| **Hint** | Help you reveal when you need it. Free in a tutorial; costs points in a challenge or an assessment. |
+| **Points** and **Score** | Each graded task is worth a number of points; the score is the total you earn. A **Pass mark** may apply. |
+| **Session shell** | The lab’s main terminal, with `kubectl`, `helm` and `ssh` access to every machine. |
+| **Notes** | A private notepad, saved automatically and attached to the session. |
+| **Lobby** | An assessment’s waiting page, where your scenarios are prepared before you **Enter**. |
+
+## Training
+
+| Term | Definition |
+|---|---|
+| **Certification path** | A roadmap of steps from the first concept to exam readiness. Progress is self-declared: milestones, not credentials. |
+| **Track** | An instructor’s reusable curriculum: an ordered sequence of scenarios plus its materials. Not to be confused with a certification path. |
+| **Cohort** | One delivery of a track to a group, at a scheduled time, led by an instructor. |
+| **Training session** | What a participant sees of a cohort in **My Training**. |
+| **Trainee** | A person enrolled in a cohort. |
+| **Place** | A trainee’s slot in a cohort, paid for in credits by the instructor. A place is not a seat. |
+
+## Organization and billing
+
+| Term | Definition |
+|---|---|
+| **Organization** | The shared space of a company, school or community: members, plan, credits, scenarios. You can belong to several organizations. |
+| **Plan** | **Community**, **Pro**, **Instructor** or **Enterprise**. It decides which products and scenarios you can reach. |
+| **Credits** | The unit labs are paid in, metered on real running time and weighted by environment. |
+| **Seat** | The access level given to a member: **Trainee** (free, Community), **Pro Learner** or **Instructor**. |
+| **Voucher** | A code that adds credits to your balance. Any member can redeem one. |
+| **Invitation** | An emailed link to join Klastro, join an organization, or take an assessment. An invitation can expire or be revoked. |
+
+To see these ideas in action, read [What is Klastro?](/en/getting-started/what-is-klastro/).

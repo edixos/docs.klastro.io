@@ -1,0 +1,113 @@
+---
+title: MCP tools reference
+description: Every tool the Klastro MCP server exposes, grouped by area, with the permission it needs and whether it can consume credits.
+sidebar:
+  order: 3
+---
+
+The Klastro MCP server exposes the tools below. Your AI client lists them under these names, sometimes with a prefix such as `klastro`.
+
+**How to read the tables**
+
+- **Permission**: the permission the connection needs, as approved on the consent screen. **Read** tools only look at data. **Write** tools start, change, submit or delete something. A connection granted **Administration** can call every tool.
+- **Credits**: tools marked **Yes** can start or restart a lab that is charged in credits, under the same rules as in the app. See [Plans and credits](/en/billing/plans-and-credits/).
+- Your role in the organization still applies. A tool returns a refusal when you could not do the same thing in the app.
+
+## Scenarios
+
+| Tool | What it does | Permission | Credits |
+|---|---|---|---|
+| `list_scenarios` | Lists the scenarios available in the catalog. | Read | No |
+| `get_scenario` | Returns one scenario's details. | Read | No |
+
+## Labs and sessions
+
+| Tool | What it does | Permission | Credits |
+|---|---|---|---|
+| `create_session` | Starts a lab (tutorial, challenge or playground) from a scenario, for you. | Write | Yes |
+| `get_session` | Returns one session. | Read | No |
+| `list_sessions` | Lists sessions, with optional filters. | Read | No |
+| `pause_session` | Pauses a running session. Paused time is not charged. | Write | No |
+| `resume_session` | Resumes a paused session. | Write | Yes |
+| `terminate_session` | Ends a session and destroys its environment. Cannot be undone. | Write | No |
+| `authorize_session` | Authorizes a session that is waiting for approval (recruiters). | Write | No |
+| `submit_task_attempt` | Submits one task for grading against the live environment. | Write | No |
+| `list_task_attempts` | Returns the latest grading result for each task of a session. | Read | No |
+| `reveal_hint` | Reveals a hint for a task. In a challenge, hints cost points. | Write | No |
+| `get_session_notes` | Reads your notes for a lab. | Read | No |
+| `update_session_notes` | Saves your notes for a lab. | Write | No |
+| `record_challenge_result` | Saves a finished challenge to your challenge history. | Write | No |
+| `list_challenge_history` | Lists your finished challenges, newest first. | Read | No |
+
+## Learning paths
+
+| Tool | What it does | Permission | Credits |
+|---|---|---|---|
+| `list_learning_paths` | Lists the certification learning paths with your progress. | Read | No |
+| `get_learning_path` | Returns one path's steps and your progress through it. | Read | No |
+| `update_learning_path_progress` | Marks a step as started or complete, or resets it. A step can only be completed once its prerequisites are. | Write | No |
+
+## Assessment templates (recruiters)
+
+| Tool | What it does | Permission | Credits |
+|---|---|---|---|
+| `list_assessments` | Lists the organization's assessment templates. | Read | No |
+| `get_assessment` | Returns one assessment template. | Read | No |
+| `create_assessment` | Creates an assessment template. | Write | No |
+| `update_assessment` | Edits an assessment template. | Write | No |
+| `delete_assessment` | Deletes an assessment template. | Write | No |
+| `add_assessment_scenario` | Adds a scenario to an assessment. | Write | No |
+| `remove_assessment_scenario` | Removes a scenario from an assessment. | Write | No |
+| `reorder_assessment_scenarios` | Changes the order of an assessment's scenarios. | Write | No |
+
+## Running assessments
+
+| Tool | What it does | Who uses it | Permission | Credits |
+|---|---|---|---|---|
+| `get_assessment_status` | Returns an assessment's current status. | Candidates, recruiters | Read | No |
+| `list_assessment_statuses` | Returns the status of many assessments in one call. | Recruiters | Read | No |
+| `start_assessment` | Starts the assessment. | Candidates | Write | No |
+| `start_assessment_timer` | Starts the assessment timer. | Candidates | Write | No |
+| `complete_assessment_scenario` | Completes the current scenario and moves on. | Candidates | Write | No |
+| `get_assessment_notes` | Reads the candidate's notes. | Candidates | Read | No |
+| `update_assessment_notes` | Saves the candidate's notes. | Candidates | Write | No |
+| `authorize_assessment` | Authorizes a candidate to start, for assessments set to manual approval. | Recruiters | Write | No |
+| `adjust_assessment_duration` | Adds or removes minutes from an assessment's total duration. | Recruiters | Write | No |
+| `terminate_assessment` | Ends an assessment. | Recruiters | Write | No |
+
+:::caution
+`start_assessment` starts a candidate's timer, which cannot be paused. Prefer starting an assessment yourself from the app.
+:::
+
+## Candidate reports (recruiters)
+
+| Tool | What it does | Permission | Credits |
+|---|---|---|---|
+| `list_candidate_reports` | Lists the organization's candidate reports, with optional filters. | Read | No |
+| `get_candidate_report` | Returns a detailed evaluation report. | Read | No |
+| `export_report` | Generates a PDF of a candidate report. | Read | No |
+| `submit_report_review` | Adds your review and verdict to a completed report. | Write | No |
+
+## Scenario Studio (authors)
+
+| Tool | What it does | Permission | Credits |
+|---|---|---|---|
+| `list_studio_drafts` | Lists the organization's drafts. | Read | No |
+| `get_studio_draft` | Returns one draft, with its full content. | Read | No |
+| `create_studio_draft` | Creates a draft, empty or from an existing scenario. | Write | No |
+| `update_studio_draft_graph` | Replaces a draft's content. Refused if someone else changed it since you read it. | Write | No |
+| `delete_studio_draft` | Deletes a draft. Scenarios already published from it stay. | Write | No |
+| `validate_studio_draft` | Checks a draft without publishing it and reports problems per step. | Write | No |
+| `publish_studio_draft` | Publishes a draft as a scenario, or updates the published scenario. | Write | No |
+| `list_environment_providers` | Lists the environment types you can choose for a scenario. | Read | No |
+| `start_studio_preview` | Starts a live preview lab from the draft. Previews do not consume credits. | Write | No |
+| `get_studio_preview_status` | Returns the state of the running preview. | Read | No |
+| `sync_studio_preview` | Applies the draft's edited setup steps to the running preview without rebuilding it. Removing a step does not undo what it installed. | Write | No |
+| `extend_studio_preview` | Extends the preview's lifetime, up to a limit. | Write | No |
+| `stop_studio_preview` | Stops the preview and deletes its environment. | Write | No |
+| `test_task_validation` | Runs one task's checks against the preview. Not scored and not billed. | Write | No |
+| `get_task_validation` | Returns the result of a check run started with `test_task_validation`. | Read | No |
+
+## Not available through MCP
+
+Billing and credits, seats, vouchers, organization and member management, invitations, training cohorts, the help desk, legal documents and profile settings. Use app.klastro.io for these.

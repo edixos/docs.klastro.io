@@ -1,0 +1,84 @@
+---
+title: Gérer vos sessions
+description: Retrouver vos labs dans Mes sessions, les mettre en pause, les reprendre, les arrêter, et comprendre leur durée de vie.
+sidebar:
+  order: 5
+---
+
+import { Steps } from '@astrojs/starlight/components';
+
+Chaque lab que vous lancez crée une session : un environnement réel qui tourne, et consomme des crédits, tant qu’il n’est ni en pause ni arrêté. Ce guide explique comment garder la main sur vos sessions.
+
+## Ouvrir Mes sessions
+
+Dans la section **Personnel** de la barre latérale, cliquez sur **Mes sessions**. La page liste tous les labs que vous avez lancés, du plus récent au plus ancien, avec pour chacun :
+
+- le **Scénario**, son type, sa difficulté et son nombre de tâches ;
+- son **Statut** : **Création**, **Provisionnement**, **Prête**, **En pause** ou **Terminée** ;
+- le **Score** des challenges ;
+- la date de démarrage, en relatif pour une session en cours (« il y a 23 minutes »), en date pour une session terminée.
+
+Les filtres **Toutes**, **En cours** et **Terminées** restreignent la liste.
+
+## Revenir dans un lab
+
+Sur une session en cours, cliquez sur la ligne ou sur le bouton de la colonne **Action** :
+
+- **Ouvrir** pour une session prête ;
+- **Reprendre** pour une session en pause, qui redémarre d’abord ;
+- **Voir l’avancement** pour une session encore en préparation.
+
+Vous pouvez aussi relancer un lab depuis sa fiche dans le catalogue : le bouton de lancement devient **Reprendre** quand une session existe déjà pour ce scénario.
+
+## Mettre une session en pause
+
+La pause arrête l’environnement en conservant votre travail. Le temps passé en pause n’est pas décompté en crédits, et une session en pause ne compte pas dans votre limite de sessions simultanées.
+
+<Steps>
+
+1. Depuis le lab, cliquez sur **Quitter le lab** dans la barre du haut.
+
+2. Dans la fenêtre **Quitter ce lab ?**, cliquez sur **Mettre en pause**.
+
+</Steps>
+
+Depuis **Mes sessions**, ouvrez le menu **Actions sur la session** (les trois points) d’une session prête et cliquez sur **Mettre en pause**.
+
+Pour reprendre, cliquez sur **Reprendre** dans **Mes sessions** ou depuis la fiche du scénario. Vous retrouvez votre environnement exactement où vous l’aviez laissé.
+
+:::note
+Si la reprise est refusée parce que trop de sessions tournent, ou parce que vous avez atteint la limite de votre forfait, mettez en pause ou arrêtez une autre session, puis réessayez.
+:::
+
+## Quitter le lab sans rien arrêter
+
+L’icône **Retour au tableau de bord** du lab vous ramène au tableau de bord en laissant la session tourner. C’est pratique pour une courte interruption, mais l’environnement continue de consommer des crédits.
+
+## Arrêter une session
+
+Arrêter une session détruit son environnement définitivement. Les vérifications déjà réussies et les résultats de challenge déjà envoyés sont conservés.
+
+<Steps>
+
+1. Depuis le lab, cliquez sur **Quitter le lab**, puis sur **Arrêter la session**.
+
+   Ou, depuis **Mes sessions**, ouvrez le menu **Actions sur la session** et cliquez sur **Supprimer**, puis confirmez avec **Supprimer la session**.
+
+2. La session affiche **Suppression…** le temps que l’environnement soit détruit, puis passe dans les sessions **Terminées**.
+
+</Steps>
+
+:::danger[Action irréversible]
+Une session arrêtée ne peut pas être reprise. Tout ce qui n’est pas sauvegardé ailleurs — fichiers, ressources du cluster — est perdu. En cas de doute, préférez **Mettre en pause**.
+:::
+
+## Durée de vie d’une session
+
+Chaque scénario fixe une durée de vie maximale pour ses sessions. Le temps passé en pause n’est pas décompté. Quand cette durée est écoulée, la session prend fin automatiquement et le lab affiche **Cet environnement est terminé** : l’environnement n’accepte plus de commandes, mais les vérifications déjà réussies ont été enregistrées.
+
+Une session peut aussi être mise en pause automatiquement lorsque vos crédits sont épuisés. Voir [Crédits et pauses automatiques](/troubleshooting/credits-and-pauses/).
+
+## Pour aller plus loin
+
+- [Résultats et historique](/learners/results-history/) pour revoir vos challenges notés.
+- [L’environnement de lab](/lab/overview/) pour tout ce que vous pouvez faire dans un lab.

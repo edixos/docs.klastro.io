@@ -1,0 +1,159 @@
+---
+title: Créer un compte et se connecter
+description: Inscription, connexion, récupération de l’accès, acceptation des conditions, création ou choix d’une organisation.
+sidebar:
+  order: 2
+---
+
+import { Steps, Tabs, TabItem } from '@astrojs/starlight/components';
+
+Ce guide couvre tout ce qui se passe entre votre arrivée sur [app.klastro.io](https://app.klastro.io) et votre premier tableau de bord.
+
+:::note[Accès anticipé privé]
+Klastro est actuellement en accès anticipé privé : **l’inscription se fait sur invitation**. Sans invitation valide, la page d’inscription affiche **Inscription sur invitation** au lieu du formulaire. Vous pourrez créer votre compte depuis le lien reçu par e-mail.
+:::
+
+## Créer votre compte
+
+La façon de créer votre compte dépend de l’invitation que vous avez reçue.
+
+<Tabs>
+<TabItem label="Invitation à Klastro">
+
+Vous avez reçu une invitation personnelle à rejoindre la plateforme.
+
+<Steps>
+
+1. Ouvrez le lien de votre e-mail d’invitation. La page **Votre invitation à Klastro** s’affiche avec l’adresse invitée.
+
+2. Cliquez sur **Continuer vers l’inscription**.
+
+3. Sur la page **Créer votre compte**, renseignez votre **Nom complet** et un **Mot de passe** d’au moins 8 caractères. Inscrivez-vous avec l’adresse e-mail à laquelle l’invitation a été envoyée.
+
+4. Patientez pendant la **Vérification de sécurité en cours…**, puis cliquez sur **Créer un compte**.
+
+</Steps>
+
+Vous passez ensuite à la [création de votre organisation](#créer-ou-choisir-une-organisation).
+
+</TabItem>
+<TabItem label="Invitation d’une organisation">
+
+Votre organisation a créé un compte pour vous et vous a invité à la rejoindre.
+
+<Steps>
+
+1. Ouvrez le lien de l’e-mail. La page **Rejoindre … sur Klastro** affiche le nom de l’organisation.
+
+2. Cliquez sur **Configurer mon compte**.
+
+3. Sur l’écran **Bienvenue sur la plateforme 🎉**, vérifiez vos informations dans **Vos informations**, puis choisissez un mot de passe robuste dans **Sécuriser votre compte**.
+
+4. Cliquez sur **Activer le compte**.
+
+</Steps>
+
+Vous arrivez directement dans l’organisation qui vous a invité.
+
+</TabItem>
+<TabItem label="Invitation à un assessment">
+
+Un recruteur vous a invité à passer une évaluation technique. Suivez le guide dédié : [Accepter une invitation à un assessment](/learners/accept-invitation/).
+
+</TabItem>
+</Tabs>
+
+:::caution[Lien d’invitation qui ne fonctionne plus]
+Les liens d’invitation cessent de fonctionner après quelques jours, et un lien ne sert qu’une fois. Si la page affiche **Cette invitation a expiré**, **Invitation déjà utilisée**, **Invitation retirée** ou **Une invitation plus récente a été envoyée**, utilisez le lien de votre dernier e-mail ou demandez une nouvelle invitation. Voir [Problèmes d’invitation](/troubleshooting/invitations/).
+:::
+
+## Accepter les conditions d’utilisation
+
+À votre première connexion, Klastro affiche l’écran **Conditions d’utilisation et confidentialité**. Il résume en quatre points ce que vous acceptez — consommation de crédits, propriété de vos contenus, hébergement en France, droits RGPD — et renvoie vers les documents complets, qui font foi.
+
+<Steps>
+
+1. Lisez le résumé et, si besoin, ouvrez les documents complets (ils s’ouvrent dans un nouvel onglet).
+
+2. Cliquez sur **Accepter et continuer**. Vous êtes ramené là où vous alliez.
+
+</Steps>
+
+Si vous ne souhaitez pas accepter, cliquez sur **Se déconnecter** : vous ne pourrez pas utiliser l’application sans avoir accepté.
+
+:::note
+Cet écran réapparaît lorsqu’une nouvelle version des conditions ou de la politique de confidentialité est publiée, même au milieu de votre travail. Votre acceptation est enregistrée une fois par version.
+:::
+
+## Créer ou choisir une organisation
+
+Dans Klastro, tout se passe au sein d’une organisation. Après l’inscription :
+
+- si vous n’appartenez à **aucune** organisation, vous arrivez sur **Créer votre organisation** ;
+- si vous appartenez à **plusieurs** organisations, vous arrivez sur **Choisir une organisation** ;
+- si vous n’en avez qu’une, vous arrivez directement sur votre tableau de bord.
+
+### Créer votre organisation
+
+<Steps>
+
+1. Saisissez le **Nom de l’organisation**. L’**URL de l’espace de travail** se remplit automatiquement ; modifiez-la si vous le souhaitez.
+
+2. Choisissez éventuellement votre **Pays**.
+
+3. S’il s’agit d’une entreprise, cochez **Cette organisation est une entreprise** et renseignez, si vous les avez, le **SIRET**, l’**Adresse de facturation** et le **Numéro de TVA**. Laissez la case décochée pour une école, une communauté ou un espace personnel.
+
+4. Cliquez sur **Créer l’organisation**.
+
+</Steps>
+
+Si une organisation du même nom existe déjà, Klastro affiche **… est déjà sur Klastro**. Cliquez sur **Prévenir mon administrateur** pour lui demander une invitation, ou sur **Créer une nouvelle organisation à la place**.
+
+:::tip
+Vous cherchez à rejoindre votre équipe plutôt qu’à créer une organisation ? Demandez à votre administrateur de vous inviter : vous serez ajouté automatiquement.
+:::
+
+### Choisir une organisation
+
+Sur **Choisir une organisation**, cliquez sur l’organisation à ouvrir. Utilisez **Rechercher une organisation…** si la liste est longue, ou **Nouvelle organisation** pour en créer une autre.
+
+Une fois dans l’application, cliquez sur le nom de l’organisation en cours dans la barre latérale : le menu **Changer d’organisation** liste les autres organisations auxquelles vous appartenez.
+
+## Se connecter
+
+<Steps>
+
+1. Ouvrez [app.klastro.io](https://app.klastro.io) et cliquez sur **Se connecter**.
+
+2. Sur **Ravi de vous revoir**, saisissez votre adresse e-mail et votre mot de passe, ou utilisez un des boutons **Continuer avec …** s’ils sont proposés.
+
+3. Cliquez sur **Se connecter**.
+
+</Steps>
+
+## Récupérer l’accès à votre compte
+
+Si vous avez oublié votre mot de passe, Klastro vous envoie un code d’accès à usage unique.
+
+<Steps>
+
+1. Ouvrez [app.klastro.io/auth/recovery](https://app.klastro.io/auth/recovery). La page **Accéder à votre compte** s’affiche.
+
+2. Saisissez votre **Adresse e-mail** et cliquez sur **Envoyer le code**.
+
+3. Sur **Consultez votre boîte mail**, saisissez le **Code de vérification** reçu par e-mail, puis cliquez sur **Vérifier et continuer**.
+
+4. Choisissez un nouveau mot de passe dans **Sécuriser votre compte**, puis cliquez sur **Activer le compte**.
+
+</Steps>
+
+:::tip
+Changer de mot de passe alors que vous êtes connecté passe par la même procédure : la page **Profil** ne modifie que votre nom, votre e-mail et votre photo.
+:::
+
+Vous rencontrez une autre erreur à la connexion (**Session expirée**, **Échec de la vérification de sécurité**, **Demande expirée**) ? Consultez [Problèmes de connexion](/troubleshooting/sign-in/).
+
+## Et ensuite ?
+
+- [Choisir votre parcours](/getting-started/choose-your-path/) selon votre profil.
+- [Lancer votre premier lab](/learners/first-lab/).

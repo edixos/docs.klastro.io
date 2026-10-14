@@ -1,0 +1,109 @@
+---
+title: Problèmes d’invitation
+description: Que faire quand un lien d’invitation a expiré, a déjà été utilisé, a été retiré ou remplacé, ou quand une invitation à un Assessment ne peut pas démarrer.
+sidebar:
+  order: 3
+---
+
+Klastro envoie deux types d’invitation par e-mail :
+
+- une **invitation de compte**, pour rejoindre Klastro ou une organisation (**Rejoindre votre équipe sur Klastro**, **Votre invitation à Klastro**) ;
+- une **invitation à un Assessment**, pour passer une évaluation technique en tant que candidat.
+
+Chaque problème ci-dessous est présenté sous la forme **Symptôme**, **Cause** et **Solution**. Pour le parcours normal, consultez [Accepter une invitation](/learners/accept-invitation/).
+
+## Invitations de compte
+
+### « Cette invitation a expiré »
+
+**Symptôme.** Le lien ouvre une page intitulée **Cette invitation a expiré**.
+
+**Cause.** Les liens d’invitation cessent de fonctionner après quelques jours.
+
+**Solution.** Demandez un nouveau lien à la personne à l’origine de l’invitation. Un administrateur de l’organisation peut la renvoyer depuis la page de l’équipe avec **Renvoyer l’invitation** ; le nouvel e-mail contient un lien valide.
+
+### « Invitation déjà utilisée »
+
+**Symptôme.** La page affiche **Invitation déjà utilisée** (« Le compte associé à cette invitation est déjà configuré. »), ou **Lien déjà utilisé**.
+
+**Cause.** Chaque lien ne fonctionne qu’une fois. Votre compte existe déjà, ou vous avez déjà ouvert le lien sans terminer le choix de votre mot de passe.
+
+**Solution.** Sélectionnez **Se connecter** et utilisez votre compte. Si vous n’avez jamais terminé de choisir votre mot de passe, sélectionnez **Mot de passe oublié ?** et suivez [les étapes de récupération](/troubleshooting/sign-in/). Vous pouvez aussi demander à l’administrateur de votre organisation de renvoyer l’invitation.
+
+### « Invitation retirée »
+
+**Symptôme.** La page affiche **Invitation retirée**.
+
+**Cause.** La personne à l’origine de l’invitation l’a annulée.
+
+**Solution.** Contactez-la en cas d’erreur. Elle seule peut vous envoyer une nouvelle invitation.
+
+### « Une invitation plus récente a été envoyée »
+
+**Symptôme.** La page affiche **Une invitation plus récente a été envoyée**.
+
+**Cause.** Vous avez été invité de nouveau, ce qui a remplacé l’ancien lien.
+
+**Solution.** Retrouvez le dernier e-mail d’invitation et utilisez son lien.
+
+### « Ce lien ne fonctionne pas »
+
+**Symptôme.** La page affiche **Ce lien ne fonctionne pas** (« Le lien d’invitation est incomplet ou invalide. »).
+
+**Cause.** Le lien a été tronqué lors d’un copier-coller, par exemple sur deux lignes, ou il a été modifié.
+
+**Solution.** Ouvrez le lien directement depuis l’e-mail au lieu de le copier. En cas d’échec, demandez une nouvelle invitation.
+
+### « Impossible de vérifier cette invitation »
+
+**Symptôme.** **Impossible de vérifier cette invitation. Vérifiez votre connexion et réessayez.**, ou **Impossible de lancer la configuration du compte. Réessayez dans un instant.**
+
+**Cause.** Un problème de réseau ou un incident temporaire.
+
+**Solution.** Vérifiez votre connexion et sélectionnez **Réessayer**.
+
+## Invitations à un Assessment (candidats)
+
+### « Invitation expirée »
+
+**Symptôme.** L’invitation affiche **Invitation expirée**, ou la liste affiche **Cette invitation a expiré. Demandez-en une nouvelle à l’organisation.**
+
+**Cause.** Le recruteur a fixé une date d’expiration, et elle est dépassée. La date **Expire le** de l’invitation l’indique.
+
+**Solution.** Contactez le recruteur ou l’organisation qui vous a invité et demandez une nouvelle invitation. Klastro ne peut pas la prolonger à votre place. Lorsqu’une invitation affiche **Expire bientôt**, démarrez l’Assessment avant cette date.
+
+### « Invitation révoquée »
+
+**Symptôme.** L’invitation affiche **Invitation révoquée** (« L’organisation a révoqué cette invitation. »).
+
+**Cause.** L’organisation l’a annulée.
+
+**Solution.** Contactez l’organisation en cas d’erreur.
+
+### « Impossible de charger l’invitation »
+
+**Symptôme.** **Impossible de charger l’invitation** : « Elle a peut-être été révoquée ou a expiré, ou bien elle vise une autre adresse e-mail. »
+
+**Cause.** Vous êtes connecté avec une autre adresse que celle qui a reçu l’invitation, ou l’invitation n’est plus valide.
+
+**Solution.** Déconnectez-vous et reconnectez-vous avec l’adresse qui a reçu l’e-mail d’invitation. Vérifiez aussi que la bonne organisation est sélectionnée ; voir [Connexion et organisations](/troubleshooting/sign-in/).
+
+### Je ne peux pas démarrer l’Assessment
+
+| Ce que vous voyez | Cause | Solution |
+|---|---|---|
+| **Acceptez d’abord l’invitation** | Vous n’avez pas encore accepté l’invitation. | Revenez à **Vos invitations** et sélectionnez **Accepter**. |
+| **Trop de sessions sont en cours en ce moment. Réessayez dans quelques minutes.** | La plateforme ou l’organisation a atteint sa capacité. | Patientez quelques minutes et sélectionnez de nouveau **Démarrer l’Assessment**. Votre invitation n’est pas affectée. |
+| **Impossible de démarrer l’Assessment** | Un problème temporaire. | Réessayez. Si le problème persiste, [signalez-le](/support/open-ticket/) dans la catégorie **Assessment**. |
+| **Assessment terminé** | Vous avez déjà terminé cet Assessment. | Rien à faire : le recruteur reçoit vos résultats. |
+
+Si l’Assessment doit être approuvé par un recruteur avant de démarrer, le lab affiche **En attente de l’autorisation de votre session…** jusqu’à son approbation. Voir [Préparation du lab](/troubleshooting/provisioning/).
+
+## Pour les recruteurs et les administrateurs
+
+| Situation | Solution |
+|---|---|
+| L’invitation d’un candidat a expiré. | Envoyez une nouvelle invitation depuis **Invitations**. Voir [Envoyer des invitations](/recruiters/send-invitations/). |
+| **Déjà invité** : une invitation en attente existe déjà pour cette adresse. | Ouvrez l’invitation existante, sélectionnez **Révoquer**, puis invitez de nouveau. Ou sélectionnez **Renvoyer l’e-mail** pour renvoyer la même invitation. |
+| L’invitation d’un membre affiche **Lien expiré** sur la page de l’équipe. | Sélectionnez **Renvoyer l’invitation** : le nouvel e-mail la réactive. |
+| L’invitation d’un membre affiche **Configuration commencée**. | La personne a ouvert le lien sans choisir de mot de passe. Demandez-lui d’utiliser **Mot de passe oublié ?**, ou renvoyez l’invitation. |

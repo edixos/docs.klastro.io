@@ -1,0 +1,142 @@
+---
+title: Superviser un passage en direct
+description: Suivez le passage d’un candidat en temps réel, observez son terminal en lecture seule, ajustez son temps ou arrêtez un scénario.
+sidebar:
+  order: 5
+---
+
+import { Steps } from '@astrojs/starlight/components';
+
+Pendant qu’un candidat passe son Assessment, vous pouvez suivre son avancement scénario par scénario,
+regarder son terminal sans pouvoir y taper, lui ajouter ou lui retirer du temps, et mettre en pause ou
+arrêter un scénario.
+
+**Prérequis :** être **Recruteur** ou administrateur de l’organisation, et qu’un candidat ait démarré
+son Assessment depuis son invitation.
+
+## Ouvrir le passage d’un candidat
+
+<Steps>
+
+1. Ouvrez **Évaluer**, puis **Assessments**.
+
+2. Dans **Tous les Assessments**, repérez le candidat. Les compteurs en haut de page indiquent le
+   nombre total de passages, ceux **Actifs** (en cours) et ceux **Terminés**.
+
+3. Cliquez sur l’icône **Voir l’Assessment** au bout de la ligne.
+
+</Steps>
+
+La page du passage se met à jour toute seule tant que le badge **En direct** est affiché. Si le badge
+indique **Déconnecté**, rechargez la page.
+
+| Carte | Contenu |
+|---|---|
+| **Informations** | **Nom du candidat**, **E-mail du candidat**, **Assessment**, **Démarré**. |
+| **Temps restant** | Le décompte global de l’Assessment, puis **Score final** une fois le passage terminé. |
+| **Sessions** | Un scénario par ligne : **Scénario**, **Statut**, **Démarrée**, **Durée**, **Score**. |
+
+Tant que l’Assessment n’est pas terminé, la colonne **Score** affiche une icône d’information
+(« Le score sera révélé une fois l’Assessment terminé. »).
+
+:::note
+Avant que le candidat entre dans son premier scénario, la carte **Temps restant** indique « Le décompte
+démarre quand le candidat commence ». Le chronomètre couvre tous les scénarios à la fois.
+:::
+
+## Observer le terminal du candidat
+
+<Steps>
+
+1. Sur la page du passage, dans **Sessions**, cliquez sur l’icône **Voir la session** du scénario.
+
+2. Dans la carte **État du déploiement de l’infrastructure**, la zone **Terminal CloudShell en direct**
+   affiche le terminal du candidat, marqué **Observation**.
+
+3. Si le lab comporte plusieurs machines, passez de l’une à l’autre avec les onglets du terminal.
+
+</Steps>
+
+Ce terminal est un **miroir en lecture seule** : vous voyez ce que le candidat tape et ce que ses
+commandes affichent, mais vos frappes ne lui parviennent pas. Le candidat garde la main.
+
+Le terminal n’est pas affiché quand le scénario est en pause, en cours d’arrêt ou terminé. La zone
+devient alors **Shell isolé de l’utilisateur**, avec un badge indiquant l’état.
+
+La carte **Diagnostic de la session** donne les dates **Créée le** et **Démarrée le**, la **Durée**
+écoulée et, une fois l’Assessment terminé, les **Points finaux** du scénario.
+
+## Ajouter ou retirer du temps
+
+Utile si le candidat a perdu du temps pour une raison qui ne dépend pas de lui.
+
+<Steps>
+
+1. Sur la page du passage, repérez la carte **Temps restant**.
+
+2. Dans le champ sous le décompte (**Ajuster le temps (minutes)**), saisissez un nombre de minutes.
+   La valeur par défaut est 5.
+
+3. Cliquez sur **+** (**Ajouter N min**) ou sur **−** (**Retirer N min**).
+
+</Steps>
+
+Le message « N min ajoutées à l’Assessment » ou « N min retirées à l’Assessment » confirme le changement,
+et le décompte se met à jour. La durée totale ne descend jamais sous 1 minute. Le réglage disparaît
+une fois l’Assessment terminé.
+
+:::caution
+Retirer du temps peut faire expirer l’Assessment immédiatement si le temps restant tombe à zéro.
+:::
+
+## Mettre un scénario en pause ou le reprendre
+
+Sur le panneau de supervision d’un scénario :
+
+- **Mettre en pause** suspend l’environnement du scénario. Le message « Session mise en pause » confirme
+  la pause ;
+- **Reprendre** le relance. Le message « Session reprise » confirme la reprise.
+
+:::caution
+Le décompte de l’Assessment est global et continue de tourner. Si vous mettez un scénario en pause pour
+le compte du candidat, ajoutez-lui le temps correspondant.
+:::
+
+## Arrêter un scénario
+
+<Steps>
+
+1. Sur le panneau de supervision du scénario, cliquez sur **Terminer**.
+
+2. Dans la fenêtre **Terminer la session ?**, cliquez sur **Oui, terminer la session**.
+
+</Steps>
+
+:::danger
+L’environnement du scénario est détruit définitivement et le candidat n’y a plus accès. Ce que le
+candidat n’a pas encore fait valider sur ce scénario ne pourra plus l’être.
+:::
+
+Après l’arrêt, vous revenez sur la page du passage.
+
+## États d’un passage et de ses scénarios
+
+| Badge | Signification |
+|---|---|
+| **Créée** | Le passage vient d’être créé. |
+| **En attente** | Le passage attend votre autorisation (invitation en **Validation manuelle**). |
+| **Création**, **Provisionnement** | L’environnement du candidat est en préparation. |
+| **Prête** | L’environnement est prêt, le candidat peut entrer. |
+| **En cours** | Le candidat travaille. |
+| **En pause** | Le scénario est en pause. |
+| **Terminée** | Le passage est allé à son terme. |
+| **Temps écoulé** | Le temps imparti est épuisé. |
+| **Arrêtée** | Le scénario a été arrêté avant la fin. |
+| **Échec** | L’environnement n’a pas pu être préparé. |
+| **Refusée** | Le passage a été refusé. |
+
+## Voir aussi
+
+- [Webcam et surveillance](/recruiters/proctoring-supervision/)
+- [Lire le rapport d’un candidat](/recruiters/candidate-report/)
+- [Le lab en mode Assessment](/lab/assessment-mode/)

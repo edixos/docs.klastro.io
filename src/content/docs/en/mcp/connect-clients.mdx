@@ -1,0 +1,201 @@
+---
+title: Connect your AI client
+description: Add the Klastro MCP server to Claude Code, Claude Desktop and claude.ai, Cursor, VS Code, Codex or any other MCP client.
+sidebar:
+  order: 2
+---
+
+import { Steps, Tabs, TabItem } from '@astrojs/starlight/components';
+
+This page shows how to add Klastro to your AI assistant. Every client uses the same address and the same sign-in.
+
+## Before you start
+
+- A Klastro account that belongs to at least one organization. Without one, the consent screen shows **No organization** and asks you to join or create an organization first.
+- An MCP client that supports **remote servers over HTTP** with **OAuth sign-in**.
+- The server address:
+
+  ```
+  https://mcp.klastro.io/mcp
+  ```
+
+To understand what the assistant can do and what you are approving, read [Klastro and AI assistants](/en/mcp/overview/) first.
+
+## Add Klastro to your client
+
+<Tabs syncKey="mcp-client">
+<TabItem label="Claude Code">
+
+<Steps>
+
+1. In a terminal, run:
+
+   ```sh
+   claude mcp add --transport http klastro https://mcp.klastro.io/mcp
+   ```
+
+   By default the server is available in the current project only. Add `--scope user` to make it available in every project.
+
+2. Start Claude Code and run the `/mcp` command.
+
+3. Select **klastro** and choose to authenticate. Your browser opens on the Klastro sign-in page.
+
+4. Sign in, then approve the connection on the consent screen (see [Approve the connection](#approve-the-connection) below).
+
+</Steps>
+
+</TabItem>
+<TabItem label="Claude Desktop and claude.ai">
+
+Custom connectors are set up from your Claude account and work in both claude.ai and Claude Desktop.
+
+<Steps>
+
+1. Open **Customize** > **Connectors**.
+
+2. Select **+ Add**, then **Add custom connector**.
+
+3. Enter a name, for example `Klastro`, and the URL `https://mcp.klastro.io/mcp`, then select **Continue**.
+
+4. Keep the detected sign-in settings and finish with **Add**.
+
+5. Connect the connector. Your browser opens on the Klastro sign-in page: sign in and approve the connection.
+
+6. In a conversation, select **+** at the lower left, then **Connectors**, and make sure Klastro is switched on.
+
+</Steps>
+
+:::note
+On Claude Team and Enterprise plans, an owner of your Claude organization adds the connector in the Claude organization settings. Members then find it under **Customize** > **Connectors** and select **Connect**. The menus belong to Claude and can change; see Anthropic's help center if they differ.
+:::
+
+</TabItem>
+<TabItem label="Cursor">
+
+<Steps>
+
+1. Open `~/.cursor/mcp.json` to make Klastro available in every project, or create `.cursor/mcp.json` at the root of a project.
+
+2. Add Klastro under `mcpServers`:
+
+   ```json
+   {
+     "mcpServers": {
+       "klastro": {
+         "url": "https://mcp.klastro.io/mcp"
+       }
+     }
+   }
+   ```
+
+3. Save the file. When Cursor connects to the server, it asks you to sign in: your browser opens on the Klastro sign-in page.
+
+4. Sign in and approve the connection.
+
+</Steps>
+
+</TabItem>
+<TabItem label="VS Code">
+
+<Steps>
+
+1. Create `.vscode/mcp.json` in your workspace, or run the **MCP: Open User Configuration** command to make Klastro available everywhere.
+
+2. Add Klastro under `servers`:
+
+   ```json
+   {
+     "servers": {
+       "klastro": {
+         "type": "http",
+         "url": "https://mcp.klastro.io/mcp"
+       }
+     }
+   }
+   ```
+
+   You can also run the **MCP: Add Server** command, choose **HTTP** and enter the URL.
+
+3. Start the server. VS Code asks you to allow it to sign in; your browser opens on the Klastro sign-in page.
+
+4. Sign in and approve the connection. The Klastro tools then appear in Copilot Chat's agent mode.
+
+</Steps>
+
+</TabItem>
+<TabItem label="Codex">
+
+<Steps>
+
+1. Add Klastro to `~/.codex/config.toml`:
+
+   ```toml
+   [mcp_servers.klastro]
+   url = "https://mcp.klastro.io/mcp"
+   ```
+
+2. Run:
+
+   ```sh
+   codex mcp login klastro
+   ```
+
+3. Sign in in the browser window that opens and approve the connection.
+
+</Steps>
+
+</TabItem>
+<TabItem label="Any MCP client">
+
+Any client that implements the MCP **Streamable HTTP** transport and its OAuth sign-in can connect:
+
+| Setting | Value |
+|---|---|
+| Transport | Streamable HTTP (often called "HTTP" or "remote") |
+| URL | `https://mcp.klastro.io/mcp` |
+| Authentication | OAuth 2.1. The client discovers the sign-in server and registers itself automatically: you do not need a client ID or an API key. |
+
+Point the client at the URL and start it. It should open your browser on the Klastro sign-in page; sign in and approve the connection. If your client shows a code instead and asks you to open a link, open it, enter the code on the **Connect a device** page and select **Continue**. When **Device connected** appears, return to your client.
+
+</TabItem>
+</Tabs>
+
+## Approve the connection
+
+After you sign in, Klastro shows a consent screen titled with the application's name, for example *"Claude Code wants to access your Klastro account"*.
+
+<Steps>
+
+1. Under **Organization**, choose the organization the assistant will work in. It acts only in this one.
+
+2. Under **Permissions**, tick what you allow:
+   - **Read** to look at scenarios, sessions, assessments and reports;
+   - **Write** to start and stop labs, edit Studio drafts and submit attempts;
+   - **Administration** only if you are an organization admin and need it. It is never ticked by default.
+
+3. Select **Allow**.
+
+</Steps>
+
+The page shows **Returning to the application…** and hands you back to your assistant. Ask it something simple, such as *"List the Klastro scenarios I can start"*, to check the connection.
+
+:::tip
+To use Klastro in a second organization, add the server a second time under another name (for example `klastro-acme`) and pick the other organization on the consent screen.
+:::
+
+## Revoke a connection
+
+Open your **Profile** page in app.klastro.io. Under **Connected applications**, select **Revoke** next to the application, then confirm. It loses access immediately.
+
+## If the connection fails
+
+| Symptom | Fix |
+|---|---|
+| The consent screen shows **No organization**. | Join or create an organization in app.klastro.io, then connect again. |
+| **Sign-in did not complete** | Start the sign-in again from your application. |
+| **Select at least one permission.** | Tick **Read**, **Write** or both before selecting **Allow**. |
+| The assistant says an action is not allowed for the token. | You approved **Read** only. Revoke the application from your **Profile** and connect again with **Write**. |
+| The assistant cannot see a scenario, assessment or report you can see in the app. | It is probably connected to another organization. Check the organization listed under **Connected applications** on your **Profile**. |
+| Requests are refused after a burst of activity. | You reached the limit of 120 requests a minute. Wait a moment and try again. |
+
+If the problem persists, [open a support ticket](/en/support/open-ticket/) with the category **Account & access**.

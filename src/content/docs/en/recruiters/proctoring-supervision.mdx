@@ -1,0 +1,85 @@
+---
+title: Webcam and proctoring
+description: Require a webcam on an invitation, what the candidate sees before starting, and your privacy obligations.
+sidebar:
+  order: 4
+---
+
+import { Steps } from '@astrojs/starlight/components';
+
+Klastro lets you announce that an assessment is webcam-proctored. The setting is made
+**per invitation**, when you send it. This page explains how to turn it on, what the candidate is told,
+and what remains your responsibility.
+
+## Require a webcam on an invitation
+
+<Steps>
+
+1. Open **Assess**, then **Invitations**, and click **Invite candidate**.
+
+2. Fill in the candidate, template and expiry date
+   (see [Send and manage invitations](/en/recruiters/send-invitations/)).
+
+3. Under **Session settings**, turn on **Require webcam**
+   ("Enable live proctoring via webcam").
+
+4. Click **Send invitation**.
+
+</Steps>
+
+The setting is off by default. It then appears on the invitation page, in the **Settings** card, on the
+**Webcam required** line (**Yes** or **No**).
+
+:::caution
+The setting cannot be changed after sending. To change your mind, revoke the invitation and send a new
+one, as long as the candidate has not accepted it.
+:::
+
+## What the candidate sees
+
+On their invitation page, before starting, the candidate sees:
+
+- the **Webcam** line, set to **Required** or **Optional**;
+- when a webcam is required, an extra line under **Important Information**:
+  "Webcam access will be required".
+
+The candidate therefore learns about the condition **before** clicking **Start Assessment**, never
+mid-assessment. The candidate's side is described in
+[The lab in assessment mode](/en/lab/assessment-mode/).
+
+## What you see during the assessment
+
+Live supervision from the dashboard goes through the candidate's **read-only terminal** and the progress
+of their scenarios (see [Supervise a run live](/en/recruiters/live-supervision/)).
+
+The dashboard has no video player for the webcam, and the candidate report contains no image or video.
+Don't present the webcam to the candidate as a recording that goes into their file.
+
+## Privacy: what falls to you
+
+When you turn on webcam proctoring, your organization is the **data controller** for that data; Klastro
+acts on your behalf as a processor. In practice, before requiring a webcam, it is up to you to:
+
+- hold a valid **legal basis**. In a hiring context, the candidate's free and informed consent is in
+  practice the only one you can reliably rely on;
+- **inform the candidate**, before the assessment, of the assessment methods and techniques used (under
+  French law, articles L1221-8 and L1221-9 of the Labour Code); no method they were not told about may
+  be used;
+- assess whether a **data protection impact assessment** (GDPR article 35) is required, since systematic
+  monitoring of candidates is among the criteria to consider.
+
+:::tip
+Only require a webcam if it genuinely serves your process. Reading the terminal is usually enough to
+judge a candidate's work, and every piece of data you don't collect is one obligation fewer.
+:::
+
+Klastro's real-time streams are hosted by Klastro on its own infrastructure in the European Union: no
+stream is handed to a third-party provider.
+
+A candidate who wants to exercise their data rights (access, erasure…) must contact your organization,
+which ran the assessment. A request Klastro receives directly is passed on to you.
+
+## See also
+
+- [Webcam problems](/en/troubleshooting/webcam/)
+- [Frequently asked questions](/en/troubleshooting/faq/)

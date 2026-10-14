@@ -1,0 +1,60 @@
+---
+title: Une vérification échoue ou la correction semble fausse
+description: Comprenez pourquoi la vérification d’une tâche ne passe pas, ce qu’il faut contrôler avant de vérifier à nouveau, et quand signaler un problème.
+sidebar:
+  order: 6
+---
+
+Klastro corrige votre travail en vérifiant **l’état réel de votre environnement**, pas les commandes que vous avez tapées. Une vérification passe lorsque les ressources demandées par la tâche existent et sont dans l’état attendu au moment où elle s’exécute. Pour le fonctionnement des vérifications, consultez [Tâches et vérifications](/lab/tasks-and-checks/).
+
+Chaque problème ci-dessous est présenté sous la forme **Symptôme**, **Cause** et **Solution**.
+
+## « Pas encore — réessayez »
+
+**Symptôme.** Dans un tutoriel, **Vérifier cette étape** aboutit à **Pas encore — réessayez**. Dans les résultats d’un challenge, une tâche affiche **Échouée**.
+
+**Cause.** L’environnement ne correspond pas encore à ce que demande la tâche. Les raisons les plus fréquentes :
+
+- **Un nom diffère** : le nom de la ressource, du namespace, du label ou du fichier n’est pas exactement celui de la tâche. Les noms sont sensibles à la casse.
+- **Le mauvais namespace** : la ressource a été créée dans `default` au lieu du namespace indiqué par la tâche.
+- **Pas encore prêt** : vous avez vérifié alors que des pods démarraient encore, qu’une image se téléchargeait ou qu’un déploiement était en cours.
+- **La mauvaise machine** : dans un lab à plusieurs machines, la modification a été faite sur une autre machine que celle visée par la tâche.
+- **Travail partiel** : la tâche comporte plusieurs exigences et l’une manque (un port, un nombre de réplicas, un label).
+
+**Solution.**
+
+1. Relisez la tâche mot à mot et comparez chaque nom avec ce que vous avez créé, par exemple avec `kubectl get <type> -n <namespace>` et `kubectl describe`.
+2. Attendez que les ressources soient prêtes (`kubectl get pods -w`, `kubectl rollout status`), puis sélectionnez **Vérifier à nouveau**.
+3. Si vous êtes bloqué, ouvrez les indices. Dans un tutoriel, ils sont gratuits. Dans un challenge, révéler un indice coûte des points, indiqués à côté de celui-ci.
+
+## La vérification reste sur « Vérification en cours… »
+
+**Symptôme.** L’étape affiche **Vérification en cours…**, ou les résultats affichent longtemps **Correction…** et **Validation de votre travail sur l’environnement en cours d’exécution…**.
+
+**Cause.** Les vérifications s’exécutent dans votre environnement en direct et peuvent prendre quelques instants, surtout dans les labs à plusieurs machines.
+
+**Solution.** Patientez. Le résultat s’affiche tout seul ; inutile de sélectionner de nouveau le bouton. S’il n’aboutit jamais, [signalez un problème](/support/report-lab-problem/) depuis le lab.
+
+## Mon travail est correct, mais la vérification échoue
+
+**Symptôme.** Vous êtes sûr que l’environnement correspond à la tâche, et la vérification échoue toujours après **Vérifier à nouveau**.
+
+**Cause.** Il peut s’agir d’une différence qui vous a échappé ou, plus rarement, d’un problème dans la vérification elle-même.
+
+**Solution.** Reprenez la liste ci-dessus, puis [signalez un problème](/support/report-lab-problem/) depuis le lab, dans la catégorie **Environnement de lab**. Indiquez le nom de la tâche, ce que vous avez créé et la sortie des commandes `kubectl` qui le montrent. Les détails du lab sont joints : l’assistance peut examiner votre environnement tant qu’il tourne encore. **N’arrêtez pas la session** avant d’avoir envoyé votre signalement.
+
+## Une étape validée n’apparaît plus comme validée après une modification
+
+**Symptôme.** Une étape validée n’est plus affichée comme terminée après une nouvelle vérification.
+
+**Cause.** Chaque vérification reflète l’environnement au moment où elle s’exécute. Si vous avez supprimé ou modifié ce qu’une tâche précédente avait créé, une nouvelle vérification de cette tâche constate le nouvel état.
+
+**Solution.** Rétablissez ce que demande la tâche, puis vérifiez à nouveau.
+
+## Pendant un Assessment
+
+Pendant un Assessment, vos tâches sont elles aussi corrigées à partir de l’état de votre environnement. Vous pouvez passer librement d’un scénario à l’autre, mais vous ne pourrez plus revenir au lab après avoir sélectionné **Terminer l’assessment** : vérifiez que chaque tâche est faite avant de confirmer. Voir [Le mode Assessment](/lab/assessment-mode/).
+
+:::caution
+N’arrêtez pas et ne supprimez pas un lab avant la fin de sa correction. La correction lit votre environnement en direct : une fois l’environnement détruit, il n’y a plus rien à vérifier.
+:::

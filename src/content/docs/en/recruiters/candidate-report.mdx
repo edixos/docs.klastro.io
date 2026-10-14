@@ -1,0 +1,127 @@
+---
+title: Read a candidate report
+description: Reference for the report page — score, scenario breakdown, skill radar, tasks and attempts, notes and recruiter review.
+sidebar:
+  order: 6
+---
+
+A candidate's report is produced when their assessment ends, whether they finished it or time ran out.
+This page describes each of its sections.
+
+**Access:** **Recruiter** or admin in the organization.
+
+## Open a report
+
+| From | Action |
+|---|---|
+| **Assess** → **Results** | Eye icon (**View report**) on the candidate's row. |
+| **Assess** → **Invitations** → an invitation | **View report** button, shown once the assessment is over. |
+| **Assess** → **Assessments** | The score in the **Final Score** column (**View report**), or the **View report** button on the run page. |
+
+If the report shows **Report unavailable**, the assessment is most likely still in progress. The
+**Back to invitation** link returns to the invitation page.
+
+## Header
+
+| Element | Content |
+|---|---|
+| Title | Candidate's name (or their email if there is none). |
+| Subtitle | Assessment name · candidate's email. |
+| Result badge | **Passed** if the score reaches the template's passing score, **Failed** otherwise. |
+| Verdict badge | The recorded verdict, if any (see [Record a verdict](/en/recruiters/verdicts/)). |
+
+## Headline figures
+
+| Figure | Value | Secondary line |
+|---|---|---|
+| **Score** | Percentage achieved, with a gauge. | Points earned / points available (`12 / 20 pts`). |
+| **Passing mark** | The template's passing score, in %. | "threshold to pass" |
+| **Duration** | Time the candidate spent. | "hands-on time" |
+| **Tasks passed** | Tasks passed / total tasks, across all scenarios. | Number of scenarios. |
+
+Percentages are coloured in three fixed bands: green from 75%, amber from 50 to 74%, red below 50%.
+
+:::note
+The colours do not depend on your template's passing score. A 72% shown in amber can well be **Passed**
+if your threshold is 70%. Rely on the **Passed** / **Failed** badge.
+:::
+
+## Assessment record
+
+| Field | Content |
+|---|---|
+| **Result** | **Passed** or **Failed**. |
+| **Score** | Points earned / points available. |
+| **Score %** | Percentage achieved. |
+| **Status** | `COMPLETED`, `TIMED_OUT` (time ran out) or `REVIEWED` (a verdict was recorded). |
+| **Verdict** | The recorded verdict, or "—". |
+| **Started** | Start date and time. |
+| **Completed** | End date and time. |
+| **Duration** | Total duration of the run. |
+| **Assessment** | Template name. |
+
+## Scenario breakdown
+
+One row per scenario in the assessment, with:
+
+- the scenario name;
+- tasks passed out of the total (`3/4 tasks`);
+- time spent on the scenario;
+- points earned (`12/20 pts`);
+- a gauge and the scenario's percentage.
+
+## Skill radar
+
+The radar shows the percentage achieved in each skill area the scenarios assess. Hover over a point to
+see the percentage and the points behind it (`80% (8/10 pts)`).
+
+The radar shows at most **8** skills: those carrying the most points. Any others are listed under the
+chart, with their points and percentage.
+
+The radar does not appear if the assessment measured no skills.
+
+## Strengths and areas to improve
+
+Next to the radar:
+
+- **Strengths** lists the skills where the candidate scored **75% or more**;
+- **Areas to improve** lists those where they scored **below 50%**.
+
+A skill between 50 and 74% appears in neither list.
+
+## Task details
+
+One collapsible panel per scenario. Its header repeats the scenario's percentage, tasks passed and
+points. Expanded, each task shows:
+
+| Element | Content |
+|---|---|
+| Icon | Green tick if the task passed, red cross otherwise. |
+| Identifier | The task's identifier within the scenario. |
+| Points | Points earned / points available. |
+| Attempts | How many times the candidate submitted the task (`2 attempts`). |
+| Checks | The validation rules of the **last** attempt: description, pass or fail, and how long the check took in milliseconds. A rule marked **(optional)** was not required to pass the task. |
+
+This detail tells you **what** the candidate got right or missed, not just how much. To understand how
+tasks are checked on the candidate's side, see [Tasks and checks](/en/lab/tasks-and-checks/).
+
+## Candidate notes
+
+If the candidate used their scratchpad during the lab, the **Candidate notes** section reproduces its
+content as written (see [Lab notes](/en/lab/notes/)). The section does not appear if the scratchpad is
+empty.
+
+:::tip
+Notes often show the candidate's reasoning: hypotheses, abandoned leads, prepared commands. Read them
+before you give your verdict.
+:::
+
+## Recruiter review
+
+Once a verdict is recorded, the **Recruiter review** section shows the **Verdict** and, if any, the
+notes of the person who recorded it.
+
+## See also
+
+- [Record a verdict and filter reports](/en/recruiters/verdicts/)
+- [Glossary](/en/getting-started/glossary/)

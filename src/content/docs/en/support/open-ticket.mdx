@@ -1,0 +1,79 @@
+---
+title: Open a support ticket
+description: Raise a ticket from the Help Desk, follow the conversation, escalate its priority and close it when the problem is solved.
+sidebar:
+  order: 1
+---
+
+import { Steps } from '@astrojs/starlight/components';
+
+Use the **Help Desk** to reach the Klastro support team about anything: a lab that misbehaves, an assessment, billing and credits, access to your account, a bug or a feature request. If the problem is inside a running lab, [report it from the lab](/en/support/report-lab-problem/) instead: the details of that lab are attached for you.
+
+## Before you start
+
+- You need a Klastro account and must belong to an organization. Without one, the help desk answers **Join or create an organization to use the help desk.**
+- Tickets belong to your **organization**, not to you alone. Anyone in the organization can read them in the **Help Desk**.
+
+## Raise a ticket
+
+<Steps>
+
+1. In the left sidebar, select **Help Desk** (the lifebuoy icon at the foot of the sidebar). Every member can reach it, whatever their role.
+
+2. Select **New ticket**.
+
+3. Fill in the form:
+
+   | Field | What to enter |
+   |---|---|
+   | **Subject** | A short summary, 5 to 200 characters. Example: *Terminal disconnects a few seconds after the lab starts*. |
+   | **Priority** | How urgent it is (see the table below). **P3 — Normal** is selected by default. |
+   | **Category** | **Lab environment**, **Assessment**, **Billing & credits**, **Account & access**, **Bug report**, **Feature request** or **Something else**. |
+   | **What happened?** | What you were doing, what you expected, and what happened instead. At least 20 characters. |
+   | **Screenshot** | Optional. PNG, JPEG or WebP, up to 5 MB. Select **Attach screenshot**, or paste or drop an image into the form. |
+
+4. Select **Send ticket**.
+
+</Steps>
+
+A confirmation shows the ticket number (for example **Ticket 10042 created**). Replies arrive by email at the address on your account, and in the ticket thread in the **Help Desk**. Select **Report something else** to raise another ticket straight away, or **Done** to close the form.
+
+:::note
+Your plan and your organization are attached to every ticket automatically, so you do not need to type them. If you close the form before sending, Klastro warns you that what you wrote will be lost.
+:::
+
+### Choosing a priority
+
+| Priority | Use it when |
+|---|---|
+| **P1 — Critical** | Production down or data at risk |
+| **P2 — High** | A lab or assessment is blocked |
+| **P3 — Normal** | Something is wrong but there is a way round it |
+| **P4 — Low** | A question, or a request for later |
+
+## Follow a ticket
+
+The **Help Desk** page lists your organization's tickets with their status: **New**, **Open**, **Pending**, **Closed** or **Merged**.
+
+- Filter with the **All**, **Open** and **Closed** tabs, or by priority.
+- Search by subject or ticket number in **Search subject or number**.
+- Select a ticket to open its thread. Select **Show attached context** to see what Klastro attached when the ticket was created.
+- Type in **Reply to this ticket** and select **Send reply** to add information: what you have tried, what changed, a session id.
+
+## Escalate a ticket
+
+If the situation gets worse, open the ticket and select **Escalate to P2** (the label names the next priority up). Each selection raises the priority one step. At the top, the button reads **At P1**.
+
+## Close a ticket
+
+Once the problem is solved, select **Close ticket** from the ticket or from the list, then confirm with **Close ticket**. Anyone in your organization can still read a closed ticket, but only support can reopen it. If the problem comes back, raise a new ticket.
+
+## If the form does not work
+
+| Message | What to do |
+|---|---|
+| **Please correct the highlighted fields.** | Fix the fields marked in red: subject too short, description under 20 characters, or no category. |
+| **Attach a PNG, JPEG or WebP image.** / **Keep the screenshot under 5 MB.** | Use another image format or a smaller capture. |
+| **Your session has expired. Sign in again and resend the ticket.** | Sign in again; see [Sign-in and account access](/en/troubleshooting/sign-in/). |
+| **We could not reach the help desk. Please try again in a moment.** | Wait a moment and send again. |
+| **That ticket does not exist, or it belongs to another organization.** | Check that the right organization is selected in the sidebar. |

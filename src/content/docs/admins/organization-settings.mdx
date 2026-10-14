@@ -1,0 +1,125 @@
+---
+title: Paramètres de l’organisation
+description: Modifier le profil de votre organisation, ses identifiants d’entreprise et ses informations de facturation, passer d’une organisation à l’autre ou en supprimer une.
+sidebar:
+  order: 2
+---
+
+import { Steps } from '@astrojs/starlight/components';
+
+La page **Paramètres** regroupe le profil de votre organisation et les
+informations qui figurent sur vos factures. Les informations d’entreprise sont
+facultatives : une école, une communauté ou un espace personnel peut les laisser
+vides.
+
+## Avant de commencer
+
+- Il vous faut le rôle **Administrateur** pour modifier les paramètres. Les
+  administrateurs trouvent **Paramètres** dans la barre latérale.
+- Les autres membres peuvent ouvrir **Paramètres de l’organisation** depuis leur
+  menu utilisateur. Ils voient la page avec le badge **Lecture seule** et le
+  message **Seuls les administrateurs de l’organisation peuvent modifier ces
+  paramètres. Contactez le vôtre pour toute demande.**
+
+## Modifier le profil de l’organisation
+
+<Steps>
+
+1. Dans la barre latérale, ouvrez **Paramètres**.
+
+2. Mettez à jour les champs nécessaires (voir la référence ci-dessous).
+
+3. Cliquez sur **Enregistrer**. Le message **Modifications enregistrées**
+   confirme la mise à jour.
+
+</Steps>
+
+### Profil de l’organisation
+
+| Champ | Remarques |
+|---|---|
+| **Nom de l’organisation** | Entre 2 et 100 caractères. |
+| **Slug de l’organisation** | L’identifiant dans l’URL de votre espace de travail. Il est définitif après la création. |
+| **Pays** | Détermine les identifiants d’entreprise demandés. |
+| **Raison sociale** | Facultatif. |
+| **SIREN** | France uniquement. L’identifiant d’entreprise français à 9 chiffres. Une fois enregistré, il est définitif. |
+| **Numéro de TVA** | Facultatif. Affiché pour les organisations hors de France : le numéro de TVA intracommunautaire pour les sociétés de l’Union européenne. |
+
+:::caution
+Vérifiez le **SIREN** avant de l’enregistrer. Une fois enregistré, il est
+verrouillé et le champ indique **Attribué définitivement — non modifiable.**
+:::
+
+### Adresse de l’entreprise
+
+**Adresse**, **Ville** et **Code postal** du siège, pour la facturation et la
+conformité.
+
+### Informations de facturation
+
+Utilisées sur les factures. Laissez ces champs vides pour reprendre l’adresse de
+l’entreprise.
+
+| Champ | Remarques |
+|---|---|
+| **E-mail de facturation** | Les factures et les reçus sont envoyés à cette adresse. |
+| **Adresse de facturation**, **Ville**, **Code postal** | L’adresse qui figure sur les factures. |
+| **Pays de facturation** | Le pays de l’adresse de facturation. |
+
+## Informations d’entreprise à la création
+
+À la création d’une organisation, le formulaire **Créer votre organisation**
+demande un **Nom de l’organisation**, une **URL de l’espace de travail** et un
+**Pays**. Les informations d’entreprise sont facultatives : cochez **Cette
+organisation est une entreprise** pour ajouter un **SIRET** (le numéro à 14
+chiffres de votre établissement), une **Adresse de facturation** et un **Numéro
+de TVA**. Laissez la case décochée pour une école, une communauté ou un espace
+personnel. Vous pourrez compléter ces informations plus tard depuis
+**Paramètres**.
+
+## Changer d’organisation
+
+Si vous appartenez à plusieurs organisations, vous passez de l’une à l’autre sans
+vous déconnecter.
+
+<Steps>
+
+1. Dans la barre latérale, cliquez sur le sélecteur d’organisation, qui affiche
+   le nom de l’organisation en cours.
+
+2. Sous **Changer d’organisation**, choisissez une autre organisation. Au-delà de
+   cinq organisations, utilisez le champ de recherche pour la trouver.
+
+</Steps>
+
+L’écran **Passage vers …** s’affiche un instant, puis l’application affiche
+l’organisation choisie. Votre rôle, votre licence et vos crédits sont ceux de
+cette organisation : chaque appartenance est distincte.
+
+Pour choisir dans la liste complète, cliquez plutôt sur **Quitter
+l’organisation** dans le même menu. Vous arrivez sur la page **Choisir une
+organisation**, d’où vous pouvez aussi créer une **Nouvelle organisation**.
+
+## Supprimer l’organisation
+
+:::danger
+Supprimer une organisation retire définitivement tous ses membres, sessions,
+scénarios et données de facturation. Cette action est sans retour.
+:::
+
+<Steps>
+
+1. Dans **Paramètres**, descendez jusqu’à la **Zone sensible**.
+
+2. Cliquez sur **Supprimer l’organisation**.
+
+3. Saisissez le slug de l’organisation pour confirmer, puis cliquez sur
+   **Supprimer l’organisation**.
+
+</Steps>
+
+## Voir aussi
+
+- [Membres et rôles](/admins/members-roles/)
+- [Consommation et factures](/billing/usage-and-invoices/)
+- [Créer votre compte](/getting-started/create-account/)

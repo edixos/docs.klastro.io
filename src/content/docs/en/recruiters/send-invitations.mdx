@@ -1,0 +1,150 @@
+---
+title: Send and manage invitations
+description: Invite a candidate to take an assessment, choose the expiry and authorization mode, then resend or revoke the invitation.
+sidebar:
+  order: 3
+---
+
+import { Steps } from '@astrojs/starlight/components';
+
+An invitation gives **one** person, identified by their email address, the right to take **one**
+assessment template before a deadline. The candidate can only accept it and start while signed in with
+that address.
+
+**Prerequisites:**
+
+- be a **Recruiter** or an admin in an organization on a business contract;
+- have at least one assessment template (see [Create and edit assessment templates](/en/recruiters/assessment-templates/)).
+
+## Send an invitation
+
+<Steps>
+
+1. Open **Assess**, then **Invitations**, and click **Invite candidate**.
+
+2. Under **Candidate**, fill in:
+
+   - **Full name**: 2 to 100 characters;
+   - **Email address**: the address the candidate will sign in with.
+
+3. Under **Assessment**, open **Template** (**Search and select an assessment**), type a few letters to
+   filter, then pick the template. Archived templates are not offered.
+
+4. Set the **Expiry date**: click **7 days**, **14 days** or **30 days**, or pick an exact date and
+   time. The date must be in the future.
+
+5. Under **Session settings**, choose the authorization mode:
+
+   - **Auto approval** (the default): the candidate starts immediately;
+   - **Manual approval**: you confirm before the session starts.
+
+6. Turn on **Require webcam** if you want to tell the candidate the assessment is webcam-proctored
+   (see [Webcam and proctoring](/en/recruiters/proctoring-supervision/)).
+
+7. Click **Send invitation**.
+
+</Steps>
+
+The "Invitation sent — Sent to …" message confirms it. The candidate immediately receives an email with
+a link to their invitation and how long they have. The email differs depending on whether the candidate
+already has a Klastro account. What they see next is described in
+[Accept an invitation](/en/learners/accept-invitation/).
+
+**Reset** clears the form without sending anything.
+
+:::caution[Manual approval]
+With **Manual approval**, a candidate who starts lands on the "Waiting for Authorization" screen, and
+their scenarios are only prepared once you approve. The dashboard has no button to approve: approval is
+given through the Klastro [MCP integration](/en/mcp/overview/). If you don't use that integration,
+choose **Auto approval**.
+:::
+
+## Understand the statuses
+
+| Status | Meaning |
+|---|---|
+| **Created** | The invitation exists and the email has gone out. The candidate has not responded yet. |
+| **Sent** | You resent the email with **Resend email**. The candidate has not responded yet. |
+| **Accepted** | The candidate accepted the invitation. They can start the assessment. |
+| **Revoked** | You cancelled the invitation. The candidate can no longer accept it. |
+| **Expired** | The expiry date passed without the invitation being used. |
+
+Once the run has begun, the lifecycle card on the invitation page (**Track Status Lifecycle**) extends
+this path with the assessment's state (**Active**, **Completed**, **Timed out**, **Reviewed**), then
+**PASSED** or **FAILED**.
+
+:::note
+The status changes to **Expired** when someone tries to use the invitation after the deadline. Until
+then, the **Expires** date shows in red on the invitation page.
+:::
+
+:::caution
+The expiry still applies after acceptance: a candidate who accepted but did not start before the
+expiry date can no longer start. Pick a window that leaves them time to book a slot.
+:::
+
+## Resend the email
+
+Useful when the candidate cannot find the message.
+
+<Steps>
+
+1. Open **Assess**, then **Invitations**, and click the invitation's row.
+
+2. Click **Resend email**.
+
+</Steps>
+
+The "Invitation email resent successfully" message confirms it, and the status changes to **Sent**. The
+button only appears for a **Created** or **Sent** invitation. An invitation past its expiry date cannot
+be resent: create a new one.
+
+## Revoke an invitation
+
+<Steps>
+
+1. Open the invitation page and click **Revoke**.
+
+2. In the **Revoke invitation?** window, click **Revoke invitation**.
+
+</Steps>
+
+:::danger
+Revoking is permanent: the candidate can no longer accept this invitation. To invite them again, send
+them a new invitation.
+:::
+
+You can only revoke a **Created** or **Sent** invitation. An **Accepted** invitation can no longer be
+revoked.
+
+## Find an invitation
+
+The **Invitations** page shows three counters (**Pending**, **Accepted**, **Expired**) and the
+**All invitations** table, 10 rows per page.
+
+To filter the table, use:
+
+- **Status**: one of the five statuses above, or **All statuses**;
+- **Assessment**: a template, or **All assessments**;
+- two dates bounding the creation date (**Created from date**, **Created to date**).
+
+**Clear filters** removes them all.
+
+An invitation page groups:
+
+| Card | Content |
+|---|---|
+| **Candidate** | Name and email. |
+| **Assessment** | Template name and ID. |
+| **Settings** | **Authorization mode** (**Automatic** or **Manual approval**) and **Webcam required**. |
+| **Timeline** | **Created** and **Expires**. |
+| **Track Status Lifecycle** | The path described above. |
+| **Assessment Result** | Once the candidate has started: status, score, passing score, result, dates and duration. |
+
+When the assessment is over, the **View report** button opens the candidate's report
+(see [Read a candidate report](/en/recruiters/candidate-report/)).
+
+## See also
+
+- [Invitation problems](/en/troubleshooting/invitations/)
+- [Supervise a run live](/en/recruiters/live-supervision/)

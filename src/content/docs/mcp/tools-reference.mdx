@@ -1,0 +1,113 @@
+---
+title: Référence des outils MCP
+description: Tous les outils exposés par le serveur MCP de Klastro, par domaine, avec l’autorisation requise et leur éventuelle consommation de crédits.
+sidebar:
+  order: 3
+---
+
+Le serveur MCP de Klastro expose les outils ci-dessous. Votre client IA les liste sous ces noms, parfois précédés d’un préfixe comme `klastro`.
+
+**Comment lire les tableaux**
+
+- **Autorisation** : l’autorisation dont la connexion a besoin, telle qu’approuvée sur l’écran de consentement. Les outils en **Lecture** ne font que consulter. Les outils en **Écriture** lancent, modifient, soumettent ou suppriment quelque chose. Une connexion disposant de l’**Administration** peut appeler tous les outils.
+- **Crédits** : les outils marqués **Oui** peuvent lancer ou relancer un lab facturé en crédits, selon les mêmes règles que dans l’application. Voir [Forfaits et crédits](/billing/plans-and-credits/).
+- Votre rôle dans l’organisation s’applique toujours. Un outil renvoie un refus lorsque vous ne pourriez pas faire la même chose dans l’application.
+
+## Scénarios
+
+| Outil | Ce qu’il fait | Autorisation | Crédits |
+|---|---|---|---|
+| `list_scenarios` | Liste les scénarios disponibles dans le catalogue. | Lecture | Non |
+| `get_scenario` | Renvoie le détail d’un scénario. | Lecture | Non |
+
+## Labs et sessions
+
+| Outil | Ce qu’il fait | Autorisation | Crédits |
+|---|---|---|---|
+| `create_session` | Lance pour vous un lab (tutoriel, challenge ou playground) à partir d’un scénario. | Écriture | Oui |
+| `get_session` | Renvoie une session. | Lecture | Non |
+| `list_sessions` | Liste les sessions, avec des filtres facultatifs. | Lecture | Non |
+| `pause_session` | Met en pause une session en cours. Le temps en pause n’est pas facturé. | Écriture | Non |
+| `resume_session` | Reprend une session en pause. | Écriture | Oui |
+| `terminate_session` | Arrête une session et détruit son environnement. Irréversible. | Écriture | Non |
+| `authorize_session` | Autorise une session en attente d’approbation (recruteurs). | Écriture | Non |
+| `submit_task_attempt` | Soumet une tâche à la correction dans l’environnement en direct. | Écriture | Non |
+| `list_task_attempts` | Renvoie le dernier résultat de correction de chaque tâche d’une session. | Lecture | Non |
+| `reveal_hint` | Révèle un indice pour une tâche. Dans un challenge, les indices coûtent des points. | Écriture | Non |
+| `get_session_notes` | Lit vos notes d’un lab. | Lecture | Non |
+| `update_session_notes` | Enregistre vos notes d’un lab. | Écriture | Non |
+| `record_challenge_result` | Enregistre un challenge terminé dans votre historique. | Écriture | Non |
+| `list_challenge_history` | Liste vos challenges terminés, du plus récent au plus ancien. | Lecture | Non |
+
+## Parcours de certification
+
+| Outil | Ce qu’il fait | Autorisation | Crédits |
+|---|---|---|---|
+| `list_learning_paths` | Liste les parcours de certification avec votre progression. | Lecture | Non |
+| `get_learning_path` | Renvoie les étapes d’un parcours et votre progression. | Lecture | Non |
+| `update_learning_path_progress` | Marque une étape comme commencée ou terminée, ou la réinitialise. Une étape ne peut être terminée qu’une fois ses prérequis terminés. | Écriture | Non |
+
+## Modèles d’Assessment (recruteurs)
+
+| Outil | Ce qu’il fait | Autorisation | Crédits |
+|---|---|---|---|
+| `list_assessments` | Liste les modèles d’Assessment de l’organisation. | Lecture | Non |
+| `get_assessment` | Renvoie un modèle d’Assessment. | Lecture | Non |
+| `create_assessment` | Crée un modèle d’Assessment. | Écriture | Non |
+| `update_assessment` | Modifie un modèle d’Assessment. | Écriture | Non |
+| `delete_assessment` | Supprime un modèle d’Assessment. | Écriture | Non |
+| `add_assessment_scenario` | Ajoute un scénario à un Assessment. | Écriture | Non |
+| `remove_assessment_scenario` | Retire un scénario d’un Assessment. | Écriture | Non |
+| `reorder_assessment_scenarios` | Change l’ordre des scénarios d’un Assessment. | Écriture | Non |
+
+## Déroulement des Assessments
+
+| Outil | Ce qu’il fait | Utilisé par | Autorisation | Crédits |
+|---|---|---|---|---|
+| `get_assessment_status` | Renvoie le statut d’un Assessment. | Candidats, recruteurs | Lecture | Non |
+| `list_assessment_statuses` | Renvoie le statut de plusieurs Assessments en un seul appel. | Recruteurs | Lecture | Non |
+| `start_assessment` | Démarre l’Assessment. | Candidats | Écriture | Non |
+| `start_assessment_timer` | Lance le chronomètre de l’Assessment. | Candidats | Écriture | Non |
+| `complete_assessment_scenario` | Termine le scénario en cours et passe au suivant. | Candidats | Écriture | Non |
+| `get_assessment_notes` | Lit les notes du candidat. | Candidats | Lecture | Non |
+| `update_assessment_notes` | Enregistre les notes du candidat. | Candidats | Écriture | Non |
+| `authorize_assessment` | Autorise un candidat à démarrer, pour les Assessments en approbation manuelle. | Recruteurs | Écriture | Non |
+| `adjust_assessment_duration` | Ajoute ou retire des minutes à la durée totale d’un Assessment. | Recruteurs | Écriture | Non |
+| `terminate_assessment` | Arrête un Assessment. | Recruteurs | Écriture | Non |
+
+:::caution
+`start_assessment` lance le chronomètre du candidat, qui ne peut pas être mis en pause. Préférez démarrer un Assessment vous-même depuis l’application.
+:::
+
+## Rapports des candidats (recruteurs)
+
+| Outil | Ce qu’il fait | Autorisation | Crédits |
+|---|---|---|---|
+| `list_candidate_reports` | Liste les rapports des candidats de l’organisation, avec des filtres facultatifs. | Lecture | Non |
+| `get_candidate_report` | Renvoie un rapport d’évaluation détaillé. | Lecture | Non |
+| `export_report` | Génère le PDF d’un rapport de candidat. | Lecture | Non |
+| `submit_report_review` | Ajoute votre évaluation et votre verdict à un rapport terminé. | Écriture | Non |
+
+## Scenario Studio (auteurs)
+
+| Outil | Ce qu’il fait | Autorisation | Crédits |
+|---|---|---|---|
+| `list_studio_drafts` | Liste les brouillons de l’organisation. | Lecture | Non |
+| `get_studio_draft` | Renvoie un brouillon avec tout son contenu. | Lecture | Non |
+| `create_studio_draft` | Crée un brouillon, vide ou à partir d’un scénario existant. | Écriture | Non |
+| `update_studio_draft_graph` | Remplace le contenu d’un brouillon. Refusé si quelqu’un l’a modifié depuis votre lecture. | Écriture | Non |
+| `delete_studio_draft` | Supprime un brouillon. Les scénarios déjà publiés à partir de celui-ci sont conservés. | Écriture | Non |
+| `validate_studio_draft` | Vérifie un brouillon sans le publier et signale les problèmes étape par étape. | Écriture | Non |
+| `publish_studio_draft` | Publie un brouillon comme scénario, ou met à jour le scénario publié. | Écriture | Non |
+| `list_environment_providers` | Liste les types d’environnement disponibles pour un scénario. | Lecture | Non |
+| `start_studio_preview` | Lance un lab d’aperçu en direct à partir du brouillon. Les aperçus ne consomment pas de crédits. | Écriture | Non |
+| `get_studio_preview_status` | Renvoie l’état de l’aperçu en cours. | Lecture | Non |
+| `sync_studio_preview` | Applique à l’aperçu en cours les étapes d’installation modifiées, sans le reconstruire. Retirer une étape n’annule pas ce qu’elle a installé. | Écriture | Non |
+| `extend_studio_preview` | Prolonge la durée de vie de l’aperçu, dans une certaine limite. | Écriture | Non |
+| `stop_studio_preview` | Arrête l’aperçu et supprime son environnement. | Écriture | Non |
+| `test_task_validation` | Exécute les vérifications d’une tâche dans l’aperçu. Ni noté, ni facturé. | Écriture | Non |
+| `get_task_validation` | Renvoie le résultat d’une vérification lancée avec `test_task_validation`. | Lecture | Non |
+
+## Non disponible par MCP
+
+La facturation et les crédits, les licences, les bons de crédit, la gestion de l’organisation et des membres, les invitations, les sessions de formation, l’assistance, les documents juridiques et les paramètres de profil. Utilisez app.klastro.io pour ces sujets.

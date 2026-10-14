@@ -1,0 +1,74 @@
+---
+title: Klastro and AI assistants (MCP)
+description: What the Klastro MCP server is, what an AI assistant can do with your Klastro account, and how permissions keep it in check.
+sidebar:
+  order: 1
+---
+
+Klastro has a **Model Context Protocol (MCP)** server. MCP is an open standard that lets AI assistants such as Claude, Cursor or GitHub Copilot in VS Code call outside tools. Once you connect an assistant to Klastro, you can ask it in plain language to do things you would otherwise do in app.klastro.io.
+
+The server lives at:
+
+```
+https://mcp.klastro.io/mcp
+```
+
+## What you can do with it
+
+The assistant works with the same features you see in the app, for the organization you choose when you connect it:
+
+- **Browse the catalog**: list scenarios and read their details.
+- **Practise**: start a lab, pause, resume or end it, submit a task for grading, reveal a hint, keep notes, and review your challenge history.
+- **Follow learning paths**: see your progress and mark steps as started or complete.
+- **Run hiring assessments** (recruiters): create and edit assessment templates, follow candidates' progress, authorize a start, adjust the time, end an assessment, read candidate reports, export them as PDF and submit your review.
+- **Author scenarios** (Scenario Studio): create and edit drafts, validate and publish them, start a live preview, push changes to it, and test a task's checks before learners see them.
+
+For example, you can ask: *"List the Kubernetes scenarios available to me"*, *"Which candidates finished the Platform Engineer assessment this week, and what did they score?"*, or *"Start a preview of my draft and test the checks of task 2"*.
+
+The full list is in the [tools reference](/en/mcp/tools-reference/). Billing, organization administration, invitations, legal documents and profile settings are **not** available through MCP; use the app for those.
+
+## How access works
+
+### You sign in with your Klastro account
+
+There is no API key to copy. The first time your assistant calls Klastro, it opens your browser on the Klastro sign-in page. You sign in as usual, then a consent screen asks you to approve the connection. The assistant never sees your password.
+
+### You choose the organization and the permissions
+
+The consent screen, titled after the application (for example *"Claude Code wants to access your Klastro account"*), asks you to choose:
+
+- **Organization**: the application will act only in this organization. To work in another one, connect again and pick it.
+- **Permissions**:
+
+  | Permission | What it allows |
+  |---|---|
+  | **Read** | View scenarios, sessions, assessments and reports. |
+  | **Write** | Start and stop labs, edit Studio drafts, submit attempts. |
+  | **Administration** | Manage the organization. Admins only. Never ticked by default. |
+
+Select **Allow** to approve or **Deny** to refuse. A connection with only **Read** can look at things but cannot change anything: every action that starts, edits, submits or deletes needs **Write**.
+
+### Your own rights still apply
+
+The assistant acts **on your behalf, with your rights**. Granting a permission never gives it more than you have in the app: a learner's assistant cannot read candidate reports, and an assistant cannot open Scenario Studio for someone who has no Studio access.
+
+### Credits are spent like in the app
+
+Starting or resuming a lab through an assistant costs the same credits as doing it in the app, and the same limits apply (balance, sessions running at once). Studio previews do not consume credits. See [Plans and credits](/en/billing/plans-and-credits/).
+
+:::caution
+Only authorize applications that you have just started yourself. An assistant with **Write** can start labs that consume your credits and can end sessions. Review what it proposes to do before you let it act.
+:::
+
+### You can revoke access at any time
+
+Your **Profile** page lists every application you have authorized under **Connected applications**, with its permissions and organization. Select **Revoke** next to one to cut its access immediately: its tokens stop working and it has to ask for your authorization again.
+
+### Usage limits
+
+Each user can make up to 120 requests a minute through the MCP server. Beyond that, requests are refused for a short time and the assistant should retry later.
+
+## Next steps
+
+- [Connect your AI client](/en/mcp/connect-clients/)
+- [Tools reference](/en/mcp/tools-reference/)

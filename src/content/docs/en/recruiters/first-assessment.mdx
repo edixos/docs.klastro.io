@@ -1,0 +1,115 @@
+---
+title: Your first assessment
+description: From picking scenarios to a hiring verdict, run a first assessment for a candidate on real infrastructure.
+sidebar:
+  order: 1
+---
+
+import { Steps } from '@astrojs/starlight/components';
+
+In this tutorial you build an assessment template from the scenario catalog, invite a candidate,
+watch their run live, then read their report. Plan on about ten minutes of your own time, plus
+however long the candidate spends in the lab.
+
+Before you start, you need:
+
+- an account in an organization on a **business contract**: assessments, templates, invitations
+  and reports are part of the Enterprise plan (see [Plans and credits](/en/billing/plans-and-credits/));
+- the **Recruiter** role or an admin role in that organization
+  (see [Members and roles](/en/admins/members-roles/));
+- a candidate's email address. For a first try, a second address of your own works well.
+
+:::tip
+If the pages under **Assess** show "Assessments require a business contract", your organization is
+on a self-serve subscription. Contact Klastro to enable the Enterprise plan.
+:::
+
+## 1. Build the template
+
+<Steps>
+
+1. In the sidebar, open **Assess**, then **Templates**.
+
+2. Click **New template**. If a menu offers two choices, pick **Compose from the catalog**.
+
+3. Under **Assessment details**, enter a **Name**, for example
+   "Kubernetes troubleshooting — Senior SRE". Leave **Passing score (%)** at 70.
+
+4. In the **Scenario catalog** on the right, click **Add** on two scenarios. They appear on the
+   left under **Scenario order**, and **Total duration (min)** fills itself in from their
+   estimated durations.
+
+5. Click **Preview** to see the assessment as the candidate will, then close the preview.
+
+6. Click **Create assessment**. The "Assessment created" message confirms it was saved.
+
+</Steps>
+
+## 2. Invite the candidate
+
+<Steps>
+
+1. Open **Assess**, then **Invitations**, and click **Invite candidate**.
+
+2. Fill in the candidate's **Full name** and **Email address**.
+
+3. Under **Template**, choose the template you just created.
+
+4. Under **Expiry date**, click **7 days**.
+
+5. Leave **Auto approval** selected so the candidate can start without waiting for you.
+
+6. Click **Send invitation**. The "Invitation sent" message appears and the candidate receives an
+   email with a link to their invitation.
+
+</Steps>
+
+The candidate then accepts the invitation and starts the assessment
+(see [Accept an invitation](/en/learners/accept-invitation/)).
+
+## 3. Watch the run live
+
+<Steps>
+
+1. Once the candidate has started, open **Assess**, then **Assessments**. Their run appears under
+   **All assessments**.
+
+2. Click the row to open the run. The **Live** badge means the page updates by itself, and the
+   **Time Remaining** card shows the countdown.
+
+3. Under **Sessions**, click a scenario to open its supervision panel. You see the candidate's
+   terminal in read-only mode, marked **Observing**.
+
+</Steps>
+
+You cannot type in that terminal: you watch, the candidate works. Scores stay hidden until the
+assessment is over.
+
+## 4. Read the report
+
+<Steps>
+
+1. When the candidate has finished (or time has run out), open **Assess**, then **Results**.
+
+2. On the candidate's row, click the eye icon (**View report**).
+
+3. Go through the report: **Score**, **Passing mark**, **Scenario breakdown**, **Skill radar** and
+   **Task details**.
+
+</Steps>
+
+The **Passed** or **Failed** badge in the top-right corner compares the candidate's score with the
+template's passing score.
+
+## 5. Record your verdict
+
+The verdict (**STRONG HIRE**, **HIRE**, **NO HIRE**, **STRONG NO HIRE**) is recorded through the
+Klastro MCP integration, then shows up under **Results** and on the report. The steps are in
+[Record a verdict](/en/recruiters/verdicts/).
+
+## What next?
+
+- [Create and edit assessment templates](/en/recruiters/assessment-templates/)
+- [Send and manage invitations](/en/recruiters/send-invitations/)
+- [Supervise a run live](/en/recruiters/live-supervision/)
+- [Read a candidate report](/en/recruiters/candidate-report/)

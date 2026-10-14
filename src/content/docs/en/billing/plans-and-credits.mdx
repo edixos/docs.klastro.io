@@ -1,0 +1,174 @@
+---
+title: Plans and credits
+description: How Klastro plans, seats and credits fit together, and how a lab turns running time into a credit charge.
+sidebar:
+  order: 1
+---
+
+Klastro sells hands-on lab time. This page explains the model behind the
+**Billing** page: what each plan gives you, what a credit is, and why two labs
+of the same length can cost different amounts.
+
+## Two ways an organization is billed
+
+Every organization is billed in one of two ways, and the difference shapes
+everything else on this page.
+
+**Self-serve subscription.** You pick a plan on the **Plan** tab and pay online.
+Labs are paid for in credits, which come with your seats or are given to you.
+Everything below about credits applies to these organizations.
+
+**Enterprise contract.** Price, capacity and term are agreed in a contract with
+the Klastro team; nothing is bought online. A contract organization has no
+credits at all: its **Billing** page shows an **Enterprise contract** notice and
+its **Contracted capacity** (how many sessions can run at once), and nothing
+else. Plans, seats, credit meters, vouchers and the credit ledger are hidden,
+because none of them describes how a contract is billed. To change your quota or
+ask a billing question, contact your account manager.
+
+## Plans
+
+A subscription organization is always on one of three plans. Community is free
+and every new organization starts on it. Pro and Instructor are paid **per
+seat**: you buy as many seats of each tier as you need, and an organization can
+hold Pro seats and Instructor seats at the same time.
+
+| | Community | Pro | Instructor |
+|---|---|---|---|
+| Price (excl. VAT) | Free | €25 / user / mo, or €250 / user / yr | €50 / user / mo, or €500 / user / yr |
+| Credits | 10 welcome credits, once, to the founder | 60 credits per seat, every month | 100 credits per seat, every month |
+| Labs running at once | 1 per member | Up to 2 per seat | Up to 5 per seat |
+| Catalog | Free scenarios | Every Pro scenario, for each member holding a seat | Every Pro scenario |
+| Scenario Studio | No | No | Yes, previews cost no credits |
+| Instructor-led cohorts | No | No | Yes, 3 places included per cohort |
+| Support | Community support, no response target | Business hours, 8-hour response target | Business hours, 4-hour response target |
+
+The **Plan** tab always shows the current price and allowance for each tier,
+alongside the **Included** and **Limits** lists for that tier.
+
+:::note
+Paying yearly changes how often you are invoiced, not how often you receive
+credits. A yearly seat still receives its credit grant every month.
+:::
+
+### Rules on every plan
+
+The **On every plan** box on the **Plan** tab lists the rules that apply
+whatever you pay:
+
+- Labs draw 1 to 6 credits an hour, depending on the environment.
+- Starting a lab needs one hour of its credits in your balance.
+- Labs pause when your credits run out. Paused time is not charged, and no
+  overage is invoiced.
+- One running lab per scenario for each member.
+- Any member can redeem a credit voucher.
+
+Your organization may also have a cap on how many labs run at once across the
+whole organization. Paused labs do not count towards it.
+
+## Seats
+
+A **seat** is what a paid subscription is made of. Each member holds exactly one
+seat type:
+
+| Seat | What it gives | Cost |
+|---|---|---|
+| **Trainee** | The free floor every new member starts on. Reaches free scenarios and the sessions an instructor assigns. | Free, not part of your paid pool |
+| **Pro Learner** | Every Pro scenario, plus the seat's monthly credits. | One Pro seat from your pool |
+| **Instructor** | Everything Pro reaches, plus Scenario Studio, cohorts and the larger monthly allowance. | One Instructor seat from your pool |
+
+Buying seats and giving them to people are two separate steps: you buy seats into
+a **pool**, then an admin allocates them to members. Allocating or releasing a
+seat never changes your bill. See [Manage seats](/en/billing/seats/).
+
+## What a credit is
+
+A credit is Klastro's unit of lab time. Every running lab spends credits from one
+person's balance: the person who started it.
+
+Your balance is personal. Each member has their own, and nobody else's spending
+can drain it. It is made of:
+
+- the credits on your seat, if you hold a paid seat. These reset to the seat's
+  grant each month, unused credits do not roll over, and they stay with the seat:
+  they cannot be given away;
+- credits you hold yourself: the Community welcome credits, credits an admin gave
+  you, and credits from a voucher you redeemed.
+
+A member invited into an organization starts with no credits. Credits only
+arrive explicitly: with a paid seat, as a gift from an admin, or from a voucher.
+
+### Credits have decimals
+
+Labs rarely run for exactly an hour, so credits are divisible to a hundredth.
+Balances and charges show up to two decimal places, for example **0.14** or
+**109.86**. A whole number of credits is shown without decimals.
+
+## How a lab consumes credits
+
+A lab is charged for the time it ran, weighted by how much compute its
+environment uses. Heavier environments draw credits faster:
+
+| Environment | Credits / hour |
+|---|---|
+| Virtual Cluster | 1 |
+| Virtual Machine | 2 |
+| Kubernetes in Docker | 3 |
+| Lightweight Kubernetes | 3 |
+| Multi Node Cluster | 6 |
+
+The charge is the exact fraction of an hour the lab ran, rounded up to the next
+hundredth of a credit. Four minutes on a 2 credits/hour environment costs
+**0.14**, not 1. An hour on a Multi Node Cluster costs six times an hour on a
+Virtual Cluster.
+
+The charge is recorded when the lab ends. While a lab is running, the credits it
+has used so far are already set aside from what you have left, so you cannot
+start a second lab with credits the first one is spending.
+
+### Starting and resuming a lab
+
+To start a lab you need at least **one hour** of that environment's cost left in
+your balance, after what your running labs have already used. A Multi Node
+Cluster lab therefore needs 6 credits available; a Virtual Cluster lab needs 1.
+Resuming a paused lab is held to the same rule.
+
+### What happens when you run out
+
+Klastro never bills you beyond your balance. If a long or heavy lab uses up your
+credits while it is running, the lab is **paused automatically**. Your work is
+kept, the paused time is free, and the audit log records **Session auto-paused
+(out of credits)**. Once you have credits again (a new monthly grant, a gift from
+an admin, or a voucher), you can resume the lab.
+
+Only your own labs pause. Another member running out of credits never stops your
+lab.
+
+:::note
+Labs that are part of an instructor-led cohort are paid for when the cohort is
+launched. They are not charged again while they run and are never paused for
+lack of credits. See [Run a cohort](/en/instructors/cohorts/).
+:::
+
+For help with a paused lab, see
+[Credits and paused labs](/en/troubleshooting/credits-and-pauses/).
+
+## Temporary access
+
+Klastro can grant a member **temporary access** to a Pro or Instructor seat, for
+example during an evaluation. It needs no subscription and ends on a fixed date.
+
+Temporary access unlocks what the seat reaches, but it **includes no credits**:
+labs still draw on the member's own balance. While it lasts, the member's
+**Billing** page shows **Temporary Pro Learner access until** (or **Temporary
+Instructor access until**) followed by the end date, and the **Team** page shows the seat
+with **Temporary · until** and the date. When it ends, the organization's own
+plan applies again.
+
+## Related
+
+- [Subscribe to a plan](/en/billing/subscribe/)
+- [Manage seats](/en/billing/seats/)
+- [Redeem a credit voucher](/en/billing/vouchers/)
+- [Usage and invoices](/en/billing/usage-and-invoices/)
+- [Glossary](/en/getting-started/glossary/)
