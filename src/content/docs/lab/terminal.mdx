@@ -8,10 +8,10 @@ sidebar:
 import { Steps, Tabs, TabItem } from '@astrojs/starlight/components';
 
 Le terminal est l’endroit où vous travaillez dans un lab Klastro. Il s’exécute dans
-votre navigateur et se connecte à un véritable environnement : rien à installer.
+votre navigateur et se connecte à un véritable environnement : rien à installer.
 Cette page explique comment l’utiliser au quotidien.
 
-**Avant de commencer :** ouvrez un lab et attendez que le terminal n’affiche plus
+**Avant de commencer :** ouvrez un lab et attendez que le terminal n’affiche plus
 **Votre environnement est en cours de préparation**. Voir
 [L’espace de travail du lab](/lab/overview/) pour l’organisation de l’écran.
 
@@ -36,7 +36,7 @@ machines.
    d’onglets. Un nouvel onglet **Shell** s’ouvre et devient actif.
 
 2. Passez d’un onglet à l’autre en cliquant dessus. Chaque onglet continue de
-   tourner lorsqu’il est masqué : une longue commande dans **Shell 1** se poursuit
+   tourner lorsqu’il est masqué : une longue commande dans **Shell 1** se poursuit
    pendant que vous travaillez dans **Shell 2**.
 
 3. Pour fermer un shell, survolez son onglet et cliquez sur le **×** qui
@@ -66,11 +66,11 @@ de copie par machine, par exemple `ssh node1`, `ssh node2`.
 </Steps>
 
 Pour lancer une seule commande sur une machine sans y ouvrir de session, utilisez
-la même forme avec la commande entre guillemets, comme le montre cette section :
+la même forme avec la commande entre guillemets, comme le montre cette section :
 `ssh node1 'kubectl get nodes'`.
 
 :::tip
-Vous avez rarement besoin de `ssh` : chaque machine possède déjà son propre
+Vous avez rarement besoin de `ssh` : chaque machine possède déjà son propre
 onglet **Node**.
 :::
 
@@ -108,7 +108,7 @@ shell au lieu de coller. Utilisez les raccourcis du tableau ci-dessus.
 
 :::tip
 Les commandes du panneau Instructions sont des boutons de copie. Cliquez dessus,
-puis collez dans le terminal : c’est plus rapide et cela évite les fautes de
+puis collez dans le terminal : c’est plus rapide et cela évite les fautes de
 frappe.
 :::
 
@@ -116,7 +116,7 @@ frappe.
 
 Si votre shell affiche une ligne d’état verte en bas, il tourne dans `tmux`, ce
 qui lui permet de survivre aux rechargements. Dans ce cas, remontez dans la
-sortie précédente avec le mode de défilement de tmux :
+sortie précédente avec le mode de défilement de tmux :
 
 <Steps>
 
@@ -135,7 +135,7 @@ sortie précédente avec le mode de défilement de tmux :
 ### Ce qui continue de tourner
 
 Vos shells tournent dans le lab, pas dans votre navigateur. Fermer l’onglet,
-recharger la page ou perdre le réseau ne les arrête **pas** : les commandes
+recharger la page ou perdre le réseau ne les arrête **pas** : les commandes
 continuent, et à la reconnexion vous retrouvez le même shell avec sa sortie.
 Klastro retient aussi les onglets que vous aviez ouverts, dans cet onglet du
 navigateur, et les rouvre après un rechargement.
@@ -163,13 +163,13 @@ rouge.
 </Steps>
 
 Deux autres signes indiquent que c’est le lab lui-même qui est en attente, et non
-le terminal :
+le terminal :
 
 - Une icône Wi-Fi barrée à droite de la rangée d’onglets, et
-  **En attente du démarrage de la session…** dans la barre d’état : la page a
+  **En attente du démarrage de la session…** dans la barre d’état : la page a
   perdu son lien en direct avec votre lab. Elle se reconnecte automatiquement.
 - **Reconnexion…** au milieu du panneau du terminal, avant l’apparition d’un
-  shell : la même situation, vue avant la première connexion du terminal.
+  shell : la même situation, vue avant la première connexion du terminal.
 
 Si un terminal refuse de se reconnecter, voir
 [Dépannage du terminal](/troubleshooting/terminal/).
@@ -179,8 +179,8 @@ Si un terminal refuse de se reconnecter, voir
 | Situation | Commandes en cours |
 |---|---|
 | Vous passez à un autre onglet du lab | Elles continuent |
-| Vous rechargez la page ou la connexion est coupée | Elles continuent ; le terminal s’y rattache |
-| Vous fermez un onglet Shell avec **×** | Klastro cesse de l’afficher. Ne comptez pas le retrouver : terminez ou arrêtez les commandes longues avant de fermer leur onglet. |
+| Vous rechargez la page ou la connexion est coupée | Elles continuent ; le terminal s’y rattache |
+| Vous fermez un onglet Shell avec **×** | Klastro cesse de l’afficher. Ne comptez pas le retrouver : terminez ou arrêtez les commandes longues avant de fermer leur onglet. |
 | Vous mettez le lab en pause (**Mettre en pause**) | Vos fichiers et votre environnement sont conservés. À la reprise, vérifiez que les commandes de premier plan dont vous avez besoin tournent toujours, et relancez-les sinon. |
 | Vous arrêtez le lab, ou il se termine | Tout s’arrête et l’environnement est détruit |
 

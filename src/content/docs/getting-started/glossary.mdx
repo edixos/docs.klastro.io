@@ -1,6 +1,6 @@
 ---
 title: Glossaire
-description: Les termes utilisés dans Klastro et dans cette documentation, de « assessment » à « tâche ».
+description: Les termes utilisés dans Klastro et dans cette documentation, de « assessment » à « tâche ».
 sidebar:
   order: 4
 ---
@@ -11,15 +11,15 @@ Les termes en gras sont ceux qu’affiche l’application. Lorsque l’anglais e
 
 | Terme | Définition |
 |---|---|
-| **Scénario** (*scenario*) | La définition d’un lab : son environnement, ce qui y est installé au départ, ses tâches et sa notation. Un scénario est **Officiel** (écrit par l’équipe Klastro) ou **Studio** (écrit par votre organisation). |
+| **Scénario** (*scenario*) | La définition d’un lab : son environnement, ce qui y est installé au départ, ses tâches et sa notation. Un scénario est **Officiel** (écrit par l’équipe Klastro) ou **Studio** (écrit par votre organisation). |
 | **Lab** | Terme général pour un environnement que vous lancez, quel que soit son type. |
-| **Session** | Votre exemplaire en cours d’exécution d’un scénario : un environnement réel, isolé, créé pour vous et détruit à sa fin. Ses états sont **Création**, **Provisionnement**, **Prête**, **En pause** et **Terminée**. |
+| **Session** | Votre exemplaire en cours d’exécution d’un scénario : un environnement réel, isolé, créé pour vous et détruit à sa fin. Ses états sont **Création**, **Provisionnement**, **Prête**, **En pause** et **Terminée**. |
 | **Environnement** | Les machines ou le cluster d’une session. Le type est indiqué sur la fiche du scénario, par exemple **Virtual Cluster**, **Lightweight Kubernetes**, **Multi Node Cluster** ou **Virtual Machine**. |
 | **Durée de vie** | La durée maximale d’une session, fixée par le scénario. Le temps passé en pause n’est pas décompté. À son terme, la session prend fin automatiquement. |
-| **Pause** | Mettre une session en pause arrête son environnement en conservant votre travail ; vous la **Reprenez** plus tard au même point. |
+| **Pause** | Mettre une session en pause arrête son environnement en conservant votre travail ; vous la **Reprenez** plus tard au même point. |
 | **Catalogue** (*catalog*) | La liste des scénarios que votre organisation peut lancer, filtrable par produit, niveau, source et tag. |
 | **Tutoriel** (*tutorial*) | Un lab guidé, pas à pas, dont chaque étape peut être vérifiée. Les indices sont gratuits. |
-| **Challenge** | Une tâche notée sur un environnement réel. Votre travail est corrigé à l’envoi ; les indices coûtent des points. |
+| **Challenge** | Une tâche notée sur un environnement réel. Votre travail est corrigé à l’envoi ; les indices coûtent des points. |
 | **Playground** | Un environnement vierge, sans instructions ni correction, pour explorer librement. |
 | **Assessment** | Une évaluation technique surveillée et chronométrée, composée d’un ou plusieurs scénarios, à laquelle un candidat participe sur invitation. Désigne aussi le type des scénarios réservés à cet usage. |
 | **Scenario Studio** | L’outil de création de scénarios de Klastro, réservé aux forfaits qui l’incluent. |
@@ -30,8 +30,8 @@ Les termes en gras sont ceux qu’affiche l’application. Lorsque l’anglais e
 |---|---|
 | **Tâche** (*task*) | Un objectif à atteindre dans un scénario. Dans un tutoriel, les tâches s’affichent comme des **Étapes**. |
 | **Vérification** (*check*) | Le contrôle automatique qui inspecte votre environnement pour dire si une tâche est réussie. Dans un tutoriel, vous la lancez avec **Vérifier cette étape**. |
-| **Indice** (*hint*) | Une aide que vous révélez au besoin. Gratuit dans un tutoriel ; coûte des points dans un challenge ou un assessment. |
-| **Points** et **Score** | Chaque tâche notée vaut un nombre de points ; le score est le total obtenu. Un **Seuil de réussite** peut s’appliquer. |
+| **Indice** (*hint*) | Une aide que vous révélez au besoin. Gratuit dans un tutoriel ; coûte des points dans un challenge ou un assessment. |
+| **Points** et **Score** | Chaque tâche notée vaut un nombre de points ; le score est le total obtenu. Un **Seuil de réussite** peut s’appliquer. |
 | **Shell de la session** | Le terminal principal d’un lab, avec `kubectl`, `helm` et l’accès `ssh` à chaque machine. |
 | **Notes** | Un bloc-notes enregistré automatiquement et rattaché à la session. Dans un assessment, le recruteur le voit dans votre rapport. |
 | **Lobby** | La page d’attente d’un assessment, où vos scénarios se préparent avant que vous **Entriez**. |
@@ -40,9 +40,9 @@ Les termes en gras sont ceux qu’affiche l’application. Lorsque l’anglais e
 
 | Terme | Définition |
 |---|---|
-| **Parcours de certification** (*certification path*) | Une feuille de route d’étapes, de la première notion à la préparation à l’examen. La progression est déclarée par vous : ce sont des jalons, pas des certifications. |
-| **Parcours** (*track*) | Le programme réutilisable d’un formateur : une suite ordonnée de scénarios et ses supports. À ne pas confondre avec un parcours de certification. |
-| **Cohorte** (*cohort*) | Une session de formation : un parcours donné à un groupe, à une date prévue, animé par un formateur. |
+| **Parcours de certification** (*certification path*) | Une feuille de route d’étapes, de la première notion à la préparation à l’examen. La progression est déclarée par vous : ce sont des jalons, pas des certifications. |
+| **Parcours** (*track*) | Le programme réutilisable d’un formateur : une suite ordonnée de scénarios et ses supports. À ne pas confondre avec un parcours de certification. |
+| **Cohorte** (*cohort*) | Une session de formation : un parcours donné à un groupe, à une date prévue, animé par un formateur. |
 | **Formation** (*training session*) | Ce qu’un participant voit d’une cohorte dans **Mes formations**. |
 | **Participant**, **stagiaire** (*trainee*) | Une personne inscrite à une cohorte. |
 | **Place** | L’inscription d’un participant dans une cohorte, payée en crédits par le formateur. Une place n’est pas une licence. |
@@ -51,12 +51,12 @@ Les termes en gras sont ceux qu’affiche l’application. Lorsque l’anglais e
 
 | Terme | Définition |
 |---|---|
-| **Organisation** | L’espace partagé d’une entreprise, d’une école ou d’une communauté : membres, forfait, crédits, scénarios. Vous pouvez appartenir à plusieurs organisations. |
+| **Organisation** | L’espace partagé d’une entreprise, d’une école ou d’une communauté : membres, forfait, crédits, scénarios. Vous pouvez appartenir à plusieurs organisations. |
 | **Forfait** (*plan*) | **Community**, **Pro**, **Instructor** ou **Enterprise**. Il détermine les produits et scénarios accessibles. |
 | **Crédits** | L’unité de consommation des labs, décomptée sur le temps réel d’exécution et pondérée selon l’environnement. |
-| **Licence** (*seat*) | Le niveau d’accès attribué à un membre : **Apprenant** (gratuit, Community), **Apprenant Pro** ou **Formateur**. |
+| **Licence** (*seat*) | Le niveau d’accès attribué à un membre : **Apprenant** (gratuit, Community), **Apprenant Pro** ou **Formateur**. |
 | **Apprenant** | Un membre qui détient la licence gratuite du forfait Community. |
 | **Bon de crédit** (*voucher*) | Un code qui ajoute des crédits à votre solde. Tout membre peut en utiliser un. |
 | **Invitation** | Un lien envoyé par e-mail pour rejoindre Klastro, une organisation, ou passer un assessment. Une invitation peut expirer ou être révoquée. |
 
-Pour voir ces notions en action, lisez [Qu’est-ce que Klastro ?](/getting-started/what-is-klastro/).
+Pour voir ces notions en action, lisez [Qu’est-ce que Klastro ?](/getting-started/what-is-klastro/).

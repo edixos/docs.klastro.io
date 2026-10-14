@@ -9,7 +9,7 @@ import { Steps } from '@astrojs/starlight/components';
 
 La page **Équipe** est l’endroit où un administrateur décide qui fait partie de
 l’organisation et ce que chacun peut faire. Le **rôle** d’un membre indique ce
-qu’il peut gérer ; sa **licence** indique les scénarios auxquels il accède et les
+qu’il peut gérer ; sa **licence** indique les scénarios auxquels il accède et les
 crédits qu’il reçoit.
 
 ## Avant de commencer
@@ -29,10 +29,10 @@ crédits qu’il reçoit.
 | **Formateur** | Rédige les scénarios et anime les cohortes, avec une licence Formateur. |
 | **Recruteur** | Gère les assessments et les invitations de candidats. |
 
-Les rôles proposés dépendent du mode de facturation de votre organisation :
+Les rôles proposés dépendent du mode de facturation de votre organisation :
 
 - un **abonnement en libre-service** propose **Apprenant**, **Formateur**,
-  **Administrateur** et **Responsable facturation** ;
+  **Administrateur** et **Responsable facturation** ;
 - un **contrat Enterprise** propose aussi **Recruteur**, car les assessments de
   recrutement font partie du contrat.
 
@@ -40,17 +40,17 @@ Les rôles proposés dépendent du mode de facturation de votre organisation :
 
 | | Administrateur | Responsable facturation | Apprenant | Formateur | Recruteur |
 |---|---|---|---|---|---|
-| Ouvrir la page **Équipe** : ajouter, retirer, changer les rôles | Oui | Non | Non | Non | Non |
+| Ouvrir la page **Équipe** : ajouter, retirer, changer les rôles | Oui | Non | Non | Non | Non |
 | Modifier les **Paramètres** | Oui | Lecture seule | Lecture seule | Lecture seule | Lecture seule |
 | Consulter le **Journal d’audit** | Oui | Non | Non | Non | Non |
-| **Facturation** : onglets **Forfait**, **Licences** et **Historique** | Oui | Oui | Non | Non | Non |
-| **Facturation** : **Vue d’ensemble** et **Consommation** de ses propres crédits | Oui | Oui | Oui | Oui | Oui |
+| **Facturation** : onglets **Forfait**, **Licences** et **Historique** | Oui | Oui | Non | Non | Non |
+| **Facturation** : **Vue d’ensemble** et **Consommation** de ses propres crédits | Oui | Oui | Oui | Oui | Oui |
 | Détenir une licence payante | Oui | Non | Oui | Oui | Non |
 | Donner ses propres crédits à un membre | Oui | Non | Non | Avec une licence Formateur | Non |
 | Utiliser un bon de crédit | Oui | Oui | Oui | Oui | Oui |
 
 Ce qu’un membre peut **lancer** dépend de sa licence, pas de son rôle. Scenario
-Studio et les cohortes demandent une licence **Formateur** ; les scénarios Pro,
+Studio et les cohortes demandent une licence **Formateur** ; les scénarios Pro,
 une licence **Apprenant Pro** ou **Formateur**. Voir
 [Forfaits et crédits](/billing/plans-and-credits/#licences).
 
@@ -95,7 +95,7 @@ Si l’invitation n’a pas été utilisée, cliquez sur **Renvoyer l’invitati
 la colonne **Statut** du membre. Un nouveau lien d’invitation est envoyé à son
 adresse.
 
-- **Lien expiré** signifie que le lien précédent a expiré : renvoyez-le.
+- **Lien expiré** signifie que le lien précédent a expiré : renvoyez-le.
 - **E-mail non remis** signifie que le dernier e-mail n’a pas pu être remis.
   Vérifiez l’adresse, puis renvoyez-le.
 - Après un renvoi, le bouton affiche **Renvoi possible dans … s** jusqu’à ce que
@@ -113,13 +113,13 @@ une licence payante la conserve jusqu’à ce que vous la libériez.
 
 Dans la colonne **Licence**, choisissez **Apprenant Pro** ou **Formateur**, puis
 confirmez avec **Attribuer la licence**. La licence est prise sur la réserve que
-vous avez déjà payée : votre facture ne change pas.
+vous avez déjà payée : votre facture ne change pas.
 
 Pour reprendre une licence, choisissez **Apprenant** et confirmez avec
 **Libérer la licence**. Le membre conserve son compte mais n’accède plus qu’aux
 scénarios gratuits et aux sessions qu’un formateur lui assigne.
 
-Un membre ne peut recevoir de licence qu’après s’être connecté ; d’ici là, la
+Un membre ne peut recevoir de licence qu’après s’être connecté ; d’ici là, la
 colonne affiche **En attente de connexion**. Pour la procédure complète, voir
 [Gérer les licences](/billing/seats/).
 
@@ -142,7 +142,7 @@ exemple pour qu’un apprenant sans licence payante puisse lancer des labs.
 
 Les crédits quittent votre solde pour rejoindre le sien, à dépenser sur ses
 propres labs. Les crédits venus de votre licence restent attachés à la licence et
-ne peuvent pas être donnés : le montant que vous pouvez donner peut donc être
+ne peuvent pas être donnés : le montant que vous pouvez donner peut donc être
 inférieur à ce que vous pouvez dépenser.
 
 ## Retirer un membre
@@ -159,7 +159,7 @@ inférieur à ce que vous pouvez dépenser.
 :::caution
 La personne perd immédiatement l’accès à toutes les ressources de
 l’organisation, et tout lien d’invitation qui lui a été envoyé cesse de
-fonctionner. Cette action est irréversible : pour la faire revenir, ajoutez-la de
+fonctionner. Cette action est irréversible : pour la faire revenir, ajoutez-la de
 nouveau.
 :::
 
@@ -170,17 +170,17 @@ retourne dans votre réserve avec ses crédits.
 
 ## Ce que voit chaque membre
 
-Klastro limite ce que voit chaque membre à ce qui le concerne :
+Klastro limite ce que voit chaque membre à ce qui le concerne :
 
 - la page **Facturation** montre à chaque membre **ses propres** crédits et ses
   propres labs uniquement. Administrateurs et responsables facturation voient en
-  plus le forfait, les licences et l’historique des crédits de l’organisation ;
+  plus le forfait, les licences et l’historique des crédits de l’organisation ;
 - la page **Équipe** affiche le solde de **Crédits** de chaque membre, que seuls
   ses propres labs consomment. Il peut être négatif quand un lab en cours a
   dépassé les crédits qui l’avaient lancé.
 
 Les organisations sous contrat Enterprise n’ont pas les colonnes **Licence** et
-**Crédits** : leur capacité est fixée par contrat.
+**Crédits** : leur capacité est fixée par contrat.
 
 ## Voir aussi
 

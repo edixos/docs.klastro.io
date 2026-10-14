@@ -8,7 +8,7 @@ sidebar:
 import { Steps, Tabs, TabItem } from '@astrojs/starlight/components';
 
 Chaque scénario Klastro est une liste de tâches. Klastro ne note ni vos commandes
-ni votre saisie : il **inspecte l’état réel de votre environnement** — le
+ni votre saisie : il **inspecte l’état réel de votre environnement** — le
 Deployment existe-t-il, le Pod tourne-t-il, le fichier a-t-il le bon contenu — et
 le compare à ce que demande la tâche. Cette page explique ce fonctionnement et ce
 qui change entre tutoriels, challenges et assessments.
@@ -17,13 +17,13 @@ qui change entre tutoriels, challenges et assessments.
 
 Lorsqu’une tâche est vérifiée, Klastro examine votre environnement à cet instant
 et lui applique les contrôles de la tâche. Une tâche comporte généralement
-plusieurs contrôles ; elle est **réussie** lorsque tous ses contrôles
+plusieurs contrôles ; elle est **réussie** lorsque tous ses contrôles
 obligatoires passent.
 
 - **Réussie** signifie que votre environnement est, à cet instant, dans l’état
   décrit par la tâche. La façon d’y parvenir n’a pas d’importance.
 - **Échouée** signifie qu’au moins un contrôle ne correspond pas. Ce n’est pas une
-  erreur : corrigez l’environnement et la tâche pourra réussir à la vérification
+  erreur : corrigez l’environnement et la tâche pourra réussir à la vérification
   suivante.
 
 Une vérification prend quelques secondes, parfois davantage sur un environnement
@@ -73,10 +73,10 @@ réduit à ses numéros et reste utilisable.
    verdict affiche **Vérification en cours…** pendant que Klastro inspecte votre
    environnement.
 
-3. Lisez le verdict :
-   - **Étape validée** : l’étape est réussie. Son numéro devient une coche dans
+3. Lisez le verdict :
+   - **Étape validée** : l’étape est réussie. Son numéro devient une coche dans
      la liste et le compteur de progression augmente.
-   - **Pas encore — réessayez** : au moins un contrôle a échoué. Une courte note
+   - **Pas encore — réessayez** : au moins un contrôle a échoué. Une courte note
      sous le verdict liste ce qui ne correspond pas encore.
 
 4. Si l’étape a échoué, corrigez votre environnement et cliquez sur
@@ -94,7 +94,7 @@ suivantes de cette étape échouent. Lisez le retour et corrigez l’environneme
 avant de vérifier à nouveau, et ne revérifiez pas une étape déjà validée.
 :::
 
-Après **Terminer** :
+Après **Terminer** :
 
 - Si vous avez lancé le tutoriel depuis un parcours de certification, l’étape est
   marquée comme terminée sur le parcours, le lab est arrêté et vous revenez au
@@ -106,7 +106,7 @@ Après **Terminer** :
 
 ## Envoyer un challenge
 
-Un challenge n’a pas de bouton de vérification par tâche : l’envoi se fait en une seule fois,
+Un challenge n’a pas de bouton de vérification par tâche : l’envoi se fait en une seule fois,
 et chaque envoi compte comme une tentative par tâche, pour que ses réponses ne puissent pas être trouvées par tâtonnement.
 
 <Steps>
@@ -116,7 +116,7 @@ et chaque envoi compte comme une tentative par tâche, pour que ses réponses ne
 
 2. Sur la dernière tâche, cliquez sur **Terminer et envoyer**.
 
-3. Dans **Terminer et envoyer pour correction ?**, cliquez sur
+3. Dans **Terminer et envoyer pour correction ?**, cliquez sur
    **Envoyer et voir les résultats**, ou sur **Continuer à travailler** pour
    revenir en arrière.
 
@@ -126,12 +126,12 @@ et chaque envoi compte comme une tentative par tâche, pour que ses réponses ne
 
 </Steps>
 
-Votre lab continue de tourner après l’envoi : vous pouvez y revenir, corriger une
+Votre lab continue de tourner après l’envoi : vous pouvez y revenir, corriger une
 tâche et renvoyer. C’est votre dernier envoi qui compte.
 
 :::caution[Chaque envoi consomme une vérification par tâche]
 Un envoi vérifie chaque tâche une fois. La limite par tâche (trois par défaut)
-s’applique : au-delà, chaque tâche d’un nouvel envoi est comptée comme échouée et
+s’applique : au-delà, chaque tâche d’un nouvel envoi est comptée comme échouée et
 votre score baisse. Envoyez quand vous êtes sûr de vous, pas pour voir où vous en
 êtes.
 :::
@@ -148,13 +148,13 @@ dépend du type de lab.
 <TabItem label="Tutoriel">
 
 La section s’appelle **Étapes guidées** et chaque entrée est une **Étape**.
-Cliquez sur **Afficher** pour la lire. Les étapes guidées sont gratuites : elles
+Cliquez sur **Afficher** pour la lire. Les étapes guidées sont gratuites : elles
 n’ont aucune conséquence. Affichez-les dans l’ordre, à partir de la première.
 
 </TabItem>
 <TabItem label="Challenge">
 
-La section s’appelle **Indices** et ils forment une chaîne : seul l’indice
+La section s’appelle **Indices** et ils forment une chaîne : seul l’indice
 suivant peut être ouvert, les autres indiquent **Révélez d’abord l’indice 2**, et
 ainsi de suite. Cliquez sur **Révéler** pour en ouvrir un. Le bouton affiche son
 coût, par exemple **(−5 pts)**.
@@ -169,20 +169,20 @@ votre score sur cette tâche.
 </TabItem>
 </Tabs>
 
-Les indices révélés sont enregistrés : ils restent ouverts après un rechargement
+Les indices révélés sont enregistrés : ils restent ouverts après un rechargement
 ou sur un autre appareil, et un indice révélé ne peut pas être masqué de nouveau.
 
 ## Calcul du score
 
-Le score concerne les challenges et les assessments ; un tutoriel n’est pas noté.
+Le score concerne les challenges et les assessments ; un tutoriel n’est pas noté.
 
 - Chaque tâche vaut les points affichés à côté d’elle. L’auteur du scénario
   décide de leur répartition.
-- Les points d’une tâche se gagnent contrôle par contrôle : chaque contrôle réussi
+- Les points d’une tâche se gagnent contrôle par contrôle : chaque contrôle réussi
   apporte sa part, si bien qu’une tâche qui n’est pas entièrement réussie peut
   quand même rapporter des points.
 - Le coût de chaque indice révélé pour une tâche est retiré des points de cette
-  tâche. Une tâche ne descend jamais sous zéro : les indices d’une tâche ne peuvent
+  tâche. Une tâche ne descend jamais sous zéro : les indices d’une tâche ne peuvent
   pas vous coûter des points gagnés sur une autre.
 - Votre score est la somme de toutes les tâches, d’après la dernière vérification
   de chacune.

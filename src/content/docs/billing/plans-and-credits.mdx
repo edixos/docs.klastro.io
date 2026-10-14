@@ -6,7 +6,7 @@ sidebar:
 ---
 
 Klastro vend du temps de lab pratique. Cette page explique le modèle derrière la
-page **Facturation** : ce que donne chaque forfait, ce qu’est un crédit, et
+page **Facturation** : ce que donne chaque forfait, ce qu’est un crédit, et
 pourquoi deux labs de même durée peuvent coûter des montants différents.
 
 ## Deux façons de facturer une organisation
@@ -20,8 +20,8 @@ vos licences ou qui vous sont donnés. Tout ce qui suit sur les crédits concern
 ces organisations.
 
 **Contrat Enterprise.** Le prix, la capacité et la durée sont fixés par contrat
-avec l’équipe Klastro ; rien ne s’achète en ligne. Une organisation sous contrat
-n’a pas de crédits : sa page **Facturation** affiche un encart **Contrat
+avec l’équipe Klastro ; rien ne s’achète en ligne. Une organisation sous contrat
+n’a pas de crédits : sa page **Facturation** affiche un encart **Contrat
 Enterprise** et sa **Capacité contractuelle** (le nombre de sessions pouvant
 tourner en même temps), rien de plus. Forfaits, licences, compteurs de crédits,
 bons de crédit et historique des crédits sont masqués, car aucun ne décrit la
@@ -32,13 +32,13 @@ facturation, contactez votre chargé de compte.
 
 Une organisation en abonnement est toujours sur l’un de trois forfaits.
 Community est gratuit et toute nouvelle organisation commence par lui. Pro et
-Instructor se paient **par licence** : vous achetez autant de licences de chaque
+Instructor se paient **par licence** : vous achetez autant de licences de chaque
 niveau que nécessaire, et une organisation peut détenir des licences Pro et des
 licences Instructor en même temps.
 
 | | Community | Pro | Instructor |
 |---|---|---|---|
-| Prix (HT) | Gratuit | 25 € / utilisateur / mois, ou 250 € / utilisateur / an | 50 € / utilisateur / mois, ou 500 € / utilisateur / an |
+| Prix (HT) | Gratuit | 25 € / utilisateur / mois, ou 250 € / utilisateur / an | 50 € / utilisateur / mois, ou 500 € / utilisateur / an |
 | Crédits | 10 crédits de bienvenue, une seule fois, au fondateur | 60 crédits par licence, chaque mois | 100 crédits par licence, chaque mois |
 | Labs en cours en même temps | 1 par membre | Jusqu’à 2 par licence | Jusqu’à 5 par licence |
 | Catalogue | Scénarios gratuits | Tous les scénarios Pro, pour chaque membre titulaire d’une licence | Tous les scénarios Pro |
@@ -57,7 +57,7 @@ Une licence annuelle reçoit quand même sa dotation de crédits chaque mois.
 ### Règles communes à tous les forfaits
 
 L’encart **Sur tous les forfaits** de l’onglet **Forfait** liste les règles qui
-s’appliquent quel que soit votre forfait :
+s’appliquent quel que soit votre forfait :
 
 - Un lab consomme de 1 à 6 crédits par heure selon l’environnement.
 - Lancer un lab demande une heure de ses crédits sur votre solde.
@@ -72,7 +72,7 @@ tous membres confondus. Les labs en pause n’y sont pas comptés.
 ## Licences
 
 Une **licence** est l’unité d’un abonnement payant. Chaque membre détient
-exactement un type de licence :
+exactement un type de licence :
 
 | Licence | Ce qu’elle donne | Coût |
 |---|---|---|
@@ -80,7 +80,7 @@ exactement un type de licence :
 | **Apprenant Pro** | Tous les scénarios Pro, plus les crédits mensuels de la licence. | Une licence Pro de votre réserve |
 | **Formateur** | Tout ce qu’atteint Pro, plus Scenario Studio, les cohortes et une dotation mensuelle plus élevée. | Une licence Instructor de votre réserve |
 
-Acheter des licences et les attribuer sont deux étapes distinctes : vous achetez
+Acheter des licences et les attribuer sont deux étapes distinctes : vous achetez
 des licences dans une **réserve**, puis un administrateur les attribue aux
 membres. Attribuer ou libérer une licence ne modifie jamais votre facture. Voir
 [Gérer les licences](/billing/seats/).
@@ -88,20 +88,20 @@ membres. Attribuer ou libérer une licence ne modifie jamais votre facture. Voir
 ## Ce qu’est un crédit
 
 Un crédit est l’unité de temps de lab de Klastro. Chaque lab en cours consomme
-les crédits du solde d’une seule personne : celle qui l’a lancé.
+les crédits du solde d’une seule personne : celle qui l’a lancé.
 
 Votre solde est personnel. Chaque membre a le sien, et les dépenses des autres ne
-peuvent pas l’entamer. Il se compose :
+peuvent pas l’entamer. Il se compose :
 
 - des crédits de votre licence, si vous détenez une licence payante. Ils
   repartent de la dotation chaque mois, sans report, et restent attachés à la
-  licence : ils ne peuvent pas être donnés ;
-- des crédits que vous détenez vous-même : les crédits de bienvenue Community,
+  licence : ils ne peuvent pas être donnés ;
+- des crédits que vous détenez vous-même : les crédits de bienvenue Community,
   ceux qu’un administrateur vous a donnés, et ceux d’un bon de crédit que vous
   avez utilisé.
 
 Un membre invité dans une organisation démarre sans crédits. Les crédits
-n’arrivent que de façon explicite : avec une licence payante, par un don d’un
+n’arrivent que de façon explicite : avec une licence payante, par un don d’un
 administrateur, ou par un bon de crédit.
 
 ### Les crédits ont des décimales
@@ -115,7 +115,7 @@ décimales.
 
 Un lab est facturé pour le temps pendant lequel il a tourné, pondéré par le
 calcul que mobilise son environnement. Un environnement plus lourd consomme plus
-vite :
+vite :
 
 | Environnement | Crédits / heure |
 |---|---|
@@ -131,7 +131,7 @@ heure coûtent **0,14**, pas 1. Une heure sur un Multi Node Cluster coûte six f
 une heure sur un Virtual Cluster.
 
 La consommation est enregistrée à la fin du lab. Pendant qu’un lab tourne, les
-crédits qu’il a déjà consommés sont mis de côté sur ce qui vous reste : vous ne
+crédits qu’il a déjà consommés sont mis de côté sur ce qui vous reste : vous ne
 pouvez donc pas lancer un deuxième lab avec des crédits que le premier est en
 train de dépenser.
 
@@ -139,7 +139,7 @@ train de dépenser.
 
 Pour lancer un lab, il vous faut au moins **une heure** du coût de cet
 environnement disponible sur votre solde, après ce que vos labs en cours ont déjà
-consommé. Un lab Multi Node Cluster demande donc 6 crédits disponibles ; un lab
+consommé. Un lab Multi Node Cluster demande donc 6 crédits disponibles ; un lab
 Virtual Cluster, 1. La reprise d’un lab en pause suit la même règle.
 
 ### Quand vos crédits sont épuisés
@@ -172,7 +172,7 @@ Instructor, par exemple pendant une évaluation. Il ne demande aucun abonnement 
 prend fin à une date fixée.
 
 L’accès temporaire ouvre ce que la licence permet d’atteindre, mais il
-**n’inclut aucun crédit** : les labs consomment toujours le solde du membre.
+**n’inclut aucun crédit** : les labs consomment toujours le solde du membre.
 Pendant sa durée, la page **Facturation** du membre affiche **Accès temporaire
 Apprenant Pro jusqu’au** (ou **Accès temporaire Formateur jusqu’au**) suivi de la
 date de fin, et la page **Équipe** affiche la licence avec **Temporaire ·

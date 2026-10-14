@@ -8,7 +8,7 @@ sidebar:
 import { Steps } from '@astrojs/starlight/components';
 
 La page **Facturation** montre ce que vous avez dépensé et pourquoi. Ce que vous
-y voyez dépend de votre rôle :
+y voyez dépend de votre rôle :
 
 | Onglet | Qui le voit | Périmètre |
 |---|---|---|
@@ -19,7 +19,7 @@ y voyez dépend de votre rôle :
 | **Historique** | **Administrateur**, **Responsable facturation** | Tous les mouvements de crédits de l’organisation. |
 
 Les chiffres de crédits décrivent toujours **votre propre** solde, même pour un
-administrateur : chaque membre dépense ses propres crédits, et l’organisation
+administrateur : chaque membre dépense ses propres crédits, et l’organisation
 n’en détient aucun en propre.
 
 :::note
@@ -31,7 +31,7 @@ contractuelle**. Voir [Forfaits et crédits](/billing/plans-and-credits/).
 ## Onglet Vue d’ensemble
 
 La carte **Crédits de la période** affiche une jauge des crédits consommés sur
-votre dotation, les crédits **restants**, et leur renouvellement :
+votre dotation, les crédits **restants**, et leur renouvellement :
 
 | Ligne | Signification |
 |---|---|
@@ -51,7 +51,7 @@ récente** des derniers mouvements de crédits.
 
 **Attribués**, **Consommés** et **Restants** indiquent où en est votre propre
 solde en ce moment. **Attribués** correspond à ce dont vous disposiez sur la
-période, dépensé ou non : un zéro signifie que vous n’aviez pas de crédits.
+période, dépensé ou non : un zéro signifie que vous n’aviez pas de crédits.
 
 ### Ce que coûte un lab
 
@@ -68,7 +68,7 @@ un lab dont vous vous souvenez. Un lab apparaît ici à sa fin.
 |---|---|
 | **Session** | La session de lab. |
 | **Début** / **Fin** | Les heures de début et de fin du lab. |
-| **Facturé** | Le temps de fonctionnement facturé. Si le lab a été mis en pause, une mention du type **1 h 10 min moins 20 min en pause** apparaît : le temps en pause est gratuit. |
+| **Facturé** | Le temps de fonctionnement facturé. Si le lab a été mis en pause, une mention du type **1 h 10 min moins 20 min en pause** apparaît : le temps en pause est gratuit. |
 | **Tarif** | Les crédits par heure de l’environnement, par exemple **2/h**. |
 | **Crédits** | Le coût du lab, au centième de crédit près. |
 
@@ -96,31 +96,31 @@ solde de ce membre après le mouvement.
 | Type | Signification |
 |---|---|
 | **Consommation de session** | Un lab s’est terminé et son coût a été décompté. |
-| **Dotation du forfait** | Un forfait a versé des crédits : les crédits de bienvenue Community, versés une fois, ou le renouvellement mensuel d’une licence payante. |
+| **Dotation du forfait** | Un forfait a versé des crédits : les crédits de bienvenue Community, versés une fois, ou le renouvellement mensuel d’une licence payante. |
 | **Dotation expirée** | Les crédits inutilisés ont été remis à zéro juste avant un renouvellement mensuel. Les crédits de licence ne se reportent pas. |
 | **Dépassement de cohorte** | Les places de cohorte au-delà de celles incluses, payées en crédits avant le lancement. |
-| **Transfert de crédits** | Des crédits donnés d’un membre à un autre. Un transfert apparaît sur deux lignes : une pour le donateur, une pour le bénéficiaire. |
+| **Transfert de crédits** | Des crédits donnés d’un membre à un autre. Un transfert apparaît sur deux lignes : une pour le donateur, une pour le bénéficiaire. |
 | **Licence attribuée** | Une licence payante a été attribuée au membre, avec les crédits qui lui restaient. |
 | **Licence libérée** | Une licence payante a été reprise, avec les crédits qui lui restaient. |
 | `VOUCHER_REDEMPTION` | Un membre a utilisé un bon de crédit. |
 
 :::note
 Les lignes **Licence attribuée** et **Licence libérée** ne créent ni ne
-détruisent de crédits : elles indiquent qui peut désormais dépenser les crédits
+détruisent de crédits : elles indiquent qui peut désormais dépenser les crédits
 déjà présents sur cette licence.
 :::
 
 ## Factures et paiement
 
 Klastro facture votre abonnement via Stripe. Il n’y a pas de facture distincte
-pour l’utilisation des labs : les labs se paient en crédits, et une fois vos
+pour l’utilisation des labs : les labs se paient en crédits, et une fois vos
 crédits épuisés, les labs se mettent en pause au lieu de générer un dépassement.
 
 Les factures et les reçus sont envoyés par e-mail à l’**E-mail de facturation**
 renseigné dans les paramètres de votre organisation. Voir
 [Paramètres de l’organisation](/admins/organization-settings/#informations-de-facturation).
 
-Pour mettre à jour votre moyen de paiement, changer de forfait ou résilier :
+Pour mettre à jour votre moyen de paiement, changer de forfait ou résilier :
 
 <Steps>
 

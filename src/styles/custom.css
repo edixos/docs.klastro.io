@@ -1,13 +1,340 @@
-/* Klastro brand accent, taken from the klastro.io palette (globals.css
-   --primary / --accent) so docs and marketing read as one product. */
+/*
+ * Klastro theme for Starlight.
+ *
+ * Tokens are ported from klastro.io/src/styles/globals.css (itself a verbatim
+ * port of the app's), so docs, marketing and app render one palette and one
+ * type system. ui/DESIGN.md is the source of truth; see DESIGN.md here.
+ *
+ * Starlight's colour model: in dark mode `white` is the brightest text and
+ * `black` the page; light mode inverts the ramp. Both are remapped below onto
+ * the Klastro navy/ice neutrals.
+ */
+
+/* ── Type ─────────────────────────────────────────────────────────────── */
 :root {
-	--sl-color-accent-low: oklch(0.295 0.042 252);
-	--sl-color-accent: oklch(0.62 0.08 250);
-	--sl-color-accent-high: oklch(0.925 0.024 228);
+	--sl-font: 'Space Grotesk', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+	--sl-font-mono: 'Source Code Pro', ui-monospace, SFMono-Regular, Menlo, monospace;
+	--klastro-font-display: 'Bricolage Grotesque Variable', 'Space Grotesk', ui-sans-serif,
+		system-ui, sans-serif;
+
+	/* Scale: ~1.25 between heading steps, fixed rem (product register). */
+	--sl-text-h1: 2.25rem;
+	--sl-text-h2: 1.75rem;
+	--sl-text-h3: 1.375rem;
+	--sl-text-h4: 1.125rem;
+	--sl-text-h5: 1rem;
+	--sl-line-height: 1.7;
+	--sl-line-height-headings: 1.2;
+
+	/* App radius scale: sm 6px, md 8px, lg 10px. */
+	--klastro-radius-sm: 0.375rem;
+	--klastro-radius-md: 0.5rem;
+	--klastro-radius-lg: 0.625rem;
+
+	/* Motion: feedback only. Strong ease-out, short. */
+	--klastro-ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+	--klastro-duration: 160ms;
 }
 
-:root[data-theme='light'] {
+/* ── Dark theme (Starlight default) ───────────────────────────────────── */
+:root {
+	--sl-color-white: oklch(0.985 0.006 228);
+	--sl-color-gray-1: oklch(0.945 0.012 228);
+	--sl-color-gray-2: oklch(0.86 0.018 230);
+	--sl-color-gray-3: oklch(0.74 0.025 248);
+	--sl-color-gray-4: oklch(0.54 0.032 252);
+	--sl-color-gray-5: oklch(0.335 0.04 254);
+	--sl-color-gray-6: oklch(0.235 0.04 254);
+	--sl-color-black: oklch(0.185 0.038 252);
+
+	--sl-color-accent-low: oklch(0.295 0.042 252);
+	--sl-color-accent: oklch(0.76 0.06 235);
+	--sl-color-accent-high: oklch(0.925 0.024 228);
+
+	/* Semantic signals (asides, badges). Blue = note (navy family), purple is
+	   remapped to green so Starlight's "tip" lands on the success signal. */
+	--sl-color-blue-low: oklch(0.27 0.042 254);
+	--sl-color-blue: oklch(0.76 0.06 235);
+	--sl-color-blue-high: oklch(0.925 0.024 228);
+	--sl-color-purple-low: oklch(0.27 0.05 165);
+	--sl-color-purple: oklch(0.696 0.17 162.48);
+	--sl-color-purple-high: oklch(0.87 0.09 162);
+	--sl-color-green-low: oklch(0.27 0.05 165);
+	--sl-color-green: oklch(0.696 0.17 162.48);
+	--sl-color-green-high: oklch(0.87 0.09 162);
+	--sl-color-orange-low: oklch(0.29 0.05 70);
+	--sl-color-orange: oklch(0.795 0.184 86.047);
+	--sl-color-orange-high: oklch(0.9 0.09 86);
+	--sl-color-red-low: oklch(0.28 0.06 22);
+	--sl-color-red: oklch(0.704 0.191 22.216);
+	--sl-color-red-high: oklch(0.88 0.08 22);
+
+	--sl-color-bg-nav: var(--sl-color-black);
+	--sl-color-bg-sidebar: var(--sl-color-black);
+	--sl-color-hairline: oklch(0.29 0.04 254);
+	--sl-color-hairline-light: var(--sl-color-gray-5);
+	--sl-color-backdrop-overlay: oklch(0.185 0.038 252 / 0.7);
+}
+
+/* ── Light theme ──────────────────────────────────────────────────────── */
+:root[data-theme='light'],
+[data-theme='light'] ::backdrop {
+	--sl-color-white: oklch(0.2 0.043 255);
+	--sl-color-gray-1: oklch(0.27 0.04 254);
+	--sl-color-gray-2: oklch(0.33 0.035 253);
+	--sl-color-gray-3: oklch(0.44 0.03 252);
+	--sl-color-gray-4: oklch(0.62 0.028 228);
+	--sl-color-gray-5: oklch(0.862 0.022 228);
+	--sl-color-gray-6: oklch(0.955 0.018 228);
+	--sl-color-gray-7: oklch(0.978 0.013 228);
+	--sl-color-black: oklch(0.995 0.003 228);
+
 	--sl-color-accent-low: oklch(0.925 0.024 228);
 	--sl-color-accent: oklch(0.443 0.059 254);
-	--sl-color-accent-high: oklch(0.3 0.05 254);
+	--sl-color-accent-high: oklch(0.36 0.06 254);
+
+	--sl-color-blue-low: oklch(0.955 0.018 228);
+	--sl-color-blue: oklch(0.443 0.059 254);
+	--sl-color-blue-high: oklch(0.36 0.06 254);
+	--sl-color-purple-low: oklch(0.965 0.03 163);
+	--sl-color-purple: oklch(0.48 0.145 163.225);
+	--sl-color-purple-high: oklch(0.4 0.11 163);
+	--sl-color-green-low: oklch(0.965 0.03 163);
+	--sl-color-green: oklch(0.48 0.145 163.225);
+	--sl-color-green-high: oklch(0.4 0.11 163);
+	--sl-color-orange-low: oklch(0.97 0.035 75);
+	--sl-color-orange: oklch(0.51 0.165 58.318);
+	--sl-color-orange-high: oklch(0.44 0.13 55);
+	--sl-color-red-low: oklch(0.97 0.022 25);
+	--sl-color-red: oklch(0.53 0.245 27.325);
+	--sl-color-red-high: oklch(0.46 0.19 27);
+
+	--sl-color-bg-nav: var(--sl-color-black);
+	--sl-color-bg-sidebar: var(--sl-color-gray-7);
+	--sl-color-bg-inline-code: var(--sl-color-gray-6);
+	--sl-color-hairline: oklch(0.9 0.018 228);
+	--sl-color-hairline-light: var(--sl-color-gray-5);
+	--sl-color-backdrop-overlay: oklch(0.2 0.043 255 / 0.4);
+}
+
+/* ── Headings: display face for h1/h2, as on klastro.io ───────────────── */
+.sl-markdown-content :is(h1, h2),
+h1#_top,
+.hero h1 {
+	font-family: var(--klastro-font-display);
+	letter-spacing: -0.02em;
+	font-weight: 650;
+}
+.sl-markdown-content :is(h3, h4, h5) {
+	letter-spacing: -0.01em;
+	font-weight: 600;
+}
+/* Section headings get air above, less below: they belong to what follows. */
+.sl-markdown-content h2 {
+	margin-top: 2.5em;
+}
+.sl-markdown-content h3 {
+	margin-top: 2em;
+}
+
+/* Lead paragraph under the page title. */
+.sl-markdown-content > p:first-child {
+	color: var(--sl-color-gray-2);
+}
+
+/* ── Links ────────────────────────────────────────────────────────────── */
+.sl-markdown-content a:not(:where(.not-content *)) {
+	color: var(--sl-color-text-accent);
+	text-decoration-color: color-mix(in oklch, currentColor 35%, transparent);
+	text-underline-offset: 0.2em;
+	transition: text-decoration-color var(--klastro-duration) var(--klastro-ease-out);
+}
+@media (hover: hover) and (pointer: fine) {
+	.sl-markdown-content a:not(:where(.not-content *)):hover {
+		text-decoration-color: currentColor;
+	}
+}
+
+/* ── Inline code and keys ─────────────────────────────────────────────── */
+.sl-markdown-content :not(pre) > code {
+	/* A chip that wraps keeps its border and padding on both line fragments. */
+	-webkit-box-decoration-break: clone;
+	box-decoration-break: clone;
+	border-radius: var(--klastro-radius-sm);
+	padding: 0.1em 0.35em;
+	font-size: 0.875em;
+	border: 1px solid var(--sl-color-hairline);
+}
+kbd {
+	display: inline-block;
+	min-width: 1.6em;
+	padding: 0.05em 0.4em;
+	font-family: var(--sl-font-mono);
+	font-size: 0.8125em;
+	font-weight: 500;
+	line-height: 1.5;
+	text-align: center;
+	color: var(--sl-color-white);
+	background: var(--sl-color-gray-6);
+	border: 1px solid var(--sl-color-gray-5);
+	border-bottom-width: 2px;
+	border-radius: var(--klastro-radius-sm);
+}
+
+/* ── Asides: full hairline border + tint, never a thick side stripe ───── */
+.starlight-aside {
+	border: 1px solid color-mix(in oklch, var(--sl-color-asides-border) 30%, transparent);
+	border-radius: var(--klastro-radius-lg);
+	padding: 0.875rem 1rem;
+}
+.starlight-aside__title {
+	font-size: var(--sl-text-sm);
+	letter-spacing: 0.01em;
+}
+.starlight-aside__content {
+	color: var(--sl-color-gray-1);
+}
+
+/* ── Tables: honest, quiet, scannable ─────────────────────────────────── */
+.sl-markdown-content table {
+	font-size: var(--sl-text-sm);
+}
+.sl-markdown-content th {
+	font-weight: 600;
+	color: var(--sl-color-gray-2);
+	background: var(--sl-color-gray-6);
+}
+:root[data-theme='light'] .sl-markdown-content th {
+	background: var(--sl-color-gray-7);
+}
+.sl-markdown-content :is(th, td) {
+	border-color: var(--sl-color-hairline);
+}
+
+/* ── Steps: numbered badges in the navy family ────────────────────────── */
+.sl-steps > li::before {
+	font-family: var(--sl-font-mono);
+	font-weight: 600;
+	color: var(--sl-color-accent-high);
+	background: var(--sl-color-accent-low);
+	border: 1px solid color-mix(in oklch, var(--sl-color-accent) 30%, transparent);
+}
+
+/* ── Sidebar ──────────────────────────────────────────────────────────── */
+#starlight__sidebar .group-label .large {
+	font-family: var(--sl-font);
+	font-size: var(--sl-text-sm);
+	font-weight: 600;
+	letter-spacing: 0.01em;
+	color: var(--sl-color-white);
+}
+#starlight__sidebar a {
+	border-radius: var(--klastro-radius-sm);
+	transition:
+		background-color var(--klastro-duration) var(--klastro-ease-out),
+		color var(--klastro-duration) var(--klastro-ease-out);
+}
+@media (hover: hover) and (pointer: fine) {
+	#starlight__sidebar a:not([aria-current='page']):hover {
+		background-color: color-mix(in oklch, var(--sl-color-accent-low) 60%, transparent);
+	}
+}
+#starlight__sidebar a[aria-current='page'] {
+	background-color: var(--sl-color-accent-low);
+	color: var(--sl-color-accent-high);
+	font-weight: 600;
+}
+
+/* ── Buttons and cards: press feedback, hover only where hover exists ── */
+.sl-link-button {
+	border-radius: var(--klastro-radius-md);
+	font-weight: 500;
+	transition:
+		transform var(--klastro-duration) var(--klastro-ease-out),
+		background-color var(--klastro-duration) var(--klastro-ease-out),
+		border-color var(--klastro-duration) var(--klastro-ease-out);
+}
+.sl-link-button:active {
+	transform: scale(0.97);
+}
+/* klastro.io `--primary`: Ice on navy text in dark, Edixos Navy on ice-white in light. */
+.sl-link-button.primary {
+	background: oklch(0.925 0.024 228);
+	border-color: oklch(0.925 0.024 228);
+	color: oklch(0.2 0.043 255);
+}
+:root[data-theme='light'] .sl-link-button.primary {
+	background: oklch(0.443 0.059 254);
+	border-color: oklch(0.443 0.059 254);
+	color: oklch(0.985 0.005 228);
+}
+
+.sl-link-card,
+.card {
+	border-radius: var(--klastro-radius-lg);
+	border-color: var(--sl-color-gray-5);
+	box-shadow: none;
+	transition:
+		transform var(--klastro-duration) var(--klastro-ease-out),
+		border-color var(--klastro-duration) var(--klastro-ease-out),
+		background-color var(--klastro-duration) var(--klastro-ease-out);
+}
+.sl-link-card:active {
+	transform: scale(0.985);
+}
+@media (hover: hover) and (pointer: fine) {
+	.sl-link-card:hover {
+		border-color: var(--sl-color-accent);
+		background: color-mix(in oklch, var(--sl-color-accent-low) 45%, transparent);
+	}
+}
+
+/* ── Header logo: wordmark at UI scale, not hero scale ─────────────────── */
+.site-title img {
+	height: 1.625rem;
+	width: auto;
+}
+
+/* ── Splash hero: klastro.io's navy mesh, quiet, behind the title only ── */
+/* The mesh bleeds to the viewport edges; clip (not hidden) so no scroll
+   container is created and sticky elements keep working. */
+[data-has-hero] .main-frame {
+	overflow-x: clip;
+}
+[data-has-hero] .hero {
+	position: relative;
+	isolation: isolate;
+}
+[data-has-hero] .hero::before {
+	content: '';
+	position: absolute;
+	inset: -4rem -50vw 0;
+	z-index: -1;
+	pointer-events: none;
+	background:
+		radial-gradient(ellipse 60% 70% at 50% -10%, oklch(0.925 0.024 228 / 0.08), transparent),
+		radial-gradient(ellipse 40% 50% at 85% 30%, oklch(0.6 0.118 184.704 / 0.06), transparent);
+}
+:root[data-theme='light'] [data-has-hero] .hero::before {
+	background:
+		radial-gradient(ellipse 60% 70% at 50% -10%, oklch(0.443 0.059 254 / 0.12), transparent),
+		radial-gradient(ellipse 40% 50% at 85% 30%, oklch(0.6 0.118 184.704 / 0.06), transparent);
+}
+.hero h1 {
+	font-size: clamp(2.25rem, 1.5rem + 3vw, 3.5rem);
+	line-height: 1.05;
+}
+
+/* ── Focus: visible ring in the accent, everywhere ────────────────────── */
+:focus-visible {
+	outline: 2px solid var(--sl-color-accent);
+	outline-offset: 2px;
+}
+
+/* ── Reduced motion: keep colour feedback, drop movement ──────────────── */
+@media (prefers-reduced-motion: reduce) {
+	.sl-link-button:active,
+	.sl-link-card:active {
+		transform: none;
+	}
 }

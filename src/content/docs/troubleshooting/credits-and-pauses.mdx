@@ -5,49 +5,49 @@ sidebar:
   order: 7
 ---
 
-Sur les forfaits en libre-service, les labs se paient en **crédits** : chaque lab consomme un nombre de crédits par heure qui dépend de son environnement, et uniquement pendant qu’il tourne. Les organisations sous contrat Enterprise n’utilisent pas de crédits : leur capacité est fixée par le contrat. Pour le fonctionnement des crédits, consultez [Forfaits et crédits](/billing/plans-and-credits/).
+Sur les forfaits en libre-service, les labs se paient en **crédits** : chaque lab consomme un nombre de crédits par heure qui dépend de son environnement, et uniquement pendant qu’il tourne. Les organisations sous contrat Enterprise n’utilisent pas de crédits : leur capacité est fixée par le contrat. Pour le fonctionnement des crédits, consultez [Forfaits et crédits](/billing/plans-and-credits/).
 
 Chaque problème ci-dessous est présenté sous la forme **Symptôme**, **Cause** et **Solution**.
 
-## Je ne peux pas lancer de lab : crédits insuffisants
+## Je ne peux pas lancer de lab : crédits insuffisants
 
 **Symptôme.** Le lancement d’un lab affiche un message commençant par `ERR_INSUFFICIENT_CREDITS`, qui indique combien de crédits vous avez de disponibles et combien sont nécessaires. Ce message est rédigé en anglais.
 
-**Cause.** Lancer un lab demande **une heure de ses crédits** sur votre solde. Les crédits déjà engagés par les labs en cours sont déduits de votre solde : le lancement d’un deuxième lab peut donc échouer alors que votre solde semble positif.
+**Cause.** Lancer un lab demande **une heure de ses crédits** sur votre solde. Les crédits déjà engagés par les labs en cours sont déduits de votre solde : le lancement d’un deuxième lab peut donc échouer alors que votre solde semble positif.
 
 **Solution.**
 
 - Mettez en pause ou arrêtez un autre lab en cours pour libérer les crédits qu’il utilise, puis réessayez.
-- Choisissez un environnement plus léger : les petits environnements consomment moins de crédits par heure.
-- Ajoutez des crédits : utilisez un bon de crédit (voir [Bons de crédit](/billing/vouchers/)), ou adressez-vous à l’administrateur de votre organisation. Les administrateurs et les titulaires d’une licence Instructor peuvent donner des crédits à un membre.
+- Choisissez un environnement plus léger : les petits environnements consomment moins de crédits par heure.
+- Ajoutez des crédits : utilisez un bon de crédit (voir [Bons de crédit](/billing/vouchers/)), ou adressez-vous à l’administrateur de votre organisation. Les administrateurs et les titulaires d’une licence Instructor peuvent donner des crédits à un membre.
 
 ## Mon lab a été mis en pause automatiquement
 
-**Symptôme.** Vous recevez la notification **Votre lab a été mis en pause** (« Vos crédits sont épuisés. Ajoutez-en pour reprendre votre lab. »), et la session affiche **En pause** dans **Mes sessions**.
+**Symptôme.** Vous recevez la notification **Votre lab a été mis en pause** (« Vos crédits sont épuisés. Ajoutez-en pour reprendre votre lab. »), et la session affiche **En pause** dans **Mes sessions**.
 
 **Cause.** Quand vos crédits sont épuisés, Klastro met vos labs en cours en pause au lieu de facturer un dépassement. Le temps en pause n’est pas facturé, et rien n’est facturé au-delà de votre solde. Votre travail est conservé dans l’environnement en pause.
 
 **Solution.** Ajoutez d’abord des crédits, puis ouvrez **Mes sessions** et reprenez la session. Si la reprise affiche **Impossible de reprendre la session. Rechargez la page pour réessayer.**, vérifiez que votre solde couvre désormais au moins une heure de ce lab.
 
 :::tip
-La notification **Crédits bientôt épuisés** (« Il vous reste … crédits dans … ») vous prévient avant que votre solde n’atteigne zéro. C’est le bon moment pour mettre en pause les labs que vous n’utilisez pas.
+La notification **Crédits bientôt épuisés** (« Il vous reste … crédits dans … ») vous prévient avant que votre solde n’atteigne zéro. C’est le bon moment pour mettre en pause les labs que vous n’utilisez pas.
 :::
 
-## « Limite de sessions atteinte »
+## « Limite de sessions atteinte »
 
-**Symptôme.** La fenêtre **Limite de sessions atteinte** s’affiche au lancement ou à la reprise d’un lab : « Votre forfait permet une session à la fois… » ou « Votre forfait permet N sessions en même temps… ».
+**Symptôme.** La fenêtre **Limite de sessions atteinte** s’affiche au lancement ou à la reprise d’un lab : « Votre forfait permet une session à la fois… » ou « Votre forfait permet N sessions en même temps… ».
 
 **Cause.** Chaque forfait permet un nombre défini de sessions simultanées. Les sessions en pause ne comptent pas.
 
 **Solution.** Dans la fenêtre, sélectionnez **Mettre en pause** ou **Arrêter** à côté d’une session listée sous **Sessions en cours**, puis **Réessayer**. Vous pouvez aussi ouvrir **Toutes mes sessions**, ou **Changer de forfait** pour faire tourner plus de labs à la fois.
 
-## « Trop de sessions sont en cours »
+## « Trop de sessions sont en cours »
 
 **Symptôme.** Le lancement ou la reprise affiche **Cette session ne peut pas encore reprendre, car trop de sessions sont en cours. Réessayez dans quelques minutes.**, ou un message équivalent pour un Assessment.
 
-**Cause.** Soit la plateforme a atteint sa capacité, soit votre organisation a atteint son nombre de labs simultanés (indiqué sur votre forfait : « Jusqu’à N labs en cours en même temps dans votre organisation, labs en pause non compris »).
+**Cause.** Soit la plateforme a atteint sa capacité, soit votre organisation a atteint son nombre de labs simultanés (indiqué sur votre forfait : « Jusqu’à N labs en cours en même temps dans votre organisation, labs en pause non compris »).
 
-**Solution.** Patientez quelques minutes et réessayez. Demandez à vos collègues de mettre en pause les labs qu’ils n’utilisent pas. Si votre organisation atteint régulièrement sa limite, un administrateur peut revoir le forfait ; sous contrat Enterprise, contactez votre interlocuteur commercial.
+**Solution.** Patientez quelques minutes et réessayez. Demandez à vos collègues de mettre en pause les labs qu’ils n’utilisent pas. Si votre organisation atteint régulièrement sa limite, un administrateur peut revoir le forfait ; sous contrat Enterprise, contactez votre interlocuteur commercial.
 
 ## Je ne peux pas lancer un deuxième lab du même scénario
 

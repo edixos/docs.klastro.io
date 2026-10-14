@@ -43,7 +43,27 @@ export default defineConfig({
 				baseUrl: 'https://github.com/edixos/docs.klastro.io/edit/main/',
 			},
 			lastUpdated: true,
-			customCss: ['./src/styles/custom.css'],
+			// Same three families as klastro.io, self-hosted (CSP font-src 'self').
+			customCss: [
+				'@fontsource/space-grotesk/400.css',
+				'@fontsource/space-grotesk/500.css',
+				'@fontsource/space-grotesk/600.css',
+				'@fontsource/space-grotesk/700.css',
+				'@fontsource-variable/bricolage-grotesque/wght.css',
+				'@fontsource/source-code-pro/400.css',
+				'@fontsource/source-code-pro/500.css',
+				'@fontsource/source-code-pro/600.css',
+				'./src/styles/custom.css',
+			],
+			expressiveCode: {
+				styleOverrides: {
+					borderRadius: '0.625rem',
+					codeFontFamily: "'Source Code Pro', ui-monospace, SFMono-Regular, Menlo, monospace",
+					uiFontFamily: "'Space Grotesk', ui-sans-serif, system-ui, sans-serif",
+					codeFontSize: '0.875rem',
+					codeLineHeight: '1.65',
+				},
+			},
 			sidebar: [
 				group('Premiers pas', 'Getting started', 'getting-started'),
 				group('Candidats et apprenants', 'Candidates & learners', 'learners'),

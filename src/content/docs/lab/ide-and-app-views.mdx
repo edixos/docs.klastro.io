@@ -7,19 +7,19 @@ sidebar:
 
 import { Steps } from '@astrojs/starlight/components';
 
-Certains scénarios vous donnent plus qu’un terminal : un éditeur **VS Code** dans
+Certains scénarios vous donnent plus qu’un terminal : un éditeur **VS Code** dans
 le navigateur, et des **app views** — des applications web qui tournent dans votre
 lab, comme un tableau de bord GitOps ou une console de supervision. Elles
 s’ouvrent dans des onglets supplémentaires, à côté de vos onglets de terminal.
 
-**Avant de commencer :** ces onglets n’apparaissent que si le scénario les
+**Avant de commencer :** ces onglets n’apparaissent que si le scénario les
 prévoit. Si vous ne voyez que des onglets **Shell** et **Node**, ce lab n’en a
 pas.
 
 ## Modifier des fichiers dans l’onglet Code
 
 L’onglet **Code** est un éditeur VS Code complet, dans votre navigateur. Il
-travaille sur les mêmes fichiers que votre terminal : ce que vous enregistrez dans
+travaille sur les mêmes fichiers que votre terminal : ce que vous enregistrez dans
 l’éditeur est immédiatement visible depuis le shell, et inversement.
 
 <Steps>
@@ -37,7 +37,7 @@ l’éditeur est immédiatement visible depuis le shell, et inversement.
 </Steps>
 
 L’onglet **Code** n’apparaît qu’une fois l’éditeur prêt. S’il manque juste après
-le démarrage du lab, patientez : il apparaît de lui-même.
+le démarrage du lab, patientez : il apparaît de lui-même.
 
 :::tip
 L’éditeur dispose de bien plus de place dans son propre onglet du navigateur.
@@ -57,14 +57,14 @@ l’éditeur dans un nouvel onglet ou passez par ses menus.
 Chaque onglet d’app view porte le nom de son application. Tant que l’application
 démarre, son onglet affiche un point clignotant et le panneau indique, par
 exemple, **Argo CD démarre…**. L’application se charge d’elle-même dès qu’elle
-répond ; inutile de recharger.
+répond ; inutile de recharger.
 
 <Steps>
 
 1. Cliquez sur l’onglet de l’application.
 
 2. Si le scénario fournit un identifiant de connexion, il s’affiche dans la bande
-   au-dessus de l’application :
+   au-dessus de l’application :
    - **Utilisateur** est affiché en clair. Cliquez sur son icône de copie
      (**Copier l’identifiant**) pour le copier.
    - **Mot de passe** est masqué. Cliquez sur l’icône en forme d’œil
@@ -83,14 +83,14 @@ répond ; inutile de recharger.
 l’éditeur et de chaque app view. Il ouvre la même application dans un onglet
 séparé du navigateur.
 
-- Le nouvel onglet affiche la même application, pas une copie : ce que vous y
+- Le nouvel onglet affiche la même application, pas une copie : ce que vous y
   modifiez est modifié dans votre lab.
 - Il ne fonctionne que tant que le lab tourne. Une fois le lab en pause ou arrêté,
   la page ne répond plus.
 
 ## Si un onglet reste vide ou charge indéfiniment
 
-- Attendez que le point clignotant de l’onglet s’arrête : l’application démarre
+- Attendez que le point clignotant de l’onglet s’arrête : l’application démarre
   peut-être encore, surtout juste après la création du lab.
 - Cliquez sur **Ouvrir dans un nouvel onglet** pour voir si l’application y
   répond.

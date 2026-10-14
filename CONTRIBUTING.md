@@ -16,7 +16,13 @@ npm run verify    # what CI runs: type-check, locale parity, build + link check
 `npm run verify` must pass before you open a pull request. It fails on:
 
 - a page that exists in one locale but not the other (`scripts/check-locales.mjs`);
+- French typography in French pages (`scripts/check-copy.mjs`, same rules as klastro.io):
+  narrow no-break space U+202F before `: ? ! ; » €` and after `«`, typographic
+  apostrophe `’`. Run `node scripts/check-copy.mjs --fix` to correct a page;
 - any broken internal link or anchor (`starlight-links-validator`, run during build).
+
+Visual design follows [DESIGN.md](DESIGN.md) (Klastro fonts, palette, motion); product
+context lives in [PRODUCT.md](PRODUCT.md).
 
 ## Where pages live
 

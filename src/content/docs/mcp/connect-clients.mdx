@@ -13,7 +13,7 @@ Cette page explique comment ajouter Klastro à votre assistant IA. Tous les clie
 
 - Un compte Klastro membre d’au moins une organisation. Sans organisation, l’écran de consentement affiche **Aucune organisation** et vous demande d’en rejoindre ou d’en créer une.
 - Un client MCP qui prend en charge les **serveurs distants en HTTP** avec **connexion OAuth**.
-- L’adresse du serveur :
+- L’adresse du serveur :
 
   ```
   https://mcp.klastro.io/mcp
@@ -28,7 +28,7 @@ Pour comprendre ce que l’assistant peut faire et ce que vous approuvez, lisez 
 
 <Steps>
 
-1. Dans un terminal, exécutez :
+1. Dans un terminal, exécutez :
 
    ```sh
    claude mcp add --transport http klastro https://mcp.klastro.io/mcp
@@ -59,14 +59,14 @@ Les connecteurs personnalisés se configurent depuis votre compte Claude et fonc
 
 4. Conservez les paramètres de connexion détectés et terminez avec **Add**.
 
-5. Connectez le connecteur. Votre navigateur s’ouvre sur la page de connexion de Klastro : connectez-vous et approuvez la connexion.
+5. Connectez le connecteur. Votre navigateur s’ouvre sur la page de connexion de Klastro : connectez-vous et approuvez la connexion.
 
 6. Dans une conversation, sélectionnez **+** en bas à gauche, puis **Connectors**, et vérifiez que Klastro est activé.
 
 </Steps>
 
 :::note
-Sur les forfaits Claude Team et Enterprise, un propriétaire de votre organisation Claude ajoute le connecteur dans les paramètres de l’organisation Claude. Les membres le retrouvent ensuite sous **Customize** > **Connectors** et sélectionnent **Connect**. Ces menus appartiennent à Claude et peuvent changer : consultez le centre d’aide d’Anthropic s’ils diffèrent. Les libellés sont cités ici dans la version anglaise de Claude.
+Sur les forfaits Claude Team et Enterprise, un propriétaire de votre organisation Claude ajoute le connecteur dans les paramètres de l’organisation Claude. Les membres le retrouvent ensuite sous **Customize** > **Connectors** et sélectionnent **Connect**. Ces menus appartiennent à Claude et peuvent changer : consultez le centre d’aide d’Anthropic s’ils diffèrent. Les libellés sont cités ici dans la version anglaise de Claude.
 :::
 
 </TabItem>
@@ -76,7 +76,7 @@ Sur les forfaits Claude Team et Enterprise, un propriétaire de votre organisati
 
 1. Ouvrez `~/.cursor/mcp.json` pour rendre Klastro disponible dans tous vos projets, ou créez `.cursor/mcp.json` à la racine d’un projet.
 
-2. Ajoutez Klastro sous `mcpServers` :
+2. Ajoutez Klastro sous `mcpServers` :
 
    ```json
    {
@@ -88,7 +88,7 @@ Sur les forfaits Claude Team et Enterprise, un propriétaire de votre organisati
    }
    ```
 
-3. Enregistrez le fichier. Quand Cursor se connecte au serveur, il vous demande de vous authentifier : votre navigateur s’ouvre sur la page de connexion de Klastro.
+3. Enregistrez le fichier. Quand Cursor se connecte au serveur, il vous demande de vous authentifier : votre navigateur s’ouvre sur la page de connexion de Klastro.
 
 4. Connectez-vous et approuvez la connexion.
 
@@ -101,7 +101,7 @@ Sur les forfaits Claude Team et Enterprise, un propriétaire de votre organisati
 
 1. Créez `.vscode/mcp.json` dans votre espace de travail, ou exécutez la commande **MCP: Open User Configuration** pour rendre Klastro disponible partout.
 
-2. Ajoutez Klastro sous `servers` :
+2. Ajoutez Klastro sous `servers` :
 
    ```json
    {
@@ -116,7 +116,7 @@ Sur les forfaits Claude Team et Enterprise, un propriétaire de votre organisati
 
    Vous pouvez aussi exécuter la commande **MCP: Add Server**, choisir **HTTP** et saisir l’URL.
 
-3. Démarrez le serveur. VS Code vous demande l’autorisation de vous connecter ; votre navigateur s’ouvre sur la page de connexion de Klastro.
+3. Démarrez le serveur. VS Code vous demande l’autorisation de vous connecter ; votre navigateur s’ouvre sur la page de connexion de Klastro.
 
 4. Connectez-vous et approuvez la connexion. Les outils Klastro apparaissent ensuite dans le mode agent de Copilot Chat.
 
@@ -127,14 +127,14 @@ Sur les forfaits Claude Team et Enterprise, un propriétaire de votre organisati
 
 <Steps>
 
-1. Ajoutez Klastro à `~/.codex/config.toml` :
+1. Ajoutez Klastro à `~/.codex/config.toml` :
 
    ```toml
    [mcp_servers.klastro]
    url = "https://mcp.klastro.io/mcp"
    ```
 
-2. Exécutez :
+2. Exécutez :
 
    ```sh
    codex mcp login klastro
@@ -147,37 +147,37 @@ Sur les forfaits Claude Team et Enterprise, un propriétaire de votre organisati
 </TabItem>
 <TabItem label="Tout client MCP">
 
-Tout client qui implémente le transport MCP **Streamable HTTP** et sa connexion OAuth peut se connecter :
+Tout client qui implémente le transport MCP **Streamable HTTP** et sa connexion OAuth peut se connecter :
 
 | Paramètre | Valeur |
 |---|---|
-| Transport | Streamable HTTP (souvent appelé « HTTP » ou « remote ») |
+| Transport | Streamable HTTP (souvent appelé « HTTP » ou « remote ») |
 | URL | `https://mcp.klastro.io/mcp` |
-| Authentification | OAuth 2.1. Le client découvre le serveur de connexion et s’enregistre automatiquement : aucun identifiant client ni clé d’API n’est nécessaire. |
+| Authentification | OAuth 2.1. Le client découvre le serveur de connexion et s’enregistre automatiquement : aucun identifiant client ni clé d’API n’est nécessaire. |
 
-Indiquez l’URL au client et démarrez-le. Il doit ouvrir votre navigateur sur la page de connexion de Klastro ; connectez-vous et approuvez la connexion. Si votre client affiche plutôt un code et vous demande d’ouvrir un lien, ouvrez-le, saisissez le code sur la page **Connecter un appareil** et sélectionnez **Continuer**. Lorsque **Appareil connecté** s’affiche, revenez à votre client.
+Indiquez l’URL au client et démarrez-le. Il doit ouvrir votre navigateur sur la page de connexion de Klastro ; connectez-vous et approuvez la connexion. Si votre client affiche plutôt un code et vous demande d’ouvrir un lien, ouvrez-le, saisissez le code sur la page **Connecter un appareil** et sélectionnez **Continuer**. Lorsque **Appareil connecté** s’affiche, revenez à votre client.
 
 </TabItem>
 </Tabs>
 
 ## Approuver la connexion
 
-Après la connexion, Klastro affiche un écran de consentement intitulé d’après le nom de l’application, par exemple *« Claude Code demande l’accès à votre compte Klastro »*.
+Après la connexion, Klastro affiche un écran de consentement intitulé d’après le nom de l’application, par exemple *« Claude Code demande l’accès à votre compte Klastro »*.
 
 <Steps>
 
 1. Sous **Organisation**, choisissez l’organisation dans laquelle l’assistant travaillera. Il agit uniquement dans celle-ci.
 
-2. Sous **Autorisations**, cochez ce que vous autorisez :
-   - **Lecture** pour consulter les scénarios, sessions, évaluations et rapports ;
-   - **Écriture** pour lancer et arrêter des labs, modifier des brouillons Studio et soumettre des tentatives ;
+2. Sous **Autorisations**, cochez ce que vous autorisez :
+   - **Lecture** pour consulter les scénarios, sessions, évaluations et rapports ;
+   - **Écriture** pour lancer et arrêter des labs, modifier des brouillons Studio et soumettre des tentatives ;
    - **Administration** uniquement si vous administrez l’organisation et en avez besoin. Elle n’est jamais cochée par défaut.
 
 3. Sélectionnez **Autoriser**.
 
 </Steps>
 
-La page affiche **Retour vers l’application…** et vous renvoie vers votre assistant. Demandez-lui quelque chose de simple, comme *« Liste les scénarios Klastro que je peux lancer »*, pour vérifier la connexion.
+La page affiche **Retour vers l’application…** et vous renvoie vers votre assistant. Demandez-lui quelque chose de simple, comme *« Liste les scénarios Klastro que je peux lancer »*, pour vérifier la connexion.
 
 :::tip
 Pour utiliser Klastro dans une deuxième organisation, ajoutez le serveur une seconde fois sous un autre nom (par exemple `klastro-acme`) et choisissez l’autre organisation sur l’écran de consentement.

@@ -8,11 +8,11 @@ sidebar:
 import { Steps } from '@astrojs/starlight/components';
 
 Par défaut, un lab n’offre qu’un terminal. Depuis l’**Espace de travail** d’un scénario, vous
-pouvez ajouter :
+pouvez ajouter :
 
-- un onglet **Code** : un éditeur VS Code intégré au navigateur qui partage le répertoire de travail du
-  terminal ;
-- des **app views** : l’interface web d’un outil qui tourne dans le cluster de la session
+- un onglet **Code** : un éditeur VS Code intégré au navigateur qui partage le répertoire de travail du
+  terminal ;
+- des **app views** : l’interface web d’un outil qui tourne dans le cluster de la session
   (Argo CD, Grafana…), affichée dans un onglet du lab.
 
 Ce que l’apprenant voit ensuite est décrit dans [Éditeur et app views](/lab/ide-and-app-views/).
@@ -21,7 +21,7 @@ Avant de commencer, il vous faut un brouillon ouvert dans le Scenario Studio ave
 environnement choisi (voir [Votre premier scénario](/instructors/studio-first-scenario/)).
 
 :::caution[Vérifiez que l’environnement les accepte]
-Tous les environnements ne peuvent pas servir l’éditeur ou les app views : les app views ont
+Tous les environnements ne peuvent pas servir l’éditeur ou les app views : les app views ont
 besoin d’un cluster dans l’environnement. Le formulaire de l’environnement l’indique dans ses
 puces (**Éditeur dans le navigateur**, **Interfaces web des outils en onglets**), et l’espace de
 travail affiche un avertissement quand ce que vous configurez ne pourra pas apparaître. Configurés
@@ -41,14 +41,14 @@ jamais.
    `redhat.vscode-yaml`. Le bouton **Ajouter le support YAML** remplit la liste avec l’extension
    YAML quand elle est vide.
 
-4. Facultatif : renseignez un **Répertoire de travail** (par exemple `/home/coder/project`) ou une
+4. Facultatif : renseignez un **Répertoire de travail** (par exemple `/home/coder/project`) ou une
    **Image de l’éditeur** pour remplacer l’image d’éditeur par défaut. Laissez-les vides pour
    garder les valeurs de la plateforme.
 
 </Steps>
 
 :::note[Le marketplace d’extensions est désactivé]
-Les apprenants ne peuvent rien installer dans l’environnement que vos tâches notent : la liste
+Les apprenants ne peuvent rien installer dans l’environnement que vos tâches notent : la liste
 **Extensions préinstallées** est le seul moyen d’y ajouter une extension. Elles sont installées
 avant le démarrage de l’éditeur.
 :::
@@ -64,7 +64,7 @@ session. Il faut donc qu’une étape de setup installe l’outil, par exemple u
 1. Dans **Espace de travail**, ouvrez l’onglet **App Views**, puis cliquez sur
    **Ajouter une app view**.
 
-2. Renseignez l’app view :
+2. Renseignez l’app view :
 
    | Champ | Rôle | Exemple |
    |---|---|---|
@@ -74,19 +74,19 @@ session. Il faut donc qu’une étape de setup installe l’outil, par exemple u
    | **Nom du Service** | Le Service Kubernetes à afficher. | `grafana` |
    | **Namespace du Service** | Son namespace, dans le cluster de la session. | `monitoring` |
    | **Port** | Le port du Service. | `80` |
-   | **Schéma** | Ce que le Service lui-même parle : `http` ou `https`. | `http` |
+   | **Schéma** | Ce que le Service lui-même parle : `http` ou `https`. | `http` |
 
 3. Si l’outil demande une connexion, cochez **Afficher les identifiants par défaut**, puis
-   renseignez :
-   - **Nom du Secret** et **Namespace du Secret** : le Secret du cluster de la session qui contient
-     le mot de passe ;
-   - **Nom d’utilisateur** : un nom fixe, par exemple `admin` ;
-   - **Clé du mot de passe** : la clé du Secret qui contient le mot de passe.
+   renseignez :
+   - **Nom du Secret** et **Namespace du Secret** : le Secret du cluster de la session qui contient
+     le mot de passe ;
+   - **Nom d’utilisateur** : un nom fixe, par exemple `admin` ;
+   - **Clé du mot de passe** : la clé du Secret qui contient le mot de passe.
 
    Les identifiants sont lus dans le Secret au moment du lab et affichés au-dessus de l’onglet,
    pour que l’apprenant puisse se connecter.
 
-4. Pour plusieurs app views, ajustez leur ordre avec les flèches **Monter** et **Descendre** :
+4. Pour plusieurs app views, ajustez leur ordre avec les flèches **Monter** et **Descendre** :
    c’est l’ordre des onglets dans le lab.
 
 </Steps>
@@ -107,7 +107,7 @@ session. Il faut donc qu’une étape de setup installe l’outil, par exemple u
 
 :::tip
 Une réponse du Service ne garantit pas que l’interface fonctionne. Certaines applications web
-doivent être configurées pour être servies depuis un sous-chemin : parcourez réellement l’outil
+doivent être configurées pour être servies depuis un sous-chemin : parcourez réellement l’outil
 dans l’aperçu avant de publier.
 :::
 

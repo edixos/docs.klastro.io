@@ -7,7 +7,7 @@ sidebar:
 
 import { Steps, Tabs, TabItem } from '@astrojs/starlight/components';
 
-Un scénario du Studio est un pipeline : l’**environnement**, puis des **étapes de setup** qui
+Un scénario du Studio est un pipeline : l’**environnement**, puis des **étapes de setup** qui
 préparent ce que l’apprenant trouve en arrivant, puis des **tâches** dont les **vérifications**
 notent son travail. Cette page explique comment ordonner les étapes, ce que fait chaque type
 d’étape, et comment écrire et tester une vérification.
@@ -26,24 +26,24 @@ point de sortie d’un node jusqu’au node suivant.
    le Studio refuse une liaison qui y entre.
 
 2. Reliez une étape à celle qu’elle doit attendre. Dans le formulaire de l’étape, le champ
-   **S’exécute après** affiche le résultat : « rien — première étape du pipeline », ou le nom des
+   **S’exécute après** affiche le résultat : « rien — première étape du pipeline », ou le nom des
    étapes attendues.
 
 3. Pour lancer plusieurs étapes en même temps, reliez-les toutes à la même étape précédente.
-   **S’exécute après** indique alors « Démarre en même temps que : … ».
+   **S’exécute après** indique alors « Démarre en même temps que : … ».
 
 4. Reliez chaque tâche à l’étape dont elle vérifie le résultat. Une tâche reliée à plusieurs
    étapes attend la dernière d’entre elles.
 
 </Steps>
 
-Quelques règles à connaître :
+Quelques règles à connaître :
 
 - Une étape qui n’est reliée à aucune autre étape s’exécute **après l’étape qui la précède** sur
   le canvas, de haut en bas puis de gauche à droite. Pour une vraie exécution en parallèle,
   tracez les liaisons.
-- Une boucle (A attend B qui attend A) est une erreur : le pipeline doit aller dans un seul sens.
-- Une tâche reliée à aucune étape déclenche un avertissement : elle s’exécute après tout le
+- Une boucle (A attend B qui attend A) est une erreur : le pipeline doit aller dans un seul sens.
+- Une tâche reliée à aucune étape déclenche un avertissement : elle s’exécute après tout le
   pipeline.
 - Les tâches apparaissent à l’apprenant dans l’ordre des étapes qu’elles vérifient.
 - **Réorganiser**, dans la barre d’outils, redispose le canvas sans changer les liaisons.
@@ -68,27 +68,27 @@ Quelques règles à connaître :
 | **Manifests** | Applique des ressources Kubernetes, dans l’ordre, avant que l’apprenant n’accède à l’environnement. | Une liste de ressources, chacune en **Formulaire** ou en **YAML** |
 | **Script shell** | Exécute un script sur l’environnement, en root sauf indication contraire. | **Interpréteur**, **Cible** (`host` ou `cluster-node`), **Exécuter en tant que**, **Environnement** (variables), **Script** |
 | **Paquets système** | Installe des paquets système. | **Gestionnaire de paquets** (`apt`, `yum` ou `apk`), **Paquets** (un par ligne), **Mettre à jour l’index d’abord** |
-| **Fichiers** | Écrit des fichiers sur la machine. | Par fichier : **Chemin**, **Permissions** (par exemple `0644`), **Depuis un secret** ou **Contenu** |
-| **Attente** | Attend qu’une ressource soit prête, ou pendant une durée fixe. | **Attendre** : **Une condition de ressource Kubernetes** (**Ressource** au format `type/nom`, **Namespace**, **Condition**, par exemple `Available`) ou **Une durée fixe** (**Durée**, par exemple `30s`) |
+| **Fichiers** | Écrit des fichiers sur la machine. | Par fichier : **Chemin**, **Permissions** (par exemple `0644`), **Depuis un secret** ou **Contenu** |
+| **Attente** | Attend qu’une ressource soit prête, ou pendant une durée fixe. | **Attendre** : **Une condition de ressource Kubernetes** (**Ressource** au format `type/nom`, **Namespace**, **Condition**, par exemple `Available`) ou **Une durée fixe** (**Durée**, par exemple `30s`) |
 | **Appel HTTP** | Appelle un endpoint HTTP et vérifie son statut. | **Méthode**, **URL**, **Statut attendu**, **En-têtes**, **Corps**, **Timeout** |
 
 La palette propose aussi **Custom**. Le Studio signale qu’aucun environnement ne sait
-l’exécuter : ne l’utilisez pas dans un scénario à publier.
+l’exécuter : ne l’utilisez pas dans un scénario à publier.
 
 :::caution[Toutes les étapes ne tournent pas partout]
 Chaque environnement accepte certains types d’étapes seulement. Quand une étape ne peut pas
-s’exécuter sur l’environnement choisi, un bandeau « … ne peut pas s’exécuter sur cet
-environnement. » s’affiche au-dessus du canvas et le formulaire de l’étape explique quels
+s’exécuter sur l’environnement choisi, un bandeau « … ne peut pas s’exécuter sur cet
+environnement. » s’affiche au-dessus du canvas et le formulaire de l’étape explique quels
 environnements l’acceptent. Publier ou prévisualiser en l’état sera refusé.
 :::
 
-### Écrire des manifests : formulaire ou YAML
+### Écrire des manifests : formulaire ou YAML
 
 <Steps>
 
 1. Dans une étape **Manifests**, cliquez sur **Ajouter une ressource**.
 
-2. Choisissez un modèle : **Deployment**, **Service**, **ConfigMap**, **Secret**, **Ingress**,
+2. Choisissez un modèle : **Deployment**, **Service**, **ConfigMap**, **Secret**, **Ingress**,
    **HTTPRoute**, ou **Objet vierge** pour toute autre ressource.
 
 3. Remplissez le **Formulaire** (nom, namespace, image, replicas, ports, données…), ou basculez
@@ -98,9 +98,9 @@ environnements l’acceptent. Publier ou prévisualiser en l’état sera refus�
 </Steps>
 
 - Un **Namespace** vide applique la ressource au namespace par défaut de l’environnement.
-- Les données d’un **Secret** s’écrivent en clair, une ligne `KEY=value` par entrée : le cluster
+- Les données d’un **Secret** s’écrivent en clair, une ligne `KEY=value` par entrée : le cluster
   se charge de l’encodage.
-- Si une ressource utilise des champs que le formulaire ne couvre pas, elle reste en **YAML** :
+- Si une ressource utilise des champs que le formulaire ne couvre pas, elle reste en **YAML** :
   la modifier dans le formulaire supprimerait ces champs.
 - Une ressource YAML doit être un mapping unique, pas une liste.
 
@@ -110,25 +110,25 @@ environnements l’acceptent. Publier ou prévisualiser en l’état sera refus�
 
 1. Dans une étape **Release Helm**, sous **Origine du chart**, choisissez **Catalogue**.
 
-2. Cherchez le chart avec **Rechercher un chart**, ou parcourez les rayons : **GitOps & livraison**,
+2. Cherchez le chart avec **Rechercher un chart**, ou parcourez les rayons : **GitOps & livraison**,
    **Observabilité**, **Sécurité & policy**, **Réseau**, **Plateforme**, **Workloads**.
 
 3. Cliquez sur le chart. Le dépôt, le chart et une version sont remplis pour vous, ainsi que le
    nom de la release et le namespace s’ils étaient vides. Les **Values** nécessaires au
    fonctionnement du chart dans un lab sont préremplies quand il y en a.
 
-4. Vérifiez la **Version** : épinglez-la. Un chart non épinglé fait du scénario un lab différent
+4. Vérifiez la **Version** : épinglez-la. Un chart non épinglé fait du scénario un lab différent
    chaque mois.
 
 </Steps>
 
 Pour un chart absent du catalogue, choisissez **Custom** et saisissez l’**URL du dépôt**, le
 **Nom du dépôt** et le **Chart**. Certains charts du catalogue, comme Cilium, demandent un vrai
-cluster plutôt qu’un cluster virtuel : leur description le précise.
+cluster plutôt qu’un cluster virtuel : leur description le précise.
 
 :::caution
 Installer deux fois le même chart depuis le même dépôt dans un scénario déclenche un
-avertissement : si le chart définit des définitions de ressources personnalisées (CustomResourceDefinitions), la seconde étape échoue car elles appartiennent
+avertissement : si le chart définit des définitions de ressources personnalisées (CustomResourceDefinitions), la seconde étape échoue car elles appartiennent
 déjà à la première release.
 :::
 
@@ -141,7 +141,7 @@ Une vérification lit une donnée de l’environnement de l’apprenant, puis é
 
 1. Ouvrez une tâche et, sous **Validation**, cliquez sur **Ajouter une vérification**.
 
-2. Saisissez une **Description** : elle est affichée à l’apprenant dans le retour sur sa tentative.
+2. Saisissez une **Description** : elle est affichée à l’apprenant dans le retour sur sa tentative.
 
 3. Choisissez le **Type**. Il détermine ce que la vérification lit et les variables que
    l’expression peut utiliser (voir le tableau ci-dessous).
@@ -161,20 +161,20 @@ Une vérification lit une donnée de l’environnement de l’apprenant, puis é
 | **Expression CEL** | Doit renvoyer un booléen. L’aide sous le champ liste les variables disponibles. |
 | **Points** | Attribués quand l’expression est vraie. |
 | **Obligatoire** | Coché par défaut. Une vérification obligatoire en échec bloque toute la tâche. |
-| **Timeout** | Délai par vérification. Vide : 10 s, avec un maximum de 60 s. |
+| **Timeout** | Délai par vérification. Vide : 10 s, avec un maximum de 60 s. |
 
 ### Types de vérifications et variables
 
 | Type | Ce qu’il lit | Cible à renseigner | Variables CEL |
 |---|---|---|---|
 | **ResourceExists** | Des ressources Kubernetes existent | **API version**, **Kind**, **Namespace**, puis **Noms** (un par ligne) ou un **Label selector** | `exists` (bool), `count` (int), `names` (liste de chaînes) |
-| **KubernetesResource** | Un champ d’une ressource | **API version**, **Kind**, **Nom**, **Namespace**, **JSONPath** | Avec **JSONPath** : `value` (chaîne), `exists`. Sans : `object` (la ressource entière), `exists` |
+| **KubernetesResource** | Un champ d’une ressource | **API version**, **Kind**, **Nom**, **Namespace**, **JSONPath** | Avec **JSONPath** : `value` (chaîne), `exists`. Sans : `object` (la ressource entière), `exists` |
 | **FileContent** | Un fichier sur la machine | **Chemin**, **Encodage** (`utf8` ou `base64`), **Node** | `exists` (bool), `content` (chaîne), `size` (int), `checksum` (chaîne) |
 | **ShellCommand** | Ce qu’un script a affiché | **Interpréteur** (`/bin/bash` ou `/bin/sh`), **Script**, **Environnement**, **Node** | `stdout`, `stderr` (chaînes), `exitCode`, `durationMs` (int) |
 
 - Un **Namespace** vide utilise le namespace de la session.
 - **Noms** prend le pas sur le **Label selector** quand les deux sont renseignés.
-- **Node** ne sert que pour les environnements à plusieurs machines de type kubeadm : `0` est le
+- **Node** ne sert que pour les environnements à plusieurs machines de type kubeadm : `0` est le
   control plane, `1` le worker. Il est ignoré ailleurs.
 
 ### Exemples d’expressions
@@ -182,13 +182,13 @@ Une vérification lit une donnée de l’environnement de l’apprenant, puis é
 <Tabs>
 <TabItem label="ResourceExists">
 
-Au moins deux pods portant le label `app=web` existent :
+Au moins deux pods portant le label `app=web` existent :
 
 ```text
 exists && count >= 2
 ```
 
-Un Service nommé `web` existe (avec `web` dans **Noms**) :
+Un Service nommé `web` existe (avec `web` dans **Noms**) :
 
 ```text
 "web" in names
@@ -197,13 +197,13 @@ Un Service nommé `web` existe (avec `web` dans **Noms**) :
 </TabItem>
 <TabItem label="KubernetesResource">
 
-Avec **JSONPath** `.status.readyReplicas`. `value` est toujours une chaîne :
+Avec **JSONPath** `.status.readyReplicas`. `value` est toujours une chaîne :
 
 ```text
 exists && value == "3"
 ```
 
-Sans JSONPath, l’expression lit la ressource entière dans `object` :
+Sans JSONPath, l’expression lit la ressource entière dans `object` :
 
 ```text
 exists && object.spec.replicas == 3
@@ -212,7 +212,7 @@ exists && object.spec.replicas == 3
 </TabItem>
 <TabItem label="FileContent">
 
-Le fichier existe et contient une directive précise :
+Le fichier existe et contient une directive précise :
 
 ```text
 exists && content.contains("worker_processes 4;")
@@ -221,13 +221,13 @@ exists && content.contains("worker_processes 4;")
 </TabItem>
 <TabItem label="ShellCommand">
 
-Le script a réussi et affiché exactement `Running` :
+Le script a réussi et affiché exactement `Running` :
 
 ```text
 exitCode == 0 && stdout.trim() == "Running"
 ```
 
-Par exemple avec le script :
+Par exemple avec le script :
 
 ```bash
 kubectl get pod web -n default -o jsonpath='{.status.phase}'
@@ -237,14 +237,14 @@ kubectl get pod web -n default -o jsonpath='{.status.phase}'
 </Tabs>
 
 :::tip
-Les fonctions de chaîne usuelles sont disponibles : `contains`, `startsWith`, `endsWith`,
-`matches`, `trim`, `lowerAscii`… Préférez une comparaison stricte à un `contains` trop large :
+Les fonctions de chaîne usuelles sont disponibles : `contains`, `startsWith`, `endsWith`,
+`matches`, `trim`, `lowerAscii`… Préférez une comparaison stricte à un `contains` trop large :
 une vérification qui passe sans que le travail soit fait note mal.
 :::
 
 ### Indices
 
-Sous **Indices**, cliquez sur **Ajouter un indice**, puis saisissez le **Texte** et le **Coût** :
+Sous **Indices**, cliquez sur **Ajouter un indice**, puis saisissez le **Texte** et le **Coût** :
 le nombre de points retirés à la tâche quand l’apprenant révèle l’indice. Dans un Tutorial, les
 indices sont gratuits pour l’apprenant.
 
@@ -255,26 +255,26 @@ aucun crédit et ne sont jamais enregistrés pour un apprenant.
 
 <Steps>
 
-1. Lancez un aperçu : **Aperçu**, puis **Lancer l’aperçu**.
+1. Lancez un aperçu : **Aperçu**, puis **Lancer l’aperçu**.
 
 2. Attendez que le terminal apparaisse. Tant que l’aperçu démarre, le bouton de test indique
-   « L’aperçu démarre encore. ».
+   « L’aperçu démarre encore. ».
 
 3. Sur le node de la tâche, cliquez sur **Tester la validation**. Faites-le une première fois
-   **avant** de faire le travail : une vérification qui passe déjà sur l’état de départ est
+   **avant** de faire le travail : une vérification qui passe déjà sur l’état de départ est
    mal écrite.
 
-4. Faites le travail dans le terminal de l’aperçu, puis relancez le test : **Tester la validation**
+4. Faites le travail dans le terminal de l’aperçu, puis relancez le test : **Tester la validation**
    sur le node, ou **Relancer** dans l’onglet **Résultats**.
 
-5. Lisez l’onglet **Résultats** de la tâche : chaque vérification affiche son résultat, ses points
-   et son temps d’exécution. « Échec de la lecture » signifie que la cible n’a pas pu être lue
+5. Lisez l’onglet **Résultats** de la tâche : chaque vérification affiche son résultat, ses points
+   et son temps d’exécution. « Échec de la lecture » signifie que la cible n’a pas pu être lue
    (ressource introuvable, script en erreur) avant même l’évaluation de l’expression.
 
 </Steps>
 
 :::note[Vous avez modifié le canvas pendant l’aperçu]
-Le bandeau « Canvas modifié — cet aperçu exécute encore la version que vous avez lancée. »
+Le bandeau « Canvas modifié — cet aperçu exécute encore la version que vous avez lancée. »
 apparaît. Cliquez sur **Appliquer** pour rejouer les étapes de setup modifiées sans perdre le
 terminal, ou sur **Recréer** pour repartir d’un environnement neuf. Tant que l’aperçu n’est pas
 à jour, le test est bloqué.
@@ -285,7 +285,7 @@ terminal, ou sur **Recréer** pour repartir d’un environnement neuf. Tant que 
 - **Vérifier**, dans la barre d’outils, compile le canvas et liste les erreurs et avertissements.
   La pastille indique le nombre d’erreurs, le nombre d’avertissements, ou **Prêt à publier**.
 - L’onglet **Problèmes** d’un node donne la raison de chaque erreur et ce qu’il faut corriger.
-- Pendant un aperçu, chaque étape affiche son état : **En attente**, **En cours**, **Appliquée**,
+- Pendant un aperçu, chaque étape affiche son état : **En attente**, **En cours**, **Appliquée**,
   **Échec** ou **Ignorée**. La vue **Sortie** du tiroir d’aperçu montre la progression complète
   du provisionnement.
 
@@ -296,4 +296,4 @@ voir [Dépannage du provisionnement](/troubleshooting/provisioning/).
 ## Importer et exporter un canvas
 
 **Exporter** télécharge le canvas au format JSON. **Importer** remplace le canvas courant par le
-contenu d’un fichier exporté ; les nodes illisibles sont ignorés et signalés.
+contenu d’un fichier exporté ; les nodes illisibles sont ignorés et signalés.
