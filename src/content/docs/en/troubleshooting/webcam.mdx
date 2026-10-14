@@ -1,58 +1,64 @@
 ---
 title: Webcam and camera permissions
-description: Prepare your browser and computer for an assessment that requires a webcam, and unblock camera access in Chrome, Firefox, Safari and Edge.
+description: What Klastro does (and does not do) with your camera during an assessment, and how to unblock the camera for a video tool the recruiter asks you to use.
 sidebar:
   order: 8
 ---
 
 import { Tabs, TabItem } from '@astrojs/starlight/components';
 
-Some assessments require a webcam. The invitation tells you before you start: under **Webcam**, it shows **Required** or **Optional**, and **Important Information** includes **Webcam access will be required**. During such an assessment, the lab's top bar shows a webcam indicator. For what proctoring means for you, see [Assessment mode](/en/lab/assessment-mode/).
-
-Camera access is controlled by your **browser** and your **operating system**, not by Klastro. This page shows how to check both before you start.
-
-:::caution
-Once started, the assessment timer cannot be paused. Check your webcam **before** you select **Start Assessment**.
+:::note
+In the current version, Klastro does not turn on or capture your camera during an assessment. The webcam requirement is information from the recruiter: your browser should not ask for camera access. If the recruiter wants to see you on video, use your own video-call tool as they instruct.
 :::
 
-## The browser blocks the camera
+The invitation may show under **Webcam** that it is **Required** or **Optional**. This is information to read: follow the recruiter's instructions. For what proctoring means for you, see [Assessment mode](/en/lab/assessment-mode/).
 
-**Symptom.** The camera does not work on app.klastro.io, the address bar shows a crossed-out camera icon, or the browser never asks for permission.
+:::caution
+Once started, the assessment timer cannot be paused. If the recruiter asks you to test your camera or video tool, do it **before** you select **Start Assessment**.
+:::
+
+## If the recruiter asks you to use a video tool
+
+The sections below only apply in that case. Camera access is controlled by your **browser** and your **operating system**, not by Klastro: check both for your video-call tool.
+
+### The browser blocks the camera
+
+**Symptom.** The camera does not work on the video-call site, the address bar shows a crossed-out camera icon, or the browser never asks for permission.
 
 **Cause.** You previously refused camera access for this site, or the browser's default setting blocks cameras.
 
-**Fix.** Allow the camera for `https://app.klastro.io` in your browser, then reload the page.
+**Fix.** Allow the camera for the video-call site in your browser, then reload the page.
 
 <Tabs syncKey="browser">
 <TabItem label="Chrome">
 
-1. On app.klastro.io, select the icon to the left of the address in the address bar (**View site information**).
+1. On the video-call site, select the icon to the left of the address in the address bar (**View site information**).
 2. Set **Camera** to **Allow**. If you do not see it, select **Site settings** and set **Camera** to **Allow** there.
 3. Reload the page.
 
-To check the global setting, open `chrome://settings/content/camera`: app.klastro.io must not be listed under the sites not allowed to use your camera.
+To check the global setting, open `chrome://settings/content/camera`: the video-call site must not be listed under the sites not allowed to use your camera.
 
 </TabItem>
 <TabItem label="Firefox">
 
-1. On app.klastro.io, select the permissions icon to the left of the address in the address bar.
+1. On the video-call site, select the permissions icon to the left of the address in the address bar.
 2. Next to the camera permission marked **Blocked** (or **Blocked Temporarily**), select the **×** to clear it.
 3. Reload the page and accept the camera request when Firefox asks.
 
-To check the global setting, open **Settings** > **Privacy & Security** > **Permissions** > **Camera** > **Settings…** and make sure app.klastro.io is not set to **Block**.
+To check the global setting, open **Settings** > **Privacy & Security** > **Permissions** > **Camera** > **Settings…** and make sure the video-call site is not set to **Block**.
 
 </TabItem>
 <TabItem label="Safari">
 
-1. With app.klastro.io open, choose **Safari** > **Settings…** in the menu bar (or **Settings for app.klastro.io…**).
+1. With the video-call site open, choose **Safari** > **Settings…** in the menu bar (or **Settings for the video-call site…**).
 2. Open the **Websites** tab, then **Camera** in the sidebar.
-3. Set app.klastro.io to **Allow** (or **Ask**).
+3. Set the video-call site to **Allow** (or **Ask**).
 4. Reload the page.
 
 </TabItem>
 <TabItem label="Edge">
 
-1. On app.klastro.io, select the lock icon to the left of the address in the address bar.
+1. On the video-call site, select the lock icon to the left of the address in the address bar.
 2. Select **Permissions for this site** and set **Camera** to **Allow**.
 3. Reload the page.
 
@@ -61,7 +67,7 @@ To check the global setting, open `edge://settings/content/camera`.
 </TabItem>
 </Tabs>
 
-## The operating system blocks the camera
+### The operating system blocks the camera
 
 **Symptom.** The browser allows the camera but no image comes through, or the browser says the camera is unavailable.
 
@@ -72,22 +78,22 @@ To check the global setting, open `edge://settings/content/camera`.
 - **macOS**: open **System Settings** > **Privacy & Security** > **Camera** and turn on your browser. Quit and reopen the browser afterwards.
 - **Windows 11**: open **Settings** > **Privacy & security** > **Camera** and turn on **Camera access**, **Let apps access your camera** and **Let desktop apps access your camera**.
 
-## Another application is using the camera
+### Another application is using the camera
 
 **Symptom.** The camera is allowed everywhere but still does not start, or shows a black image.
 
 **Cause.** Another application (a video-call tool, another browser tab) is holding the camera. Some computers only let one application use it at a time.
 
-**Fix.** Close video-call applications and other tabs that use the camera, then reload app.klastro.io. On a laptop with a physical camera cover or a camera key, make sure the camera is enabled.
+**Fix.** Close video-call applications and other tabs that use the camera, then reload the video-call site. On a laptop with a physical camera cover or a camera key, make sure the camera is enabled.
 
-## A company-managed computer
+### A company-managed computer
 
 **Symptom.** The camera settings are greyed out or reset themselves.
 
 **Cause.** Your organization's IT policy controls camera access.
 
-**Fix.** Use a personal computer for the assessment, or ask your IT team to allow the camera for app.klastro.io.
+**Fix.** Use a personal computer for the assessment, or ask your IT team to allow the camera for the video-call site.
 
 ## Still not working
 
-If the assessment requires a webcam and you cannot make it work, contact the recruiter who invited you **before** starting. If a problem appears during the assessment, select **Report a problem** in the lab's top bar; see [Report a problem from a lab](/en/support/report-lab-problem/).
+If the recruiter asks for video and you cannot make it work, contact them **before** starting. If a problem appears during the assessment, select **Report a problem** in the lab's top bar; see [Report a problem from a lab](/en/support/report-lab-problem/).

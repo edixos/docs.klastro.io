@@ -10,7 +10,7 @@ import { Steps } from '@astrojs/starlight/components';
 Par défaut, un lab n’offre qu’un terminal. Depuis l’**Espace de travail** d’un scénario, vous
 pouvez ajouter :
 
-- un onglet **Code** : un éditeur VS Code (code-server) qui partage le répertoire de travail du
+- un onglet **Code** : un éditeur VS Code intégré au navigateur qui partage le répertoire de travail du
   terminal ;
 - des **app views** : l’interface web d’un outil qui tourne dans le cluster de la session
   (Argo CD, Grafana…), affichée dans un onglet du lab.
@@ -42,7 +42,7 @@ jamais.
    YAML quand elle est vide.
 
 4. Facultatif : renseignez un **Répertoire de travail** (par exemple `/home/coder/project`) ou une
-   **Image de l’éditeur** pour remplacer l’image code-server par défaut. Laissez-les vides pour
+   **Image de l’éditeur** pour remplacer l’image d’éditeur par défaut. Laissez-les vides pour
    garder les valeurs de la plateforme.
 
 </Steps>
