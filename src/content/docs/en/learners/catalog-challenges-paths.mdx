@@ -19,21 +19,26 @@ The **Learn** menu in the sidebar gathers everything you can launch on your own:
    - the **All products**, **All levels** and **All sources** menus filter by type, difficulty and origin (**Official** or **Studio**);
    - the **Search scenarios…** field searches by name;
    - click a tag on a card to filter on it, and **Clear tags** to get the full list back;
-   - the sort menu offers **Newest first**, **Name (A–Z)**, **Difficulty** and **Shortest first**;
+   - the sort menu offers **Fastest start**, **Name (A–Z)**, **Difficulty** and **Shortest first**. **Fastest start** is the default: scenarios with a pre-warmed environment come first (see [Fast start](#fast-start)), then the newest. The catalog remembers the order you pick;
    - **Group by tag** arranges the cards by topic.
 
 3. Click **Explore** on a card to open the scenario page: estimated time, environment, task list, scoring.
 
 </Steps>
 
+Each card opens with the logo of the technology the scenario is about: Kubernetes, Linux, Argo, Prometheus and so on. A scenario that names no known technology shows the Klastro logo.
+
 Each card carries a **Free** or **Pro** badge. If your plan does not include a **Pro** scenario, its page shows **Upgrade to launch** instead of the launch button. See [Plans and credits](/en/billing/plans-and-credits/).
 
 ## Fast start
 
-Some scenarios have a pre-warmed environment, ready before you click the launch button. Their card and page show a flame icon. Hover it to see what it promises:
+Some scenarios have a pre-warmed environment, ready before you click the launch button. Their card and page show a flame icon. The fuller the flame, the sooner your lab is ready. Hover it to read what it promises:
 
-- **Starts instantly**: the lab starts almost immediately;
-- **Starts faster: pre-warmed environment**: the lab starts faster than a regular launch.
+| Flame | Label | What it means |
+|---|---|---|
+| Filled | **Starts instantly** | An environment is already running. The lab starts almost immediately. |
+| Half filled | **Starts fast: a paused environment resumes** | A paused environment wakes up for you. Faster than a regular launch, not instant. |
+| Outline | **Starts faster: environment pre-built** | The environment is built and still has to boot. Faster than a regular launch. |
 
 To see only these scenarios, click the **Fast start** chip in the catalog filters. It only appears when at least one scenario in the list has a pre-warmed environment.
 

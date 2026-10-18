@@ -19,21 +19,26 @@ Le menu **Apprendre** de la barre latérale regroupe tout ce que vous pouvez lan
    - les menus **Tous les produits**, **Tous les niveaux** et **Toutes les sources** filtrent par type, par difficulté et par origine (**Officiel** ou **Studio**) ;
    - le champ **Rechercher un scénario…** cherche par nom ;
    - cliquez sur un tag d’une carte pour filtrer sur ce tag, et sur **Effacer les tags** pour revenir à la liste complète ;
-   - le menu de tri propose **Les plus récents d’abord**, **Nom (A–Z)**, **Difficulté** et **Les plus courts d’abord** ;
+   - le menu de tri propose **Démarrage rapide**, **Nom (A–Z)**, **Difficulté** et **Les plus courts d’abord**. **Démarrage rapide** est l’ordre par défaut : les scénarios dotés d’un environnement pré-chauffé passent en premier (voir [Démarrage rapide](#démarrage-rapide)), puis les plus récents. Le catalogue retient l’ordre que vous choisissez ;
    - **Grouper par tag** range les cartes par thème.
 
 3. Cliquez sur **Explorer** sur une carte pour ouvrir la fiche du scénario : durée estimée, environnement, liste des tâches, notation.
 
 </Steps>
 
+Chaque carte s’ouvre sur le logo de la technologie qu’aborde le scénario : Kubernetes, Linux, Argo, Prometheus, etc. Un scénario qui ne nomme aucune technologie connue affiche le logo Klastro.
+
 Chaque carte porte un badge **Gratuit** ou **Pro**. Si votre forfait n’inclut pas un scénario **Pro**, la fiche affiche **Changer de forfait pour lancer** au lieu du bouton de lancement. Voir [Forfaits et crédits](/billing/plans-and-credits/).
 
 ## Démarrage rapide
 
-Certains scénarios disposent d’un environnement pré-chauffé, prêt avant que vous cliquiez sur le bouton de lancement. Leur carte et leur fiche affichent une icône de flamme. Survolez-la pour voir ce qu’elle promet :
+Certains scénarios disposent d’un environnement pré-chauffé, prêt avant que vous cliquiez sur le bouton de lancement. Leur carte et leur fiche affichent une icône de flamme. Plus la flamme est pleine, plus votre lab est prêt tôt. Survolez-la pour lire ce qu’elle promet :
 
-- **Démarrage instantané** : le lab démarre presque immédiatement ;
-- **Démarrage accéléré : environnement pré-chauffé** : le lab démarre plus vite qu’un lancement classique.
+| Flamme | Libellé | Ce que cela signifie |
+|---|---|---|
+| Pleine | **Démarrage instantané** | Un environnement tourne déjà. Le lab démarre presque immédiatement. |
+| À moitié pleine | **Démarrage rapide : un environnement en pause reprend** | Un environnement en pause se réveille pour vous. Plus rapide qu’un lancement classique, sans être instantané. |
+| Contour seul | **Démarrage accéléré : environnement pré-construit** | L’environnement est construit et doit encore démarrer. Plus rapide qu’un lancement classique. |
 
 Pour ne voir que ces scénarios, cliquez sur la puce **Démarrage rapide** dans les filtres du catalogue. Elle n’apparaît que si au moins un scénario de la liste en bénéficie.
 
