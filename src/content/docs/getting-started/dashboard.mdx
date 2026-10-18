@@ -1,0 +1,64 @@
+---
+title: Votre tableau de bord
+description: Ce que le tableau de bord vous montre selon votre rôle et votre licence, et à quoi sert chaque section.
+sidebar:
+  order: 3
+---
+
+Le **Tableau de bord** est la page sur laquelle vous arrivez après la connexion. C’est la même page pour tout le monde, mais son contenu dépend de votre organisation, de votre rôle et de votre licence : vous ne voyez que les sections dont vous pouvez réellement vous servir.
+
+Sous le titre, une ligne indique votre organisation et son offre (**Enterprise** pour un contrat Enterprise). Le bouton en haut à droite est votre prochaine action la plus probable : **Inviter un candidat** si vous gérez des assessments, **Parcourir le catalogue** sinon.
+
+## À traiter
+
+La première section liste ce qui vous attend, du plus urgent au moins urgent : ce qui vous bloque, puis ce qui se passe en ce moment, puis ce qui est à faire, puis ce qu’il est bon de savoir. Chaque ligne tient en une phrase et un bouton qui vous emmène là où vous pouvez agir. Les quatre premières lignes s’affichent ; **Afficher N de plus** révèle les autres.
+
+Quand rien ne vous attend, la section affiche **Rien ne vous attend pour l’instant.**
+
+| Ligne | Bouton | Qui la voit |
+|---|---|---|
+| **Le dernier paiement de votre offre a échoué.** | **Mettre à jour le paiement** | Administrateurs et responsables facturation |
+| **Vous n’avez plus de crédits. Aucun nouveau lab ne peut démarrer.** | **Ajouter des crédits** | Tout le monde, sauf en contrat Enterprise |
+| **Une cohorte est en cours.** | **Ouvrir** | Formateurs |
+| **Un candidat passe un assessment.** | **Superviser** | Recruteurs |
+| **Un résultat attend votre verdict.** | **Évaluer** | Recruteurs |
+| **Une licence payée n’est attribuée à personne.** | **Attribuer** | Administrateurs et responsables facturation |
+| **Il vous reste moins d’un quart de vos crédits.** | **Ajouter des crédits** | Tout le monde, sauf en contrat Enterprise |
+| **Un lab a échoué au cours des dernières 24 heures.** | **Voir** | Tout le monde |
+| **Une invitation expire dans les 48 heures.** | **Voir** | Recruteurs |
+| **Votre accès temporaire prend fin le** suivi d’une date | **Voir les offres** | Membres avec un accès temporaire, pendant ses 7 derniers jours |
+| **Votre offre prend fin le** suivi d’une date | **Gérer** | Administrateurs et responsables facturation, une fois une résiliation programmée |
+| **Votre offre est renouvelée le** suivi d’une date | **Gérer** | Administrateurs et responsables facturation, dans les 7 jours avant le renouvellement |
+
+Quand il y en a plusieurs, la ligne donne le nombre : **3 résultats attendent votre verdict.**
+
+## Reprenez où vous en étiez
+
+Vos labs encore en cours, avec un bouton pour y retourner. Un lab encore en préparation s’ouvre sur l’avancement de sa mise en place. Voir [Gérer vos sessions](/learners/manage-sessions/).
+
+Si vous suivez une formation animée par un formateur, **Vos formations** suit. Voir [Rejoindre une formation](/learners/join-training/).
+
+## Votre travail
+
+La colonne principale montre le travail propre à votre rôle :
+
+- **Derniers résultats** (recruteurs) : les derniers assessments terminés, avec **Candidat**, **Score**, **Verdict** et **Terminé**. Un résultat sans verdict affiche **À évaluer**. Cliquez sur un candidat pour ouvrir son rapport. Voir [Enregistrer un verdict et filtrer les rapports](/recruiters/verdicts/).
+- **Cohortes** (formateurs) : les formations en cours, puis les suivantes, avec **Statut**, **Apprenants** et **Début**. S’il n’y en a aucune, **Nouvelle cohorte** en crée une. Voir [Créer une cohorte](/instructors/cohorts/).
+- **Parcours en cours** : les parcours de certification commencés et pas encore terminés, avec votre progression. Voir [Catalogue, challenges et parcours](/learners/catalog-challenges-paths/).
+- **Vos labs** : les labs lancés récemment. Avant votre premier lab, **Commencer à pratiquer** présente à la place les trois façons de pratiquer.
+
+## Votre compte
+
+La colonne latérale résume ce dont vous disposez :
+
+- **Offre** et **Licence**. Les administrateurs et responsables facturation voient aussi quand l’offre est renouvelée ou prend fin.
+- **Crédits** : votre propre solde, une barre qui passe à l’orange sous un quart et au rouge à zéro, la date de la **Prochaine recharge**, et **Ajouter des crédits**. Absent en contrat Enterprise.
+- **Labs en cours** au regard de la limite de votre offre, et **Labs terminés**.
+- **Licences** (administrateurs et responsables facturation) : pour chaque type de licence acheté, combien sont attribuées, avec **Gérer les licences**.
+- **Raccourcis** vers les pages que votre rôle et votre licence ouvrent.
+
+Voir [Forfaits et crédits](/billing/plans-and-credits/) et [Gérer les licences](/billing/seats/).
+
+## Connecter votre assistant IA
+
+Cette carte vous donne la commande qui ajoute Klastro à votre assistant IA. Choisissez **Claude**, **Codex**, **Copilot** ou **Gemini**, cliquez sur la commande pour la copier, puis collez-la dans un terminal. La ligne en dessous indique comment vous connecter. Pour chaque client et ce que l’assistant peut ensuite faire, voir [Connecter votre client IA](/mcp/connect-clients/).

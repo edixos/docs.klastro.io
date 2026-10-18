@@ -1,6 +1,6 @@
 ---
 title: Connecter votre client IA
-description: Ajoutez le serveur MCP de Klastro à Claude Code, Claude Desktop et claude.ai, Cursor, VS Code, Codex ou tout autre client MCP.
+description: Ajoutez le serveur MCP de Klastro à Claude Code, Claude Desktop et claude.ai, Cursor, VS Code, Codex, Gemini CLI ou tout autre client MCP.
 sidebar:
   order: 2
 ---
@@ -20,6 +20,10 @@ Cette page explique comment ajouter Klastro à votre assistant IA. Tous les clie
   ```
 
 Pour comprendre ce que l’assistant peut faire et ce que vous approuvez, lisez d’abord [Klastro et les assistants IA](/mcp/overview/).
+
+:::tip[Depuis votre tableau de bord]
+La carte **Connecter votre assistant IA** du [tableau de bord](/getting-started/dashboard/#connecter-votre-assistant-ia) donne la commande pour Claude Code, Codex, VS Code (Copilot) et Gemini CLI, prête à copier.
+:::
 
 ## Ajouter Klastro à votre client
 
@@ -141,6 +145,27 @@ Sur les forfaits Claude Team et Enterprise, un propriétaire de votre organisati
    ```
 
 3. Connectez-vous dans la fenêtre de navigateur qui s’ouvre et approuvez la connexion.
+
+</Steps>
+
+</TabItem>
+<TabItem label="Gemini CLI">
+
+<Steps>
+
+1. Dans un terminal, lancez :
+
+   ```sh
+   gemini mcp add --transport http klastro https://mcp.klastro.io/mcp
+   ```
+
+2. Démarrez Gemini CLI et lancez :
+
+   ```
+   /mcp auth klastro
+   ```
+
+3. Connectez-vous dans la fenêtre du navigateur qui s’ouvre et approuvez la connexion.
 
 </Steps>
 
